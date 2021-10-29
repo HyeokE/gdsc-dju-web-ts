@@ -47,11 +47,11 @@ export const Introduce = () => {
             </List>
             <List>
               <Tage />
-              공모전, 프로젝트 등에 참여합니다.
+              Google Solution Challenge, DevFest, 팀 프로젝트 등에 참여합니다.
             </List>
             <List>
               <Tage />
-              스터디를 개설하거나 참여합니다.
+              스터디를 개설하여 팀을 이끌거나 참여합니다.
             </List>
             <List>
               <Tage />

@@ -26,6 +26,7 @@ const NavInner = styled.div`
 const StyledLogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
+  font-size: 18px;
 `;
 const StyledImg = styled.img`
   margin-top: 3px;
