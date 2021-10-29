@@ -10,24 +10,16 @@ import {
   StyledImg,
   StyledLogo,
 } from './styled';
-
 import { useRecoilState } from 'recoil';
-import { postState } from '../../store/post';
-import { dbService } from '../../firebase/firebase';
+import { statusState } from '../../store/status';
+import { userDataState } from '../../store/user';
+import { LayoutContainer } from '../../Layout';
 
 const Navigation: React.FC = () => {
   const [routeStyle, setRoutStyle] = useState('home');
-  const [post, setPost] = useRecoilState(postState);
-  const getPost = () => {
-    dbService.collection('posts').onSnapshot((snapshot) => {
-      const postArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setPost({ ...post, ...postArray });
-      // localStorage.setItem('posts', JSON.stringify(postArray));
-    });
-  };
+  const [status, setStaus] = useRecoilState(statusState);
+  const [userData, setUserData] = useRecoilState(userDataState);
+
   return (
     <NavDesign>
       <NavInner>
@@ -48,6 +40,17 @@ const Navigation: React.FC = () => {
               <StyledLogo>GDSC </StyledLogo>
               <div>Daejin Univ.</div>
             </StyledLogoWrapper>
+          </NavTask>
+          <NavTask>
+            <StyledLink
+              to={'/introduce'}
+              className={routeStyle == 'introduce' ? 'active' : 'noneActive'}
+              onClick={() => {
+                setRoutStyle('introduce');
+              }}
+            >
+              소개
+            </StyledLink>
           </NavTask>
           <NavTask>
             <StyledLink
@@ -83,16 +86,15 @@ const Navigation: React.FC = () => {
             </StyledLink>
           </NavTask>
         </NavTaskWrapper>
-        {/*<NavTaskWrapper>*/}
-        {/*  {isLoggedIn ? (*/}
-        {/*    <NavTask>Hello {userObj.displayName}</NavTask>*/}
-        {/*  ) : (*/}
-        {/*    <NavTask>*/}
-        {/*      <OpenedModal>프로필 만들기</OpenedModal>*/}
-        {/*    </NavTask>*/}
-        {/*  )}*/}
-
-        {/*</NavTaskWrapper>*/}
+        <NavTaskWrapper>
+          {status.loggedIn ? (
+            <NavTask>Hello {userData.nickname}</NavTask>
+          ) : (
+            <NavTask>
+              <StyledLink to={'/signin'}>로그인</StyledLink>
+            </NavTask>
+          )}
+        </NavTaskWrapper>
       </NavInner>
     </NavDesign>
   );

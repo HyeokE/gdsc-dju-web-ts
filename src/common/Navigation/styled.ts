@@ -12,8 +12,10 @@ const NavDesign = styled.div`
 const NavInner = styled.div`
   display: flex;
   flex: 1;
-  width: 95%;
-  height: 70px;
+  max-width: 1140px;
+  margin: 0 auto;
+  min-width: 320px;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
   margin: auto;
@@ -24,7 +26,6 @@ const NavInner = styled.div`
 const StyledLogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
-  font-weight: bold;
 `;
 const StyledImg = styled.img`
   margin-top: 3px;
@@ -33,6 +34,7 @@ const StyledImg = styled.img`
 const StyledLogo = styled.div`
   color: #4e4e4e;
   margin-right: 10px;
+  font-weight: bold;
 `;
 
 const StyledLink = styled(Link)`
@@ -56,27 +58,15 @@ const StyledLink = styled(Link)`
 const NavTask = styled.li`
   display: flex;
   align-items: center;
-  margin: 0px 25px;
+  margin: 0px 20px;
   padding: 0px 8px;
   cursor: pointer;
-  color: #b8b8b8;
+  color: #4e5968;
+  font-size: 16px;
   font-style: normal;
   word-break: keep-all;
   list-style: none;
   text-decoration: none;
-
-  @media (min-width: ${(props) => props.theme.windowSize.mobile}px) {
-    font-size: 20px;
-  }
-  @media (min-width: 320px) {
-    font-size: 19px;
-  }
-  @media (min-width: ${(props) => props.theme.windowSize.tablet}px) {
-    font-size: 20px;
-  }
-  @media (min-width: ${(props) => props.theme.windowSize.desk}px) {
-    font-size: 20px;
-  }
 `;
 
 const NavUserProfileImg = styled.img`

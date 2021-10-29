@@ -3,13 +3,14 @@
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   margin: 0;
+  word-break: keep-all;
 }
 html {
   background: white !important;
 }
 a {
   text-decoration: none;
-  color: #b8b8b8 !important;
+  color: #4e5968;
 }
 a:visited {
   text-decoration: none;

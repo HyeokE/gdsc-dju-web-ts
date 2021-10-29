@@ -1,15 +1,16 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import { Layout } from './Layout';
+import { Main } from './main';
 import './App.css';
 import { RecoilRoot } from 'recoil';
+import { authService, dbService } from './firebase/firebase';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <RecoilRoot>
-        <Layout />
+        <Main />
       </RecoilRoot>
     </ThemeProvider>
   );
