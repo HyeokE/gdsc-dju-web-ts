@@ -7,6 +7,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import { STATUS_KEY, statusState } from '../store/status';
 import { userDataState } from '../store/user';
 import { postState } from '../store/post';
+import { Footer } from '../common/Footer';
 
 export const Main = () => {
   const [status, setStatus] = useRecoilState(statusState);
@@ -52,6 +53,7 @@ export const Main = () => {
       <Switch>
         <Route path={''} component={Pages} />
       </Switch>
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,25 @@
 import styled from 'styled-components';
+export const TopMargin = styled.div`
+  height: 50px;
+`;
+export const List = styled.li`
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin: 8px 0px;
+`;
+export const Tage = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: inline-block;
+  width: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #8b95a1;
+  text-align: center;
+  content: '•';
+`;
 
 export const LayoutContainer = styled.div`
   position: relative;
@@ -8,17 +29,30 @@ export const LayoutContainer = styled.div`
   min-width: 320px;
   flex: 1;
 `;
+export const ContainerInner = styled.div`
+  width: 92%;
+  padding: 0% 4%;
+`;
+export const CardList = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export const Footer = styled.footer`
   display: flex;
   justify-content: center;
-  background-color: ${(props) => props.theme.color.gray150};
+  max-width: 1064px;
+  margin: auto;
+  padding: 0 67px;
+  box-sizing: border-box;
 `;
 
 export const FooterContent = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1140px;
-  padding: 40px;
+  padding: 10px 70px;
 `;
 
 export const FooterTitle = styled.p`
@@ -31,8 +65,18 @@ export const FooterSubTitle = styled.span`
   margin-top: 8px;
   font-size: 13px;
 `;
-
+export const FooterWrapper = styled.footer`
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+  padding: 20px 100px;
+  background: #f9fafb;
+`;
 export const FooterLogo = styled.img`
-  height: 55px;
+  width: 300px;
+  padding-right: 5px;
+`;
+export const FooterGDSCLogo = styled.img`
+  width: 500px;
   padding-right: 5px;
 `;

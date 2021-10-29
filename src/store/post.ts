@@ -3,7 +3,7 @@ import { atom } from 'recoil';
 const POST_KEY = 'post';
 
 export const PostState = {
-  // title: '',
+  // Title: '',
   // post: '',
   // createDate: '',
   // PostedDate: '',

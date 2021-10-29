@@ -41,6 +41,8 @@ const Navigation: React.FC = () => {
               <div>Daejin Univ.</div>
             </StyledLogoWrapper>
           </NavTask>
+        </NavTaskWrapper>
+        <NavTaskWrapper>
           <NavTask>
             <StyledLink
               to={'/introduce'}
@@ -52,17 +54,17 @@ const Navigation: React.FC = () => {
               소개
             </StyledLink>
           </NavTask>
-          <NavTask>
-            <StyledLink
-              to={'/blog'}
-              className={routeStyle == 'blog' ? 'active' : 'noneActive'}
-              onClick={() => {
-                setRoutStyle('blog');
-              }}
-            >
-              블로그
-            </StyledLink>
-          </NavTask>
+          {/*<NavTask>*/}
+          {/*  <StyledLink*/}
+          {/*    to={'/blog'}*/}
+          {/*    className={routeStyle == 'blog' ? 'active' : 'noneActive'}*/}
+          {/*    onClick={() => {*/}
+          {/*      setRoutStyle('blog');*/}
+          {/*    }}*/}
+          {/*  >*/}
+          {/*    블로그*/}
+          {/*  </StyledLink>*/}
+          {/*</NavTask>*/}
           <NavTask>
             <StyledLink
               to={'/joinus'}
@@ -86,15 +88,15 @@ const Navigation: React.FC = () => {
             </StyledLink>
           </NavTask>
         </NavTaskWrapper>
-        <NavTaskWrapper>
-          {status.loggedIn ? (
-            <NavTask>Hello {userData.nickname}</NavTask>
-          ) : (
-            <NavTask>
-              <StyledLink to={'/signin'}>로그인</StyledLink>
-            </NavTask>
-          )}
-        </NavTaskWrapper>
+        {/*<NavTaskWrapper>*/}
+        {/*  {status.loggedIn ? (*/}
+        {/*    <NavTask>Hello {userData.nickname}</NavTask>*/}
+        {/*  ) : (*/}
+        {/*    <NavTask>*/}
+        {/*      <StyledLink to={'/signin'}>로그인</StyledLink>*/}
+        {/*    </NavTask>*/}
+        {/*  )}*/}
+        {/*</NavTaskWrapper>*/}
       </NavInner>
     </NavDesign>
   );
