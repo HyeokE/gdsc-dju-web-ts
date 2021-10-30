@@ -64,7 +64,7 @@ const StyledLink = styled(Link)`
 const NavTask = styled.li`
   display: flex;
   align-items: center;
-  margin: 0px 20px;
+  margin: 0px 7px;
   cursor: pointer;
   color: #4e5968;
   font-size: 16px;
