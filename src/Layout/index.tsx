@@ -30,8 +30,6 @@ export const LayoutContainer = styled.div`
   max-width: 1140px;
   margin: 0 auto;
   min-width: 320px;
-  display: flex;
-  justify-content: space-between;
 `;
 export const ContainerInner = styled.div`
   width: 92%;
