@@ -14,6 +14,9 @@ import {
   CategoryInner,
   Category,
   SubCategory,
+  CategoryList,
+  CategoryListWrapper,
+  SubCategoryList,
 } from './styled';
 import { TeamList } from '../../hooks/teamList';
 
@@ -31,6 +34,12 @@ export const JoinUs = () => {
             우리는 고민을 나누고 함께 도전하며 목표를 향해 달리고 있습니다.
           </MainText>
           <TopMargin />
+          <CategoryListWrapper>
+            <CategoryList>Team</CategoryList>
+            <SubCategoryList>Skill</SubCategoryList>
+            <SubCategoryList>Stack</SubCategoryList>
+          </CategoryListWrapper>
+
           {TeamList.map((data, id) => (
             <CategoryWrapper key={id}>
               <CategoryInner>
