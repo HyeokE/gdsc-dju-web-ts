@@ -17,13 +17,14 @@ import {
   MinTitle,
 } from './styled';
 import { BannerImage } from '../Introduce/styled';
+import yellowBanner from '../../img/YellowBanner.png';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
     <>
-      <BannerImage src="img/YellowBanner.png" />
+      <BannerImage src={yellowBanner} />
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />

@@ -14,6 +14,7 @@ import { useRecoilState } from 'recoil';
 import { statusState } from '../../store/status';
 import { userDataState } from '../../store/user';
 import { LayoutContainer } from '../../Layout';
+import GDSCLogoClear from '../../img/GDSCLogoClear.png';
 
 const Navigation: React.FC = () => {
   const [routeStyle, setRoutStyle] = useState('home');
@@ -33,7 +34,7 @@ const Navigation: React.FC = () => {
               }}
             >
               <StyledImg
-                src="img/GDSCLogoClear.png"
+                src={GDSCLogoClear}
                 alt="GDSC-Chapter-Logo"
                 height={40}
               />

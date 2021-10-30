@@ -13,12 +13,13 @@ import {
 } from './styled';
 import { TeamList } from '../../hooks/teamList';
 import { useHistory } from 'react-router';
+import BlueBanner from '../../img/BlueBanner.png';
 
 export const JoinUs = () => {
   const history = useHistory();
   return (
     <>
-      <BannerImage src="img/BlueBanner.png" />
+      <BannerImage src={BlueBanner} />
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />

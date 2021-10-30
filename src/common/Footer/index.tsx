@@ -8,15 +8,17 @@ import {
   FooterWrapper,
   TopMargin,
 } from '../../Layout';
+import googleDevelopers from '../../img/googleDevelopers.png';
+import GDSCChapterLogo from '../../img/GDSC-Chapter-Logo.png';
 
 export const Footer = () => {
   return (
     <FooterWrapper>
       <FooterContent>
         <TopMargin />
-        <FooterLogo src="img/googleDevelopers.png" />
+        <FooterLogo src={googleDevelopers} />
         <TopMargin />
-        <FooterGDSCLogo src="img/GDSC-Chapter-Logo.png" />
+        <FooterGDSCLogo src={GDSCChapterLogo} />
         <TopMargin />
         <FooterSubTitle>{'Copyright © '}GDSC Daejin 2021</FooterSubTitle>
       </FooterContent>

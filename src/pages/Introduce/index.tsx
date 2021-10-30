@@ -12,6 +12,7 @@ import { MemberCardWrapper, BannerImage } from './styled';
 import { memberList } from '../../hooks/memberList';
 
 import { Title, SubTitle, MainText } from '../../common/Title/title';
+import GreenBanner from '../../img/GreenBanner.png';
 
 export const Introduce = () => {
   const introduceText =
@@ -21,7 +22,7 @@ export const Introduce = () => {
 
   return (
     <>
-      <BannerImage src="img/GreenBanner.png" />
+      <BannerImage src={GreenBanner} />
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
