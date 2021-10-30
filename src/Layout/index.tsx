@@ -2,6 +2,9 @@ import styled from 'styled-components';
 export const TopMargin = styled.div`
   height: 50px;
 `;
+export const SmallTopMargin = styled.div`
+  height: 30px;
+`;
 export const List = styled.li`
   display: list-item;
   text-align: -webkit-match-parent;
@@ -27,7 +30,8 @@ export const LayoutContainer = styled.div`
   max-width: 1140px;
   margin: 0 auto;
   min-width: 320px;
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
 `;
 export const ContainerInner = styled.div`
   width: 92%;

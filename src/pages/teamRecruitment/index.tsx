@@ -4,6 +4,7 @@ import {
   ContainerInner,
   LayoutContainer,
   List,
+  SmallTopMargin,
   Tage,
   TopMargin,
 } from '../../Layout';
@@ -11,16 +12,19 @@ import { MainText, SubTitle, Title } from '../../common/Title/title';
 import {
   ElementWrapper,
   JoinWrapper,
-  SectioneWrapper,
+  SectionWrapper,
   IntroduceWrapper,
   MinText,
   MinTitle,
 } from './styled';
 import { BannerImage } from '../Introduce/styled';
 import yellowBanner from '../../img/YellowBanner.png';
+import { StyledButton } from '../../common/Button/styled';
+import { TeamList } from '../../hooks/teamList';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const aboutTeam = TeamList.find((aboutTeam) => aboutTeam.id === id);
 
   return (
     <>
@@ -28,14 +32,15 @@ export const Recuritment: React.FC = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-          <Title>함께 성장할 동료를 모집합니다</Title>
+          <Title>{aboutTeam?.name}</Title>
+
           <TopMargin />
           <MainText>열정적인 동료를 얻기 위해 이 자리에 모였습니다.</MainText>
           <MainText>
             우리는 함께 고민을 나누고 도전하며 목표를 향해 달리고 있습니다.
           </MainText>
           <TopMargin />
-          <SectioneWrapper>
+          <SectionWrapper>
             <IntroduceWrapper>
               <SubTitle>이런 분을 찾습니다</SubTitle>
               <MainText>
@@ -112,10 +117,23 @@ export const Recuritment: React.FC = () => {
                 <MinTitle>소속</MinTitle>
                 <MinText>android Team</MinText>
               </ElementWrapper>
+              <ElementWrapper>
+                <MinTitle>지원 형태</MinTitle>
+                <MinText>어쩌고 저쩌고</MinText>
+              </ElementWrapper>
+              <ElementWrapper>
+                <MinTitle>활동기간</MinTitle>
+                <MinText>6개월 ~ 1년</MinText>
+              </ElementWrapper>
+              <TopMargin />
+              <StyledButton> 지원하기 </StyledButton>
+              <SmallTopMargin />
+              <StyledButton> 자주 하는 질문 </StyledButton>
             </JoinWrapper>
-          </SectioneWrapper>
+          </SectionWrapper>
         </ContainerInner>
       </LayoutContainer>
+      <TopMargin />
     </>
   );
 };

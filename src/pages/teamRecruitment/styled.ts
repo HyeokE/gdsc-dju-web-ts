@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-export const SectioneWrapper = styled.div`
+export const SectionWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 export const IntroduceWrapper = styled.div`
   min-width: ${(props) => props.theme.windowSize.mobile};
@@ -11,6 +12,8 @@ export const JoinWrapper = styled.div`
   display: flex;
   position: sticky;
   top: 100px;
+
+  flex-direction: column;
 `;
 export const MinTitle = styled.div`
   width: 90px;
@@ -19,12 +22,13 @@ export const MinTitle = styled.div`
   line-height: 24px;
   color: rgb(107, 118, 132);
 `;
-export const MinText = styled.div``;
+export const MinText = styled.div`
+  color: #3886f6;
+`;
 
 export const ElementWrapper = styled.div`
   width: 300px;
   padding: 14px 0px;
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  border-top: 1px solid rgba(0, 29, 58, 0.18);
 `;
