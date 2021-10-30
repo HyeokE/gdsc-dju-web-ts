@@ -43,10 +43,15 @@ const StyledLink = styled(Link)`
   list-style: none;
   display: flex;
   align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
 
   &:hover {
-    color: #4e4e4e;
-    font-weight: bold;
+    color: #4e5968;
+    background: #f2f4f6;
     text-decoration: none;
   }
   &:focus {
@@ -60,7 +65,6 @@ const NavTask = styled.li`
   display: flex;
   align-items: center;
   margin: 0px 20px;
-  padding: 0px 8px;
   cursor: pointer;
   color: #4e5968;
   font-size: 16px;

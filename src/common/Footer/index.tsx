@@ -14,11 +14,9 @@ export const Footer = () => {
     <FooterWrapper>
       <FooterContent>
         <TopMargin />
-        <FooterLogo src={process.env.PUBLIC_URL + 'googleDevelopers.png'} />
+        <FooterLogo src="img/googleDevelopers.png" />
         <TopMargin />
-        <FooterGDSCLogo
-          src={process.env.PUBLIC_URL + 'GDSC-Chapter-Logo.png'}
-        />
+        <FooterGDSCLogo src="img/GDSC-Chapter-Logo.png" />
         <TopMargin />
         <FooterSubTitle>{'Copyright © '}GDSC Daejin 2021</FooterSubTitle>
       </FooterContent>

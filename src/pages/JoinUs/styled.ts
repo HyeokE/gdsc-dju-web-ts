@@ -15,6 +15,12 @@ export const CategoryWrapper = styled.div`
     background: #f2f4f6;
   }
 `;
+export const TeamCategoryWrapper = styled.div`
+  display: flex;
+  padding: 24px 0px;
+  margin: 0px;
+  margin-right: 30px;
+`;
 export const CategoryInner = styled.div`
   padding: 0 30px;
   font-size: 18px;
@@ -29,6 +35,15 @@ export const SubCategory = styled.div`
   width: 200px;
   min-width: 280px;
 
+  font-size: 13px;
+  color: rgb(139, 149, 161);
+`;
+export const TeamCategory = styled.div`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 40px;
+  min-width: 360px;
   font-size: 13px;
   color: rgb(139, 149, 161);
 `;

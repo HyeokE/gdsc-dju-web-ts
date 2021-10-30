@@ -33,7 +33,7 @@ const Navigation: React.FC = () => {
               }}
             >
               <StyledImg
-                src={process.env.PUBLIC_URL + '/GDSCLogoClear.png'}
+                src="img/GDSCLogoClear.png"
                 alt="GDSC-Chapter-Logo"
                 height={40}
               />

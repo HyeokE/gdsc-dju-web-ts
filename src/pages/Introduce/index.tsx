@@ -21,7 +21,7 @@ export const Introduce = () => {
 
   return (
     <>
-      <BannerImage src={process.env.PUBLIC_URL + 'GreenBanner.png'} />
+      <BannerImage src="img/GreenBanner.png" />
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />

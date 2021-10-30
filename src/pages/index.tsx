@@ -2,11 +2,13 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import { Home } from './Home';
 import { Blog } from './Blog';
-import { JoinUs } from './JoinUs';
+
 import { CodeOfConduct } from './CodeOfConduct';
 import { SignUp } from './SignUp';
 import { SignIn } from './SignIn';
 import { Introduce } from './Introduce';
+import { JoinUs } from './JoinUs';
+import { Recuritment } from './teamRecruitment';
 
 export const Pages = () => {
   return (
@@ -15,6 +17,7 @@ export const Pages = () => {
       <Route exact path={'/introduce'} component={Introduce} />
       <Route exact path={'/blog'} component={Blog} />
       <Route exact path={'/joinus'} component={JoinUs} />
+      <Route exact path={'/joinus/:id'} component={Recuritment} />
       <Route exact path={'/conduct'} component={CodeOfConduct} />
       <Route exact path={'/signin'} component={SignIn} />
       <Route exact path={'/signup'} component={SignUp} />

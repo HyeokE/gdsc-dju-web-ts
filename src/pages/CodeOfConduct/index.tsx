@@ -6,7 +6,7 @@ import { SubTitle, Title } from '../../common/Title/title';
 export const CodeOfConduct = () => {
   return (
     <>
-      <BannerImage src={process.env.PUBLIC_URL + 'RedBanner.png'} />
+      <BannerImage src="img/RedBanner.png" />
       <LayoutContainer>
         <TopMargin />
         <Title>Code of Conduct</Title>
