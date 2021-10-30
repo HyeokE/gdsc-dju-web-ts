@@ -1,21 +1,15 @@
 import React from 'react';
-import {
-  ContainerInner,
-  LayoutContainer,
-  List,
-  Tage,
-  TopMargin,
-} from '../../Layout';
-import { MainText, SubTitle, Title } from '../../common/Title/title';
+import { ContainerInner, LayoutContainer, TopMargin } from '../../Layout';
+import { MainText, Title } from '../../common/Title/title';
 import { BannerImage } from '../Introduce/styled';
 
 import {
-  CategoryWrapper,
-  CategoryInner,
   Category,
+  CategoryInner,
+  CategoryWrapper,
   SubCategory,
-  TeamCategoryWrapper,
   TeamCategory,
+  TeamCategoryWrapper,
 } from './styled';
 import { TeamList } from '../../hooks/teamList';
 import { useHistory } from 'react-router';
@@ -35,6 +29,7 @@ export const JoinUs = () => {
             우리는 함께 고민을 나누고 도전하며 목표를 향해 달리고 있습니다.
           </MainText>
           <TopMargin />
+
           <TeamCategoryWrapper>
             <TeamCategory>Team</TeamCategory>
             <TeamCategory>Skill</TeamCategory>

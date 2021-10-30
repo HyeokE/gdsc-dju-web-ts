@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const CategoryWrapper = styled.div`
   display: flex;
   padding: 24px 0px;
-  margin: 0px;
   margin-right: 30px;
   cursor: pointer;
   border-radius: 10px;
@@ -32,9 +31,7 @@ export const SubCategory = styled.div`
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  width: 200px;
   min-width: 280px;
-
   font-size: 13px;
   color: rgb(139, 149, 161);
 `;
@@ -51,8 +48,30 @@ export const Category = styled.div`
   display: flex;
   font-weight: bold;
   align-items: center;
-  width: 400px;
   min-width: 420px;
   padding-right: 30px;
   font-size: 18px;
+`;
+export const CategoryList = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 410px;
+  padding-left: 30px;
+`;
+export const SubCategoryList = styled.div`
+  display: flex;
+  align-items: center;
+
+  min-width: 280px;
+  padding-left: 30px;
+`;
+export const CategoryListWrapper = styled.div`
+  color: rgb(139, 149, 161);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 300px;
+  min-width: 420px;
+  padding-left: 10px;
+  margin-bottom: 20px;
 `;
