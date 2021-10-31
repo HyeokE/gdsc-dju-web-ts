@@ -39,10 +39,12 @@ export const CategoryInner = styled.div`
 export const SubCategory = styled.div`
   display: flex;
   align-items: center;
-  min-width: 180px;
+  width: 300px;
   font-size: 13px;
   color: rgb(139, 149, 161);
-
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    width: 300px;
+  }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 200px;
   }
@@ -54,14 +56,14 @@ export const TeamCategory = styled.div`
   display: flex;
   align-items: center;
   margin-left: 30px;
-  width: 340px;
+  width: 420px;
   font-size: 13px;
   color: rgb(139, 149, 161);
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    width: 300px;
+    width: 380px;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    width: 200px;
+    width: 230px;
   }
 `;
 export const TeamSubCategory = styled.div`
@@ -69,7 +71,7 @@ export const TeamSubCategory = styled.div`
   -webkit-box-align: center;
   align-items: center;
   margin-left: 40px;
-  min-width: 140px;
+  width: 200px;
   font-size: 13px;
   color: rgb(139, 149, 161);
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
@@ -83,11 +85,11 @@ export const Category = styled.div`
   display: flex;
   font-weight: bold;
   align-items: center;
-  width: 350px;
+  width: 500px;
   padding-right: 30px;
   font-size: 18px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    width: 300px;
+    width: 500px;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 300px;
