@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContainerInner, LayoutContainer, TopMargin } from '../../Layout';
-import { MainText, Title } from '../../common/Title/title';
-import { BannerImage } from '../Introduce/styled';
+import { MainText, Title } from '../../components/common/Title/title';
+import { BannerImage, BannerWrapper } from '../../Layout/index';
 
 import {
   Category,
@@ -9,17 +9,23 @@ import {
   CategoryWrapper,
   SubCategory,
   TeamCategory,
+  TeamSubCategory,
   TeamCategoryWrapper,
+  MobileCategoryWrapper,
+  MobileCategoryInner,
 } from './styled';
-import { TeamList } from '../../hooks/teamList';
+import { TeamInfomation } from '../../hooks/teamInfomation';
 import { useHistory } from 'react-router';
 import BlueBanner from '../../img/BlueBanner.png';
+import GreenBanner from '../../img/GreenBanner.png';
 
 export const JoinUs = () => {
   const history = useHistory();
   return (
     <>
-      <BannerImage src={BlueBanner} />
+      <BannerWrapper>
+        <BannerImage src={BlueBanner} />
+      </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
@@ -33,10 +39,10 @@ export const JoinUs = () => {
 
           <TeamCategoryWrapper>
             <TeamCategory>Team</TeamCategory>
-            <TeamCategory>Skill</TeamCategory>
-            <TeamCategory>Stack</TeamCategory>
+            <TeamSubCategory>Skill</TeamSubCategory>
+            <TeamSubCategory>Stack</TeamSubCategory>
           </TeamCategoryWrapper>
-          {TeamList.map((data, key) => (
+          {TeamInfomation.map((data, key) => (
             <CategoryWrapper
               key={key}
               onClick={() => {
@@ -50,9 +56,22 @@ export const JoinUs = () => {
               </CategoryInner>
             </CategoryWrapper>
           ))}
-
-          <TopMargin />
+          {TeamInfomation.map((data, key) => (
+            <MobileCategoryWrapper
+              key={key}
+              onClick={() => {
+                history.push('/joinus/' + data.id);
+              }}
+            >
+              <MobileCategoryInner>
+                <Category>{data.name}</Category>
+                <SubCategory>{data.skill}</SubCategory>
+              </MobileCategoryInner>
+            </MobileCategoryWrapper>
+          ))}
         </ContainerInner>
+
+        <TopMargin />
       </LayoutContainer>
     </>
   );

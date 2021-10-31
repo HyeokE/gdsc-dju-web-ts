@@ -18,8 +18,3 @@ export const MemberCardWrapper = styled.div`
     width: 100%;
   }
 `;
-
-export const BannerImage = styled.img`
-  height: 100%;
-  width: 100%;
-`;

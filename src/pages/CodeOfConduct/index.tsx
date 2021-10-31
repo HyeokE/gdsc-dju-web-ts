@@ -1,19 +1,24 @@
 import React from 'react';
-import { BannerImage } from '../Introduce/styled';
+
 import {
+  BannerWrapper,
   ContainerInner,
   LayoutContainer,
   List,
   Tage,
   TopMargin,
+  BannerImage,
 } from '../../Layout';
-import { MainText, SubTitle, Title } from '../../common/Title/title';
+import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import RedBanner from '../../img/RedBanner.png';
+import GreenBanner from '../../img/GreenBanner.png';
 
 export const CodeOfConduct = () => {
   return (
     <>
-      <BannerImage src={RedBanner} />
+      <BannerWrapper>
+        <BannerImage src={RedBanner} />
+      </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />

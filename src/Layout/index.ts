@@ -54,7 +54,7 @@ export const FooterContent = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1140px;
-  padding: 10px 70px;
+  padding: 10px 0px;
 `;
 
 export const FooterTitle = styled.p`
@@ -71,14 +71,24 @@ export const FooterWrapper = styled.footer`
   display: flex;
   bottom: 0;
   justify-content: center;
-  padding: 20px 100px;
+  padding: 20px 30px;
   background: #f9fafb;
 `;
 export const FooterLogo = styled.img`
-  width: 300px;
+  width: 200px;
   padding-right: 5px;
 `;
 export const FooterGDSCLogo = styled.img`
-  width: 500px;
+  width: 300px;
   padding-right: 5px;
+`;
+export const BannerImage = styled.img`
+  height: 500px;
+`;
+export const BannerWrapper = styled.div`
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 `;

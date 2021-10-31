@@ -3,16 +3,22 @@ import styled from 'styled-components';
 export const SectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 export const IntroduceWrapper = styled.div`
-  min-width: ${(props) => props.theme.windowSize.mobile};
-  width: 600px;
+  min-width: ${(props) => props.theme.windowSize.mobile} {
+    width: 320px;
+  }
 `;
 export const JoinWrapper = styled.div`
   display: flex;
   position: sticky;
   top: 100px;
-
   flex-direction: column;
 `;
 export const MinTitle = styled.div`
@@ -31,4 +37,7 @@ export const ElementWrapper = styled.div`
   padding: 14px 0px;
   display: flex;
   border-top: 1px solid rgba(0, 29, 58, 0.18);
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;

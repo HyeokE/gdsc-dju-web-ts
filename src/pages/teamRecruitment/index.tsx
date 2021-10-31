@@ -1,14 +1,16 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import {
+  BannerWrapper,
   ContainerInner,
   LayoutContainer,
   List,
   SmallTopMargin,
   Tage,
   TopMargin,
+  BannerImage,
 } from '../../Layout';
-import { MainText, SubTitle, Title } from '../../common/Title/title';
+import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import {
   ElementWrapper,
   JoinWrapper,
@@ -17,10 +19,11 @@ import {
   MinText,
   MinTitle,
 } from './styled';
-import { BannerImage } from '../Introduce/styled';
+
 import yellowBanner from '../../img/YellowBanner.png';
-import { StyledButton } from '../../common/Button/styled';
+import { StyledButton } from '../../components/common/Button/styled';
 import { TeamList } from '../../hooks/teamList';
+import GreenBanner from '../../img/GreenBanner.png';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,7 +31,9 @@ export const Recuritment: React.FC = () => {
 
   return (
     <>
-      <BannerImage src={yellowBanner} />
+      <BannerWrapper>
+        <BannerImage src={yellowBanner} />
+      </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />

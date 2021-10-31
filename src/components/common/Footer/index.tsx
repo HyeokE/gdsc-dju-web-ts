@@ -7,9 +7,9 @@ import {
   FooterGDSCLogo,
   FooterWrapper,
   TopMargin,
-} from '../../Layout';
-import googleDevelopers from '../../img/googleDevelopers.png';
-import GDSCChapterLogo from '../../img/GDSC-Chapter-Logo.png';
+} from '../../../Layout';
+import googleDevelopers from '../../../img/googleDevelopers.png';
+import GDSCChapterLogo from '../../../img/GDSC-Chapter-Logo.png';
 
 export const Footer = () => {
   return (

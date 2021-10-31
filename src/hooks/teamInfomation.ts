@@ -1,4 +1,4 @@
-export const teamInfomation = [
+export const TeamInfomation = [
   {
     id: 'android',
     name: 'Android Team',

@@ -1,20 +1,9 @@
 import React from 'react';
 import { LayoutContainer, TopMargin } from '../../Layout';
-import { Title } from '../../common/Title/title';
+import { Title } from '../../components/common/Title/title';
+import { VideoWrapper, StyledVideo } from './styled';
 import styled from 'styled-components';
 
-const VideoWrapper = styled.div`
-  position: relative;
-  overflow: hidden;
-  top: -150px;
-  width: auto;
-  height: 100vh;
-`;
-const StyledVideo = styled.video`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-`;
 const StyledTitleWrapper = styled.div`
   position: absolute;
   top: 0px;

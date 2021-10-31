@@ -7,11 +7,11 @@ import {
   Tage,
   CardList,
 } from '../../Layout';
-import { MemberCard } from '../../common/card/MemberCard/';
-import { MemberCardWrapper, BannerImage } from './styled';
+import { MemberCard } from '../../components/common/card/MemberCard/';
+import { MemberCardWrapper } from './styled';
 import { memberList } from '../../hooks/memberList';
-
-import { Title, SubTitle, MainText } from '../../common/Title/title';
+import { BannerWrapper, BannerImage } from '../../Layout/index';
+import { Title, SubTitle, MainText } from '../../components/common/Title/title';
 import GreenBanner from '../../img/GreenBanner.png';
 
 export const Introduce = () => {
@@ -22,7 +22,9 @@ export const Introduce = () => {
 
   return (
     <>
-      <BannerImage src={GreenBanner} />
+      <BannerWrapper>
+        <BannerImage src={GreenBanner} />
+      </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />

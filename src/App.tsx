@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import { Main } from './main';
+import { Main } from './components/main';
 import './App.css';
 import { RecoilRoot } from 'recoil';
 import { authService, dbService } from './firebase/firebase';
