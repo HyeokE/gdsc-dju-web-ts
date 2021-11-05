@@ -83,7 +83,7 @@ export const FooterGDSCLogo = styled.img`
   padding-right: 5px;
 `;
 export const BannerImage = styled.img`
-  height: 500px;
+  height: 300px;
 `;
 export const BannerWrapper = styled.div`
   height: 200px;

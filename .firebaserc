@@ -1,9 +1,4 @@
 {
   "projects": {
-<<<<<<< HEAD
     "default": "gdsc-dju"
-=======
-    "default": "gdsc-dju-web"
->>>>>>> 47f31e2e5d022d8749f245cb9554ef698aab1111
-  }
 }

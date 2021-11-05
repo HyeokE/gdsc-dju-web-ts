@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ContainerInner, LayoutContainer, TopMargin } from '../../Layout';
 import { MainText, Title } from '../../components/common/Title/title';
 import { BannerImage, BannerWrapper } from '../../Layout/index';
@@ -7,20 +7,20 @@ import {
   Category,
   CategoryInner,
   CategoryWrapper,
+  MobileCategoryInner,
+  MobileCategoryWrapper,
   SubCategory,
   TeamCategory,
-  TeamSubCategory,
   TeamCategoryWrapper,
-  MobileCategoryWrapper,
-  MobileCategoryInner,
+  TeamSubCategory,
 } from './styled';
 import { TeamInfomation } from '../../hooks/teamInfomation';
 import { useHistory } from 'react-router';
 import BlueBanner from '../../img/BlueBanner.png';
-import GreenBanner from '../../img/GreenBanner.png';
 
 export const JoinUs = () => {
   const history = useHistory();
+  const [post, setPost] = useState('kim');
   return (
     <>
       <BannerWrapper>
@@ -36,7 +36,6 @@ export const JoinUs = () => {
             우리는 함께 고민을 나누고 도전하며 목표를 향해 달리고 있습니다.
           </MainText>
           <TopMargin />
-
           <TeamCategoryWrapper>
             <TeamCategory>Team</TeamCategory>
             <TeamSubCategory>Skill</TeamSubCategory>
