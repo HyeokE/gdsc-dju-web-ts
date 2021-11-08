@@ -32,10 +32,6 @@ export const CodeOfConduct = () => {
             </List>
             <List>
               <Tage />
-              모든 일 뒤에는 사람이 있습니다.
-            </List>
-            <List>
-              <Tage />
               모두가 커뮤니티에 참여할 수 있어야합니다.
             </List>
             <List>

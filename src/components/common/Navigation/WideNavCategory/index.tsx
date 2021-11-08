@@ -50,6 +50,14 @@ const WideNavCategory = () => {
               Code of Conduct
             </StyledLink>
           </NavTask>
+          <NavTask>
+            <StyledLink
+              to={'/question'}
+              className={routeStyle == '/question' ? 'active' : 'noneActive'}
+            >
+              자주하는 질문
+            </StyledLink>
+          </NavTask>
         </NavTaskWrapper>
         {/*<NavTaskWrapper>*/}
         {/*  {status.loggedIn ? (*/}

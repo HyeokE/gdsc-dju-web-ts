@@ -39,7 +39,7 @@ export const memberList = [
     name: '안주원',
     role: 'Member',
     memberImg:
-      'https://ca.slack-edge.com/T02BE2ERU5A-U02CH2LV8VC-aaff1b9eacaa-512',
+      'https://ca.slack-edge.com/T02BE2ERU5A-U02CH2LV8VC-efb0ce60230f-512',
   },
   { nickName: 'Rulu', name: '김수진', role: 'Member' },
 
@@ -68,8 +68,14 @@ export const memberList = [
       'https://ca.slack-edge.com/T02BE2ERU5A-U02C955NKF1-a4f02af91966-512',
   },
 
-  { nickName: 'Pasca', name: '임종수', role: 'Member' },
-  { nickName: 'Lala	', name: '라허운', role: 'Member' },
+  { nickName: 'Pascal', name: '임종수', role: 'Member' },
+  {
+    nickName: 'Lala	',
+    name: '라허운',
+    role: 'Member',
+    memberImg:
+      'https://ca.slack-edge.com/T02BE2ERU5A-U02D2RXTP3K-5b98e49b6beb-512',
+  },
   {
     nickName: 'Lucy	',
     name: '박진혜',

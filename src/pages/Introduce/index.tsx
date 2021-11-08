@@ -1,20 +1,29 @@
 import React from 'react';
 import {
+  CardList,
   ContainerInner,
   LayoutContainer,
   List,
-  TopMargin,
   Tage,
-  CardList,
+  TopMargin,
 } from '../../Layout';
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper } from './styled';
 import { memberList } from '../../hooks/memberList';
-import { BannerWrapper, BannerImage } from '../../Layout/index';
-import { Title, SubTitle, MainText } from '../../components/common/Title/title';
+import { BannerImage, BannerWrapper } from '../../Layout/index';
+import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import GreenBanner from '../../img/GreenBanner.png';
 
 export const Introduce = () => {
+  // const [selectedId, setSelectedId] = useState<number | undefined>(0);
+  // const [selected, setSelected] = useState({
+  //   title: '',
+  //   description: '',
+  //   logoImgUrl: '',
+  //   start_at: '',
+  //   organizer: '',
+  //   running_time: 60,
+  // });
   const introduceText =
     'GDSC(Google Developer Student Clubs)은 Google Developers에서 제공하는 프로그램으로, 대학교를 기반으로 하는 개발자 커뮤니티그룹입니다. \n' +
     'GDSC의 멤버들은 peer-to-peer 학습 환경에서 역량을 키우고 공동체와 지역사회를 위한 솔루션 구축을 목표로 합니다. \n' +

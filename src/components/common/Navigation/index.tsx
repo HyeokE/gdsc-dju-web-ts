@@ -10,12 +10,8 @@ import {
   StyledLogo,
   StyledLogoWrapper,
 } from './styled';
-import { useRecoilState } from 'recoil';
-import { statusState } from '../../../store/status';
-import { userDataState } from '../../../store/user';
 import GDSCLogoClear from '../../../img/GDSCLogoClear.png';
 import WideNavCategory from './WideNavCategory';
-import { motion } from 'framer-motion';
 import ShortNavCategory from './ShortNavCategory';
 
 const Navigation: React.FC = () => {

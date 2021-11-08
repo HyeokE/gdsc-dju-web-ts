@@ -25,4 +25,5 @@ export const MemberImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 100px;
+  border: 1px solid #9f9f9f;
 `;

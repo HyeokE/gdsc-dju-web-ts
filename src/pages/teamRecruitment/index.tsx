@@ -73,6 +73,15 @@ export const Recuritment: React.FC = () => {
                   <Tage />
                   타인의 의견을 적극적으로 수용하고 개선하려고 노력하시는 분
                 </List>
+
+                {aboutTeam?.people.split('\n').map((line, id) => {
+                  return (
+                    <List key={id}>
+                      <Tage />
+                      {line}
+                    </List>
+                  );
+                })}
               </MainText>
               <TopMargin />
               <SubTitle>이런 경험이 있다면 더 좋습니다</SubTitle>
@@ -86,15 +95,20 @@ export const Recuritment: React.FC = () => {
                   <Tage />
                   FrameWork나 Library 사용이 능숙하신 분이면 좋습니다.
                 </List>
-                <List>
-                  <Tage />
-                  React, Android, Spring에 관한 이해도가 높으신 분이면 좋습니다.
-                </List>
+
                 <List>
                   <Tage />
                   코딩에 대하여 잘 모르더라도 매일 학습하실 의지를 가지신 분이면
                   좋습니다.
                 </List>
+                {aboutTeam?.preferential.split('\n').map((line, id) => {
+                  return (
+                    <List key={id}>
+                      <Tage />
+                      {line}
+                    </List>
+                  );
+                })}
               </MainText>
               <TopMargin />
               <SubTitle>GDSC의 혜택</SubTitle>
@@ -120,15 +134,15 @@ export const Recuritment: React.FC = () => {
             <JoinWrapper>
               <ElementWrapper>
                 <MinTitle>소속</MinTitle>
-                <MinText>android Team</MinText>
+                <MinText>{aboutTeam?.name}</MinText>
               </ElementWrapper>
               <ElementWrapper>
-                <MinTitle>지원 형태</MinTitle>
-                <MinText>어쩌고 저쩌고</MinText>
+                <MinTitle>합류과정</MinTitle>
+                <MinText>서류지원 - 면접지원 </MinText>
               </ElementWrapper>
               <ElementWrapper>
                 <MinTitle>활동기간</MinTitle>
-                <MinText>6개월 ~ 1년</MinText>
+                <MinText>6개월 ~ 1년이상</MinText>
               </ElementWrapper>
               <TopMargin />
               <StyledButton> 지원하기 </StyledButton>

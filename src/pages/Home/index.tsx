@@ -24,9 +24,7 @@ export const Home = () => {
         </StyledVideo>
       </VideoWrapper>
       <StyledTitleWrapper>
-        <div style={{ marginTop: '200px' }}>
-          {/*<Title>우리는 GDSC입니다</Title>*/}
-        </div>
+        <div style={{ marginTop: '200px' }}>{/*<Title>GDSC</Title>*/}</div>
       </StyledTitleWrapper>
       <LayoutContainer></LayoutContainer>
       <TopMargin style={{ height: '1000px' }} />

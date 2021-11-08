@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const TopMargin = styled.div`
   height: 50px;
 `;
@@ -83,7 +84,7 @@ export const FooterGDSCLogo = styled.img`
   padding-right: 5px;
 `;
 export const BannerImage = styled.img`
-  height: 300px;
+  height: 500px;
 `;
 export const BannerWrapper = styled.div`
   height: 200px;

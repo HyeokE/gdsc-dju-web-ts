@@ -16,7 +16,6 @@ export const MemberCard = ({ memberInfo }: any) => {
         ) : (
           <Skeleton variant={'circular'} height={200} width={200} />
         )}
-
         <NickName>{memberInfo.nickName}</NickName>
         <Name>{memberInfo.name}</Name>
         <Role>{memberInfo.role}</Role>
