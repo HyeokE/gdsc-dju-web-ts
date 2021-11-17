@@ -81,7 +81,7 @@ export const Recuritment: React.FC = () => {
                 <List>
                   <Tage />
                   커뮤니케이션 및 개발 문서 정리에 능숙하신 분
-                </List>{' '}
+                </List>
                 <List>
                   <Tage />
                   코딩에 대하여 잘 모르더라도 매일 학습하고, 모르는 게 있으면
