@@ -7,7 +7,7 @@ export const NavDesign = styled.div`
   position: sticky;
   width: 100%;
   top: 0;
-  z-index: 2;
+  z-index: 999;
 `;
 export const NavInner = styled.div`
   display: flex;
@@ -41,11 +41,13 @@ export const SchoolName = styled.div`
   margin-right: 10px;
 `;
 export const WideNavigation = styled.div`
+  z-index: 999;
   @media (max-width: 500px) {
     display: none;
   }
 `;
 export const ShortNavigation = styled.div`
+  z-index: 99;
   @media (min-width: 500px) {
     display: none;
   }

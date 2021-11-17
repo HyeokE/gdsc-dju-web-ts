@@ -5,9 +5,8 @@ const ColorLines = () => {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="500.946"
-        height="500.84"
         viewBox="0 0 1418.946 1236.84"
+        preserveAspectRatio={'none'}
       >
         <g
           id="Group_13"

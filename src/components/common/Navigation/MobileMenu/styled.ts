@@ -7,7 +7,7 @@ export const Menu = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: 99;
 `;
 export const MenuInner = styled.div`
   top: 70px;

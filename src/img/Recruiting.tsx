@@ -5,9 +5,8 @@ const Recruiting = () => {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="500.858"
-        height="80"
         viewBox="0 0 1398.858 212.469"
+        preserveAspectRatio={'none'}
       >
         <g
           id="Group_14"
