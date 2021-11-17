@@ -105,7 +105,14 @@ export const MainBannerText = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  font-size: 23px;
   color: rgb(139, 149, 161);
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    font-size: 20px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    font-size: 15px;
+  }
   @media (max-width: 320px) {
     font-size: 15px;
   }
