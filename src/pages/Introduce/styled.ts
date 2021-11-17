@@ -5,6 +5,7 @@ export const MemberCardWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
+  cursor: pointer;
 
   box-sizing: border-box;
   @media screen and (max-width: ${(props) => props.theme.windowSize.desk}px) {

@@ -20,4 +20,5 @@ export const SubTitle = styled.div`
 export const MainText = styled.div`
   font-size: 16px;
   color: #4e5968;
+  padding-bottom: 10px;
 `;

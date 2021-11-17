@@ -28,7 +28,7 @@ import GreenBanner from '../../img/GreenBanner.png';
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const aboutTeam = TeamList.find((aboutTeam) => aboutTeam.id === id);
-
+  const history = useHistory();
   return (
     <>
       <BannerWrapper>
@@ -73,15 +73,30 @@ export const Recuritment: React.FC = () => {
                   <Tage />
                   타인의 의견을 적극적으로 수용하고 개선하려고 노력하시는 분
                 </List>
-
-                {aboutTeam?.people.split('\n').map((line, id) => {
-                  return (
-                    <List key={id}>
-                      <Tage />
-                      {line}
-                    </List>
-                  );
-                })}
+                <List>
+                  <Tage />
+                  프로젝트의 애정과 책임을 가지고 주도적으로 개발, 개선할 수
+                  있으신 분
+                </List>
+                <List>
+                  <Tage />
+                  커뮤니케이션 및 개발 문서 정리에 능숙하신 분
+                </List>{' '}
+                <List>
+                  <Tage />
+                  코딩에 대하여 잘 모르더라도 매일 학습하고, 모르는 게 있으면
+                  주도적으로 해결할 수 있으신 분
+                </List>
+                {aboutTeam?.people != undefined
+                  ? aboutTeam?.people.split('\n').map((line, id) => {
+                      return (
+                        <List key={id}>
+                          <Tage />
+                          {line}
+                        </List>
+                      );
+                    })
+                  : null}
               </MainText>
               <TopMargin />
               <SubTitle>이런 경험이 있다면 더 좋습니다</SubTitle>
@@ -101,14 +116,16 @@ export const Recuritment: React.FC = () => {
                   코딩에 대하여 잘 모르더라도 매일 학습하실 의지를 가지신 분이면
                   좋습니다.
                 </List>
-                {aboutTeam?.preferential.split('\n').map((line, id) => {
-                  return (
-                    <List key={id}>
-                      <Tage />
-                      {line}
-                    </List>
-                  );
-                })}
+                {aboutTeam?.preferential != undefined
+                  ? aboutTeam?.preferential.split('\n').map((line, id) => {
+                      return (
+                        <List key={id}>
+                          <Tage />
+                          {line}
+                        </List>
+                      );
+                    })
+                  : null}
               </MainText>
               <TopMargin />
               <SubTitle>GDSC의 혜택</SubTitle>
@@ -138,16 +155,22 @@ export const Recuritment: React.FC = () => {
               </ElementWrapper>
               <ElementWrapper>
                 <MinTitle>합류과정</MinTitle>
-                <MinText>서류지원 - 면접지원 </MinText>
+                <MinText>1차 서류 - 2차 면접 </MinText>
               </ElementWrapper>
               <ElementWrapper>
                 <MinTitle>활동기간</MinTitle>
-                <MinText>6개월 ~ 1년이상</MinText>
+                <MinText>1년이상</MinText>
               </ElementWrapper>
               <TopMargin />
-              <StyledButton> 지원하기 </StyledButton>
+              <StyledButton> 지원기간이 아닙니다. </StyledButton>
               <SmallTopMargin />
-              <StyledButton> 자주 하는 질문 </StyledButton>
+              <StyledButton
+                onClick={() => {
+                  history.push('/question');
+                }}
+              >
+                자주 하는 질문
+              </StyledButton>
             </JoinWrapper>
           </SectionWrapper>
         </ContainerInner>

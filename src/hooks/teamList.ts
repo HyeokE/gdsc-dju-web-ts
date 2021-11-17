@@ -1,19 +1,25 @@
 export const TeamList = [
   {
     id: 'android',
-    name: 'Android Team (Kotlin)',
-    people: 'none',
-    preferential: 'none',
+    name: 'Android Position (Kotlin)',
+    people: undefined,
+    preferential:
+      'Android, Kotlin 개발 경험이 있으신 분이면 좋습니다.\n' +
+      'Android 의 다양한 Framework 나 Library 사용이 능숙하신 분\n' +
+      '프로젝트의 아키텍쳐에 대한 고려를 끊임 없이 하시는 분',
   },
   {
     id: 'frontend',
-    name: 'Frontend Team (React)',
-    people: 'none',
-    preferential: 'none',
+    name: 'Frontend Position (React)',
+    people:
+      '코딩에 진심이신 분\n' +
+      '의견 전달이나 수용에 거리낌이 없으신 분\n' +
+      '더 좋은 커뮤니티나 팀문화에 대해 관심이 많으신 분',
+    preferential: 'React나 Vue 등 SPA에 대한 이해도가 있으신 분이면 좋습니다.',
   },
   {
     id: 'backend',
-    name: 'Backend Team (Spring)',
+    name: 'Backend Position (Spring)',
     people:
       '소통이 잘 되시는 분\n' +
       '팀 프로젝트 경험이 있으신 분\n' +
@@ -26,7 +32,7 @@ export const TeamList = [
   },
   {
     id: 'machineLearning',
-    name: 'Machine Learning Team (Open CV)',
+    name: 'Machine Learning Position (Open CV)',
     people:
       '머신 러닝 알고리즘에 대한 기본기를 갖추신 분\n' +
       '오픈소스를 활용한 모델의 학습 및 개선 경험이 있으신 분',

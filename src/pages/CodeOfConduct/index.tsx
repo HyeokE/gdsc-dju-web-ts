@@ -22,7 +22,8 @@ export const CodeOfConduct = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-          <Title>Code of Conduct</Title>
+          <Title>Code of Conduct(Google)</Title>
+
           <TopMargin />
           <SubTitle>사람을 존중해주세요.</SubTitle>
           <MainText>
@@ -79,6 +80,36 @@ export const CodeOfConduct = () => {
               적극적으로 참여하며 조화롭게 어울려주세요.
             </List>
           </MainText>
+          <TopMargin />
+          <Title>Code of Conduct(GDSC Daejin)</Title>
+          <TopMargin />
+          <SubTitle>
+            <List>
+              수평적 문화를 위해 영어 닉네임을 사용합니다.
+              <br />
+              본명 사용은 지양해주세요.
+            </List>
+            <TopMargin />
+            <List>
+              <Tage />
+              경고 제도를 시행합니다. 3회 경고 누적시 제명 처리됩니다. <br />
+              (제명시 다음 기수 즉, 2022년 GDSC DJU에 지원 및 참여가
+              불가능합니다.)
+            </List>
+            <TopMargin />
+            <List>
+              <Tage />
+              미팅 시작 15분 이후 참석 = 지각 / 미팅 시작 30분 이후 참석 =
+              결석으로 처리합니다. <br />
+              if (지각 3회 || 결석 1회)경고 1회
+            </List>
+            <TopMargin />
+            <List>
+              <Tage />
+              커뮤니티의 분위기를 흐리는 멤버라고 판단될 경우(경고가 부여되며)
+              운영진들의 상의를 통해 제명처리될 수 있습니다.
+            </List>
+          </SubTitle>
           <TopMargin />
         </ContainerInner>
       </LayoutContainer>

@@ -9,6 +9,7 @@ import { SignIn } from './SignIn';
 import { Introduce } from './Introduce';
 import { JoinUs } from './JoinUs';
 import { Recuritment } from './teamRecruitment';
+import Apply from './Apply';
 
 export const Pages = () => {
   return (
@@ -22,6 +23,7 @@ export const Pages = () => {
       <Route exact path={'/question'} component={Question} />
       <Route exact path={'/signin'} component={SignIn} />
       <Route exact path={'/signup'} component={SignUp} />
+      <Route exact path={'/apply'} component={Apply} />
     </Switch>
   );
 };

@@ -20,7 +20,7 @@ import BlueBanner from '../../img/BlueBanner.png';
 
 export const JoinUs = () => {
   const history = useHistory();
-  const [post, setPost] = useState('kim');
+
   return (
     <>
       <BannerWrapper>
