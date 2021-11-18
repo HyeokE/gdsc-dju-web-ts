@@ -6,6 +6,8 @@ import 'firebase/compat/storage';
 import { firebaseKey as firebaseConfig } from './firebase.config';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
+import { MODAL_KEY, modalState } from '../api/hooks/modal';
+import { useRecoilState } from 'recoil';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

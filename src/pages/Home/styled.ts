@@ -80,9 +80,13 @@ export const LeftColorLinesWrapper = styled.div`
   transform: scaleX(-1);
   z-index: 1;
   position: absolute;
-  width: 500px;
+  max-width: 500px;
+  width: 40%;
   top: 350px;
   left: -230px;
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    width: 50%;
+  }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
     width: 400px;
@@ -95,9 +99,12 @@ export const RightColorLinesWrapper = styled.div`
   z-index: 1;
   position: absolute;
   top: 350px;
-  width: 500px;
+  max-width: 500px;
+  width: 40%;
   right: -230px;
-
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    width: 50%;
+  }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
     width: 400px;

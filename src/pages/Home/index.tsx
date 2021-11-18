@@ -1,20 +1,16 @@
 import React from 'react';
-import { ContainerInner, LayoutContainer, TopMargin } from '../../Layout';
-import { MainText, Title } from '../../components/common/Title/title';
+import { ContainerInner, LayoutContainer } from '../../Layout';
 import {
-  VideoWrapper,
-  StyledVideo,
-  StyledMainBanner,
-  LeftColorLinesWrapper,
-  RightColorLinesWrapper,
-  RecruitingWrapper,
-  MainBannerText,
-  ButtonWrapper,
   BannerTitleWrapper,
-  StyledButton,
+  ButtonWrapper,
+  LeftColorLinesWrapper,
+  MainBannerText,
   MarginPage,
+  RecruitingWrapper,
+  RightColorLinesWrapper,
+  StyledButton,
+  StyledMainBanner,
 } from './styled';
-import styled from 'styled-components';
 import Recruiting from '../../img/Recruiting';
 import ColorLines from '../../img/ColorLines';
 

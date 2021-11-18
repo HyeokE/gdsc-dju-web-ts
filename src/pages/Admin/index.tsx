@@ -1,67 +1,87 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Modal,
   VerticalItem,
   VerticalNavigation,
   VerticalSection,
 } from 'react-rainbow-components';
-import { StyledButton } from '../../components/common/Button/styled';
 import { SubTitle, Title } from '../../components/common/Title/title';
-import { StyledInput } from '../../components/Input/Input';
 import { ContainerInner, TopMargin } from '../../Layout';
 import { LayoutContainer } from '../../styles/layout';
 import './Admin.css';
-import {
-  AdminContainerWrapper,
-  ButtonWrapper,
-  SidebarContainer,
-} from './styled';
+import { AdminContainerWrapper, SidebarContainer } from './styled';
 import AdminContent from '../../components/common/AdminContent';
+import { useRecoilState } from 'recoil';
+import { MODAL_KEY, modalState } from '../../api/hooks/modal';
+import { StyledButton } from '../../components/common/Button/styled';
+import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
+import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
+import { authService } from '../../firebase/firebase';
+import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 
 const Admin = () => {
-  const [adminModal, setAdminModal] = useState(false);
-  const [getAdminEmail, setGetAdminEmail] = useState('');
+  const [modal, setModal] = useRecoilState(modalState);
   const [adminEmail, setAdminEmail] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Main');
-  const checkAdmin = () => {
-    if (adminEmail === 'Jason0909@gmail.com') {
-      setAdminModal(false);
-    } else {
-      setAdminModal(true);
-    }
+
+  const checkAdminUser = () => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        // console.log(user.emailVerified);
+        if (user.emailVerified === true) {
+          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
+        } else {
+          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
+          setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: true });
+        }
+      } else {
+        setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: true });
+      }
+    });
   };
   useEffect(() => {
-    checkAdmin();
+    checkAdminUser();
   }, [adminEmail]);
   return (
     <>
-      <Modal
-        size={'small'}
-        isOpen={adminModal}
-        style={{ display: 'flex', padding: '10px', width: 400 }}
-      >
-        <SubTitle>Admin Login</SubTitle>
-
-        <StyledInput
-          onChange={(e) => {
-            setGetAdminEmail(e.target.value);
-          }}
-        />
-        <ButtonWrapper>
-          <StyledButton
-            onClick={() => {
-              setAdminEmail(getAdminEmail);
-            }}
-          >
-            관리자 로그인
-          </StyledButton>
-        </ButtonWrapper>
-      </Modal>
+      <AdminSetUserProfile />
+      <AdminSignInModal />
+      <AdminSignUpModal />
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
           <Title>Admin Page</Title>
           <SubTitle>안녕하세요 관리자님</SubTitle>
+          <div
+            onClick={() => {
+              authService
+                .signOut()
+                .then((e) => {
+                  console.log(e);
+                  // Sign-out successful.
+                })
+                .catch((error) => {
+                  // An error happened.
+                });
+            }}
+          >
+            로그아웃
+          </div>
+          <StyledButton
+            onClick={() => {
+              setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: true });
+              console.log(modal.adminSignUp);
+            }}
+          >
+            로그인
+          </StyledButton>
+          <StyledButton
+            onClick={() => {
+              setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
+              console.log(modal.adminSignUp);
+            }}
+          >
+            회원가입
+          </StyledButton>
           <TopMargin />
           <AdminContainerWrapper>
             <SidebarContainer>
@@ -77,7 +97,7 @@ const Admin = () => {
                   <VerticalItem name="Warn-Count" label="Warn Count" />
                 </VerticalSection>
                 <VerticalSection label="Recruitment">
-                  <VerticalItem name="CoreMember" label="Core Member" />
+                  <VerticalItem name="Core-Member" label="Core Member" />
                   <VerticalItem name="Member" label="Member" />
                 </VerticalSection>
               </VerticalNavigation>
