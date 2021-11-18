@@ -22,12 +22,12 @@ import {
 
 import yellowBanner from '../../img/YellowBanner.png';
 import { StyledButton } from '../../components/common/Button/styled';
-import { TeamList } from '../../api/teamList';
+import { TeamInfomation } from '../../api/teamInfomation';
 import GreenBanner from '../../img/GreenBanner.png';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const aboutTeam = TeamList.find((aboutTeam) => aboutTeam.id === id);
+  const aboutTeam = TeamInfomation.find((aboutTeam) => aboutTeam.id === id);
   const history = useHistory();
   return (
     <>

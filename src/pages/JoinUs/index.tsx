@@ -14,7 +14,7 @@ import {
   TeamCategoryWrapper,
   TeamSubCategory,
 } from './styled';
-import { TeamInfomation } from '../../api/teamInfomation';
+import { TeamList } from '../../api/teamList';
 import { useHistory } from 'react-router';
 import BlueBanner from '../../img/BlueBanner.png';
 
@@ -42,7 +42,7 @@ export const JoinUs = () => {
             <TeamSubCategory>Skill</TeamSubCategory>
             <TeamSubCategory>Stack</TeamSubCategory>
           </TeamCategoryWrapper>
-          {TeamInfomation.map((data, key) => (
+          {TeamList.map((data, key) => (
             <CategoryWrapper
               key={key}
               onClick={() => {
@@ -56,7 +56,7 @@ export const JoinUs = () => {
               </CategoryInner>
             </CategoryWrapper>
           ))}
-          {TeamInfomation.map((data, key) => (
+          {TeamList.map((data, key) => (
             <MobileCategoryWrapper
               key={key}
               onClick={() => {
