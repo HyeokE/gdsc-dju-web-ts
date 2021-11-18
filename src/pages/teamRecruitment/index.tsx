@@ -22,7 +22,7 @@ import {
 
 import yellowBanner from '../../img/YellowBanner.png';
 import { StyledButton } from '../../components/common/Button/styled';
-import { TeamList } from '../../hooks/teamList';
+import { TeamList } from '../../api/teamList';
 import GreenBanner from '../../img/GreenBanner.png';
 
 export const Recuritment: React.FC = () => {

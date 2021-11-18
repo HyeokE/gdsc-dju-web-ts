@@ -9,7 +9,7 @@ import {
 } from '../../Layout';
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper, StyledModal } from './styled';
-import { memberList } from '../../hooks/memberList';
+import { memberList } from '../../api/memberList';
 import { BannerImage, BannerWrapper } from '../../Layout/index';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 // import Modal from '../../components/common/Modal/index';

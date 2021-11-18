@@ -32,7 +32,7 @@ export const TeamList = [
   },
   {
     id: 'machineLearning',
-    name: 'Machine Learning Position (Open CV)',
+    name: 'Machine Learning (Open CV)',
     people:
       '머신 러닝 알고리즘에 대한 기본기를 갖추신 분\n' +
       '오픈소스를 활용한 모델의 학습 및 개선 경험이 있으신 분',

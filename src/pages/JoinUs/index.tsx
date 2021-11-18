@@ -14,7 +14,7 @@ import {
   TeamCategoryWrapper,
   TeamSubCategory,
 } from './styled';
-import { TeamInfomation } from '../../hooks/teamInfomation';
+import { TeamInfomation } from '../../api/teamInfomation';
 import { useHistory } from 'react-router';
 import BlueBanner from '../../img/BlueBanner.png';
 

@@ -31,7 +31,7 @@ const Admin = () => {
     }
   };
   useEffect(() => {
-    // checkAdmin();
+    checkAdmin();
   }, [adminEmail]);
   return (
     <>
@@ -84,6 +84,7 @@ const Admin = () => {
             </SidebarContainer>
             <AdminContent selectedCategory={selectedCategory} />
           </AdminContainerWrapper>
+          <TopMargin />
           <TopMargin />
         </ContainerInner>
       </LayoutContainer>
