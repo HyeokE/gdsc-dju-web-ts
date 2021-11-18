@@ -25,6 +25,7 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-intl": "3.1.0",
+    "react-rainbow-components": "^1.27.0",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",

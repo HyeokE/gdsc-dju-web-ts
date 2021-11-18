@@ -77,6 +77,7 @@ export const memberList = [
     role: 'Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CPD32N3D-6b7a165e5bb6-512',
+    introduce: '낮밤 언제 바꾸지...',
     position: 'none',
   },
   {

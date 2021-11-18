@@ -19,7 +19,7 @@ export const TeamInfomation = [
   },
   {
     id: 'machineLearning',
-    name: 'Machine Learning Developer',
+    name: 'AI (Machine Learning)',
     skill: 'Open CV',
     stack: '',
   },

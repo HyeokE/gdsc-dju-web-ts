@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledInput = styled.input`
+  display: flex;
+  box-sizing: border-box;
   border-width: 2px;
   border-color: #e5e8eb;
   border-radius: 15px;

@@ -1,11 +1,22 @@
 import React from 'react';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-import { ContainerInner, List, Tage, TopMargin } from '../../Layout';
+import {
+  BannerImage,
+  BannerWrapper,
+  ContainerInner,
+  List,
+  Tage,
+  TopMargin,
+} from '../../Layout';
 import { LayoutContainer } from '../../styles/layout';
+import YellowBanner from '../../img/YellowBanner.png';
 
 export const Question = () => {
   return (
     <>
+      <BannerWrapper>
+        <BannerImage src={YellowBanner} />
+      </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
@@ -58,6 +69,7 @@ export const Question = () => {
               정기세미나와 스터디 외에 다른 활동은 자율입니다.
             </List>
           </MainText>
+          <TopMargin />
         </ContainerInner>
       </LayoutContainer>
     </>

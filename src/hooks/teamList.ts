@@ -1,7 +1,7 @@
 export const TeamList = [
   {
     id: 'android',
-    name: 'Android Position (Kotlin)',
+    name: 'Android Developer (Kotlin)',
     people: undefined,
     preferential:
       'Android, Kotlin 개발 경험이 있으신 분이면 좋습니다.\n' +
@@ -10,7 +10,7 @@ export const TeamList = [
   },
   {
     id: 'frontend',
-    name: 'Frontend Position (React)',
+    name: 'Frontend Developer (React)',
     people:
       '코딩에 진심이신 분\n' +
       '의견 전달이나 수용에 거리낌이 없으신 분\n' +
@@ -19,7 +19,7 @@ export const TeamList = [
   },
   {
     id: 'backend',
-    name: 'Backend Position (Spring)',
+    name: 'Backend Developer (Spring)',
     people:
       '소통이 잘 되시는 분\n' +
       '팀 프로젝트 경험이 있으신 분\n' +
