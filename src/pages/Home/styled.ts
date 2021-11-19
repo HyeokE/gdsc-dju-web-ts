@@ -114,7 +114,7 @@ export const RightColorLinesWrapper = styled.div`
   }
 `;
 export const MarginPage = styled.div`
-  height: 1300px;
+  height: 500px;
 `;
 export const ButtonWrapper = styled.div`
   margin-top: 50px;

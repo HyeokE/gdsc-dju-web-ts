@@ -147,7 +147,9 @@ export const Recuritment: React.FC = () => {
                   자체 스터디를 위한 google의 코세라, 퀵랩 바우처 지급
                 </List>
               </MainText>
+              <TopMargin />
             </IntroduceWrapper>
+
             <JoinWrapper>
               <ElementWrapper>
                 <MinTitle>소속</MinTitle>
@@ -162,7 +164,13 @@ export const Recuritment: React.FC = () => {
                 <MinText>1년이상</MinText>
               </ElementWrapper>
               <TopMargin />
-              <StyledButton> 지원기간이 아닙니다. </StyledButton>
+              <StyledButton
+                onClick={() => {
+                  window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
+                }}
+              >
+                지원하기
+              </StyledButton>
               <SmallTopMargin />
               <StyledButton
                 onClick={() => {
