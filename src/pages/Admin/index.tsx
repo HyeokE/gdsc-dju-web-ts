@@ -8,28 +8,49 @@ import { SubTitle, Title } from '../../components/common/Title/title';
 import { ContainerInner, TopMargin } from '../../Layout';
 import { LayoutContainer } from '../../styles/layout';
 import './Admin.css';
-import { AdminContainerWrapper, SidebarContainer } from './styled';
+import {
+  AdminContainerWrapper,
+  ButtonElementWrapper,
+  SidebarContainer,
+  StyledAdminButton,
+  StyledButtonWrapper,
+} from './styled';
 import AdminContent from '../../components/common/AdminContent';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../api/hooks/modal';
-import { StyledButton } from '../../components/common/Button/styled';
 import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
-import { authService } from '../../firebase/firebase';
+import { authService, dbService } from '../../firebase/firebase';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
+import { userState } from '../../api/hooks/user';
 
 const Admin = () => {
   const [modal, setModal] = useRecoilState(modalState);
   const [adminEmail, setAdminEmail] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Main');
+  const [adminUser, setAdminUser] = useRecoilState(userState);
 
   const checkAdminUser = () => {
-    authService.onAuthStateChanged((user) => {
+    authService.onAuthStateChanged(async (user) => {
       if (user) {
         // console.log(user.emailVerified);
-        if (user.emailVerified === true) {
-          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
-        } else {
+        try {
+          await dbService
+            .collection('adminUsers')
+            .doc(user.uid)
+            .get()
+            .then((data) => {
+              const userData = data.data();
+              setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
+              setAdminUser({
+                ...adminUser,
+                uid: user.uid,
+                nickName: userData?.nickName,
+                name: userData?.name,
+                phoneNumber: userData?.phoneNumber,
+              });
+            });
+        } catch (error) {
           setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
           setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: true });
         }
@@ -50,38 +71,36 @@ const Admin = () => {
         <ContainerInner>
           <TopMargin />
           <Title>Admin Page</Title>
-          <SubTitle>안녕하세요 관리자님</SubTitle>
-          <div
-            onClick={() => {
-              authService
-                .signOut()
-                .then((e) => {
-                  console.log(e);
-                  // Sign-out successful.
-                })
-                .catch((error) => {
-                  // An error happened.
-                });
-            }}
-          >
-            로그아웃
-          </div>
-          <StyledButton
-            onClick={() => {
-              setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: true });
-              console.log(modal.adminSignUp);
-            }}
-          >
-            로그인
-          </StyledButton>
-          <StyledButton
-            onClick={() => {
-              setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
-              console.log(modal.adminSignUp);
-            }}
-          >
-            회원가입
-          </StyledButton>
+          <SubTitle>Hello {adminUser.nickName}</SubTitle>
+          <ButtonElementWrapper>
+            <StyledButtonWrapper>
+              <StyledAdminButton
+                onClick={() => {
+                  authService
+                    .signOut()
+                    .then((e) => {
+                      console.log(e);
+                      // Sign-out successful.
+                    })
+                    .catch((error) => {
+                      console.log(error.message);
+                    });
+                }}
+              >
+                로그아웃
+              </StyledAdminButton>
+            </StyledButtonWrapper>
+            <StyledButtonWrapper>
+              <StyledAdminButton
+                onClick={() => {
+                  setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
+                  console.log(modal.adminSignUp);
+                }}
+              >
+                회원가입
+              </StyledAdminButton>
+            </StyledButtonWrapper>
+          </ButtonElementWrapper>
           <TopMargin />
           <AdminContainerWrapper>
             <SidebarContainer>

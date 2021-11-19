@@ -7,17 +7,29 @@ import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { modalState } from '../../../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 import { dbService } from '../../../../firebase/firebase';
+import { userState } from '../../../../api/hooks/user';
 
 const AdminSetUserProfile = () => {
   const [name, setName] = useState('');
   const [nickName, setNickName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [modal, setModal] = useRecoilState(modalState);
+  const [adminUser, setAdminUser] = useRecoilState(userState);
 
   const setUserProfile = () => {
-    dbService.collection('adminUsers').doc();
+    // dbService.collection('adminUsers').doc().get;
+    try {
+      dbService.collection('adminUsers').doc(adminUser.uid).set({
+        name: name,
+        nickName: nickName,
+        phoneNumber: phoneNumber,
+      });
+      setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: false });
+    } catch (e) {
+      console.log(e);
+    }
   };
   const onChange = (e: any) => {
     console.log(e.target.name);
@@ -56,7 +68,13 @@ const AdminSetUserProfile = () => {
           {/*{error}*/}
         </ModalElementWrapper>
         <ButtonWrapper>
-          <StyledButton>Admin SignIn</StyledButton>
+          <StyledButton
+            onClick={() => {
+              setUserProfile();
+            }}
+          >
+            Admin SignIn
+          </StyledButton>
         </ButtonWrapper>
       </Modal>
     </div>

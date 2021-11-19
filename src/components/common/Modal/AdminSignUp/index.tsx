@@ -66,15 +66,13 @@ const AdminSignUpModal = () => {
         <ModalElementWrapper>
           비밀번호
           <StyledInput
+            type={'password'}
             name={'password'}
             onChange={onChange}
             placeholder={'Password'}
           />
         </ModalElementWrapper>
-        <ModalElementWrapper>
-          이름
-          <StyledInput name={'name'} onChange={onChange} placeholder={'Name'} />
-        </ModalElementWrapper>
+
         <ModalElementWrapper style={{ color: '#f44336' }}>
           {error}
         </ModalElementWrapper>
