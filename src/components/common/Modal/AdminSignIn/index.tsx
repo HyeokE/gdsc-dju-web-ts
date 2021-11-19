@@ -26,7 +26,10 @@ const AdminSignInModal = () => {
         setError('이메일 가입이 중지되었습니다.');
       } else if (error.code == 'auth/weak-password') {
         setError('비밀번호를 6자리 이상 입력하세요.');
+      } else if (error.code == 'aauth/user-not-found') {
+        setError('올바르지 않은 유저정보입니다.');
       }
+      console.log(error.message);
     });
   };
 

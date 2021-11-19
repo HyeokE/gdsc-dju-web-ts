@@ -34,7 +34,7 @@ export const Home = () => {
           <ButtonWrapper>
             <StyledButton>지원기간이 아닙니다.</StyledButton>
           </ButtonWrapper>
-          <MainBannerText>11.29 ~ 12. 05</MainBannerText>
+          <MainBannerText>11. 22 ~ 12. 19</MainBannerText>
         </RecruitingWrapper>
       </BannerTitleWrapper>
       <LayoutContainer>

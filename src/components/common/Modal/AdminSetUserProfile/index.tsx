@@ -32,7 +32,6 @@ const AdminSetUserProfile = () => {
     }
   };
   const onChange = (e: any) => {
-    console.log(e.target.name);
     const {
       target: { name, value },
     } = e;

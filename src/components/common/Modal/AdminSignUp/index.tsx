@@ -5,9 +5,10 @@ import { ButtonWrapper } from '../../../../pages/Admin/styled';
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
-import { modalState } from '../../../../api/hooks/modal';
+import { modalState, MODAL_KEY } from '../../../../api/hooks/modal';
 import { authService } from '../../../../firebase/firebase';
 import { ModalElementWrapper } from '../styled';
+import './AdminSignUp.css';
 
 const AdminSignUpModal = () => {
   const [modal, setModal] = useRecoilState(modalState);
@@ -51,6 +52,9 @@ const AdminSignUpModal = () => {
         size={'small'}
         style={{ display: 'flex', padding: '10px', width: 400 }}
         isOpen={modal.adminSignUp}
+        onRequestClose={() =>
+          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: false })
+        }
       >
         <ModalElementWrapper>
           <SubTitle>Admin Signup</SubTitle>

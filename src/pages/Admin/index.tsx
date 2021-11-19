@@ -26,13 +26,16 @@ import { userState } from '../../api/hooks/user';
 
 const Admin = () => {
   const [modal, setModal] = useRecoilState(modalState);
-  const [adminEmail, setAdminEmail] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Main');
   const [adminUser, setAdminUser] = useRecoilState(userState);
 
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user) => {
       if (user) {
+        await setAdminUser({
+          ...adminUser,
+          uid: user.uid,
+        });
         // console.log(user.emailVerified);
         try {
           await dbService
@@ -41,18 +44,24 @@ const Admin = () => {
             .get()
             .then((data) => {
               const userData = data.data();
-              setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
-              setAdminUser({
-                ...adminUser,
-                uid: user.uid,
-                nickName: userData?.nickName,
-                name: userData?.name,
-                phoneNumber: userData?.phoneNumber,
-              });
+              console.log(userData);
+              if (userData == undefined) {
+                setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
+                setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: true });
+                console.log(modal.adminSetProfile);
+              } else {
+                setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
+                setAdminUser({
+                  ...adminUser,
+                  uid: user.uid,
+                  nickName: userData?.nickName,
+                  name: userData?.name,
+                  phoneNumber: userData?.phoneNumber,
+                });
+              }
             });
-        } catch (error) {
-          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
-          setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: true });
+        } catch (e: any) {
+          console.log(e.message);
         }
       } else {
         setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: true });
@@ -60,8 +69,9 @@ const Admin = () => {
     });
   };
   useEffect(() => {
+    console.log(adminUser.nickName);
     checkAdminUser();
-  }, [adminEmail]);
+  }, []);
   return (
     <>
       <AdminSetUserProfile />
