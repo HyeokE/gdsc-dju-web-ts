@@ -10,7 +10,7 @@
 
 # production
 /build
-/memberList.ts
+memberList.ts
 
 # misc
 .DS_Store
