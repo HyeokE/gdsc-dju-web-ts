@@ -13,15 +13,12 @@ import { memberList } from '../../api/memberList';
 import { BannerImage, BannerWrapper } from '../../Layout/index';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 // import Modal from '../../components/common/Modal/index';
-import { Modal } from 'react-rainbow-components';
 import GreenBanner from '../../img/GreenBanner.png';
-import { useRecoilState } from 'recoil';
 import {
   MemberImg,
   Name,
   NickName,
   Role,
-  StyledMemberCard,
 } from '../../components/common/card/MemberCard/styled';
 import { Skeleton } from '@mui/material';
 

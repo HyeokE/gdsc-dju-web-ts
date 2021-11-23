@@ -9,6 +9,7 @@ export const SidebarContainer = styled.div`
 export const AdminContainerWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 export const StyledButtonWrapper = styled.div`
   width: 100px;

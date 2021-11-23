@@ -23,10 +23,18 @@ import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { userState } from '../../api/hooks/user';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome,
+  faUserFriends,
+  faClipboard,
+  faUsersSlash,
+  faUsersCog,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Admin = () => {
   const [modal, setModal] = useRecoilState(modalState);
-  const [selectedCategory, setSelectedCategory] = useState('Main');
+  const [selectedCategory, setSelectedCategory] = useState('Home');
   const [adminUser, setAdminUser] = useRecoilState(userState);
 
   const checkAdminUser = () => {
@@ -104,7 +112,6 @@ const Admin = () => {
               <StyledAdminButton
                 onClick={() => {
                   setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
-                  console.log(modal.adminSignUp);
                 }}
               >
                 회원가입
@@ -120,14 +127,32 @@ const Admin = () => {
                   setSelectedCategory(selectedItem)
                 }
               >
-                <VerticalSection label="Member">
-                  <VerticalItem name="Main" label="Main" />
-                  <VerticalItem name="Member-List" label="Member List" />
-                  <VerticalItem name="Warn-Count" label="Warn Count" />
-                </VerticalSection>
-                <VerticalSection label="Recruitment">
-                  <VerticalItem name="Core-Member" label="Core Member" />
-                  <VerticalItem name="Member" label="Member" />
+                <VerticalSection>
+                  <VerticalItem
+                    name="Home"
+                    label="Home"
+                    icon={<FontAwesomeIcon icon={faHome} />}
+                  />
+                  <VerticalItem
+                    name="Members"
+                    label="Members"
+                    icon={<FontAwesomeIcon icon={faUserFriends} />}
+                  />
+                  <VerticalItem
+                    name="Warning"
+                    label="Warning"
+                    icon={<FontAwesomeIcon icon={faUsersSlash} />}
+                  />
+                  <VerticalItem
+                    name="Setting"
+                    label="Setting"
+                    icon={<FontAwesomeIcon icon={faUsersCog} />}
+                  />
+                  <VerticalItem
+                    name="WebSetting"
+                    label="Web Setting"
+                    icon={<FontAwesomeIcon icon={faClipboard} />}
+                  />
                 </VerticalSection>
               </VerticalNavigation>
             </SidebarContainer>

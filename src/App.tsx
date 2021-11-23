@@ -4,7 +4,6 @@ import { theme } from './styles/theme';
 import { Main } from './components/main';
 import './App.css';
 import { RecoilRoot } from 'recoil';
-import { authService, dbService } from './firebase/firebase';
 
 function App() {
   return (

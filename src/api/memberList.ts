@@ -7,6 +7,9 @@ export const memberList = [
       'https://ca.slack-edge.com/T02BE2ERU5A-U02B4R8P8HK-bdf04fe4ad6b-512',
     introduce: '리액트에 미친 사람입니다',
     position: 'Frontend',
+    email: 'jhjeong00@gmail.com',
+    phoneNumber: '010-2544-1586',
+    warning: 0,
   },
   {
     nickName: 'Harry',
@@ -16,6 +19,9 @@ export const memberList = [
       'https://ca.slack-edge.com/T02BE2ERU5A-U02BR888JMT-dd70b40bca94-512',
     introduce: '엄마 나 여기있어',
     position: 'Android',
+    email: 'jungsanmango@gmail.com',
+    phoneNumber: '010-4255-9251',
+    warning: 0,
   },
   {
     nickName: 'Want',
@@ -24,25 +30,34 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CH6KQT8Q-a03a44566103-512',
     introduce: '빛나지만 눈부시지 않게',
-    position: 'none',
+    position: 'Backend',
+    email: 'shinequasar@gmail.com',
+    phoneNumber: '010-2852-0536',
+    warning: 0,
   },
   {
     nickName: 'Samjong',
     name: '김지훈',
-    role: 'Core Member',
+    role: 'Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02D2S7GQN5-c24df3df3cea-512',
     introduce: '더 나은 미래',
-    position: 'none',
+    position: 'Backend',
+    email: 'samjong0523@gmail.com',
+    phoneNumber: '010-5248-9121',
+    warning: 0,
   },
   {
-    nickName: 'roccoli',
+    nickName: 'Roccoli',
     name: '유형찬',
     role: 'Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02C8B72LT1-e35fe9b38122-512',
     introduce: '내 죽음이 내 삶 보다 가취가 있기를',
-    position: 'none',
+    position: 'Backend',
+    email: 'gudcks305@gmail.com',
+    phoneNumber: '010-9132-7434',
+    warning: 0,
   },
   {
     nickName: 'Reese',
@@ -51,7 +66,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CH2LV8VC-efb0ce60230f-512',
     introduce: '개미는 오늘도 열심히 일을 하네',
-    position: 'none',
+    position: 'Backend',
+    email: 'ajw5921@gmail.com',
+    phoneNumber: '010-8298-1610 ',
+    warning: 1,
   },
   {
     nickName: 'Lulu',
@@ -60,7 +78,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CWDN14CU-557c4fe53e5e-512',
     introduce: '룰루하게 살아보아요 ^&^',
-    position: 'none',
+    position: 'Backend',
+    email: 'tnwlsk0190@gmail.com',
+    phoneNumber: '010-4027-0190',
+    warning: 0,
   },
 
   {
@@ -70,7 +91,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02D2TD1K7T-81eef4628af6-512',
     introduce: '어깨는 딸기맛 등은 초코맛',
-    position: 'none',
+    position: 'Frontend',
+    email: 'gusals121234@gmail.com',
+    phoneNumber: '010-8794-3202',
+    warning: 2,
   },
   {
     nickName: 'Jade	',
@@ -79,7 +103,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CPD32N3D-6b7a165e5bb6-512',
     introduce: '낮밤 언제 바꾸지...',
-    position: 'none',
+    position: 'Frontend',
+    email: 'wjddn2000124@gmail.com',
+    phoneNumber: '010-5046-7107',
+    warning: 0,
   },
   {
     nickName: 'Gabi	',
@@ -88,7 +115,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CPF84WSX-cb49cf16f436-512',
     introduce: '王자 만들고 싶다',
-    position: 'none',
+    position: 'Frontend',
+    email: 'habaik0147@gmail.com',
+    phoneNumber: '010-3461-0826',
+    warning: 0,
   },
 
   {
@@ -98,7 +128,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CM3382ER-41670417f48d-512',
     introduce: '왜요? 제가 INFP처럼 보이나요?',
-    position: 'none',
+    position: 'Android',
+    email: 'w36495@gmail.com',
+    phoneNumber: '010-4939-9661',
+    warning: 0,
   },
   {
     nickName: 'Jimmy',
@@ -107,7 +140,10 @@ export const memberList = [
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02C955NKF1-a4f02af91966-512',
     introduce: '약은 약사에게, 역학은 지미에게',
-    position: 'none',
+    position: 'Android',
+    email: 'ajdwl0315@gmail.com',
+    phoneNumber: '010-5112-9327',
+    warning: 0,
   },
 
   {
@@ -118,6 +154,9 @@ export const memberList = [
       'https://ca.slack-edge.com/T02BE2ERU5A-U02C9FTGT7H-6573ad607286-512',
     introduce: '복잡한 걸 좋아하는 사람은 없다',
     position: 'none',
+    email: '20191402@daejin.ac.kr',
+    phoneNumber: '010-3277-8930',
+    warning: 2,
   },
   {
     nickName: 'Lala	',
@@ -127,6 +166,9 @@ export const memberList = [
       'https://ca.slack-edge.com/T02BE2ERU5A-U02D2RXTP3K-5b98e49b6beb-512',
     introduce: 'ㅅ..살려주세요..자고싶어요....',
     position: 'none',
+    email: 'gjdns0517@gmail.com',
+    phoneNumber: '010-9380-8393',
+    warning: 1,
   },
   {
     nickName: 'Lucy	',
@@ -136,5 +178,8 @@ export const memberList = [
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CH3YMBE2-03395b575cae-512',
     introduce: '저는 아무고토 몰라요..',
     position: 'none',
+    email: 'jinh2376@gmail.com',
+    phoneNumber: '010-5008-1826',
+    warning: 1,
   },
 ];

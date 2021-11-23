@@ -23,7 +23,6 @@ import {
 import yellowBanner from '../../img/YellowBanner.png';
 import { StyledButton } from '../../components/common/Button/styled';
 import { TeamInfomation } from '../../api/teamInfomation';
-import GreenBanner from '../../img/GreenBanner.png';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,7 +37,6 @@ export const Recuritment: React.FC = () => {
         <ContainerInner>
           <TopMargin />
           <Title>{aboutTeam?.name}</Title>
-
           <TopMargin />
           <MainText>열정적인 동료를 얻기 위해 이 자리에 모였습니다.</MainText>
           <MainText>
