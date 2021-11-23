@@ -4,6 +4,7 @@ export const Title = styled.div`
   font-size: 48px;
   font-weight: bold;
   color: #333c4b;
+  word-break: break-word;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 40px;
   }

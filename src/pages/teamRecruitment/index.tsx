@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import {
+  BannerImage,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
@@ -8,18 +9,18 @@ import {
   SmallTopMargin,
   Tage,
   TopMargin,
-  BannerImage,
 } from '../../Layout';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import {
   ElementWrapper,
-  JoinWrapper,
-  SectionWrapper,
   IntroduceWrapper,
+  JoinInner,
+  JoinWrapper,
   MinText,
   MinTitle,
-  JoinInner,
-  MoblieElementWrapper,
+  MoblieBottomElementWrapper,
+  MoblieTopElementWrapper,
+  SectionWrapper,
 } from './styled';
 
 import yellowBanner from '../../img/YellowBanner.png';
@@ -41,7 +42,7 @@ export const Recuritment: React.FC = () => {
 
           <Title>{aboutTeam?.name}</Title>
           <TopMargin />
-          <MoblieElementWrapper>
+          <MoblieTopElementWrapper>
             <JoinInner>
               <ElementWrapper>
                 <MinTitle>소속</MinTitle>
@@ -57,7 +58,7 @@ export const Recuritment: React.FC = () => {
               </ElementWrapper>
               <TopMargin />
             </JoinInner>
-          </MoblieElementWrapper>
+          </MoblieTopElementWrapper>
           <MainText>열정적인 동료를 얻기 위해 이 자리에 모였습니다.</MainText>
           <MainText>
             우리는 함께 고민을 나누고 도전하며 목표를 향해 달리고 있습니다.
@@ -204,7 +205,7 @@ export const Recuritment: React.FC = () => {
               </JoinInner>
             </JoinWrapper>
           </SectionWrapper>
-          <MoblieElementWrapper>
+          <MoblieBottomElementWrapper>
             <StyledButton
               onClick={() => {
                 history.push('/question');
@@ -219,7 +220,7 @@ export const Recuritment: React.FC = () => {
             >
               지원하기
             </StyledButton>
-          </MoblieElementWrapper>
+          </MoblieBottomElementWrapper>
         </ContainerInner>
       </LayoutContainer>
       <TopMargin />

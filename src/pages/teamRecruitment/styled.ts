@@ -12,7 +12,7 @@ export const SectionWrapper = styled.div`
 `;
 export const IntroduceWrapper = styled.div`
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    width: 320px;
+    max-width: 320px;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     max-width: 550px;
@@ -32,6 +32,12 @@ export const JoinInner = styled.div`
   width: 100%;
   top: 100px;
   flex-direction: column;
+  @media (max-width: 500px) {
+    position: initial;
+  }
+  @media (max-width: 320px) {
+    position: initial;
+  }
 `;
 export const MinTitle = styled.div`
   width: 90px;
@@ -52,13 +58,21 @@ export const ElementWrapper = styled.div`
     width: 100%;
   }
 `;
-export const MoblieElementWrapper = styled.div`
+export const MoblieTopElementWrapper = styled.div`
   display: none;
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
 
+    bottom: 10px;
+  }
+`;
+export const MoblieBottomElementWrapper = styled.div`
+  display: none;
   @media (max-width: 500px) {
     display: flex;
     flex-direction: column;
     position: sticky;
-    bottom: 10px;
+    bottom: 0px;
   }
 `;
