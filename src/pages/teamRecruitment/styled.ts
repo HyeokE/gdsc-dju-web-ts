@@ -11,17 +11,25 @@ export const SectionWrapper = styled.div`
   }
 `;
 export const IntroduceWrapper = styled.div`
-  min-width: ${(props) => props.theme.windowSize.mobile} {
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     width: 320px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    max-width: 550px;
   }
 `;
 export const JoinWrapper = styled.div`
   width: 337px;
   min-width: 250px;
+  display: none;
+  @media (min-width: 500px) {
+    display: flex;
+  }
 `;
 export const JoinInner = styled.div`
   display: flex;
   position: sticky;
+  width: 100%;
   top: 100px;
   flex-direction: column;
 `;
@@ -42,5 +50,15 @@ export const ElementWrapper = styled.div`
   border-top: 1px solid rgba(0, 29, 58, 0.18);
   @media (max-width: 500px) {
     width: 100%;
+  }
+`;
+export const MoblieElementWrapper = styled.div`
+  display: none;
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    bottom: 10px;
   }
 `;

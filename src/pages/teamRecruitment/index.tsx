@@ -19,6 +19,7 @@ import {
   MinText,
   MinTitle,
   JoinInner,
+  MoblieElementWrapper,
 } from './styled';
 
 import yellowBanner from '../../img/YellowBanner.png';
@@ -37,13 +38,32 @@ export const Recuritment: React.FC = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
+
           <Title>{aboutTeam?.name}</Title>
           <TopMargin />
+          <MoblieElementWrapper>
+            <JoinInner>
+              <ElementWrapper>
+                <MinTitle>소속</MinTitle>
+                <MinText>{aboutTeam?.name}</MinText>
+              </ElementWrapper>
+              <ElementWrapper>
+                <MinTitle>합류과정</MinTitle>
+                <MinText>1차 서류 - 2차 면접 </MinText>
+              </ElementWrapper>
+              <ElementWrapper>
+                <MinTitle>활동기간</MinTitle>
+                <MinText>1년이상</MinText>
+              </ElementWrapper>
+              <TopMargin />
+            </JoinInner>
+          </MoblieElementWrapper>
           <MainText>열정적인 동료를 얻기 위해 이 자리에 모였습니다.</MainText>
           <MainText>
             우리는 함께 고민을 나누고 도전하며 목표를 향해 달리고 있습니다.
           </MainText>
           <TopMargin />
+
           <SectionWrapper>
             <IntroduceWrapper>
               <SubTitle>이런 분을 찾습니다</SubTitle>
@@ -184,6 +204,22 @@ export const Recuritment: React.FC = () => {
               </JoinInner>
             </JoinWrapper>
           </SectionWrapper>
+          <MoblieElementWrapper>
+            <StyledButton
+              onClick={() => {
+                history.push('/question');
+              }}
+            >
+              자주 하는 질문
+            </StyledButton>
+            <StyledButton
+              onClick={() => {
+                window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
+              }}
+            >
+              지원하기
+            </StyledButton>
+          </MoblieElementWrapper>
         </ContainerInner>
       </LayoutContainer>
       <TopMargin />
