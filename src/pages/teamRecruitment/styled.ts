@@ -17,6 +17,7 @@ export const IntroduceWrapper = styled.div`
 `;
 export const JoinWrapper = styled.div`
   width: 337px;
+  min-width: 250px;
 `;
 export const JoinInner = styled.div`
   display: flex;

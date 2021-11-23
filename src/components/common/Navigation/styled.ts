@@ -35,10 +35,23 @@ export const StyledLogo = styled.div`
   color: #4e4e4e;
   margin-right: 10px;
   font-weight: bold;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+export const SchoolNameUni = styled.div`
+  color: #4e4e4e;
+  margin-right: 10px;
+  @media (max-width: 740px) {
+    display: none;
+  }
 `;
 export const SchoolName = styled.div`
   color: #4e4e4e;
   margin-right: 10px;
+  @media (max-width: 670px) {
+    display: none;
+  }
 `;
 export const WideNavigation = styled.div`
   z-index: 999;
@@ -73,7 +86,7 @@ export const StyledLink = styled(Link)`
 export const NavTask = styled.li`
   display: flex;
   align-items: center;
-  margin: 0px 7px;
+  margin: 0px 5px;
   cursor: pointer;
   color: #4e5968;
   font-size: 16px;

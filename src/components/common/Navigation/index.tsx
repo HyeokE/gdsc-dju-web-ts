@@ -6,6 +6,7 @@ import {
   NavTask,
   NavTaskWrapper,
   SchoolName,
+  SchoolNameUni,
   StyledImg,
   StyledLogo,
   StyledLogoWrapper,
@@ -27,7 +28,8 @@ const Navigation: React.FC = () => {
                 height={40}
               />
               <StyledLogo>GDSC </StyledLogo>
-              <SchoolName>Daejin Univ.</SchoolName>
+              <SchoolName>Daejin</SchoolName>
+              <SchoolNameUni>Univ.</SchoolNameUni>
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>

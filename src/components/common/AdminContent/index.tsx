@@ -5,19 +5,18 @@ import {
   Badge,
 } from 'react-rainbow-components';
 import { dbService } from '../../../firebase/firebase';
-import { memberList } from '../../../api/memberList';
 import { UserDataState } from '../../../store/user';
 
 export interface UserDataState {
-  nickName: string;
-  name: string;
-  role: string;
-  memberImg: string;
-  introduce: string;
-  position: string;
-  email: string;
-  phoneNumber: string;
-  warning: number;
+  nickName: string | undefined;
+  name: string | undefined;
+  role: string | undefined;
+  memberImg: string | undefined;
+  introduce: string | undefined;
+  position: string | undefined;
+  email: string | undefined;
+  phoneNumber: string | undefined;
+  warning: string | undefined;
 }
 
 const AdminContent: React.FC<{ selectedCategory: string }> = ({
@@ -64,14 +63,14 @@ const AdminContent: React.FC<{ selectedCategory: string }> = ({
         <div>
           <TableWithBrowserPagination
             pageSize={5}
-            data={memberList}
+            // data={memberData}
             keyField="id"
           >
             <Column header="role" field="role" />
             <Column header="name" field="name" />
             <Column header="nickName" field="nickName" />
             <Column header="Email" field="email" />
-            <Column header="Date of Birth" field="dob" />
+            <Column header="phoneNumber" field="phoneNumber" />
             <Column header="City" field="city" />
           </TableWithBrowserPagination>
         </div>
