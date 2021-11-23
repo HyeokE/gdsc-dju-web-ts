@@ -16,6 +16,9 @@ export const IntroduceWrapper = styled.div`
   }
 `;
 export const JoinWrapper = styled.div`
+  width: 337px;
+`;
+export const JoinInner = styled.div`
   display: flex;
   position: sticky;
   top: 100px;
@@ -33,7 +36,6 @@ export const MinText = styled.div`
 `;
 
 export const ElementWrapper = styled.div`
-  width: 300px;
   padding: 14px 0px;
   display: flex;
   border-top: 1px solid rgba(0, 29, 58, 0.18);

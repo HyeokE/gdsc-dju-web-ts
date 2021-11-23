@@ -18,6 +18,7 @@ import {
   IntroduceWrapper,
   MinText,
   MinTitle,
+  JoinInner,
 } from './styled';
 
 import yellowBanner from '../../img/YellowBanner.png';
@@ -147,36 +148,40 @@ export const Recuritment: React.FC = () => {
               </MainText>
               <TopMargin />
             </IntroduceWrapper>
-
             <JoinWrapper>
-              <ElementWrapper>
-                <MinTitle>소속</MinTitle>
-                <MinText>{aboutTeam?.name}</MinText>
-              </ElementWrapper>
-              <ElementWrapper>
-                <MinTitle>합류과정</MinTitle>
-                <MinText>1차 서류 - 2차 면접 </MinText>
-              </ElementWrapper>
-              <ElementWrapper>
-                <MinTitle>활동기간</MinTitle>
-                <MinText>1년이상</MinText>
-              </ElementWrapper>
-              <TopMargin />
-              <StyledButton
-                onClick={() => {
-                  window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
-                }}
-              >
-                지원하기
-              </StyledButton>
-              <SmallTopMargin />
-              <StyledButton
-                onClick={() => {
-                  history.push('/question');
-                }}
-              >
-                자주 하는 질문
-              </StyledButton>
+              <JoinInner>
+                <ElementWrapper>
+                  <MinTitle>소속</MinTitle>
+                  <MinText>{aboutTeam?.name}</MinText>
+                </ElementWrapper>
+                <ElementWrapper>
+                  <MinTitle>합류과정</MinTitle>
+                  <MinText>1차 서류 - 2차 면접 </MinText>
+                </ElementWrapper>
+                <ElementWrapper>
+                  <MinTitle>활동기간</MinTitle>
+                  <MinText>1년이상</MinText>
+                </ElementWrapper>
+                <TopMargin />
+                <StyledButton
+                  onClick={() => {
+                    window.open(
+                      'https://forms.gle/FwoDUZSCcHHow8iC7',
+                      '_blank',
+                    );
+                  }}
+                >
+                  지원하기
+                </StyledButton>
+                <SmallTopMargin />
+                <StyledButton
+                  onClick={() => {
+                    history.push('/question');
+                  }}
+                >
+                  자주 하는 질문
+                </StyledButton>
+              </JoinInner>
             </JoinWrapper>
           </SectionWrapper>
         </ContainerInner>

@@ -29,12 +29,12 @@ export const LayoutContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 1140px;
-  margin: 0 auto;
+  margin: auto;
   min-width: 320px;
 `;
 export const ContainerInner = styled.div`
   width: 92%;
-  padding: 0% 4%;
+  margin: auto;
 `;
 export const CardList = styled.section`
   display: flex;
