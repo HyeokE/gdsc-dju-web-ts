@@ -1,9 +1,9 @@
 export const firebaseKey = {
-  apiKey: 'AIzaSyB-vR8wfhXZp-YtlSw4_QN5A5sh_5dLd5g',
-  authDomain: 'gdsc-dju-web.firebaseapp.com',
-  projectId: 'gdsc-dju-web',
-  storageBucket: 'gdsc-dju-web.appspot.com',
-  messagingSenderId: '328000675982',
-  appId: '1:328000675982:web:2fb47d16657c7b87ba69df',
-  measurementId: 'G-RDSQPRD3ME',
+  apiKey: 'AIzaSyDrAEizOXHcCXYrQa96w6TxfddOS2Yb0tU',
+  authDomain: 'gdsc-dju.firebaseapp.com',
+  projectId: 'gdsc-dju',
+  storageBucket: 'gdsc-dju.appspot.com',
+  messagingSenderId: '487063212251',
+  appId: '1:487063212251:web:82d233e5e10f2b0aca3cfe',
+  measurementId: 'G-3B40W72HNQ',
 };
