@@ -18,5 +18,4 @@ export const RecruitmentState = {
 export const recruitmentState = atom<typeof RecruitmentState>({
   key: RECRUITMENT,
   default: RecruitmentState,
-  effects_UNSTABLE: [persistAtom],
 });

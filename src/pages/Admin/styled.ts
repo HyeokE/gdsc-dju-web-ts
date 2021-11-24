@@ -4,11 +4,11 @@ export const ButtonWrapper = styled.div`
   margin-top: 15px;
 `;
 export const SidebarContainer = styled.div`
-  width: 250px;
+  width: 100%;
 `;
 export const AdminContainerWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 `;
 export const StyledButtonWrapper = styled.div`
