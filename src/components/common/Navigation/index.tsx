@@ -6,16 +6,13 @@ import {
   NavTask,
   NavTaskWrapper,
   SchoolName,
+  SchoolNameUni,
   StyledImg,
   StyledLogo,
   StyledLogoWrapper,
 } from './styled';
-import { useRecoilState } from 'recoil';
-import { statusState } from '../../../store/status';
-import { userDataState } from '../../../store/user';
 import GDSCLogoClear from '../../../img/GDSCLogoClear.png';
 import WideNavCategory from './WideNavCategory';
-import { motion } from 'framer-motion';
 import ShortNavCategory from './ShortNavCategory';
 
 const Navigation: React.FC = () => {
@@ -31,7 +28,8 @@ const Navigation: React.FC = () => {
                 height={40}
               />
               <StyledLogo>GDSC </StyledLogo>
-              <SchoolName>Daejin Univ.</SchoolName>
+              <SchoolName>Daejin</SchoolName>
+              <SchoolNameUni>Univ.</SchoolNameUni>
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>

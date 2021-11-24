@@ -1,3 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+Sitemap: https://share.beautifulstore.org/sitemap.xml     // 제작된 sitemap 경로
+
+Allow: /

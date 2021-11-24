@@ -9,6 +9,7 @@ export const StyledButton = styled.button`
   border-width: 1px;
   border-color: #4e5968;
   border-style: inherit;
+  margin-bottom: 10px;
   &:hover {
     background: #3182f6;
     cursor: pointer;

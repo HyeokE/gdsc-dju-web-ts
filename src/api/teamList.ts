@@ -1,38 +1,33 @@
 export const TeamList = [
   {
     id: 'android',
-    name: 'Android Team (Kotlin)',
+    name: 'Android Developer',
     skill: 'android',
     stack: 'JAVA, Kotlin',
   },
   {
     id: 'frontend',
-    name: 'Frontend Team (React)',
+    name: 'Frontend Developer',
     skill: 'React',
     stack: 'JavaScript, JSX, TypeScript',
   },
   {
     id: 'backend',
-    name: 'Backend Team (Spring)',
+    name: 'Backend Developer',
     skill: 'Spring, Spring Boot',
     stack: 'JAVA',
   },
   {
     id: 'machineLearning',
-    name: 'Machine Learning Team (Open CV)',
+    name: 'AI (Machine Learning)',
     skill: 'Open CV',
     stack: '',
   },
   {
     id: 'design',
-    name: 'Design Team(UX/UI)',
+    name: 'Design Team',
     skill: 'UX/UI',
     stack: 'Figma, Adobe XD',
   },
-  {
-    id: 'beginner',
-    name: 'Beginner Team (JAVA)',
-    skill: 'none',
-    stack: 'none',
-  },
+  { id: 'beginner', name: 'Beginner Team', skill: 'none', stack: 'none' },
 ];

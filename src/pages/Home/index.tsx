@@ -1,35 +1,55 @@
 import React from 'react';
-import { LayoutContainer, TopMargin } from '../../Layout';
-import { Title } from '../../components/common/Title/title';
-import { VideoWrapper, StyledVideo } from './styled';
-import styled from 'styled-components';
-
-const StyledTitleWrapper = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+import { ContainerInner, LayoutContainer } from '../../Layout';
+import {
+  BannerTitleWrapper,
+  ButtonWrapper,
+  LeftColorLinesWrapper,
+  MainBannerText,
+  MarginPage,
+  RecruitingWrapper,
+  RightColorLinesWrapper,
+  StyledButton,
+  StyledMainBanner,
+} from './styled';
+import Recruiting from '../../img/Recruiting';
+import ColorLines from '../../img/ColorLines';
+import { useHistory } from 'react-router-dom';
 
 export const Home = () => {
+  const history = useHistory();
   return (
     <>
-      <VideoWrapper>
-        <StyledVideo autoPlay muted={true} playsInline={true}>
-          <source src={process.env.PUBLIC_URL + './mainVideo.mp4'} />
-        </StyledVideo>
-      </VideoWrapper>
-      <StyledTitleWrapper>
-        <div style={{ marginTop: '200px' }}>
-          {/*<Title>우리는 GDSC입니다</Title>*/}
-        </div>
-      </StyledTitleWrapper>
-      <LayoutContainer></LayoutContainer>
-      <TopMargin style={{ height: '1000px' }} />
+      <StyledMainBanner>
+        <LeftColorLinesWrapper>
+          <ColorLines />
+        </LeftColorLinesWrapper>
+        <RightColorLinesWrapper>
+          <ColorLines />
+        </RightColorLinesWrapper>
+      </StyledMainBanner>
+      <BannerTitleWrapper>
+        <RecruitingWrapper>
+          <Recruiting />
+          <MainBannerText>
+            GDSC Daejin Univ. 에서 새로운 식구들을 모집하고 있습니다.
+          </MainBannerText>
+          <ButtonWrapper>
+            <StyledButton
+              onClick={() => {
+                window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
+              }}
+            >
+              지원하기
+            </StyledButton>
+          </ButtonWrapper>
+          <MainBannerText>11. 22 ~ 12. 19</MainBannerText>
+        </RecruitingWrapper>
+      </BannerTitleWrapper>
+      <LayoutContainer>
+        <ContainerInner>
+          <MarginPage />
+        </ContainerInner>
+      </LayoutContainer>
     </>
   );
 };

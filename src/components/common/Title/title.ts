@@ -4,6 +4,7 @@ export const Title = styled.div`
   font-size: 48px;
   font-weight: bold;
   color: #333c4b;
+  word-break: break-word;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 40px;
   }
@@ -20,4 +21,5 @@ export const SubTitle = styled.div`
 export const MainText = styled.div`
   font-size: 16px;
   color: #4e5968;
+  padding-bottom: 10px;
 `;

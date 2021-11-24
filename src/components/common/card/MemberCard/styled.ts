@@ -1,25 +1,29 @@
 import styled from 'styled-components';
 
-const StyledMemberCard = styled.div`
+export const StyledMemberCard = styled.div`
   margin-bottom: 20px;
   width: 200px;
 `;
-const NickName = styled.div`
+export const NickName = styled.div`
   font-family: 'Gothic A1', sans-serif;
   font-size: 20px;
   margin-top: 22px;
 `;
-const Name = styled.div`
+export const Name = styled.div`
   font-family: 'Gothic A1', sans-serif;
   font-size: 13px;
   margin-top: 10px;
   color: #aaaaaa;
 `;
-const Role = styled.div`
+export const Role = styled.div`
   color: #4385f3;
   font-family: 'Gothic A1', sans-serif;
   font-size: 13px;
   margin-top: 10px;
 `;
-
-export { StyledMemberCard, Name, NickName, Role };
+export const MemberImg = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 1px solid #9f9f9f;
+`;

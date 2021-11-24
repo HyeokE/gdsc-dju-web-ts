@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { Modal } from 'react-rainbow-components';
 
 export const MemberCardWrapper = styled.div`
   width: 33.33%;
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
+  cursor: pointer;
 
   box-sizing: border-box;
   @media screen and (max-width: ${(props) => props.theme.windowSize.desk}px) {
@@ -17,4 +20,10 @@ export const MemberCardWrapper = styled.div`
     min-width: 100%;
     width: 100%;
   }
+`;
+export const StyledModal = styled(Modal)`
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  width: 300px;
 `;

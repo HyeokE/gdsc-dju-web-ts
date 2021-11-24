@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import {
+  BannerImage,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
@@ -8,27 +9,28 @@ import {
   SmallTopMargin,
   Tage,
   TopMargin,
-  BannerImage,
 } from '../../Layout';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import {
   ElementWrapper,
-  JoinWrapper,
-  SectionWrapper,
   IntroduceWrapper,
+  JoinInner,
+  JoinWrapper,
   MinText,
   MinTitle,
+  MoblieBottomElementWrapper,
+  MoblieTopElementWrapper,
+  SectionWrapper,
 } from './styled';
 
 import yellowBanner from '../../img/YellowBanner.png';
 import { StyledButton } from '../../components/common/Button/styled';
-import { TeamList } from '../../hooks/teamList';
-import GreenBanner from '../../img/GreenBanner.png';
+import { TeamInfomation } from '../../api/teamInfomation';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const aboutTeam = TeamList.find((aboutTeam) => aboutTeam.id === id);
-
+  const aboutTeam = TeamInfomation.find((aboutTeam) => aboutTeam.id === id);
+  const history = useHistory();
   return (
     <>
       <BannerWrapper>
@@ -37,14 +39,32 @@ export const Recuritment: React.FC = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-          <Title>{aboutTeam?.name}</Title>
 
+          <Title>{aboutTeam?.name}</Title>
           <TopMargin />
+          <MoblieTopElementWrapper>
+            <JoinInner>
+              <ElementWrapper>
+                <MinTitle>소속</MinTitle>
+                <MinText>{aboutTeam?.name}</MinText>
+              </ElementWrapper>
+              <ElementWrapper>
+                <MinTitle>합류과정</MinTitle>
+                <MinText>1차 서류 - 2차 면접 </MinText>
+              </ElementWrapper>
+              <ElementWrapper>
+                <MinTitle>활동기간</MinTitle>
+                <MinText>1년이상</MinText>
+              </ElementWrapper>
+              <TopMargin />
+            </JoinInner>
+          </MoblieTopElementWrapper>
           <MainText>열정적인 동료를 얻기 위해 이 자리에 모였습니다.</MainText>
           <MainText>
             우리는 함께 고민을 나누고 도전하며 목표를 향해 달리고 있습니다.
           </MainText>
           <TopMargin />
+
           <SectionWrapper>
             <IntroduceWrapper>
               <SubTitle>이런 분을 찾습니다</SubTitle>
@@ -73,6 +93,30 @@ export const Recuritment: React.FC = () => {
                   <Tage />
                   타인의 의견을 적극적으로 수용하고 개선하려고 노력하시는 분
                 </List>
+                <List>
+                  <Tage />
+                  프로젝트의 애정과 책임을 가지고 주도적으로 개발, 개선할 수
+                  있으신 분
+                </List>
+                <List>
+                  <Tage />
+                  커뮤니케이션 및 개발 문서 정리에 능숙하신 분
+                </List>
+                <List>
+                  <Tage />
+                  코딩에 대하여 잘 모르더라도 매일 학습하고, 모르는 게 있으면
+                  주도적으로 해결할 수 있으신 분
+                </List>
+                {aboutTeam?.people != undefined
+                  ? aboutTeam?.people.split('\n').map((line, id) => {
+                      return (
+                        <List key={id}>
+                          <Tage />
+                          {line}
+                        </List>
+                      );
+                    })
+                  : null}
               </MainText>
               <TopMargin />
               <SubTitle>이런 경험이 있다면 더 좋습니다</SubTitle>
@@ -86,15 +130,22 @@ export const Recuritment: React.FC = () => {
                   <Tage />
                   FrameWork나 Library 사용이 능숙하신 분이면 좋습니다.
                 </List>
-                <List>
-                  <Tage />
-                  React, Android, Spring에 관한 이해도가 높으신 분이면 좋습니다.
-                </List>
+
                 <List>
                   <Tage />
                   코딩에 대하여 잘 모르더라도 매일 학습하실 의지를 가지신 분이면
                   좋습니다.
                 </List>
+                {aboutTeam?.preferential != undefined
+                  ? aboutTeam?.preferential.split('\n').map((line, id) => {
+                      return (
+                        <List key={id}>
+                          <Tage />
+                          {line}
+                        </List>
+                      );
+                    })
+                  : null}
               </MainText>
               <TopMargin />
               <SubTitle>GDSC의 혜택</SubTitle>
@@ -116,26 +167,60 @@ export const Recuritment: React.FC = () => {
                   자체 스터디를 위한 google의 코세라, 퀵랩 바우처 지급
                 </List>
               </MainText>
+              <TopMargin />
             </IntroduceWrapper>
             <JoinWrapper>
-              <ElementWrapper>
-                <MinTitle>소속</MinTitle>
-                <MinText>android Team</MinText>
-              </ElementWrapper>
-              <ElementWrapper>
-                <MinTitle>지원 형태</MinTitle>
-                <MinText>어쩌고 저쩌고</MinText>
-              </ElementWrapper>
-              <ElementWrapper>
-                <MinTitle>활동기간</MinTitle>
-                <MinText>6개월 ~ 1년</MinText>
-              </ElementWrapper>
-              <TopMargin />
-              <StyledButton> 지원하기 </StyledButton>
-              <SmallTopMargin />
-              <StyledButton> 자주 하는 질문 </StyledButton>
+              <JoinInner>
+                <ElementWrapper>
+                  <MinTitle>소속</MinTitle>
+                  <MinText>{aboutTeam?.name}</MinText>
+                </ElementWrapper>
+                <ElementWrapper>
+                  <MinTitle>합류과정</MinTitle>
+                  <MinText>1차 서류 - 2차 면접 </MinText>
+                </ElementWrapper>
+                <ElementWrapper>
+                  <MinTitle>활동기간</MinTitle>
+                  <MinText>1년이상</MinText>
+                </ElementWrapper>
+                <TopMargin />
+                <StyledButton
+                  onClick={() => {
+                    window.open(
+                      'https://forms.gle/FwoDUZSCcHHow8iC7',
+                      '_blank',
+                    );
+                  }}
+                >
+                  지원하기
+                </StyledButton>
+                <SmallTopMargin />
+                <StyledButton
+                  onClick={() => {
+                    history.push('/question');
+                  }}
+                >
+                  자주 하는 질문
+                </StyledButton>
+              </JoinInner>
             </JoinWrapper>
           </SectionWrapper>
+          <MoblieBottomElementWrapper>
+            <StyledButton
+              onClick={() => {
+                history.push('/question');
+              }}
+            >
+              자주 하는 질문
+            </StyledButton>
+            <StyledButton
+              onClick={() => {
+                window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
+              }}
+            >
+              지원하기
+            </StyledButton>
+          </MoblieBottomElementWrapper>
         </ContainerInner>
       </LayoutContainer>
       <TopMargin />

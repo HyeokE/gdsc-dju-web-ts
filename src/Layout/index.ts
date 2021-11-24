@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const TopMargin = styled.div`
   height: 50px;
 `;
@@ -6,34 +7,41 @@ export const SmallTopMargin = styled.div`
   height: 30px;
 `;
 export const List = styled.li`
-  display: list-item;
-  text-align: -webkit-match-parent;
+  position: relative;
+  padding-left: 24px;
   margin: 8px 0px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(78, 89, 104);
+  list-style: none;
 `;
 export const Tage = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  display: inline-block;
-  width: 16px;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 24px;
-  color: #8b95a1;
-  text-align: center;
-  content: '•';
+  &::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    color: rgb(139, 149, 161);
+    text-align: center;
+    content: '•';
+  }
 `;
 
 export const LayoutContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 1140px;
-  margin: 0 auto;
+  margin: auto;
   min-width: 320px;
 `;
 export const ContainerInner = styled.div`
   width: 92%;
-  padding: 0% 4%;
+  margin: auto;
 `;
 export const CardList = styled.section`
   display: flex;
