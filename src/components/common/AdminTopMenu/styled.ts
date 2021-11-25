@@ -6,7 +6,7 @@ export const StyledTap = styled.div`
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   border-width: 0px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   :hover {
     cursor: pointer;

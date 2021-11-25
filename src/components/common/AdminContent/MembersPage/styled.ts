@@ -67,7 +67,7 @@ export const StyledMobileTableWrapper = styled.div`
 `;
 export const StyledSmallColumn = styled.div`
   font-size: 16px;
-  padding: 0px 7px;
+  padding: 0px 5px;
   width: 100px;
 `;
 export const StyledColumn = styled.div`

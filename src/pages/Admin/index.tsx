@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SubTitle, Title } from '../../components/common/Title/title';
+import { Title } from '../../components/common/Title/title';
 import {
   BannerImage,
   BannerWrapper,
@@ -14,6 +14,8 @@ import {
   SidebarContainer,
   StyledAdminButton,
   StyledButtonWrapper,
+  StyledSubTitle,
+  StyledUserName,
 } from './styled';
 import AdminContent from '../../components/common/AdminContent';
 import { useRecoilState } from 'recoil';
@@ -25,7 +27,6 @@ import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfi
 import { userState } from '../../api/hooks/user';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
-import AdminEditMemberModal from '../../components/common/Modal/AdminMemberEditModal';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
@@ -84,35 +85,40 @@ const Admin = () => {
         <ContainerInner>
           <TopMargin />
           <Title>Admin Page</Title>
-          <SubTitle>Hello {adminUser.nickName}</SubTitle>
-          <ButtonElementWrapper>
-            <StyledButtonWrapper>
-              <StyledAdminButton
-                onClick={() => {
-                  authService
-                    .signOut()
-                    .then((e) => {
-                      console.log(e);
-                      // Sign-out successful.
-                    })
-                    .catch((error) => {
-                      console.log(error.message);
-                    });
-                }}
-              >
-                로그아웃
-              </StyledAdminButton>
-            </StyledButtonWrapper>
-            {/*<StyledButtonWrapper>*/}
-            {/*  <StyledAdminButton*/}
-            {/*    onClick={() => {*/}
-            {/*      setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });*/}
-            {/*    }}*/}
-            {/*  >*/}
-            {/*    회원가입*/}
-            {/*  </StyledAdminButton>*/}
-            {/*</StyledButtonWrapper>*/}
-          </ButtonElementWrapper>
+          {adminUser.nickName.length > 0 ? (
+            <StyledSubTitle>
+              <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
+              <ButtonElementWrapper>
+                <StyledButtonWrapper>
+                  <StyledAdminButton
+                    onClick={() => {
+                      authService
+                        .signOut()
+                        .then((e) => {
+                          console.log(e);
+                          // Sign-out successful.
+                        })
+                        .catch((error) => {
+                          console.log(error.message);
+                        });
+                    }}
+                  >
+                    로그아웃
+                  </StyledAdminButton>
+                </StyledButtonWrapper>
+                {/*<StyledButtonWrapper>*/}
+                {/*  <StyledAdminButton*/}
+                {/*    onClick={() => {*/}
+                {/*      setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });*/}
+                {/*    }}*/}
+                {/*  >*/}
+                {/*    회원가입*/}
+                {/*  </StyledAdminButton>*/}
+                {/*</StyledButtonWrapper>*/}
+              </ButtonElementWrapper>
+            </StyledSubTitle>
+          ) : null}
+
           <TopMargin />
           <AdminContainerWrapper>
             <SidebarContainer>

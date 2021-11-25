@@ -45,8 +45,8 @@ const MemberPage = () => {
       </div>
       <MemberPageWrapper>
         <StyledTableCategoryWrapper>
-          <StyledColumn>Role</StyledColumn>
           <StyledSmallColumn>Name</StyledSmallColumn>
+          <StyledColumn>nickName</StyledColumn>
           <StyledLargeColumn>Email</StyledLargeColumn>
           <StyledSmallColumn>Position</StyledSmallColumn>
           <StyledSmallColumn>Warn Count</StyledSmallColumn>
@@ -70,8 +70,8 @@ const MemberPage = () => {
               setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
             }}
           >
-            <StyledColumn>{data.role}</StyledColumn>
             <StyledSmallColumn>{data.name}</StyledSmallColumn>
+            <StyledColumn>{data.nickName}</StyledColumn>
             <StyledLargeColumn>{data.email}</StyledLargeColumn>
             <StyledSmallColumn>{data.position}</StyledSmallColumn>
             <StyledSmallColumn>{data.warning}</StyledSmallColumn>
