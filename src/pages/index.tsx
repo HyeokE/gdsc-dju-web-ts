@@ -8,7 +8,7 @@ import { SignUp } from './SignUp';
 import { SignIn } from './SignIn';
 import { Introduce } from './Introduce';
 import { JoinUs } from './JoinUs';
-import { Recuritment } from './teamRecruitment';
+import { Recuritment } from './TeamRecruitment';
 import Apply from './Apply';
 import Admin from './Admin';
 

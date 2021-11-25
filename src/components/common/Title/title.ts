@@ -8,7 +8,7 @@ export const Title = styled.div`
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 40px;
   }
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+  @media (max-width: 500px) {
     font-size: 26px;
   }
 `;

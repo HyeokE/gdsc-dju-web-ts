@@ -95,7 +95,7 @@ export const Category = styled.div`
     width: 300px;
   }
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    width: 300px;
+    width: 200px;
   }
   @media (max-width: 320px) {
     width: 200px;
@@ -111,7 +111,7 @@ export const CategoryList = styled.div`
 export const MobileCategoryWrapper = styled.div`
   display: none;
   padding: 24px 0px;
-  margin-right: 30px;
+
   cursor: pointer;
   border-radius: 10px;
   transition-property: all;
@@ -133,6 +133,10 @@ export const MobileCategoryInner = styled.div`
   min-width: 320px;
   @media (max-width: 320px) {
     padding-left: 10px;
+    min-width: 150px;
+  }
+  @media (max-width: 500px) {
+    display: flex;
     min-width: 150px;
   }
 `;
