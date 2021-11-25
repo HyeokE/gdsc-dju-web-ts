@@ -4,12 +4,12 @@ export const Title = styled.div`
   font-size: 48px;
   font-weight: bold;
   color: #333c4b;
-  word-break: break-word;
+  word-break: keep-all;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 40px;
   }
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    font-size: 40px;
+  @media (max-width: 500px) {
+    font-size: 26px;
   }
 `;
 export const SubTitle = styled.div`
