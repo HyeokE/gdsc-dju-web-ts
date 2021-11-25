@@ -41,14 +41,14 @@ export const StyledLogo = styled.div`
 `;
 export const SchoolNameUni = styled.div`
   color: #4e4e4e;
-  margin-right: 10px;
+  margin-right: 5px;
   @media (max-width: 740px) {
     display: none;
   }
 `;
 export const SchoolName = styled.div`
   color: #4e4e4e;
-  margin-right: 10px;
+  margin-right: 5px;
   @media (max-width: 670px) {
     display: none;
   }

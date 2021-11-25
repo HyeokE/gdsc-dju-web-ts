@@ -6,7 +6,7 @@ import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../../../api/hooks/modal';
-import { ModalElementWrapper } from '../styled';
+import { ModalElementWrapper, StyledModal } from '../styled';
 import { authService } from '../../../../firebase/firebase';
 
 const AdminSignInModal = () => {
@@ -47,11 +47,7 @@ const AdminSignInModal = () => {
   };
   return (
     <>
-      <Modal
-        size={'small'}
-        isOpen={modal.adminSignIn}
-        style={{ display: 'flex', padding: '10px', width: 400 }}
-      >
+      <StyledModal size={'small'} isOpen={modal.adminSignIn}>
         <SubTitle>Admin SignIn</SubTitle>
         <ModalElementWrapper>
           이메일
@@ -71,7 +67,7 @@ const AdminSignInModal = () => {
         <ButtonWrapper>
           <StyledButton onClick={onEmailLogIn}>Admin SignIn</StyledButton>
         </ButtonWrapper>
-      </Modal>
+      </StyledModal>
     </>
   );
 };

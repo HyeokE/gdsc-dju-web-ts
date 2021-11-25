@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import {
-  TableWithBrowserPagination,
-  Column,
-  Badge,
-} from 'react-rainbow-components';
+import React from 'react';
 import { dbService } from '../../../firebase/firebase';
-import { UserDataState } from '../../../store/user';
+import { memberList } from '../../../api/memberList';
+import { TopMargin } from '../../../Layout';
+import MemberPage from './MembersPage';
+import SettingPage from './SettingPage';
 
-export interface UserDataState {
+export type UserDataState = {
+  id: string | undefined;
   nickName: string | undefined;
   name: string | undefined;
   role: string | undefined;
@@ -15,68 +14,42 @@ export interface UserDataState {
   introduce: string | undefined;
   position: string | undefined;
   email: string | undefined;
+  uploadDate: string;
   phoneNumber: string | undefined;
-  warning: string | undefined;
-}
+  warning: number | undefined;
+};
 
 const AdminContent: React.FC<{ selectedCategory: string }> = ({
   selectedCategory,
 }) => {
-  const [memberData, setMemberData] = useState<typeof UserDataState>();
-  const getMemberList = async () => {
+  const uploadMembers = async (i: number) => {
     try {
-      await dbService.collection('members').onSnapshot((data: any) => {
-        setMemberData(data);
+      await dbService.collection('members').doc().set({
+        nickName: memberList[i].nickName,
+        name: memberList[i].name,
+        role: memberList[i].role,
+        memberImg: memberList[i].memberImg,
+        introduce: memberList[i].introduce,
+        position: memberList[i].position,
+        email: memberList[i].email,
+        warning: memberList[i].warning,
+        uploadDate: Date.now(),
+        phoneNumber: memberList[i].phoneNumber,
       });
     } catch (e) {
       console.log(e);
     }
   };
-  useEffect(() => {
-    getMemberList();
-    console.log(memberData);
-  }, []);
-  // const uploadMembers = async (i: number) => {
-  //   try {
-  //     await dbService.collection('members').doc(memberList[i].email).set({
-  //       nickName: memberList[i].nickName,
-  //       name: memberList[i].name,
-  //       role: memberList[i].role,
-  //       memberImg: memberList[i].memberImg,
-  //       introduce: memberList[i].introduce,
-  //       position: memberList[i].position,
-  //       email: memberList[i].email,
-  //       warning: memberList[i].warning,
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
   // useEffect(() => {
   //   for (let a = 0; a < memberList.length; a++) {
-  //     uploadPost(a);
+  //     uploadMembers(a);
   //   }
-  // });
+  // }, []);
   return (
     <>
-      {selectedCategory === 'Members' ? (
-        <div>
-          <TableWithBrowserPagination
-            pageSize={5}
-            // data={memberData}
-            keyField="id"
-          >
-            <Column header="role" field="role" />
-            <Column header="name" field="name" />
-            <Column header="nickName" field="nickName" />
-            <Column header="Email" field="email" />
-            <Column header="phoneNumber" field="phoneNumber" />
-            <Column header="City" field="city" />
-          </TableWithBrowserPagination>
-        </div>
-      ) : (
-        <div>{selectedCategory}</div>
-      )}
+      <TopMargin />
+      {selectedCategory === 'Members' ? <MemberPage /> : null}
+      {selectedCategory === 'Setting' ? <SettingPage /> : null}
     </>
   );
 };

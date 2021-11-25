@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Title } from '../../components/common/Title/title';
 import {
-  VerticalItem,
-  VerticalNavigation,
-  VerticalSection,
-} from 'react-rainbow-components';
-import { SubTitle, Title } from '../../components/common/Title/title';
-import { ContainerInner, TopMargin } from '../../Layout';
+  BannerImage,
+  BannerWrapper,
+  ContainerInner,
+  TopMargin,
+} from '../../Layout';
 import { LayoutContainer } from '../../styles/layout';
 import './Admin.css';
 import {
@@ -14,6 +14,8 @@ import {
   SidebarContainer,
   StyledAdminButton,
   StyledButtonWrapper,
+  StyledSubTitle,
+  StyledUserName,
 } from './styled';
 import AdminContent from '../../components/common/AdminContent';
 import { useRecoilState } from 'recoil';
@@ -23,18 +25,12 @@ import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { userState } from '../../api/hooks/user';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHome,
-  faUserFriends,
-  faClipboard,
-  faUsersSlash,
-  faUsersCog,
-} from '@fortawesome/free-solid-svg-icons';
+import RedBanner from '../../img/RedBanner.png';
+import AdminTopMenu from '../../components/common/AdminTopMenu';
 
 const Admin = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('Home');
   const [modal, setModal] = useRecoilState(modalState);
-  const [selectedCategory, setSelectedCategory] = useState('Home');
   const [adminUser, setAdminUser] = useRecoilState(userState);
 
   const checkAdminUser = () => {
@@ -52,11 +48,9 @@ const Admin = () => {
             .get()
             .then((data) => {
               const userData = data.data();
-              console.log(userData);
               if (userData == undefined) {
                 setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
                 setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: true });
-                console.log(modal.adminSetProfile);
               } else {
                 setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
                 setAdminUser({
@@ -77,7 +71,6 @@ const Admin = () => {
     });
   };
   useEffect(() => {
-    console.log(adminUser.nickName);
     checkAdminUser();
   }, []);
   return (
@@ -85,76 +78,54 @@ const Admin = () => {
       <AdminSetUserProfile />
       <AdminSignInModal />
       <AdminSignUpModal />
+      <BannerWrapper>
+        <BannerImage src={RedBanner} />
+      </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
           <Title>Admin Page</Title>
-          <SubTitle>Hello {adminUser.nickName}</SubTitle>
-          <ButtonElementWrapper>
-            <StyledButtonWrapper>
-              <StyledAdminButton
-                onClick={() => {
-                  authService
-                    .signOut()
-                    .then((e) => {
-                      console.log(e);
-                      // Sign-out successful.
-                    })
-                    .catch((error) => {
-                      console.log(error.message);
-                    });
-                }}
-              >
-                로그아웃
-              </StyledAdminButton>
-            </StyledButtonWrapper>
-            <StyledButtonWrapper>
-              <StyledAdminButton
-                onClick={() => {
-                  setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
-                }}
-              >
-                회원가입
-              </StyledAdminButton>
-            </StyledButtonWrapper>
-          </ButtonElementWrapper>
+          {adminUser.nickName.length > 0 ? (
+            <StyledSubTitle>
+              <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
+              <ButtonElementWrapper>
+                <StyledButtonWrapper>
+                  <StyledAdminButton
+                    onClick={() => {
+                      authService
+                        .signOut()
+                        .then((e) => {
+                          console.log(e);
+                          // Sign-out successful.
+                        })
+                        .catch((error) => {
+                          console.log(error.message);
+                        });
+                    }}
+                  >
+                    로그아웃
+                  </StyledAdminButton>
+                </StyledButtonWrapper>
+                {/*<StyledButtonWrapper>*/}
+                {/*  <StyledAdminButton*/}
+                {/*    onClick={() => {*/}
+                {/*      setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });*/}
+                {/*    }}*/}
+                {/*  >*/}
+                {/*    회원가입*/}
+                {/*  </StyledAdminButton>*/}
+                {/*</StyledButtonWrapper>*/}
+              </ButtonElementWrapper>
+            </StyledSubTitle>
+          ) : null}
+
           <TopMargin />
           <AdminContainerWrapper>
             <SidebarContainer>
-              <VerticalNavigation
-                selectedItem={selectedCategory}
-                onSelect={(e, selectedItem) =>
-                  setSelectedCategory(selectedItem)
-                }
-              >
-                <VerticalSection>
-                  <VerticalItem
-                    name="Home"
-                    label="Home"
-                    icon={<FontAwesomeIcon icon={faHome} />}
-                  />
-                  <VerticalItem
-                    name="Members"
-                    label="Members"
-                    icon={<FontAwesomeIcon icon={faUserFriends} />}
-                  />
-                  <VerticalItem
-                    name="Warning"
-                    label="Warning"
-                    icon={<FontAwesomeIcon icon={faUsersSlash} />}
-                  />
-                  <VerticalItem
-                    name="Setting"
-                    label="Setting"
-                    icon={<FontAwesomeIcon icon={faUsersCog} />}
-                  />
-                  <VerticalItem
-                    name="WebSetting"
-                    label="Web Setting"
-                    icon={<FontAwesomeIcon icon={faClipboard} />}
-                  />
-                </VerticalSection>
-              </VerticalNavigation>
+              <AdminTopMenu
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
             </SidebarContainer>
             <AdminContent selectedCategory={selectedCategory} />
           </AdminContainerWrapper>

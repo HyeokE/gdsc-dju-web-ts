@@ -194,7 +194,6 @@ export const Recuritment: React.FC = () => {
                 >
                   지원하기
                 </StyledButton>
-                <SmallTopMargin />
                 <StyledButton
                   onClick={() => {
                     history.push('/question');
@@ -202,6 +201,7 @@ export const Recuritment: React.FC = () => {
                 >
                   자주 하는 질문
                 </StyledButton>
+                <TopMargin />
               </JoinInner>
             </JoinWrapper>
           </SectionWrapper>

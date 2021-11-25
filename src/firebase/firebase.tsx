@@ -6,8 +6,8 @@ import 'firebase/compat/storage';
 import { firebaseKey as firebaseConfig } from './firebase.config';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { MODAL_KEY, modalState } from '../api/hooks/modal';
-import { useRecoilState } from 'recoil';
+import Timestamp = firebase.firestore.Timestamp;
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,3 +20,4 @@ const analytics = getAnalytics(app);
 export const firebaseInstance = firebase;
 export const dbService = firebase.firestore();
 export const authService = firebase.auth();
+export const getDbTime = () => console.log(Timestamp.now());

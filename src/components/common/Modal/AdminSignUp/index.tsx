@@ -7,7 +7,7 @@ import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
 import { modalState, MODAL_KEY } from '../../../../api/hooks/modal';
 import { authService } from '../../../../firebase/firebase';
-import { ModalElementWrapper } from '../styled';
+import { ModalElementWrapper, StyledModal } from '../styled';
 import './AdminSignUp.css';
 
 const AdminSignUpModal = () => {
@@ -52,9 +52,8 @@ const AdminSignUpModal = () => {
   };
   return (
     <>
-      <Modal
+      <StyledModal
         size={'small'}
-        style={{ display: 'flex', padding: '10px', width: 400 }}
         isOpen={modal.adminSignUp}
         onRequestClose={() =>
           setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: false })
@@ -87,7 +86,7 @@ const AdminSignUpModal = () => {
         <ButtonWrapper>
           <StyledButton onClick={onRegisterIn}>Admin Signup</StyledButton>
         </ButtonWrapper>
-      </Modal>
+      </StyledModal>
     </>
   );
 };
