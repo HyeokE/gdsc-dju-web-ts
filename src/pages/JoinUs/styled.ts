@@ -132,6 +132,5 @@ export const MobileCategoryInner = styled.div`
   font-size: 18px;
   display: flex;
   flex-direction: column;
-
   min-width: 320px;
 `;

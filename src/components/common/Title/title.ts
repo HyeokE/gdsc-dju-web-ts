@@ -9,7 +9,7 @@ export const Title = styled.div`
     font-size: 40px;
   }
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    font-size: 40px;
+    font-size: 26px;
   }
 `;
 export const SubTitle = styled.div`
