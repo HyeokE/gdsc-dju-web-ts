@@ -27,15 +27,20 @@ export const StyledMobileTableCategoryWrapper = styled.div`
 export const StyledTableWrapper = styled.div`
   display: flex;
   width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+  border-radius: 10px;
   flex-direction: row;
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
-  border-radius: 10px;
   transition: 0.3s;
   transition-delay: 0.2ms;
   &:hover {
     background: #f2f4f6;
+    border-color: #9f9f9f;
+
     cursor: pointer;
   }
   @media (max-width: 500px) {

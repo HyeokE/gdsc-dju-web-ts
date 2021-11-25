@@ -19,9 +19,8 @@ const AdminEditMemberModal = ({ selectMember }: any) => {
   const [introduce, setIntroduce] = useState();
   const [modal, setModal] = useRecoilState(modalState);
   const editMemberProfile = () => {
-    // dbService.collection('adminUsers').doc().get;
     try {
-      dbService.collection('adminUsers').doc(selectMember).set({
+      dbService.collection('adminUsers').doc(selectMember).update({
         name: name,
         nickName: nickName,
         phoneNumber: phoneNumber,

@@ -16,7 +16,7 @@ export type UserDataState = {
   email: string | undefined;
   uploadDate: string;
   phoneNumber: string | undefined;
-  warning: string | undefined;
+  warning: number | undefined;
 };
 
 const AdminContent: React.FC<{ selectedCategory: string }> = ({

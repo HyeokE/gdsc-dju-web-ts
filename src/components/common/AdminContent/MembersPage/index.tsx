@@ -15,6 +15,7 @@ import {
 import AdminEditMemberModal from '../../Modal/AdminMemberEditModal';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
+import './MemberPage.css';
 
 const MemberPage = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>();
@@ -53,6 +54,17 @@ const MemberPage = () => {
         {memberData?.map((data) => (
           <StyledTableWrapper
             key={data.id}
+            className={
+              (data?.warning as number) == 0
+                ? 'count0'
+                : (data?.warning as number) == 1
+                ? 'count1'
+                : (data?.warning as number) == 2
+                ? 'count2'
+                : (data?.warning as number) == 3
+                ? 'count3'
+                : 'none'
+            }
             onClick={() => {
               setSelectMember(data.id);
               setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
