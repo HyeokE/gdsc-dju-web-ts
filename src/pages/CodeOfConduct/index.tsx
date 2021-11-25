@@ -22,7 +22,7 @@ export const CodeOfConduct = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-          <Title>Code of Conduct(Google)</Title>
+          <Title>Code of Conduct (Google)</Title>
 
           <TopMargin />
           <SubTitle>사람을 존중해주세요.</SubTitle>
@@ -81,7 +81,7 @@ export const CodeOfConduct = () => {
             </List>
           </MainText>
           <TopMargin />
-          <Title>Code of Conduct(GDSC Daejin)</Title>
+          <Title>Code of Conduct (GDSC-Daejin)</Title>
           <TopMargin />
           <SubTitle>
             <List>

@@ -99,7 +99,6 @@ export const Category = styled.div`
   }
   @media (max-width: 320px) {
     width: 200px;
-    font-size: 15px;
     padding: 0;
   }
 `;
@@ -110,7 +109,6 @@ export const CategoryList = styled.div`
   padding-left: 30px;
 `;
 export const MobileCategoryWrapper = styled.div`
-  width: 100%;
   display: none;
   padding: 24px 0px;
   margin-right: 30px;
@@ -128,10 +126,13 @@ export const MobileCategoryWrapper = styled.div`
   }
 `;
 export const MobileCategoryInner = styled.div`
-  padding: 0 30px;
+  padding-left: 20px;
   font-size: 18px;
   display: flex;
   flex-direction: column;
-
   min-width: 320px;
+  @media (max-width: 320px) {
+    padding-left: 10px;
+    min-width: 150px;
+  }
 `;
