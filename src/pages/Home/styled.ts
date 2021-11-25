@@ -44,7 +44,7 @@ export const StyledMainBanner = styled.div`
   align-items: center;
   flex-direction: row;
   overflow: hidden;
-  height: 1300px;
+  height: 1000px;
   z-index: 1;
 `;
 export const BannerTitleWrapper = styled.div`
@@ -56,7 +56,7 @@ export const BannerTitleWrapper = styled.div`
 export const RecruitingWrapper = styled.div`
   z-index: 50;
   position: absolute;
-  top: 500px;
+  top: 350px;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ export const LeftColorLinesWrapper = styled.div`
   position: absolute;
   max-width: 500px;
   width: 40%;
-  top: 350px;
+  top: 250px;
   left: -230px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 50%;
@@ -98,7 +98,7 @@ export const LeftColorLinesWrapper = styled.div`
 export const RightColorLinesWrapper = styled.div`
   z-index: 1;
   position: absolute;
-  top: 350px;
+  top: 250px;
   max-width: 500px;
   width: 40%;
   right: -230px;

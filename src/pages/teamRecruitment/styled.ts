@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
   @media (max-width: 320px) {
     flex-direction: column;
   }
@@ -11,6 +12,8 @@ export const SectionWrapper = styled.div`
   }
 `;
 export const IntroduceWrapper = styled.div`
+  margin-right: 20px;
+  box-sizing: inherit;
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     max-width: 320px;
   }
@@ -21,9 +24,10 @@ export const IntroduceWrapper = styled.div`
 export const JoinWrapper = styled.div`
   width: 337px;
   min-width: 250px;
+
   display: none;
   @media (min-width: 500px) {
-    display: flex;
+    display: block;
   }
 `;
 export const JoinInner = styled.div`
