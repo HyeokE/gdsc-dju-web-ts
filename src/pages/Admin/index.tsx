@@ -25,6 +25,7 @@ import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfi
 import { userState } from '../../api/hooks/user';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
+import AdminEditMemberModal from '../../components/common/Modal/AdminMemberEditModal';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');

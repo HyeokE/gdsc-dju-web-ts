@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {
-  Column,
-  DateTimePicker,
-  TableWithBrowserPagination,
-} from 'react-rainbow-components';
+import React from 'react';
 import { dbService } from '../../../firebase/firebase';
-import { UserDataState } from '../../../store/user';
 import { memberList } from '../../../api/memberList';
-import { MainText, SubTitle } from '../Title/title';
 import { TopMargin } from '../../../Layout';
 import MemberPage from './MembersPage';
 import SettingPage from './SettingPage';
@@ -21,6 +14,7 @@ export type UserDataState = {
   introduce: string | undefined;
   position: string | undefined;
   email: string | undefined;
+  uploadDate: string;
   phoneNumber: string | undefined;
   warning: string | undefined;
 };
@@ -39,6 +33,8 @@ const AdminContent: React.FC<{ selectedCategory: string }> = ({
         position: memberList[i].position,
         email: memberList[i].email,
         warning: memberList[i].warning,
+        uploadDate: Date.now(),
+        phoneNumber: memberList[i].phoneNumber,
       });
     } catch (e) {
       console.log(e);

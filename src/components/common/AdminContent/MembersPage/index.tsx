@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { dbService } from '../../../../firebase/firebase';
 import { MainText } from '../../Title/title';
-import { Column, TableWithBrowserPagination } from 'react-rainbow-components';
 import { UserDataState } from '../index';
 import {
   MemberPageWrapper,
@@ -13,10 +12,14 @@ import {
   StyledTableCategoryWrapper,
   StyledTableWrapper,
 } from './styled';
+import AdminEditMemberModal from '../../Modal/AdminMemberEditModal';
+import { useRecoilState } from 'recoil';
+import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 
 const MemberPage = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>();
-  const [selectMember, setSelectMember] = useState<string | undefined>('');
+  const [selectMember, setSelectMember] = useState<string | undefined>();
+  const [modal, setModal] = useRecoilState(modalState);
   const getMemberList = () => {
     try {
       dbService.collection('members').onSnapshot((data) => {
@@ -35,6 +38,7 @@ const MemberPage = () => {
   }, []);
   return (
     <>
+      <AdminEditMemberModal selectMember={selectMember} />
       <div>
         <MainText>Total • {memberData?.length}</MainText>
       </div>
@@ -51,6 +55,7 @@ const MemberPage = () => {
             key={data.id}
             onClick={() => {
               setSelectMember(data.id);
+              setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
             }}
           >
             <StyledColumn>{data.role}</StyledColumn>
@@ -71,6 +76,7 @@ const MemberPage = () => {
             key={data.id}
             onClick={() => {
               setSelectMember(data.id);
+              setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
             }}
           >
             <StyledColumn>{data.nickName}</StyledColumn>
