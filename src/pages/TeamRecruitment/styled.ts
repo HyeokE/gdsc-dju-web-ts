@@ -73,6 +73,12 @@ export const MoblieTopElementWrapper = styled.div`
 `;
 export const MoblieBottomElementWrapper = styled.div`
   display: none;
+  background: -webkit-linear-gradient(
+    bottom,
+    rgba(255, 255, 255, 1) 83%,
+    rgba(255, 255, 255, 0)
+  );
+  padding-top: 20px;
   @media (max-width: 500px) {
     display: flex;
     flex-direction: column;
