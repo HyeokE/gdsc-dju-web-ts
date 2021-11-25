@@ -85,10 +85,17 @@ export const FooterWrapper = styled.footer`
 export const FooterLogo = styled.img`
   width: 200px;
   padding-right: 5px;
+
+  @media (max-width: 320px) {
+    width: 150px;
+  }
 `;
 export const FooterGDSCLogo = styled.img`
   width: 300px;
   padding-right: 5px;
+  @media (max-width: 320px) {
+    width: 250px;
+  }
 `;
 export const BannerImage = styled.img`
   height: 500px;

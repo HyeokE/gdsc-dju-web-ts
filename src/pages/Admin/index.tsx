@@ -84,7 +84,7 @@ const Admin = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-          <Title>Admin Page</Title>
+          <Title>Admin Setting</Title>
           {adminUser.nickName.length > 0 ? (
             <StyledSubTitle>
               <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
