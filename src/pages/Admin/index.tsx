@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabset } from 'react-rainbow-components';
 import { SubTitle, Title } from '../../components/common/Title/title';
 import {
   BannerImage,
@@ -25,10 +24,11 @@ import { authService, dbService } from '../../firebase/firebase';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { userState } from '../../api/hooks/user';
 import RedBanner from '../../img/RedBanner.png';
+import AdminTopMenu from '../../components/common/AdminTopMenu';
 
 const Admin = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('Home');
   const [modal, setModal] = useRecoilState(modalState);
-  const [selectedCategory, setSelectedCategory] = useState('Home');
   const [adminUser, setAdminUser] = useRecoilState(userState);
 
   const checkAdminUser = () => {
@@ -115,17 +115,10 @@ const Admin = () => {
           <TopMargin />
           <AdminContainerWrapper>
             <SidebarContainer>
-              <Tabset
-                variant="line"
-                activeTabName={selectedCategory}
-                onSelect={(e, selectedItem) =>
-                  setSelectedCategory(selectedItem)
-                }
-              >
-                <Tab name="Home" label="Home" />
-                <Tab name="Members" label="Members" />
-                <Tab name="Setting" label="Setting" />
-              </Tabset>
+              <AdminTopMenu
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
             </SidebarContainer>
             <AdminContent selectedCategory={selectedCategory} />
           </AdminContainerWrapper>
