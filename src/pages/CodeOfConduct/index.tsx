@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   BannerWrapper,
   ContainerInner,
@@ -11,7 +10,6 @@ import {
 } from '../../Layout';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import RedBanner from '../../img/RedBanner.png';
-import GreenBanner from '../../img/GreenBanner.png';
 
 export const CodeOfConduct = () => {
   return (

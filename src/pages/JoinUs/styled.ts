@@ -126,7 +126,6 @@ export const MobileCategoryWrapper = styled.div`
   }
 `;
 export const MobileCategoryInner = styled.div`
-  padding-left: 20px;
   font-size: 18px;
   display: flex;
   flex-direction: column;

@@ -21,7 +21,6 @@ a:hover {
 a:focus {
   text-decoration: none;
 }
-
 a:active {
   text-decoration: none;
 }
@@ -29,7 +28,6 @@ a:active {
   color: #42A5F5 !important;
 }
 .active:hover{
-
   color: #42A5F5;
 }
 
