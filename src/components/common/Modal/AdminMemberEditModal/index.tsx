@@ -9,15 +9,10 @@ import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 import { dbService } from '../../../../firebase/firebase';
 import { UserDataState } from '../../AdminContent';
+import { alertState } from '../../../../api/hooks/alert';
 
 const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
-  const [name, setName] = useState();
-  const [nickName, setNickName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [role, setRole] = useState('');
-  const [warning, setWarning] = useState();
-  const [position, setPosition] = useState();
-  const [introduce, setIntroduce] = useState();
+  const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   // const getMember = async () => {
   //   try {
@@ -42,6 +37,12 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         })
         .then(() => {
           setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: false });
+          setAlert({
+            ...alert,
+            alertHandle: true,
+            alertStatus: 'success',
+            alertMessage: '멤버 정보 수정이 완료되었습니다.',
+          });
         });
     } catch (e) {
       console.log(e);

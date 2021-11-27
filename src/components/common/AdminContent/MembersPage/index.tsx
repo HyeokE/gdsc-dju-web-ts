@@ -89,6 +89,17 @@ const MemberPage = () => {
         {memberData?.map((data: any) => (
           <StyledMobileTableWrapper
             key={data.id}
+            className={
+              (data?.warning as number) == 0
+                ? 'count0'
+                : (data?.warning as number) == 1
+                ? 'count1'
+                : (data?.warning as number) == 2
+                ? 'count2'
+                : (data?.warning as number) == 3
+                ? 'count3'
+                : 'none'
+            }
             onClick={() => {
               setSelectMember(data);
               setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });

@@ -15,6 +15,9 @@ export const StyledTap = styled.div`
   @media (max-width: 320px) {
     font-size: 16px;
   }
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 export const StyledTapWrapper = styled.div`
   display: flex;

@@ -9,6 +9,8 @@ import { userDataState } from '../../store/user';
 import { postState } from '../../store/post';
 import { Footer } from '../common/Footer';
 import MoblieMenu from '../common/Navigation/MobileMenu';
+import Alert from '../common/Alert';
+import { alertState } from '../../api/hooks/alert';
 
 export const Main = () => {
   // const [status, setStatus] = useRecoilState(statusState);
@@ -48,10 +50,13 @@ export const Main = () => {
   //   setUser();
   //   getPost();
   // }, []);
+  const [alert] = useRecoilState(alertState);
   return (
     <>
       <Navigation />
       <MoblieMenu />
+      {alert.alertHandle && <Alert />}
+      {/*<Alert />*/}
       <Switch>
         <Route path={''} component={Pages} />
       </Switch>

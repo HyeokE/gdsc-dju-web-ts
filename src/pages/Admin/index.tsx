@@ -23,35 +23,54 @@ import { MODAL_KEY, modalState } from '../../api/hooks/modal';
 import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
-import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { userState } from '../../api/hooks/user';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
+import { alertState } from '../../api/hooks/alert';
+import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
+  const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(userState);
+  const [value, setValue] = useState();
 
   const checkAdminUser = () => {
-    authService.onAuthStateChanged(async (user) => {
+    authService.onAuthStateChanged(async (user: any) => {
       if (user) {
         await setAdminUser({
           ...adminUser,
           uid: user.uid,
         });
-        // console.log(user.emailVerified);
+
         try {
           await dbService
             .collection('adminUsers')
             .doc(user.uid)
             .get()
-            .then((data) => {
+            .then(async (data) => {
               const userData = data.data();
-              if (userData == undefined) {
+
+              if (userData === undefined) {
+                setAlert({
+                  ...alert,
+                  alertHandle: true,
+                  alertStatus: 'warning',
+                  alertMessage: '추가정보를 입력하셔야합니다.',
+                });
                 setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
-                setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: true });
+                setModal({
+                  ...modal,
+                  [MODAL_KEY.ADMIN_SET_PROFILE]: true,
+                });
               } else {
+                setAlert({
+                  ...alert,
+                  alertHandle: true,
+                  alertStatus: 'success',
+                  alertMessage: '반가워요 ' + userData?.nickName,
+                });
                 setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
                 setAdminUser({
                   ...adminUser,
@@ -73,10 +92,12 @@ const Admin = () => {
   useEffect(() => {
     checkAdminUser();
   }, []);
+
   return (
     <>
       <AdminSignInModal />
       <AdminSignUpModal />
+      <AdminSetUserProfile checkAdminUser={checkAdminUser} />
       <BannerWrapper>
         <BannerImage src={RedBanner} />
       </BannerWrapper>
@@ -84,36 +105,28 @@ const Admin = () => {
         <ContainerInner>
           <TopMargin />
           <Title>Admin Setting</Title>
-          {adminUser.nickName.length > 0 ? (
+          {adminUser ? (
             <StyledSubTitle>
               <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
               <ButtonElementWrapper>
                 <StyledButtonWrapper>
                   <StyledAdminButton
                     onClick={() => {
-                      authService
-                        .signOut()
-                        .then((e) => {
-                          console.log(e);
-                          // Sign-out successful.
-                        })
-                        .catch((error) => {
-                          console.log(error.message);
-                        });
+                      authService.signOut();
                     }}
                   >
                     로그아웃
                   </StyledAdminButton>
                 </StyledButtonWrapper>
-                {/*<StyledButtonWrapper>*/}
-                {/*  <StyledAdminButton*/}
-                {/*    onClick={() => {*/}
-                {/*      setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });*/}
-                {/*    }}*/}
-                {/*  >*/}
-                {/*    회원가입*/}
-                {/*  </StyledAdminButton>*/}
-                {/*</StyledButtonWrapper>*/}
+                <StyledButtonWrapper>
+                  <StyledAdminButton
+                    onClick={() => {
+                      setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
+                    }}
+                  >
+                    회원가입
+                  </StyledAdminButton>
+                </StyledButtonWrapper>
               </ButtonElementWrapper>
             </StyledSubTitle>
           ) : null}

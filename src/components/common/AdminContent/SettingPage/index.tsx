@@ -21,10 +21,10 @@ const SettingPage = () => {
   return (
     <>
       <SettingInner>
-        <StatusWrapper>
-          <DateStatusText>2021.10.30 12:00AM</DateStatusText>
-          <DateStatusText>2021.10.30 12:00AM</DateStatusText>
-        </StatusWrapper>
+        {/*<StatusWrapper>*/}
+        {/*  <DateStatusText>2021.10.30 12:00AM</DateStatusText>*/}
+        {/*  <DateStatusText>2021.10.30 12:00AM</DateStatusText>*/}
+        {/*</StatusWrapper>*/}
         <CalendarWrapper>
           <SubTitle>모집 시작일</SubTitle>
           <DatePickerWrapper>
