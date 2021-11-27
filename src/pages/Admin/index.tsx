@@ -34,7 +34,6 @@ const Admin = () => {
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(userState);
-  const [value, setValue] = useState();
 
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
@@ -97,7 +96,7 @@ const Admin = () => {
     <>
       <AdminSignInModal />
       <AdminSignUpModal />
-      <AdminSetUserProfile checkAdminUser={checkAdminUser} />
+      <AdminSetUserProfile />
       <BannerWrapper>
         <BannerImage src={RedBanner} />
       </BannerWrapper>
