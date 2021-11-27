@@ -75,7 +75,6 @@ const Admin = () => {
   }, []);
   return (
     <>
-      <AdminSetUserProfile />
       <AdminSignInModal />
       <AdminSignUpModal />
       <BannerWrapper>

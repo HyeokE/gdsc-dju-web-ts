@@ -19,11 +19,11 @@ import './MemberPage.css';
 
 const MemberPage = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>();
-  const [selectMember, setSelectMember] = useState<string | undefined>();
+  const [selectMember, setSelectMember] = useState<UserDataState>();
   const [modal, setModal] = useRecoilState(modalState);
-  const getMemberList = () => {
+  const getMemberList = async () => {
     try {
-      dbService.collection('members').onSnapshot((data) => {
+      await dbService.collection('members').onSnapshot((data) => {
         const memberList: any = data.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -39,7 +39,10 @@ const MemberPage = () => {
   }, []);
   return (
     <>
-      <AdminEditMemberModal selectMember={selectMember} />
+      <AdminEditMemberModal
+        selectMember={selectMember}
+        setSelectMember={setSelectMember}
+      />
       <div>
         <MainText>Total • {memberData?.length}</MainText>
       </div>
@@ -51,7 +54,7 @@ const MemberPage = () => {
           <StyledSmallColumn>Position</StyledSmallColumn>
           <StyledSmallColumn>Warn Count</StyledSmallColumn>
         </StyledTableCategoryWrapper>
-        {memberData?.map((data) => (
+        {memberData?.map((data: any) => (
           <StyledTableWrapper
             key={data.id}
             className={
@@ -66,7 +69,7 @@ const MemberPage = () => {
                 : 'none'
             }
             onClick={() => {
-              setSelectMember(data.id);
+              setSelectMember(data);
               setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
             }}
           >
@@ -83,11 +86,11 @@ const MemberPage = () => {
           <StyledSmallColumn>Position</StyledSmallColumn>
           <StyledSmallColumn>Warn</StyledSmallColumn>
         </StyledMobileTableCategoryWrapper>
-        {memberData?.map((data) => (
+        {memberData?.map((data: any) => (
           <StyledMobileTableWrapper
             key={data.id}
             onClick={() => {
-              setSelectMember(data.id);
+              setSelectMember(data);
               setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
             }}
           >

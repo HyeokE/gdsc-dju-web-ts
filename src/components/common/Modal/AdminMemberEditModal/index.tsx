@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { SubTitle } from '../../Title/title';
 import { ModalElementWrapper, StyledModal } from '../styled';
@@ -8,9 +8,10 @@ import { StyledButton } from '../../Button/styled';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 import { dbService } from '../../../../firebase/firebase';
+import { UserDataState } from '../../AdminContent';
 
-const AdminEditMemberModal = ({ selectMember }: any) => {
-  const [name, setName] = useState('');
+const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
+  const [name, setName] = useState();
   const [nickName, setNickName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [role, setRole] = useState('');
@@ -18,18 +19,30 @@ const AdminEditMemberModal = ({ selectMember }: any) => {
   const [position, setPosition] = useState();
   const [introduce, setIntroduce] = useState();
   const [modal, setModal] = useRecoilState(modalState);
+  // const getMember = async () => {
+  //   try {
+  //     await dbService.collection('members').doc(selectMember).get();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
   const editMemberProfile = () => {
     try {
-      dbService.collection('adminUsers').doc(selectMember).update({
-        name: name,
-        nickName: nickName,
-        phoneNumber: phoneNumber,
-        role: role,
-        warning: warning,
-        position: position,
-        introduce: introduce,
-      });
-      setModal({ ...modal, [MODAL_KEY.ADMIN_SET_PROFILE]: false });
+      dbService
+        .collection('members')
+        .doc(selectMember.id)
+        .update({
+          name: selectMember.name,
+          nickName: selectMember.nickName,
+          phoneNumber: selectMember.phoneNumber,
+          role: selectMember.role,
+          warning: selectMember.warning,
+          position: selectMember.position,
+          introduce: selectMember.introduce,
+        })
+        .then(() => {
+          setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: false });
+        });
     } catch (e) {
       console.log(e);
     }
@@ -40,19 +53,19 @@ const AdminEditMemberModal = ({ selectMember }: any) => {
       target: { name, value },
     } = e;
     if (name === 'name') {
-      setName(value);
+      setSelectMember({ ...selectMember, name: value });
     } else if (name === 'nickName') {
-      setNickName(value);
+      setSelectMember({ ...selectMember, nickName: value });
     } else if (name === 'phoneNumber') {
-      setPhoneNumber(value);
+      setSelectMember({ ...selectMember, phoneNumber: value });
     } else if (name === 'role') {
-      setRole(value);
+      setSelectMember({ ...selectMember, role: value });
     } else if (name === 'warning') {
-      setWarning(value);
+      setSelectMember({ ...selectMember, warning: value });
     } else if (name === 'position') {
-      setPosition(value);
+      setSelectMember({ ...selectMember, position: value });
     } else if (name === 'introduce') {
-      setIntroduce(value);
+      setSelectMember({ ...selectMember, introduce: value });
     }
   };
   return (
@@ -70,31 +83,59 @@ const AdminEditMemberModal = ({ selectMember }: any) => {
         <SubTitle>멤버 정보 수정</SubTitle>
         <ModalElementWrapper>
           직책
-          <StyledInput name={'role'} onChange={onChange} />
+          <StyledInput
+            name={'role'}
+            onChange={onChange}
+            value={selectMember?.role}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper>
           이름
-          <StyledInput name={'name'} onChange={onChange} />
+          <StyledInput
+            name={'name'}
+            onChange={onChange}
+            value={selectMember?.name}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper>
           포지션
-          <StyledInput name={'position'} onChange={onChange} />
+          <StyledInput
+            name={'position'}
+            onChange={onChange}
+            value={selectMember?.position}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper>
           닉네임
-          <StyledInput name={'nickName'} onChange={onChange} />
+          <StyledInput
+            name={'nickName'}
+            onChange={onChange}
+            value={selectMember?.nickName}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper>
           전화번호
-          <StyledInput name={'phoneNumber'} onChange={onChange} />
+          <StyledInput
+            name={'phoneNumber'}
+            onChange={onChange}
+            value={selectMember?.phoneNumber}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper>
           한 줄 소개
-          <StyledInput name={'introduce'} onChange={onChange} />
+          <StyledInput
+            name={'introduce'}
+            onChange={onChange}
+            value={selectMember?.introduce}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper>
           경고횟수
-          <StyledInput name={'warning'} onChange={onChange} />
+          <StyledInput
+            name={'warning'}
+            onChange={onChange}
+            value={selectMember?.warning}
+          />
         </ModalElementWrapper>
         <ModalElementWrapper style={{ color: '#f44336' }}>
           {/*{error}*/}

@@ -4,6 +4,7 @@ import { memberList } from '../../../api/memberList';
 import { TopMargin } from '../../../Layout';
 import MemberPage from './MembersPage';
 import SettingPage from './SettingPage';
+import AdminSetUserProfile from '../Modal/AdminSetUserProfile';
 
 export type UserDataState = {
   id: string | undefined;
