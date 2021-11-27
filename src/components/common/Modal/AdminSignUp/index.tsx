@@ -33,6 +33,7 @@ const AdminSignUpModal = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
         console.log(user);
+        setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: false });
       })
       .catch((error) => {
         if (error.code == 'auth/email-already-in-use') {

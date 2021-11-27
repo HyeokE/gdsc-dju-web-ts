@@ -11,7 +11,7 @@ import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 import { dbService } from '../../../../firebase/firebase';
 import { userState } from '../../../../api/hooks/user';
 
-const AdminSetUserProfile = () => {
+const AdminSetUserProfile = ({ checkAdminUser }: any) => {
   const [name, setName] = useState('');
   const [nickName, setNickName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -70,6 +70,7 @@ const AdminSetUserProfile = () => {
           <StyledButton
             onClick={() => {
               setUserProfile();
+              checkAdminUser();
             }}
           >
             Admin SignIn

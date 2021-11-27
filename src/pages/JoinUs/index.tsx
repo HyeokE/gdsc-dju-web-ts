@@ -69,9 +69,8 @@ export const JoinUs = () => {
               </MobileCategoryInner>
             </MobileCategoryWrapper>
           ))}
+          <TopMargin />
         </ContainerInner>
-
-        <TopMargin />
       </LayoutContainer>
     </>
   );

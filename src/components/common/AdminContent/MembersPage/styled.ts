@@ -23,6 +23,9 @@ export const StyledMobileTableCategoryWrapper = styled.div`
   @media (max-width: 500px) {
     display: flex;
   }
+  @media (max-width: 320px) {
+    font-size: 14px;
+  }
 `;
 export const StyledTableWrapper = styled.div`
   display: flex;
@@ -57,6 +60,7 @@ export const StyledMobileTableWrapper = styled.div`
   border-radius: 10px;
   transition: 0.3s;
   transition-delay: 0.2ms;
+  font-size: 16px;
   &:hover {
     background: #f2f4f6;
     cursor: pointer;
@@ -64,19 +68,19 @@ export const StyledMobileTableWrapper = styled.div`
   @media (max-width: 500px) {
     display: flex;
   }
+  @media (max-width: 320px) {
+    font-size: 13px;
+  }
 `;
 export const StyledSmallColumn = styled.div`
-  font-size: 16px;
   padding: 0px 5px;
   width: 100px;
 `;
 export const StyledColumn = styled.div`
-  font-size: 16px;
   padding: 0px 7px;
   width: 120px;
 `;
 export const StyledLargeColumn = styled.div`
-  font-size: 16px;
   padding: 0px 7px;
   width: 220px;
 `;

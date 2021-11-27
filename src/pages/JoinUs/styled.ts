@@ -24,12 +24,13 @@ export const TeamCategoryWrapper = styled.div`
   display: flex;
   padding: 24px 0px;
   margin-right: 30px;
+  justify-content: space-around;
   @media (max-width: 500px) {
     display: none;
   }
 `;
 export const CategoryInner = styled.div`
-  padding: 0 30px;
+  padding-left: 30px;
   font-size: 18px;
   display: flex;
   flex-direction: row;
@@ -56,7 +57,7 @@ export const TeamCategory = styled.div`
   display: flex;
   align-items: center;
   margin-left: 30px;
-  width: 420px;
+  width: 500px;
   font-size: 13px;
   color: rgb(139, 149, 161);
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
@@ -70,8 +71,8 @@ export const TeamSubCategory = styled.div`
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  margin-left: 40px;
-  width: 200px;
+  margin-left: 10px;
+  width: 300px;
   font-size: 13px;
   color: rgb(139, 149, 161);
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
@@ -86,7 +87,6 @@ export const Category = styled.div`
   font-weight: bold;
   align-items: center;
   width: 500px;
-  padding-right: 30px;
   font-size: 18px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 500px;
@@ -126,7 +126,6 @@ export const MobileCategoryWrapper = styled.div`
   }
 `;
 export const MobileCategoryInner = styled.div`
-  padding-left: 20px;
   font-size: 18px;
   display: flex;
   flex-direction: column;

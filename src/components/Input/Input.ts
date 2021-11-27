@@ -11,4 +11,10 @@ export const StyledInput = styled.input`
   border-style: solid;
   padding: 0px 20px;
   font-size: 20px;
+  @media (max-width: 500px) {
+    font-size: 17px;
+  }
+  @media (max-width: 320px) {
+    font-size: 15px;
+  }
 `;

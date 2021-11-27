@@ -104,9 +104,9 @@ export const Introduce = () => {
               </MemberCardWrapper>
             ))}
           </CardList>
+          <TopMargin />
         </ContainerInner>
       </LayoutContainer>
-      <TopMargin />
     </>
   );
 };

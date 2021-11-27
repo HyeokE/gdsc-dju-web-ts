@@ -34,13 +34,15 @@ export const Tage = styled.div`
 
 export const LayoutContainer = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   max-width: 1140px;
   margin: auto;
   min-width: 320px;
 `;
 export const ContainerInner = styled.div`
-  width: 92%;
+  width: 90%;
   margin: auto;
 `;
 export const CardList = styled.section`

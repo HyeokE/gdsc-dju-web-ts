@@ -12,7 +12,7 @@ export const AdminContainerWrapper = styled.div`
   justify-content: space-between;
 `;
 export const StyledButtonWrapper = styled.div`
-  width: 100px;
+  margin-right: 10px;
 `;
 export const StyledAdminButton = styled.button`
   border-style: none;
@@ -26,6 +26,10 @@ export const StyledAdminButton = styled.button`
     background: #3886f6;
     cursor: pointer;
   }
+  @media (max-width: 500px) {
+    padding: 7px 13px;
+    font-size: 14px;
+  }
 `;
 export const ButtonElementWrapper = styled.div`
   display: flex;
@@ -36,10 +40,16 @@ export const StyledUserName = styled.div`
   color: #4e5968;
   font-size: 20px;
   font-weight: bold;
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 export const StyledSubTitle = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   align-items: center;
+  transition: 0.3s;
+  transition-delay: 0.3ms;
+  transform-style: initial;
 `;
