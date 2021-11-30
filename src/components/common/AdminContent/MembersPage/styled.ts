@@ -69,22 +69,22 @@ export const StyledMobileTableWrapper = styled(motion.div)`
     display: flex;
   }
   @media (max-width: 320px) {
-    font-size: 13px;
+    font-size: 12px;
   }
 `;
-export const StyledSmallColumn = styled.div`
+export const StyledSmallColumn = styled(motion.div)`
   padding: 0px 5px;
   width: 100px;
 `;
-export const StyledColumn = styled.div`
+export const StyledColumn = styled(motion.div)`
   padding: 0px 7px;
   width: 120px;
 `;
-export const StyledLargeColumn = styled.div`
+export const StyledLargeColumn = styled(motion.div)`
   padding: 0px 7px;
   width: 220px;
 `;
-export const MemberPageWrapper = styled.div`
+export const MemberPageWrapper = styled(motion.div)`
   margin-top: 10px;
 `;
 export const StyledButton = styled.div``;

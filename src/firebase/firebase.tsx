@@ -20,4 +20,4 @@ const analytics = getAnalytics(app);
 export const firebaseInstance = firebase;
 export const dbService = firebase.firestore();
 export const authService = firebase.auth();
-export const getDbTime = () => console.log(Timestamp.now());
+export const getDbTime = () => console.log(Timestamp.now().seconds * 1000);

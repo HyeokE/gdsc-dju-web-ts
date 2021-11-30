@@ -49,7 +49,7 @@ const AdminContent: React.FC<{ selectedCategory: string }> = ({
   return (
     <>
       <TopMargin />
-      {selectedCategory === 'Home' ? <MemberPage /> : null}
+      {selectedCategory === 'Members' ? <MemberPage /> : null}
       {selectedCategory === 'Setting' ? <SettingPage /> : null}
     </>
   );

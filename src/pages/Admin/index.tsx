@@ -9,6 +9,7 @@ import {
 import { LayoutContainer } from '../../styles/layout';
 import './Admin.css';
 import {
+  AdminBlockPage,
   AdminContainerWrapper,
   ButtonElementWrapper,
   SidebarContainer,
@@ -28,13 +29,14 @@ import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
 import { alertState } from '../../api/hooks/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
+import { Backdrop, CircularProgress } from '@mui/material';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(userState);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(false);
 
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
@@ -43,6 +45,7 @@ const Admin = () => {
           ...adminUser,
           uid: user.uid,
         });
+        setValue(true);
 
         try {
           await dbService
@@ -86,6 +89,7 @@ const Admin = () => {
         }
       } else {
         setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: true });
+        setValue(false);
       }
     });
   };
@@ -98,6 +102,9 @@ const Admin = () => {
       <AdminSignInModal />
       <AdminSignUpModal />
       <AdminSetUserProfile checkAdminUser={checkAdminUser} />
+      <Backdrop sx={{ color: '#fff', zIndex: 999 }} open={!value}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <BannerWrapper>
         <BannerImage src={RedBanner} />
       </BannerWrapper>
