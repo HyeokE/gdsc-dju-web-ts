@@ -9,7 +9,6 @@ export const listItemAnimate = {
     opacity: 0,
   },
 };
-
 export const listAnimate = {
   start: {
     opacity: 0,
@@ -18,7 +17,7 @@ export const listAnimate = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2,
+      delayChildren: 0.3,
     },
   },
   exit: {
