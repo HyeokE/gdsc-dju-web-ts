@@ -14,6 +14,9 @@ export const List = styled.li`
   line-height: 24px;
   color: rgb(78, 89, 104);
   list-style: none;
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 export const Tage = styled.div`
   &::before {
@@ -108,4 +111,7 @@ export const BannerWrapper = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
+  @media (max-width: 500px) {
+    height: 150px;
+  }
 `;

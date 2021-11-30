@@ -17,6 +17,7 @@ import { useHistory } from 'react-router-dom';
 
 export const Home = () => {
   const history = useHistory();
+
   return (
     <>
       <StyledMainBanner>

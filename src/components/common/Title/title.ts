@@ -17,9 +17,15 @@ export const SubTitle = styled.div`
   font-weight: bold;
   color: #333c4b;
   margin-bottom: 12px;
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 export const MainText = styled.div`
   font-size: 16px;
   color: #4e5968;
   padding-bottom: 10px;
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;

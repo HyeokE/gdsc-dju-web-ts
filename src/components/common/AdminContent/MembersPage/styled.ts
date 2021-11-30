@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
+
+export const MotionSelector = styled(motion.section)``;
 
 export const StyledTableCategoryWrapper = styled.div`
   display: flex;
@@ -27,13 +30,9 @@ export const StyledMobileTableCategoryWrapper = styled.div`
     font-size: 14px;
   }
 `;
-export const StyledTableWrapper = styled.div`
+export const StyledTableWrapper = styled(motion.div)`
   display: flex;
   width: 100%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent;
-  border-radius: 10px;
   flex-direction: row;
   padding: 15px 0px;
   text-align: center;
@@ -43,21 +42,22 @@ export const StyledTableWrapper = styled.div`
   &:hover {
     background: #f2f4f6;
     border-color: #9f9f9f;
-
     cursor: pointer;
   }
   @media (max-width: 500px) {
     display: none;
   }
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
-export const StyledMobileTableWrapper = styled.div`
+export const StyledMobileTableWrapper = styled(motion.div)`
   display: none;
   width: 100%;
   flex-direction: row;
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
-  border-radius: 10px;
   transition: 0.3s;
   transition-delay: 0.2ms;
   font-size: 16px;
@@ -69,22 +69,22 @@ export const StyledMobileTableWrapper = styled.div`
     display: flex;
   }
   @media (max-width: 320px) {
-    font-size: 13px;
+    font-size: 12px;
   }
 `;
-export const StyledSmallColumn = styled.div`
+export const StyledSmallColumn = styled(motion.div)`
   padding: 0px 5px;
   width: 100px;
 `;
-export const StyledColumn = styled.div`
+export const StyledColumn = styled(motion.div)`
   padding: 0px 7px;
   width: 120px;
 `;
-export const StyledLargeColumn = styled.div`
+export const StyledLargeColumn = styled(motion.div)`
   padding: 0px 7px;
   width: 220px;
 `;
-export const MemberPageWrapper = styled.div`
+export const MemberPageWrapper = styled(motion.div)`
   margin-top: 10px;
 `;
 export const StyledButton = styled.div``;

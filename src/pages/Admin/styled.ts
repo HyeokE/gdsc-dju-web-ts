@@ -53,3 +53,14 @@ export const StyledSubTitle = styled.div`
   transition-delay: 0.3ms;
   transform-style: initial;
 `;
+export const AdminBlockPage = styled.div`
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 50%;
+  background: #f9fafb;
+  z-index: 999;
+`;

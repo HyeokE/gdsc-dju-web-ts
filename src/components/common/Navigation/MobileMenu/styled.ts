@@ -22,7 +22,8 @@ export const MenuWrapper = styled.div`
   transition-timing-function: ease;
   display: flex;
   align-items: center;
-  padding: 7px 20px;
+  padding: 3px 20px;
+  font-size: 15px;
   :hover {
     background: #f2f4f6;
     cursor: pointer;
