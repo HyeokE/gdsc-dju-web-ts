@@ -36,6 +36,7 @@ const Admin = () => {
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(userState);
+
   const [value, setValue] = useState(false);
 
   const checkAdminUser = () => {
@@ -101,10 +102,12 @@ const Admin = () => {
     <>
       <AdminSignInModal />
       <AdminSignUpModal />
+
       <AdminSetUserProfile checkAdminUser={checkAdminUser} />
       <Backdrop sx={{ color: '#fff', zIndex: 999 }} open={!value}>
         <CircularProgress color="inherit" />
       </Backdrop>
+      <AdminSetUserProfile />
       <BannerWrapper>
         <BannerImage src={RedBanner} />
       </BannerWrapper>
