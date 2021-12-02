@@ -30,6 +30,7 @@ import AdminTopMenu from '../../components/common/AdminTopMenu';
 import { alertState } from '../../api/hooks/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { Backdrop, CircularProgress } from '@mui/material';
+import MemberPage from '../../components/common/AdminContent/MembersPage';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
@@ -102,8 +103,7 @@ const Admin = () => {
     <>
       <AdminSignInModal />
       <AdminSignUpModal />
-
-      <AdminSetUserProfile checkAdminUser={checkAdminUser} />
+      <AdminSetUserProfile />
       <Backdrop sx={{ color: '#fff', zIndex: 999 }} open={!value}>
         <CircularProgress color="inherit" />
       </Backdrop>
@@ -142,6 +142,7 @@ const Admin = () => {
           ) : null}
 
           <TopMargin />
+
           <AdminContainerWrapper>
             <SidebarContainer>
               <AdminTopMenu

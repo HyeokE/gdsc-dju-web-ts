@@ -13,11 +13,8 @@ import {
 } from './styled';
 import Recruiting from '../../img/Recruiting';
 import ColorLines from '../../img/ColorLines';
-import { useHistory } from 'react-router-dom';
 
 export const Home = () => {
-  const history = useHistory();
-
   return (
     <>
       <StyledMainBanner>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   BannerImage,
   BannerWrapper,
@@ -28,9 +28,9 @@ import { StyledButton } from '../../components/common/Button/styled';
 import { TeamInfomation } from '../../api/teamInfomation';
 
 export const Recuritment: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const aboutTeam = TeamInfomation.find((aboutTeam) => aboutTeam.id === id);
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <>
       <BannerWrapper>
@@ -50,7 +50,7 @@ export const Recuritment: React.FC = () => {
               </ElementWrapper>
               <ElementWrapper>
                 <MinTitle>합류과정</MinTitle>
-                <MinText>1차 서류 - 2차 면접 </MinText>
+                <MinText>1차 서류 - 2차 면접</MinText>
               </ElementWrapper>
               <ElementWrapper>
                 <MinTitle>활동기간</MinTitle>
@@ -196,7 +196,7 @@ export const Recuritment: React.FC = () => {
                 </StyledButton>
                 <StyledButton
                   onClick={() => {
-                    history.push('/question');
+                    navigate('/question');
                   }}
                 >
                   자주 하는 질문
@@ -208,7 +208,7 @@ export const Recuritment: React.FC = () => {
           <MoblieBottomElementWrapper>
             <StyledButton
               onClick={() => {
-                history.push('/question');
+                navigate('/question');
               }}
             >
               자주 하는 질문

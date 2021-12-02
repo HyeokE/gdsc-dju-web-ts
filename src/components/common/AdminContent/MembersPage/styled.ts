@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const MotionSelector = styled(motion.section)``;
 
@@ -39,6 +39,9 @@ export const StyledTableWrapper = styled(motion.div)`
   justify-content: space-around;
   transition: 0.3s;
   transition-delay: 0.2ms;
+
+  border-width: 1px;
+  border-color: #f2f4f6;
   &:hover {
     background: #f2f4f6;
     border-color: #9f9f9f;

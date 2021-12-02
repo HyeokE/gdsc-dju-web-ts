@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
 
 const WideNavCategory = () => {
-  const locaton = useLocation<string>();
+  const locaton = useLocation();
   const [routeStyle, setRoutStyle] = useState<string>();
 
   useEffect(() => {
