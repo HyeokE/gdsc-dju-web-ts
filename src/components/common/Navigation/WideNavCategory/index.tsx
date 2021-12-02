@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
 
-const WideNavCategory = (routeStyle: string) => {
+const WideNavCategory = ({ routeStyle }: any) => {
   return (
     <>
       <WideNavigation>

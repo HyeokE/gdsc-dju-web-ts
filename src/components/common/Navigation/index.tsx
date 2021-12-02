@@ -19,7 +19,7 @@ import './Navigation.css';
 
 const Navigation: React.FC = () => {
   const locaton = useLocation();
-  const [routeStyle, setRoutStyle] = useState('');
+  const [routeStyle, setRoutStyle] = useState<string>('/');
   console.log(locaton.pathname);
   useEffect(() => {
     setRoutStyle(locaton.pathname);
@@ -42,7 +42,7 @@ const Navigation: React.FC = () => {
           </NavTask>
         </NavTaskWrapper>
         <ShortNavCategory />
-        <WideNavCategory {...routeStyle} />
+        <WideNavCategory routeStyle={routeStyle} />
       </NavInner>
     </NavDesign>
   );

@@ -107,7 +107,7 @@ export const LeftColorLinesWrapper = styled.div`
     left: -150px;
   }
   @media (max-width: 760px) {
-    top: 300px;
+    top: 330px;
   }
 `;
 export const RightColorLinesWrapper = styled.div`
