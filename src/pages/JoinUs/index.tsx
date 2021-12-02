@@ -15,11 +15,11 @@ import {
   TeamSubCategory,
 } from './styled';
 import { TeamList } from '../../api/teamList';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import BlueBanner from '../../img/BlueBanner.png';
 
 export const JoinUs = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -46,7 +46,7 @@ export const JoinUs = () => {
             <CategoryWrapper
               key={key}
               onClick={() => {
-                history.push('/joinus/' + data.id);
+                navigate('/joinus/' + data.id);
               }}
             >
               <CategoryInner>
@@ -60,7 +60,7 @@ export const JoinUs = () => {
             <MobileCategoryWrapper
               key={key}
               onClick={() => {
-                history.push('/joinus/' + data.id);
+                navigate('/joinus/' + data.id);
               }}
             >
               <MobileCategoryInner>

@@ -10,6 +10,7 @@ export const StyledButton = styled.button`
   border-color: #4e5968;
   border-style: inherit;
   margin-bottom: 10px;
+  font-size: 15px;
   &:hover {
     background: #3182f6;
     cursor: pointer;

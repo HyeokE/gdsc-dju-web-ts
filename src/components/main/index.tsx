@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router';
+import React from 'react';
+import { Route, Routes } from 'react-router';
 import { Pages } from '../../pages';
 import Navigation from '../common/Navigation';
-import { authService, dbService } from '../../firebase/firebase';
-import { useRecoilState, useResetRecoilState } from 'recoil';
-import { STATUS_KEY, statusState } from '../../store/status';
-import { userDataState } from '../../store/user';
-import { postState } from '../../store/post';
+import { useRecoilState } from 'recoil';
 import { Footer } from '../common/Footer';
 import MoblieMenu from '../common/Navigation/MobileMenu';
 import Alert from '../common/Alert';
@@ -57,9 +53,9 @@ export const Main = () => {
       <MoblieMenu />
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
-      <Switch>
-        <Route path={''} component={Pages} />
-      </Switch>
+      <Routes>
+        <Route path={'*'} element={<Pages />} />
+      </Routes>
       <Footer />
     </>
   );

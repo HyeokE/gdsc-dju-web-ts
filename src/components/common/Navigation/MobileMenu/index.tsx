@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { NavIconWrapper, NavTask, StyledLink } from '../styled';
+import React from 'react';
+import { StyledLink } from '../styled';
 import { useRecoilState } from 'recoil';
-import { MENU_KEY, menuState, MenuState } from '../../../../store/menu';
-import { MenuInner, Menu, MenuWrapper, CategoryLine } from './styled';
+import { MENU_KEY, menuState } from '../../../../store/menu';
+import { CategoryLine, Menu, MenuInner, MenuWrapper } from './styled';
 import './MobileMenu.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const MoblieMenu = () => {
   const [menu, setMenu] = useRecoilState(menuState);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const closeMenu = () => setMenu({ ...menu, [MENU_KEY.APPMENU]: false });
 
@@ -20,7 +19,7 @@ const MoblieMenu = () => {
           className={menu.menu ? ' appMenuActive ' : 'appMenuCategory'}
           onClick={() => {
             closeMenu();
-            history.push('/introduce');
+            navigate('/introduce');
           }}
         >
           <StyledLink to={'/introduce'}>소개</StyledLink>
@@ -30,7 +29,7 @@ const MoblieMenu = () => {
           className={menu.menu ? ' appMenuActive' : 'appMenuCategory'}
           onClick={() => {
             closeMenu();
-            history.push('/joinus');
+            navigate('/joinus');
           }}
         >
           <StyledLink to={'/joinus'}>지원하기</StyledLink>
@@ -40,7 +39,7 @@ const MoblieMenu = () => {
           className={menu.menu ? 'appMenuActive ' : 'appMenuCategory'}
           onClick={() => {
             closeMenu();
-            history.push('/conduct');
+            navigate('/conduct');
           }}
         >
           <StyledLink to={'/conduct'}>Code of Conduct</StyledLink>
@@ -50,7 +49,7 @@ const MoblieMenu = () => {
           className={menu.menu ? 'appMenuActive ' : 'appMenuCategory'}
           onClick={() => {
             closeMenu();
-            history.push('/question');
+            navigate('/question');
           }}
         >
           <StyledLink to={'/question'}>자주하는 질문</StyledLink>
