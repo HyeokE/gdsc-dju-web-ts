@@ -21,6 +21,10 @@ import {
   Role,
 } from '../../components/common/card/MemberCard/styled';
 import { Skeleton } from '@mui/material';
+import {
+  listAnimate,
+  memberCardAnimate,
+} from '../../components/common/Variants/Variants';
 
 export const Introduce = () => {
   const [selectedMember, setSelectedMember] = useState<number>(0);
@@ -91,9 +95,13 @@ export const Introduce = () => {
           <TopMargin />
           <Title>팀 소개</Title>
           <TopMargin />
-          <CardList>
+          <CardList variants={listAnimate}>
             {memberList.map((memberInfo, id) => (
               <MemberCardWrapper
+                variants={memberCardAnimate}
+                initial={'offView'}
+                whileInView={'onView'}
+                viewport={{ once: true, amount: 0.8 }}
                 key={id}
                 onClick={() => {
                   setSelectedMember(id);

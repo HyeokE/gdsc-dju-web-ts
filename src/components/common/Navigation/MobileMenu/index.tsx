@@ -15,6 +15,7 @@ const MoblieMenu = () => {
   return (
     <Menu className={menu.menu ? 'appMenu active' : 'appMenu'}>
       <MenuInner>
+        <MenuWrapper />
         <MenuWrapper
           className={menu.menu ? ' appMenuActive ' : 'appMenuCategory'}
           onClick={() => {

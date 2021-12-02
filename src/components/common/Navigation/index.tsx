@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   NavDesign,
@@ -14,10 +14,18 @@ import {
 import GDSCLogoClear from '../../../img/GDSCLogoClear.png';
 import WideNavCategory from './WideNavCategory';
 import ShortNavCategory from './ShortNavCategory';
+import { useLocation } from 'react-router';
+import './Navigation.css';
 
 const Navigation: React.FC = () => {
+  const locaton = useLocation();
+  const [routeStyle, setRoutStyle] = useState('');
+  console.log(locaton.pathname);
+  useEffect(() => {
+    setRoutStyle(locaton.pathname);
+  });
   return (
-    <NavDesign>
+    <NavDesign className={routeStyle === '/' ? 'transparent' : 'white'}>
       <NavInner>
         <NavTaskWrapper>
           <NavTask>
@@ -34,7 +42,7 @@ const Navigation: React.FC = () => {
           </NavTask>
         </NavTaskWrapper>
         <ShortNavCategory />
-        <WideNavCategory />
+        <WideNavCategory {...routeStyle} />
       </NavInner>
     </NavDesign>
   );

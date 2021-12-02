@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const VideoWrapper = styled.div`
@@ -37,33 +38,46 @@ export const StyledButton = styled.button`
   color: white;
   font-size: 16px;
   cursor: pointer;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    width: 180px;
+    height: 55px;
+    font-size: 15px;
+  }
+  @media (max-width: 500px) {
+    width: 150px;
+    height: 45px;
+    font-size: 13px;
+  }
 `;
 export const StyledMainBanner = styled.div`
   position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
   overflow: hidden;
   height: 1000px;
   z-index: 1;
+  top: -70px;
 `;
-export const BannerTitleWrapper = styled.div`
+export const BannerTitleWrapper = styled(motion.section)`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-export const RecruitingWrapper = styled.div`
+export const RecruitingWrapper = styled(motion.div)`
   z-index: 50;
   position: absolute;
   top: 350px;
   width: 40%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    top: 300px;
+    top: 270px;
     width: 60%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
@@ -89,10 +103,11 @@ export const LeftColorLinesWrapper = styled.div`
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
-    width: 400px;
+    width: 300px;
+    left: -150px;
   }
   @media (max-width: 760px) {
-    display: none;
+    top: 300px;
   }
 `;
 export const RightColorLinesWrapper = styled.div`
@@ -107,19 +122,21 @@ export const RightColorLinesWrapper = styled.div`
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
-    width: 400px;
+    width: 300px;
+    right: -150px;
   }
   @media (max-width: 760px) {
-    display: none;
+    transform: scaleY(-1);
+    top: 10px;
   }
 `;
 export const MarginPage = styled.div`
   height: 500px;
 `;
-export const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled(motion.div)`
   margin-top: 50px;
 `;
-export const MainBannerText = styled.div`
+export const MainBannerText = styled(motion.div)`
   margin-top: 30px;
   display: flex;
   align-items: center;
