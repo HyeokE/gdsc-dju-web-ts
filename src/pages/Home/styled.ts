@@ -1,33 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const VideoWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  top: -50px;
-  width: 100%;
-  height: 700px;
-`;
-export const StyledVideo = styled.video`
-  object-fit: cover;
-  width: auto;
-  height: 100%;
-  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    height: 100%;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    height: 100%;
-  }
-  @media (max-width: 500px) {
-    height: 65%;
-  }
-  @media (max-width: 320px) {
-    height: 55%;
-  }
-`;
-
 export const StyledButton = styled.button`
   width: 220px;
   height: 60px;
@@ -49,16 +22,25 @@ export const StyledButton = styled.button`
     font-size: 13px;
   }
 `;
-export const StyledMainBanner = styled.div`
+export const StyledMainBanner = styled(motion.div)`
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
-  overflow: hidden;
-  height: 1000px;
+  overflow-x: hidden;
+  height: 800px;
   z-index: 1;
   top: -70px;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    height: 800px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+    height: 700px;
+  }
+  @media (max-width: 320px) {
+    height: 800px;
+  }
 `;
 export const BannerTitleWrapper = styled(motion.section)`
   width: 100%;
@@ -90,44 +72,45 @@ export const RecruitingWrapper = styled(motion.div)`
   }
 `;
 
-export const LeftColorLinesWrapper = styled.div`
-  transform: scaleX(-1);
+export const LeftColorLinesWrapper = styled(motion.div)`
   z-index: 1;
   position: absolute;
   max-width: 500px;
   width: 40%;
   top: 250px;
-  left: -230px;
+  left: -200px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 50%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
     width: 300px;
-    left: -150px;
+    left: -100px;
   }
   @media (max-width: 760px) {
-    top: 330px;
+    top: 400px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+    top: 350px;
   }
 `;
-export const RightColorLinesWrapper = styled.div`
+export const RightColorLinesWrapper = styled(motion.div)`
   z-index: 1;
   position: absolute;
-  top: 250px;
+  top: 200px;
   max-width: 500px;
   width: 40%;
-  right: -230px;
+  right: -200px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 50%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
     width: 300px;
-    right: -150px;
+    right: -100px;
   }
   @media (max-width: 760px) {
-    transform: scaleY(-1);
-    top: 10px;
+    top: 20px;
   }
 `;
 export const MarginPage = styled.div`
@@ -151,5 +134,24 @@ export const MainBannerText = styled(motion.div)`
   }
   @media (max-width: 320px) {
     font-size: 15px;
+  }
+`;
+export const DownArrowWrapper = styled(motion.div)`
+  width: 100%;
+  position: sticky;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  opacity: 50;
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    margin-top: 150px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    margin-top: 150px;
+  }
+  @media (max-width: 320px) {
+    margin-top: 70px;
   }
 `;

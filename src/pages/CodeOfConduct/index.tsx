@@ -6,16 +6,15 @@ import {
   List,
   Tage,
   TopMargin,
-  BannerImage,
 } from '../../Layout';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-import RedBanner from '../../img/RedBanner.png';
+import { RedBanner } from '../../img/Banner';
 
 export const CodeOfConduct = () => {
   return (
     <>
       <BannerWrapper>
-        <BannerImage src={RedBanner} />
+        <RedBanner />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

@@ -16,7 +16,7 @@ import {
 } from './styled';
 import { TeamList } from '../../api/teamList';
 import { useNavigate } from 'react-router';
-import BlueBanner from '../../img/BlueBanner.png';
+import { BlueBanner } from '../../img/Banner';
 
 export const JoinUs = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const JoinUs = () => {
   return (
     <>
       <BannerWrapper>
-        <BannerImage src={BlueBanner} />
+        <BlueBanner />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

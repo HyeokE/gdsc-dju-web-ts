@@ -34,7 +34,7 @@ export const titleAnimate = {
 
     transition: {
       staggerChildren: 1,
-      delayChildren: 0.5,
+      delayChildren: 1,
     },
   },
   exit: {
@@ -68,6 +68,39 @@ export const memberCardAnimate = {
     y: 0,
     transition: {
       duration: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+export const rightLineItemAnimate = {
+  start: {
+    opacity: 0,
+    x: 30,
+  },
+  end: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+export const leftLineItemAnimate = {
+  start: {
+    opacity: 0,
+    x: -30,
+    rotate: 180,
+  },
+  end: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
     },
   },
   exit: {

@@ -25,7 +25,7 @@ import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
 import { userState } from '../../api/hooks/user';
-import RedBanner from '../../img/RedBanner.png';
+import { RedBanner } from '../../img/Banner';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
 import { alertState } from '../../api/hooks/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
@@ -109,7 +109,7 @@ const Admin = () => {
       </Backdrop>
       <AdminSetUserProfile />
       <BannerWrapper>
-        <BannerImage src={RedBanner} />
+        <RedBanner />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

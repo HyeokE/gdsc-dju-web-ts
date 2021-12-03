@@ -3,6 +3,7 @@ import { ContainerInner, LayoutContainer } from '../../Layout';
 import {
   BannerTitleWrapper,
   ButtonWrapper,
+  DownArrowWrapper,
   LeftColorLinesWrapper,
   MainBannerText,
   MarginPage,
@@ -14,19 +15,26 @@ import {
 import Recruiting from '../../img/Recruiting';
 import ColorLines from '../../img/ColorLines';
 import {
+  leftLineItemAnimate,
+  listAnimate,
+  rightLineItemAnimate,
   titleAnimate,
   titleItemAnimate,
 } from '../../components/common/Variants/Variants';
-import { MotionConfig } from 'framer-motion';
+import DownArrow from '../../img/DownArrow';
 
 export const Home = () => {
   return (
     <>
-      <StyledMainBanner>
-        <LeftColorLinesWrapper>
+      <StyledMainBanner
+        variants={listAnimate}
+        initial={'start'}
+        animate={'end'}
+      >
+        <LeftColorLinesWrapper variants={leftLineItemAnimate}>
           <ColorLines />
         </LeftColorLinesWrapper>
-        <RightColorLinesWrapper>
+        <RightColorLinesWrapper variants={rightLineItemAnimate}>
           <ColorLines />
         </RightColorLinesWrapper>
       </StyledMainBanner>
@@ -54,6 +62,20 @@ export const Home = () => {
           </MainBannerText>
         </RecruitingWrapper>
       </BannerTitleWrapper>
+      <DownArrowWrapper
+        animate={{
+          y: [0, 10, 0, 10, 0],
+        }}
+        transition={{
+          duration: 4,
+          ease: 'easeInOut',
+          times: [0, 0.3, 0.5, 0.8, 1],
+          repeat: Infinity,
+        }}
+      >
+        <DownArrow />
+      </DownArrowWrapper>
+      {/*<hr />*/}
       <LayoutContainer>
         <ContainerInner>
           <MarginPage />

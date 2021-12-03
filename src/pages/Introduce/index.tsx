@@ -10,10 +10,9 @@ import {
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper, StyledModal } from './styled';
 import { memberList } from '../../api/memberList';
-import { BannerImage, BannerWrapper } from '../../Layout/index';
+import { BannerWrapper } from '../../Layout/index';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 // import Modal from '../../components/common/Modal/index';
-import GreenBanner from '../../img/GreenBanner.png';
 import {
   MemberImg,
   Name,
@@ -25,6 +24,7 @@ import {
   listAnimate,
   memberCardAnimate,
 } from '../../components/common/Variants/Variants';
+import { GreenBanner } from '../../img/Banner';
 
 export const Introduce = () => {
   const [selectedMember, setSelectedMember] = useState<number>(0);
@@ -53,7 +53,7 @@ export const Introduce = () => {
         <Name>{memberList[selectedMember].introduce}</Name>
       </StyledModal>
       <BannerWrapper>
-        <BannerImage src={GreenBanner} />
+        <GreenBanner />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
