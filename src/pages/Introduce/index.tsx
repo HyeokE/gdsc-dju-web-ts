@@ -24,7 +24,8 @@ import {
   listAnimate,
   memberCardAnimate,
 } from '../../components/common/Variants/Variants';
-import { GreenBanner } from '../../img/Banner';
+import { Banner } from '../../img/Banner';
+import YellowBanner from '../../img/YellowBanner.png';
 
 export const Introduce = () => {
   const [selectedMember, setSelectedMember] = useState<number>(0);
@@ -53,7 +54,7 @@ export const Introduce = () => {
         <Name>{memberList[selectedMember].introduce}</Name>
       </StyledModal>
       <BannerWrapper>
-        <GreenBanner />
+        <Banner src={YellowBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

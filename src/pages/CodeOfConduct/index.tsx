@@ -8,13 +8,13 @@ import {
   TopMargin,
 } from '../../Layout';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-import { RedBanner } from '../../img/Banner';
-
+import { Banner } from '../../img/Banner';
+import RedBanner from '../../img/RedBanner.png';
 export const CodeOfConduct = () => {
   return (
     <>
       <BannerWrapper>
-        <RedBanner />
+        <Banner src={RedBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

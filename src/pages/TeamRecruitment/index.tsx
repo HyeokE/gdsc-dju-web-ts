@@ -25,7 +25,7 @@ import {
 
 import { StyledButton } from '../../components/common/Button/styled';
 import { TeamInfomation } from '../../api/teamInfomation';
-import { YellowBanner } from '../../img/Banner';
+import { Banner } from '../../img/Banner';
 
 export const Recuritment: React.FC = () => {
   const { id } = useParams();
@@ -34,7 +34,7 @@ export const Recuritment: React.FC = () => {
   return (
     <>
       <BannerWrapper>
-        <YellowBanner />
+        <Banner />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-import { YellowBanner } from '../../img/Banner';
-
+import { Banner } from '../../img/Banner';
+import YellowBanner from '../../img/YellowBanner.png';
 import {
   BannerWrapper,
   ContainerInner,
@@ -15,7 +15,7 @@ export const Question = () => {
   return (
     <>
       <BannerWrapper>
-        <YellowBanner />
+        <Banner src={YellowBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
