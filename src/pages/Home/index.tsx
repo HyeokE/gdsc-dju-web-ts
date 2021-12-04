@@ -70,7 +70,7 @@ export const Home = () => {
             opacity: [1, 0, 1, 0, 1],
           }}
           transition={{
-            duration: 2,
+            duration: 4,
             ease: 'easeInOut',
             times: [0, 0.3, 0.5, 0.8, 1],
             repeat: Infinity,
