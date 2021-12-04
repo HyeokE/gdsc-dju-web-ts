@@ -1,6 +1,15 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
+export const HomeWrapper = styled.div`
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+`;
 export const StyledButton = styled.button`
   width: 220px;
   height: 60px;
@@ -23,12 +32,13 @@ export const StyledButton = styled.button`
   }
 `;
 export const StyledMainBanner = styled(motion.div)`
-  position: relative;
+  position: absolute;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
   overflow-x: hidden;
+  min-height: 100vh;
   height: 800px;
   z-index: 1;
   top: -70px;
@@ -43,15 +53,15 @@ export const StyledMainBanner = styled(motion.div)`
   }
 `;
 export const BannerTitleWrapper = styled(motion.section)`
+  position: static;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 export const RecruitingWrapper = styled(motion.div)`
+  position: static;
   z-index: 50;
-  position: absolute;
-  top: 350px;
   width: 40%;
   max-width: 600px;
   display: flex;
@@ -59,15 +69,12 @@ export const RecruitingWrapper = styled(motion.div)`
   justify-content: center;
   align-items: center;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    top: 270px;
     width: 60%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    top: 200px;
-    width: 70%;
+    width: 80%;
   }
   @media (max-width: 320px) {
-    top: 200px;
     width: 80%;
   }
 `;
@@ -139,12 +146,12 @@ export const MainBannerText = styled(motion.div)`
 export const DownArrowWrapper = styled(motion.div)`
   width: 100%;
   position: sticky;
-  bottom: 30px;
+  bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 150px;
   opacity: 50;
+  margin-top: 80px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     margin-top: 150px;
   }
