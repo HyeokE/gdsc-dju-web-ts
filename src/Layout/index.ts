@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 export const TopMargin = styled.div`
   height: 50px;
+  @media (max-width: 500px) {
+    height: 30px;
+  }
 `;
 export const SmallTopMargin = styled.div`
   height: 30px;

@@ -82,6 +82,7 @@ export const CodeOfConduct = () => {
           <TopMargin />
           <SubTitle>
             <List>
+              <Tage />
               수평적 문화를 위해 영어 닉네임을 사용합니다.
               <br />
               본명 사용은 지양해주세요.

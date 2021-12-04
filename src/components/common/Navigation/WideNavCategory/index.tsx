@@ -46,8 +46,8 @@ const WideNavCategory = ({ routeStyle }: any) => {
           </NavTask>
           <NavTask>
             <StyledLink
-              to={'/question'}
-              className={routeStyle == '/question' ? 'active' : 'noneActive'}
+              to={'/faq'}
+              className={routeStyle == '/faq' ? 'active' : 'noneActive'}
             >
               자주하는 질문
             </StyledLink>
