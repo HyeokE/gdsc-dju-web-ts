@@ -52,6 +52,7 @@ export const LayoutContainer = styled.div`
 export const ContainerInner = styled.div`
   width: 90%;
   margin: auto;
+  min-height: 100vh;
 `;
 export const CardList = styled(motion.section)`
   display: flex;
