@@ -16,6 +16,9 @@ export const TeamInfomation = [
       '의견 전달이나 수용에 거리낌이 없으신 분\n' +
       '더 좋은 커뮤니티나 팀문화에 대해 관심이 많으신 분',
     preferential: 'React나 Vue 등 SPA에 대한 이해도가 있으신 분이면 좋습니다.',
+    activity:
+      'GDSC DJU 사이트의 유지 보수를 진행합니다.\n' +
+      '사이트의 신규기능(기술블로그)를 개발합니다.',
   },
   {
     id: 'backend',

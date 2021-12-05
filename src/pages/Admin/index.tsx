@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Title } from '../../components/common/Title/title';
-import {
-  BannerImage,
-  BannerWrapper,
-  ContainerInner,
-  TopMargin,
-} from '../../Layout';
+import { BannerWrapper, ContainerInner, TopMargin } from '../../Layout';
 import { LayoutContainer } from '../../styles/layout';
 import './Admin.css';
 import {
-  AdminBlockPage,
   AdminContainerWrapper,
   ButtonElementWrapper,
   SidebarContainer,
@@ -25,12 +19,12 @@ import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
 import { userState } from '../../api/hooks/user';
+import { Banner } from '../../img/Banner';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
 import { alertState } from '../../api/hooks/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { Backdrop, CircularProgress } from '@mui/material';
-import MemberPage from '../../components/common/AdminContent/MembersPage';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
@@ -109,7 +103,7 @@ const Admin = () => {
       </Backdrop>
       <AdminSetUserProfile />
       <BannerWrapper>
-        <BannerImage src={RedBanner} />
+        <Banner src={RedBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>

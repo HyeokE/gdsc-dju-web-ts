@@ -49,15 +49,15 @@ const ColorLines = () => {
             transform="translate(6523.978 6503.873) rotate(90)"
             fill="#e94436"
           />
-          <rect
-            id="Rectangle_50"
-            data-name="Rectangle 50"
-            width="175.635"
-            height="379.926"
-            rx="87.818"
-            transform="translate(6778.187 7297.004) rotate(90)"
-            fill="#4385f3"
-          />
+          {/*<rect*/}
+          {/*  id="Rectangle_50"*/}
+          {/*  data-name="Rectangle 50"*/}
+          {/*  width="175.635"*/}
+          {/*  height="379.926"*/}
+          {/*  rx="87.818"*/}
+          {/*  transform="translate(6778.187 7297.004) rotate(90)"*/}
+          {/*  fill="#4385f3"*/}
+          {/*/>*/}
           <rect
             id="Rectangle_48"
             data-name="Rectangle 48"

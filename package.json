@@ -22,13 +22,14 @@
     "eslint-config-airbnb": "^18.2.1",
     "firebase": "^9.4.0",
     "firebase-tools": "^9.22.0",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "5.3.0",
     "react": "^17.0.2",
+    "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.2",
     "react-rainbow-components": "^1.27.0",
     "react-router": "^6.0.1",
     "react-router-dom": "^6.0.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "recoil": "^0.5.2",
     "recoil-persist": "^4.0.0",
     "styled-components": "^5.3.3",
@@ -38,9 +39,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const NavDesign = styled.div`
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.03);
-  background: white;
   position: sticky;
   width: 100%;
   top: 0;
@@ -55,13 +53,13 @@ export const SchoolName = styled.div`
 `;
 export const WideNavigation = styled.div`
   z-index: 999;
-  @media (max-width: 500px) {
+  @media (max-width: 560px) {
     display: none;
   }
 `;
 export const ShortNavigation = styled.div`
   z-index: 99;
-  @media (min-width: 500px) {
+  @media (min-width: 560px) {
     display: none;
   }
 `;
