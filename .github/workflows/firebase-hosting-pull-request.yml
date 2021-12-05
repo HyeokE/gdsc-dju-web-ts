@@ -4,15 +4,21 @@
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
 jobs:
-  build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-        repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{secrets.FIREBASE_TOKEN }}'
-          channelId: live
-          projectId: gdsc-dju
+        - name: Check Node v
+          run: node -v
+            - name: Install Dependencies    # 의존 파일 설치
+              run: yarn install --frozen-lockfile
+
+            - uses: actions/checkout@v2
+            - run: yarn build
+              env:
+                CI: ""
+            - uses: FirebaseExtended/action-hosting-deploy@v0
+              with:
+                repoToken: '${{ secrets.GITHUB_TOKEN }}'
+                firebaseServiceAccount: '${{secrets.FIREBASE_TOKEN }}'
+                channelId: live
+                projectId: gdsc-dju
