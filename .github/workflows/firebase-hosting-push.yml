@@ -1,0 +1,30 @@
+name: React Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v1
+      - name: npm install, build
+        run: |
+          yarn install
+          yarn build --if-present
+      - name: Deploy Firebase
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          npm install firebase-tools
+          firebase deploy --token $FIREBASE_TOKEN --non-interactive
