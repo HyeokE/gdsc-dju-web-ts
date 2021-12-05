@@ -1,10 +1,7 @@
 import React from 'react';
-import { dbService } from '../../../firebase/firebase';
-import { memberList } from '../../../api/memberList';
 import { TopMargin } from '../../../Layout';
 import MemberPage from './MembersPage';
 import SettingPage from './SettingPage';
-import AdminSetUserProfile from '../Modal/AdminSetUserProfile';
 
 export type UserDataState = {
   id: string | undefined;
@@ -23,24 +20,24 @@ export type UserDataState = {
 const AdminContent: React.FC<{ selectedCategory: string }> = ({
   selectedCategory,
 }) => {
-  const uploadMembers = async (i: number) => {
-    try {
-      await dbService.collection('members').doc().set({
-        nickName: memberList[i].nickName,
-        name: memberList[i].name,
-        role: memberList[i].role,
-        memberImg: memberList[i].memberImg,
-        introduce: memberList[i].introduce,
-        position: memberList[i].position,
-        email: memberList[i].email,
-        warning: memberList[i].warning,
-        uploadDate: Date.now(),
-        phoneNumber: memberList[i].phoneNumber,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const uploadMembers = async (i: number) => {
+  //   try {
+  //     await dbService.collection('members').doc().set({
+  //       nickName: memberList[i].nickName,
+  //       name: memberList[i].name,
+  //       role: memberList[i].role,
+  //       memberImg: memberList[i].memberImg,
+  //       introduce: memberList[i].introduce,
+  //       position: memberList[i].position,
+  //       email: memberList[i].email,
+  //       warning: memberList[i].warning,
+  //       uploadDate: Date.now(),
+  //       phoneNumber: memberList[i].phoneNumber,
+  //     });
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
   // useEffect(() => {
   //   for (let a = 0; a < memberList.length; a++) {
   //     uploadMembers(a);
