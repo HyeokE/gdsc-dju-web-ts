@@ -33,7 +33,7 @@ export const Faq = [
       'Google Developer Student Clubs 운영방침상 학부생, 재.휴학생 대상입니다.',
   },
   {
-    id: 7,
+    id: 6,
     question: '코딩 교육과정이 있는건가요?',
     answer:
       '개발 커뮤니티로서 교육을 직접적으로 진행하지는 않습니다.\n' +
@@ -41,7 +41,7 @@ export const Faq = [
       '그러나 git 사용이나 학습에 필요한 가이드라인은 제공해드립니다.',
   },
   {
-    id: 8,
+    id: 7,
     question: '활동시간이 정해져있나요?',
     answer:
       '정기세미나는 2주마다 월요일 밤 9시에 진행되며 스터디는 팀별로 조율하여 매주 진행 중입니다.\n' +
