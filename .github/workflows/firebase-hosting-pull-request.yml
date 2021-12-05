@@ -1,21 +1,39 @@
-name: React Build
+name: React Deploy
 
-on: [ pull_request ]
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [10.x]
 
     steps:
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/checkout@v1
-      - name: yarn install, build
+          node-version: '12'
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: npm install, build
         run: |
           yarn install
           yarn build --if-present
+      - name: Deploy Firebase
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          npm install firebase-tools
+          firebase deploy --token $FIREBASE_TOKEN --non-interactive
