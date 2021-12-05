@@ -4,13 +4,7 @@ import { useLocation } from 'react-router';
 import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
 
-const WideNavCategory = () => {
-  const locaton = useLocation();
-  const [routeStyle, setRoutStyle] = useState<string>();
-
-  useEffect(() => {
-    setRoutStyle(locaton.pathname);
-  });
+const WideNavCategory = ({ routeStyle }: any) => {
   return (
     <>
       <WideNavigation>
@@ -52,8 +46,8 @@ const WideNavCategory = () => {
           </NavTask>
           <NavTask>
             <StyledLink
-              to={'/question'}
-              className={routeStyle == '/question' ? 'active' : 'noneActive'}
+              to={'/faq'}
+              className={routeStyle == '/faq' ? 'active' : 'noneActive'}
             >
               자주하는 질문
             </StyledLink>

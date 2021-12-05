@@ -15,6 +15,7 @@ const MoblieMenu = () => {
   return (
     <Menu className={menu.menu ? 'appMenu active' : 'appMenu'}>
       <MenuInner>
+        <MenuWrapper />
         <MenuWrapper
           className={menu.menu ? ' appMenuActive ' : 'appMenuCategory'}
           onClick={() => {
@@ -49,10 +50,10 @@ const MoblieMenu = () => {
           className={menu.menu ? 'appMenuActive ' : 'appMenuCategory'}
           onClick={() => {
             closeMenu();
-            navigate('/question');
+            navigate('/faq');
           }}
         >
-          <StyledLink to={'/question'}>자주하는 질문</StyledLink>
+          <StyledLink to={'/faq'}>자주하는 질문</StyledLink>
         </MenuWrapper>
         <CategoryLine />
       </MenuInner>

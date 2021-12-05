@@ -10,10 +10,9 @@ import {
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper, StyledModal } from './styled';
 import { memberList } from '../../api/memberList';
-import { BannerImage, BannerWrapper } from '../../Layout/index';
+import { BannerWrapper } from '../../Layout/index';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 // import Modal from '../../components/common/Modal/index';
-import GreenBanner from '../../img/GreenBanner.png';
 import {
   MemberImg,
   Name,
@@ -21,6 +20,12 @@ import {
   Role,
 } from '../../components/common/card/MemberCard/styled';
 import { Skeleton } from '@mui/material';
+import {
+  listAnimate,
+  memberCardAnimate,
+} from '../../components/common/Variants/Variants';
+import { Banner } from '../../img/Banner';
+import YellowBanner from '../../img/YellowBanner.png';
 
 export const Introduce = () => {
   const [selectedMember, setSelectedMember] = useState<number>(0);
@@ -49,7 +54,7 @@ export const Introduce = () => {
         <Name>{memberList[selectedMember].introduce}</Name>
       </StyledModal>
       <BannerWrapper>
-        <BannerImage src={GreenBanner} />
+        <Banner src={YellowBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
@@ -91,9 +96,13 @@ export const Introduce = () => {
           <TopMargin />
           <Title>팀 소개</Title>
           <TopMargin />
-          <CardList>
+          <CardList variants={listAnimate}>
             {memberList.map((memberInfo, id) => (
               <MemberCardWrapper
+                variants={memberCardAnimate}
+                initial={'offView'}
+                whileInView={'onView'}
+                viewport={{ once: true, amount: 0.8 }}
                 key={id}
                 onClick={() => {
                   setSelectedMember(id);

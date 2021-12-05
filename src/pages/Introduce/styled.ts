@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Modal } from 'react-rainbow-components';
+import { motion } from 'framer-motion';
 
-export const MemberCardWrapper = styled.div`
+export const MemberCardWrapper = styled(motion.div)`
   width: 33.33%;
   display: flex;
   justify-content: center;

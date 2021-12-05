@@ -6,16 +6,15 @@ import {
   List,
   Tage,
   TopMargin,
-  BannerImage,
 } from '../../Layout';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
+import { Banner } from '../../img/Banner';
 import RedBanner from '../../img/RedBanner.png';
-
 export const CodeOfConduct = () => {
   return (
     <>
       <BannerWrapper>
-        <BannerImage src={RedBanner} />
+        <Banner src={RedBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
@@ -83,6 +82,7 @@ export const CodeOfConduct = () => {
           <TopMargin />
           <SubTitle>
             <List>
+              <Tage />
               수평적 문화를 위해 영어 닉네임을 사용합니다.
               <br />
               본명 사용은 지양해주세요.

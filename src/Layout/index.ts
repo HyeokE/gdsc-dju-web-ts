@@ -1,7 +1,11 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const TopMargin = styled.div`
   height: 50px;
+  @media (max-width: 500px) {
+    height: 30px;
+  }
 `;
 export const SmallTopMargin = styled.div`
   height: 30px;
@@ -12,6 +16,7 @@ export const List = styled.li`
   margin: 8px 0px;
   font-size: 16px;
   line-height: 24px;
+
   color: rgb(78, 89, 104);
   list-style: none;
   @media (max-width: 500px) {
@@ -48,7 +53,7 @@ export const ContainerInner = styled.div`
   width: 90%;
   margin: auto;
 `;
-export const CardList = styled.section`
+export const CardList = styled(motion.section)`
   display: flex;
   flex-wrap: wrap;
 `;
