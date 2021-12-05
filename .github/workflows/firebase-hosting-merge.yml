@@ -18,9 +18,3 @@ jobs:
           firebaseServiceAccount: '${{secrets.FIREBASE_TOKEN }}'
           channelId: live
           projectId: gdsc-dju
-      - name: Deploy Firebase
-         env:
-           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-           run: |
-             npm install firebase-tools
-             firebase deploy --token $FIREBASE_TOKEN --non-interactive
