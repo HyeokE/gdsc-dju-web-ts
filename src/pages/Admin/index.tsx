@@ -18,7 +18,7 @@ import { MODAL_KEY, modalState } from '../../store/modal';
 import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
-import { userState } from '../../store/localUser';
+import { localUserState } from '../../store/localUser';
 import { Banner } from '../../img/Banner';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
@@ -31,11 +31,13 @@ const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
-  const [adminUser, setAdminUser] = useRecoilState(userState);
-  const tabs = [{ label: 'Home' }, { label: 'Members' }, { label: 'Setting' }];
+  const [adminUser, setAdminUser] = useRecoilState(localUserState);
+
   const [value, setValue] = useState(false);
-  const { data } = useGetMemberList();
-  console.log(data);
+
+  const tabs = [{ label: 'Home' }, { label: 'Members' }, { label: 'Setting' }];
+  const { data: memberData } = useGetMemberList();
+
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
       if (user) {

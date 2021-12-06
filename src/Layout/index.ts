@@ -10,7 +10,7 @@ export const TopMargin = styled.div`
 export const SmallTopMargin = styled.div`
   height: 30px;
 `;
-export const List = styled.li`
+export const List = styled(motion.li)`
   position: relative;
   padding-left: 24px;
   margin: 8px 0px;

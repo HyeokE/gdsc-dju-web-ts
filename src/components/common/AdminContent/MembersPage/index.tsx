@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { dbService } from '../../../../firebase/firebase';
 import { MainText } from '../../Title/title';
 import { UserDataState } from '../index';
 import {
@@ -18,12 +17,51 @@ import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../store/modal';
 import './MemberPage.css';
 import { listAnimate, listItemAnimate } from '../../Variants/Variants';
-import { memberList } from '../../../../api/memberList';
+import { UserDataField, UserDataRow } from '../../../../api/types';
+import { useGetMemberList } from '../../../../api/hooks/useGetMemberData';
+import { dbService } from '../../../../firebase/firebase';
 
 const MemberPage = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>();
   const [selectMember, setSelectMember] = useState<UserDataState>();
   const [modal, setModal] = useRecoilState(modalState);
+
+  //유저 데이터 sort 기능 제작
+  const [sortBy, setSortBy] = useState('count');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+
+  const { data: memberList } = useGetMemberList();
+  // const memberList = data.fields;
+  const reduceSorter = (
+    key: keyof UserDataField,
+    sortDirection: 'asc' | 'desc',
+  ) => {
+    return (a: UserDataRow, b: UserDataRow) => {
+      const nextSortDirectionNumber = sortDirection === 'asc' ? 1 : -1;
+      switch (key) {
+        case 'warning':
+          return (
+            (a.fields.warning - b.fields.warning) * nextSortDirectionNumber
+          );
+        case 'nickName':
+          return (
+            a.fields.nickName.localeCompare(b.fields.nickName) *
+            nextSortDirectionNumber
+          );
+        case 'name':
+          return (
+            a.fields.name.localeCompare(b.fields.name) * nextSortDirectionNumber
+          );
+        case 'email':
+          return (
+            a.fields.email.localeCompare(b.fields.email) *
+            nextSortDirectionNumber
+          );
+        default:
+          return nextSortDirectionNumber;
+      }
+    };
+  };
 
   const getMemberList = async () => {
     try {
@@ -47,6 +85,7 @@ const MemberPage = () => {
         selectMember={selectMember}
         setSelectMember={setSelectMember}
       />
+
       {memberData ? (
         <>
           <div>
