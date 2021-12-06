@@ -15,7 +15,7 @@ import {
 } from './styled';
 import AdminEditMemberModal from '../../Modal/AdminMemberEditModal';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../../../store/modal';
 import './MemberPage.css';
 import { listAnimate, listItemAnimate } from '../../Variants/Variants';
 import { memberList } from '../../../../api/memberList';

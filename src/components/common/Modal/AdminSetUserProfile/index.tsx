@@ -7,7 +7,7 @@ import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../../../store/modal';
 import { dbService } from '../../../../firebase/firebase';
 import { userState } from '../../../../store/localUser';
 

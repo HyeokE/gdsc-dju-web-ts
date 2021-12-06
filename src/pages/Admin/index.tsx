@@ -14,7 +14,7 @@ import {
 } from './styled';
 import AdminContent from '../../components/common/AdminContent';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../store/modal';
 import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';

@@ -5,7 +5,7 @@ import { ButtonWrapper } from '../../../../pages/Admin/styled';
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
-import { modalState, MODAL_KEY } from '../../../../api/hooks/modal';
+import { modalState, MODAL_KEY } from '../../../../store/modal';
 import { authService } from '../../../../firebase/firebase';
 import { ModalElementWrapper, StyledModal } from '../styled';
 import './AdminSignUp.css';
