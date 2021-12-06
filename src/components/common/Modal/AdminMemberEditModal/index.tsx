@@ -9,7 +9,7 @@ import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 import { dbService } from '../../../../firebase/firebase';
 import { UserDataState } from '../../AdminContent';
-import { alertState } from '../../../../api/hooks/alert';
+import { alertState } from '../../../../store/alert';
 
 const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
   const [alert, setAlert] = useRecoilState(alertState);

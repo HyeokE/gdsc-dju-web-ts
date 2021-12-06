@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { AlertInnerWrapper, AlertText, AlertWrapper } from './styled';
-import { alertState } from '../../../api/hooks/alert';
+import { alertState } from '../../../store/alert';
 import './Alert.css';
 
 const variants = {

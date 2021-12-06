@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const USER = 'user';
+export const LocalUser = 'localUser';
 export const UserState = {
   uid: '',
   name: '',
@@ -8,6 +8,6 @@ export const UserState = {
   phoneNumber: '',
 };
 export const userState = atom<typeof UserState>({
-  key: USER,
+  key: LocalUser,
   default: UserState,
 });

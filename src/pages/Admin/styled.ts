@@ -21,7 +21,7 @@ export const StyledAdminButton = styled.button`
   color: white;
   background: #42a5f5;
   padding: 7px 20px;
-
+  align-items: center;
   :hover {
     background: #3886f6;
     cursor: pointer;

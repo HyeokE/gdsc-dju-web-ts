@@ -76,9 +76,10 @@ const MemberPage = () => {
                       ? 'count1'
                       : (data?.warning as number) == 2
                       ? 'count2'
-                      : (data?.warning as number) == 3
+                      : (data?.warning as number) < 3 &&
+                        (data?.warning as number) > 2
                       ? 'count3'
-                      : 'none'
+                      : ''
                   }
                   onClick={() => {
                     setSelectMember(data);

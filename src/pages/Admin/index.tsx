@@ -18,11 +18,11 @@ import { MODAL_KEY, modalState } from '../../api/hooks/modal';
 import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
-import { userState } from '../../api/hooks/user';
+import { userState } from '../../store/localUser';
 import { Banner } from '../../img/Banner';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
-import { alertState } from '../../api/hooks/alert';
+import { alertState } from '../../store/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { Backdrop, CircularProgress } from '@mui/material';
 
@@ -31,7 +31,7 @@ const Admin = () => {
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(userState);
-
+  const tabs = [{ label: 'Home' }, { label: 'Members' }, { label: 'Setting' }];
   const [value, setValue] = useState(false);
 
   const checkAdminUser = () => {
@@ -140,6 +140,7 @@ const Admin = () => {
           <AdminContainerWrapper>
             <SidebarContainer>
               <AdminTopMenu
+                tabs={tabs}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
               />

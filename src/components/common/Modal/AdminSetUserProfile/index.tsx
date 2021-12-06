@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
 import { dbService } from '../../../../firebase/firebase';
-import { userState } from '../../../../api/hooks/user';
+import { userState } from '../../../../store/localUser';
 
 const AdminSetUserProfile = () => {
   const [name, setName] = useState('');
