@@ -25,6 +25,7 @@ import AdminTopMenu from '../../components/common/AdminTopMenu';
 import { alertState } from '../../store/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { Backdrop, CircularProgress } from '@mui/material';
+import { useGetMemberList } from '../../api/hooks/useGetMemberData';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
@@ -33,7 +34,8 @@ const Admin = () => {
   const [adminUser, setAdminUser] = useRecoilState(userState);
   const tabs = [{ label: 'Home' }, { label: 'Members' }, { label: 'Setting' }];
   const [value, setValue] = useState(false);
-
+  const { data } = useGetMemberList();
+  console.log(data);
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
       if (user) {
