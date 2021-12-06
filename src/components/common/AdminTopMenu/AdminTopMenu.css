@@ -1,0 +1,8 @@
+.underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #3886f6;
+}

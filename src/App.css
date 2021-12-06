@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+* {
+  font-family: 'Noto Sans KRf', sans-serif;
+  font-style: normal;
+  margin: 0;
+  word-break: keep-all;
+}
+html {
+  background: white !important;
+}
+a {
+  text-decoration: none;
+  color: #4e5968;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+.active{
+  color: #42A5F5 !important;
+}
+.active:hover{
+  color: #42A5F5;
+}
+
+
