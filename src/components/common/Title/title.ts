@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Title = styled.div`
+export const Title = styled(motion.div)`
   font-size: 48px;
   font-weight: bold;
   color: #333c4b;
@@ -12,7 +13,7 @@ export const Title = styled.div`
     font-size: 26px;
   }
 `;
-export const SubTitle = styled.div`
+export const SubTitle = styled(motion.div)`
   font-size: 17px;
   font-weight: bold;
   color: #333c4b;
@@ -21,7 +22,7 @@ export const SubTitle = styled.div`
     font-size: 16px;
   }
 `;
-export const MainText = styled.div`
+export const MainText = styled(motion.div)`
   font-size: 16px;
   color: #4e5968;
   padding-bottom: 10px;

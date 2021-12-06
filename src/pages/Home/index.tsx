@@ -16,6 +16,8 @@ import {
 import Recruiting from '../../img/Recruiting';
 import ColorLines from '../../img/ColorLines';
 import {
+  bannerItemAnimate,
+  homeBannerAnimate,
   leftLineItemAnimate,
   listAnimate,
   rightLineItemAnimate,
@@ -23,13 +25,18 @@ import {
   titleItemAnimate,
 } from '../../components/common/Variants/Variants';
 import DownArrow from '../../img/DownArrow';
+import { motion } from 'framer-motion';
 
 export const Home = () => {
   return (
     <>
-      <HomeWrapper>
+      <HomeWrapper
+        variants={homeBannerAnimate}
+        initial={'start'}
+        animate={'end'}
+      >
         <StyledMainBanner
-          variants={listAnimate}
+          variants={titleAnimate}
           initial={'start'}
           animate={'end'}
         >
@@ -40,17 +47,13 @@ export const Home = () => {
             <ColorLines />
           </RightColorLinesWrapper>
         </StyledMainBanner>
-        <BannerTitleWrapper
-          variants={titleAnimate}
-          initial={'start'}
-          animate={'end'}
-        >
-          <RecruitingWrapper variants={titleItemAnimate}>
+        <BannerTitleWrapper>
+          <RecruitingWrapper variants={bannerItemAnimate}>
             <Recruiting />
-            <MainBannerText variants={titleItemAnimate}>
+            <MainBannerText variants={bannerItemAnimate}>
               GDSC Daejin Univ. 에서 새로운 식구들을 모집하고 있습니다.
             </MainBannerText>
-            <ButtonWrapper variants={titleItemAnimate}>
+            <ButtonWrapper variants={bannerItemAnimate}>
               <StyledButton
                 onClick={() => {
                   window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
@@ -59,7 +62,7 @@ export const Home = () => {
                 지원하기
               </StyledButton>
             </ButtonWrapper>
-            <MainBannerText variants={titleItemAnimate}>
+            <MainBannerText variants={bannerItemAnimate}>
               11. 22 ~ 12. 19
             </MainBannerText>
           </RecruitingWrapper>

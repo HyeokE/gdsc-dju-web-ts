@@ -2,18 +2,21 @@ import { atom } from 'recoil';
 
 const USER_KEY = 'userData';
 
-export const UserDataState = {
-  user_id: 0,
-  email: '',
-  group: '',
-  nickname: '',
-  github: '',
-  instagram: '',
-  avaterURL: '',
+export const UserListState = {
+  id: '',
+  nickName: '',
+  name: '',
+  role: '',
+  memberImg: '',
   introduce: '',
+  position: '',
+  email: '',
+  uploadDate: '',
+  phoneNumber: '',
+  warning: '',
 };
 
-export const userDataState = atom<typeof UserDataState>({
+export const userListState = atom<typeof UserListState>({
   key: USER_KEY,
-  default: UserDataState,
+  default: UserListState,
 });

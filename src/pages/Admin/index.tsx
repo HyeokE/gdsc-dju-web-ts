@@ -14,25 +14,29 @@ import {
 } from './styled';
 import AdminContent from '../../components/common/AdminContent';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../store/modal';
 import AdminSignInModal from '../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../components/common/Modal/AdminSignUp';
 import { authService, dbService } from '../../firebase/firebase';
-import { userState } from '../../api/hooks/user';
+import { localUserState } from '../../store/localUser';
 import { Banner } from '../../img/Banner';
 import RedBanner from '../../img/RedBanner.png';
 import AdminTopMenu from '../../components/common/AdminTopMenu';
-import { alertState } from '../../api/hooks/alert';
+import { alertState } from '../../store/alert';
 import AdminSetUserProfile from '../../components/common/Modal/AdminSetUserProfile';
 import { Backdrop, CircularProgress } from '@mui/material';
+import { useGetMemberList } from '../../api/hooks/useGetMemberData';
 
 const Admin = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Home');
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
-  const [adminUser, setAdminUser] = useRecoilState(userState);
+  const [adminUser, setAdminUser] = useRecoilState(localUserState);
 
   const [value, setValue] = useState(false);
+
+  const tabs = [{ label: 'Home' }, { label: 'Members' }, { label: 'Setting' }];
+  const { data: memberData } = useGetMemberList();
 
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
@@ -140,6 +144,7 @@ const Admin = () => {
           <AdminContainerWrapper>
             <SidebarContainer>
               <AdminTopMenu
+                tabs={tabs}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
               />

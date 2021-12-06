@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil';
 import { Footer } from '../common/Footer';
 import MoblieMenu from '../common/Navigation/MobileMenu';
 import Alert from '../common/Alert';
-import { alertState } from '../../api/hooks/alert';
+import { alertState } from '../../store/alert';
 
 export const Main = () => {
   // const [status, setStatus] = useRecoilState(statusState);

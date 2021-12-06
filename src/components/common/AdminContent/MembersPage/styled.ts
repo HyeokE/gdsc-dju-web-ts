@@ -37,8 +37,8 @@ export const StyledTableWrapper = styled(motion.div)`
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
-  transition: 0.3s;
-  transition-delay: 0.2ms;
+  transition: 0.5s;
+  transition-delay: 0.8ms;
 
   border-width: 1px;
   border-color: #f2f4f6;

@@ -20,7 +20,6 @@ import './Navigation.css';
 const Navigation: React.FC = () => {
   const locaton = useLocation();
   const [routeStyle, setRoutStyle] = useState<string>('/');
-  console.log(locaton.pathname);
   useEffect(() => {
     setRoutStyle(locaton.pathname);
   });

@@ -21,7 +21,8 @@ export const Footer = () => {
         <FooterGDSCLogo src={GDSCChapterLogo} />
         <TopMargin />
         <FooterSubTitle>{'Copyright © '}GDSC Daejin 2021</FooterSubTitle>
-        <FooterSubTitle>Created by Jason, Harry</FooterSubTitle>
+        <FooterSubTitle>Created by Jason</FooterSubTitle>
+        <FooterSubTitle>Designed by Harry</FooterSubTitle>
       </FooterContent>
     </FooterWrapper>
   );

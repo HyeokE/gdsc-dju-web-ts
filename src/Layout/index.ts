@@ -10,7 +10,7 @@ export const TopMargin = styled.div`
 export const SmallTopMargin = styled.div`
   height: 30px;
 `;
-export const List = styled.li`
+export const List = styled(motion.li)`
   position: relative;
   padding-left: 24px;
   margin: 8px 0px;
@@ -52,6 +52,7 @@ export const LayoutContainer = styled.div`
 export const ContainerInner = styled.div`
   width: 90%;
   margin: auto;
+  min-height: 100vh;
 `;
 export const CardList = styled(motion.section)`
   display: flex;

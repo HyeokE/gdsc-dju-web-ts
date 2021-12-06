@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const HomeWrapper = styled.div`
+export const HomeWrapper = styled(motion.div)`
   position: static;
   display: flex;
   align-items: center;
@@ -84,10 +84,10 @@ export const LeftColorLinesWrapper = styled(motion.div)`
   position: absolute;
   max-width: 500px;
   width: 40%;
-  top: 250px;
+  top: 35%;
   left: -200px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    width: 50%;
+    width: 45%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
@@ -104,12 +104,12 @@ export const LeftColorLinesWrapper = styled(motion.div)`
 export const RightColorLinesWrapper = styled(motion.div)`
   z-index: 1;
   position: absolute;
-  top: 200px;
+  top: 35%;
   max-width: 500px;
-  width: 40%;
+  width: 50%;
   right: -200px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    width: 50%;
+    width: 45%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     top: 200px;
