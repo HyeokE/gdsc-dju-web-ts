@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SubTitle } from '../../Title/title';
 import { ModalElementWrapper } from '../styled';
 import { StyledInput } from '../../../Input/Input';
 import { ButtonWrapper } from '../../../../pages/Admin/styled';
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
-import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../../../store/modal';
 import { dbService } from '../../../../firebase/firebase';
-import { userState } from '../../../../api/hooks/user';
+import { localUserState } from '../../../../store/localUser';
 
 const AdminSetUserProfile = () => {
   const [name, setName] = useState('');
   const [nickName, setNickName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [modal, setModal] = useRecoilState(modalState);
-  const [adminUser, setAdminUser] = useRecoilState(userState);
+  const [adminUser, setAdminUser] = useRecoilState(localUserState);
 
   const setUserProfile = () => {
     // dbService.collection('adminUsers').doc().get;

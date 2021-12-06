@@ -6,10 +6,10 @@ import { StyledInput } from '../../../Input/Input';
 import { ButtonWrapper } from '../../../../pages/Admin/styled';
 import { StyledButton } from '../../Button/styled';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../api/hooks/modal';
+import { MODAL_KEY, modalState } from '../../../../store/modal';
 import { dbService } from '../../../../firebase/firebase';
 import { UserDataState } from '../../AdminContent';
-import { alertState } from '../../../../api/hooks/alert';
+import { alertState } from '../../../../store/alert';
 
 const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
   const [alert, setAlert] = useRecoilState(alertState);

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const HomeWrapper = styled.div`
+export const HomeWrapper = styled(motion.div)`
   position: static;
   display: flex;
   align-items: center;

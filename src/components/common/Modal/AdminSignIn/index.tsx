@@ -5,7 +5,7 @@ import { ButtonWrapper } from '../../../../pages/Admin/styled';
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
-import { modalState } from '../../../../api/hooks/modal';
+import { modalState } from '../../../../store/modal';
 import { ModalElementWrapper, StyledModal } from '../styled';
 import { authService } from '../../../../firebase/firebase';
 

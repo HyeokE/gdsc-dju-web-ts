@@ -11,7 +11,7 @@ import {
 } from '../../Layout';
 import { LayoutContainer } from '../../styles/layout';
 import { QuestionMark, QuestionWrapper } from './styled';
-import { Faq } from '../../api/hooks/faq';
+import { Faq } from '../../api/faq';
 import { useNavigate } from 'react-router-dom';
 
 export const Question = () => {

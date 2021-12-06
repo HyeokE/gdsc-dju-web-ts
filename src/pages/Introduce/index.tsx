@@ -60,36 +60,32 @@ export const Introduce = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-          <motion.div variants={titleAnimate} initial="start" animate="end">
-            <Title variants={titleItemAnimate}>About us</Title>
-            <TopMargin />
-            <SubTitle variants={titleItemAnimate}>
-              Google Developer Student Club 소개
-            </SubTitle>
 
-            {introduceText.split('\n').map((line, id) => {
-              return (
-                <MainText key={id} variants={listTageItemAnimate}>
-                  {line}
-                  <br />
-                </MainText>
-              );
-            })}
+          <Title>About us</Title>
+          <TopMargin />
+          <SubTitle>Google Developer Student Club 소개</SubTitle>
 
-            <TopMargin />
-            <SubTitle variants={titleItemAnimate}>
-              합류하시면 함께할 활동입니다
-            </SubTitle>
-            <MainText>
-              {workWhenCome.split('\n').map((line, id) => (
-                <List key={id} variants={listTageItemAnimate}>
-                  <Tage />
-                  {line}
-                </List>
-              ))}
-            </MainText>
-            <TopMargin />
-          </motion.div>
+          {introduceText.split('\n').map((line, id) => {
+            return (
+              <MainText key={id}>
+                {line}
+                <br />
+              </MainText>
+            );
+          })}
+
+          <TopMargin />
+          <SubTitle>합류하시면 함께할 활동입니다</SubTitle>
+          <MainText>
+            {workWhenCome.split('\n').map((line, id) => (
+              <List key={id}>
+                <Tage />
+                {line}
+              </List>
+            ))}
+          </MainText>
+          <TopMargin />
+
           <Title>팀 소개</Title>
           <TopMargin />
           <CardList variants={listAnimate}>

@@ -4,7 +4,7 @@ import { Banner } from '../../img/Banner';
 import YellowBanner from '../../img/YellowBanner.png';
 import { LayoutContainer } from '../../styles/layout';
 import { Title } from '../../components/common/Title/title';
-import { Faq } from '../../api/hooks/faq';
+import { Faq } from '../../api/faq';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AnswerText, AnswerWrapper, BackToFaq, QuestionTitle } from './styled';
 

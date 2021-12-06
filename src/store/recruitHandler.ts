@@ -1,6 +1,4 @@
 import { atom } from 'recoil';
-import { recoilPersist } from 'recoil-persist';
-const { persistAtom } = recoilPersist();
 
 const RECRUITMENT = 'recruitment';
 export const RecruitmentState = {

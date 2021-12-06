@@ -1,40 +1,42 @@
 import React from 'react';
-import { StyledTap, StyledTapWrapper } from './styled';
+import {
+  StyledLi,
+  StyledLine,
+  StyledTap,
+  StyledTapWrapper,
+  StyledUl,
+} from './styled';
 import './AdminTopMenu.css';
+import { motion } from 'framer-motion';
 type Props = {
+  tabs: { label: string }[];
   setSelectedCategory: (selectedCategory: string) => void;
   selectedCategory: string;
 };
-const AdminTopMenu = ({ setSelectedCategory, selectedCategory }: Props) => {
+const AdminTopMenu = ({
+  tabs,
+  setSelectedCategory,
+  selectedCategory,
+}: Props) => {
   return (
     <>
-      <StyledTapWrapper>
-        <StyledTap
-          className={selectedCategory === 'Home' ? 'Active' : 'NonActive'}
-          onClick={() => {
-            setSelectedCategory('Home');
-          }}
-        >
-          Home
-        </StyledTap>
-        <StyledTap
-          className={selectedCategory === 'Members' ? 'Active' : 'NonActive'}
-          onClick={() => {
-            setSelectedCategory('Members');
-          }}
-        >
-          Members
-        </StyledTap>
-        <StyledTap
-          className={selectedCategory === 'Setting' ? 'Active' : 'NonActive'}
-          onClick={() => {
-            setSelectedCategory('Setting');
-          }}
-        >
-          Setting
-        </StyledTap>
-      </StyledTapWrapper>
-      <hr />
+      <nav>
+        <StyledUl>
+          {tabs.map((item) => (
+            <StyledLi
+              key={item.label}
+              className={item.label === selectedCategory ? 'selected' : ''}
+              onClick={() => setSelectedCategory(item.label)}
+            >
+              {item.label}
+              {item.label === selectedCategory ? (
+                <motion.div className="underline" layoutId="underline" />
+              ) : null}
+            </StyledLi>
+          ))}
+        </StyledUl>
+      </nav>
+      <StyledLine />
     </>
   );
 };
