@@ -12,6 +12,8 @@ import { Recruitment } from './TeamRecruitment';
 import Apply from './Apply';
 import Admin from './Admin';
 import FaqDetail from './FaqDetail';
+import OnBoarding from './OnBoarding';
+import OnboardingHome from './OnBoarding/OnBoardingHome';
 
 export const Pages = () => {
   return (
@@ -28,6 +30,7 @@ export const Pages = () => {
       <Route path={'/signup'} element={<SignUp />} />
       <Route path={'/apply'} element={<Apply />} />
       <Route path={'/admin'} element={<Admin />} />
+      <Route path={'/onboarding/*'} element={<OnBoarding />} />
     </Routes>
   );
 };
