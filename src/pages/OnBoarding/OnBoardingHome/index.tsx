@@ -70,7 +70,7 @@ const OnboardingHome = () => {
           <OnBoardingButton
             variants={onboardingAnimate}
             onClick={() => {
-              navigate('/onboarding/middle/1');
+              navigate('/onboarding/middle/email');
             }}
           >
             시작하기

@@ -64,7 +64,7 @@ export const OnboardingDetailText = styled.div`
 `;
 export const OnBoardingButton = styled(motion.button)`
   margin-left: 174px;
-  width: 274px;
+  min-width: 274px;
   height: 84px;
   border-radius: 42px;
   border-style: solid;

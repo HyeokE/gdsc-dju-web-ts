@@ -173,7 +173,7 @@ export const topToBottomAnimate = {
 export const pageTransitionAnimate = {
   start: {
     opacity: 0,
-    x: '-100vw',
+    x: '100vw',
     scale: 1.2,
   },
   end: {
@@ -188,7 +188,7 @@ export const pageTransitionAnimate = {
   },
   out: {
     opacity: 0,
-    x: '100vw',
+    x: '-100vw',
     scale: 0.8,
     transition: {
       duration: 0.4,
@@ -198,7 +198,7 @@ export const pageTransitionAnimate = {
 export const onboardingAnimate = {
   start: {
     opacity: 0,
-    x: -50,
+    x: 50,
   },
   end: {
     opacity: 1,

@@ -51,12 +51,7 @@ export const Main = () => {
   const [navHandler, setNavHandler] = useState<boolean>(true);
 
   const hideNavigation = () => {
-    if (
-      location.pathname === '/onboarding' ||
-      location.pathname === '/onboarding/middle/:id' ||
-      location.pathname === '/onboarding/middle/*' ||
-      location.pathname === '/onboarding/ticket'
-    ) {
+    if (location.pathname.includes('/onboarding')) {
       setNavHandler(false);
     } else {
       setNavHandler(true);
@@ -68,13 +63,8 @@ export const Main = () => {
 
   return (
     <>
-      {navHandler ? (
-        <>
-          <Navigation />
-          <MoblieMenu />
-        </>
-      ) : null}
-
+      {navHandler ? <Navigation /> : null}
+      <MoblieMenu />
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
       <Routes>

@@ -26,7 +26,6 @@ export const OnboardingDescription = styled(motion.div)`
   margin-top: 42px;
   font-size: 20px;
   font-family: 'Gothic A1', sans-serif;
-
   color: #7d8b97;
 `;
 export const OnboardingInput = styled(motion.input)`
@@ -36,4 +35,24 @@ export const OnboardingInput = styled(motion.input)`
   border-width: 0px;
   border-bottom-width: 5px;
   width: 800px;
+`;
+export const OnboardingMiddleButton = styled(motion.button)`
+  margin-top: 80px;
+  min-height: 84px;
+  width: 274px;
+  color: white;
+  border-style: solid;
+  border-radius: 50px;
+  border-width: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Gothic A1';
+  cursor: pointer;
+`;
+export const OnboardingMiddleImage = styled(motion.img)`
+  height: 500px;
+  width: auto;
+  position: absolute;
+  right: 150px;
+  bottom: 0px;
 `;
