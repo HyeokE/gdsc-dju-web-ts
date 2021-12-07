@@ -4,12 +4,14 @@ import OnboardingHome from './OnBoardingHome';
 import OnboardingMiddle from './OnboardingMiddle';
 import OnboardingTicket from './OnboardingTicket';
 import { AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router';
 
 const OnBoarding = () => {
+  const location = useLocation();
   return (
     <>
       <AnimatePresence>
-        <Routes>
+        <Routes location={location} key={location.pathname}>
           <Route path={'/*'} element={<OnboardingHome />} />
           <Route path={'/middle/*'} element={<OnboardingMiddle />} />
           <Route path={'/middle/:id'} element={<OnboardingMiddle />} />
