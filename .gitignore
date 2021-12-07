@@ -13,6 +13,7 @@
 /build
 memberList.ts
 firebase_key.ts
+googleAnalyticsKey.ts
 
 # misc
 .DS_Store

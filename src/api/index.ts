@@ -4,8 +4,9 @@ import { UserDataState } from './types';
 
 export class GDSCApi {
   private API: string;
-
+  private ANALYTICS_API: string;
   constructor() {
+    this.ANALYTICS_API = 'https://www.googleapis.com/auth/analytics';
     this.API =
       'https://firestore.googleapis.com/v1/projects/gdsc-dju/databases/(default)';
   }
