@@ -171,24 +171,45 @@ export const topToBottomAnimate = {
   },
 };
 export const pageTransitionAnimate = {
-  initial: {
+  start: {
     opacity: 0,
     x: '-100vw',
+    scale: 1.2,
   },
-  in: {
+  end: {
     opacity: 1,
     x: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 1,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
     },
   },
   out: {
     opacity: 0,
     x: '100vw',
+    scale: 0.8,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+export const onboardingAnimate = {
+  start: {
+    opacity: 0,
+    x: -50,
+  },
+  end: {
+    opacity: 1,
+    x: 0,
     transition: {
       duration: 0.5,
     },
+  },
+  exit: {
+    opacity: 0,
+    x: -30,
   },
 };
 

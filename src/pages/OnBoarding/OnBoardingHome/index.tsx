@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  listTageItemAnimate,
+  onboardingAnimate,
   pageAnimate,
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
@@ -29,23 +31,27 @@ const OnboardingHome = () => {
   const navigate = useNavigate();
   return (
     <OnboardingContainer
-      initial="initial"
-      animate="in"
+      initial="start"
+      animate="end"
       exit="out"
       variants={pageTransitionAnimate}
       transition={pageAnimate}
     >
-      <OnboardingTopLogoWrapper>
+      <OnboardingTopLogoWrapper variants={onboardingAnimate}>
         <OnboardingLogo src={Logo} />
         <OnboardingTopText>Google Developer Student Clubs</OnboardingTopText>
       </OnboardingTopLogoWrapper>
       <OnboardingTitleWrapper>
-        <OnboardingTitle>GDSC DJU</OnboardingTitle>
-        <OnboardingTitle>Member Onboarding</OnboardingTitle>
+        <OnboardingTitle variants={onboardingAnimate}>GDSC DJU</OnboardingTitle>
+        <OnboardingTitle variants={onboardingAnimate}>
+          Member Onboarding
+        </OnboardingTitle>
       </OnboardingTitleWrapper>
       <OnboardingBottomWrapper>
-        <OnboardingSubTitle>Boarding Details</OnboardingSubTitle>
-        <OnboardingTravelWrapper>
+        <OnboardingSubTitle variants={onboardingAnimate}>
+          Boarding Details
+        </OnboardingSubTitle>
+        <OnboardingTravelWrapper variants={onboardingAnimate}>
           <OnboardingTravel>NWB</OnboardingTravel>
           <OnboardingTravelImage src={Plane} />
           <OnboardingTravel>DJU</OnboardingTravel>
@@ -62,6 +68,7 @@ const OnboardingHome = () => {
             <OnboardingDetailText>2022.08</OnboardingDetailText>
           </OnboardingDetailWrapper>
           <OnBoardingButton
+            variants={onboardingAnimate}
             onClick={() => {
               navigate('/onboarding/middle/1');
             }}

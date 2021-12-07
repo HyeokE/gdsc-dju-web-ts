@@ -20,6 +20,7 @@ export const OnboardingTopText = styled(motion.div)`
 export const OnboardingTitle = styled(motion.div)`
   font-size: 80px;
   font-weight: bold;
+  font-family: 'Product Sans', sans-serif;
 `;
 export const OnboardingSubTitle = styled(motion.div)`
   font-size: 25px;
@@ -61,7 +62,7 @@ export const OnboardingDetailText = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
-export const OnBoardingButton = styled.button`
+export const OnBoardingButton = styled(motion.button)`
   margin-left: 174px;
   width: 274px;
   height: 84px;
@@ -72,4 +73,5 @@ export const OnBoardingButton = styled.button`
   color: white;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 `;
