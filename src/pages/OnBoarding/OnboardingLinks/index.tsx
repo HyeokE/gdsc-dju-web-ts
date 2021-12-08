@@ -25,12 +25,24 @@ import { useNavigate } from 'react-router-dom';
 import OnboardingLinkBox from '../../../components/common/OnboardingLinkBox';
 import { OnboardingLinkBoxWrapper } from './styled';
 
+export interface IProps {
+  id: string;
+  link: string;
+}
+
 const OnBoardingLinks = () => {
   const navigate = useNavigate();
-  const Link = [
-    { id: 'slack', link: '' },
-    { id: 'discord', link: '' },
-    { id: 'notion', link: '' },
+
+  const link: IProps[] = [
+    {
+      id: 'slack',
+      link: 'https://join.slack.com/t/gdscdaejinuniversity/shared_invite/zt-zyj2as90-owri~sw7NLKgtshaYMunDQ',
+    },
+    { id: 'discord', link: 'https://discord.gg/FjrCbjpKt3' },
+    {
+      id: 'notion',
+      link: 'https://www.notion.so/Ice-Breaking-Manual-da55214857db442ca945a574f02152dc',
+    },
   ];
   return (
     <div>
@@ -61,16 +73,23 @@ const OnBoardingLinks = () => {
             가입을 진행해주세요!
           </OnboardingDescription>
           <OnboardingLinkBoxWrapper variants={onboardingAnimate}>
-            {Link.map((data, id) => (
-              <OnboardingLinkBox key={id} name={data.id} />
+            {link.map((data: IProps, id) => (
+              <div
+                key={id}
+                onClick={() => {
+                  window.open(data.link, '_blank');
+                }}
+              >
+                <OnboardingLinkBox {...data} />
+              </div>
             ))}
           </OnboardingLinkBoxWrapper>
           <OnboardingMiddleButton
             variants={onboardingAnimate}
             onClick={() => {
-              navigate('/onboarding/middle/ticket');
+              navigate('/onboarding/ticket');
             }}
-            style={{ color: '#262626' }}
+            style={{ background: '#262626', color: 'white' }}
           >
             다음으로
           </OnboardingMiddleButton>

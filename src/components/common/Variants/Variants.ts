@@ -174,7 +174,7 @@ export const pageTransitionAnimate = {
   start: {
     opacity: 0,
     x: '100vw',
-    scale: 1.2,
+    // scale: 1.2,
   },
   end: {
     opacity: 1,
@@ -189,7 +189,7 @@ export const pageTransitionAnimate = {
   out: {
     opacity: 0,
     x: '-100vw',
-    scale: 0.8,
+    scale: 1,
     transition: {
       duration: 0.4,
     },

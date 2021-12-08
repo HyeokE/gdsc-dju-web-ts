@@ -24,7 +24,7 @@ import {
 } from './styled';
 import '../Onboarding.css';
 import Logo from '../../../img/GDSC Logo Clear.png';
-import Plane from '../../../img/plane.png';
+import Plane from '../../../img/Plane.png';
 import { useNavigate } from 'react-router-dom';
 
 const OnboardingHome = () => {

@@ -12,7 +12,10 @@ import DiscordLogo from '../../../img/Link/DiscordLogo.png';
 import DiscordText from '../../../img/Link/DiscordText.png';
 import NotionLogo from '../../../img/Link/NotionLogo.png';
 import NotionText from '../../../img/Link/NotionText.png';
-const OnboardingLinkBox = ({ name }: string) => {
+import { IProps } from '../../../pages/OnBoarding/OnboardingLinks';
+const OnboardingLinkBox = (data: IProps) => {
+  const name = data.id;
+  const link = data.link;
   return (
     <>
       <LinkBoxInner whileHover={{ backgroundColor: '#efefef' }}>
@@ -40,7 +43,15 @@ const OnboardingLinkBox = ({ name }: string) => {
             }
           />
         </LinkLogoWrapper>
-        <LinkDescription>커뮤니케이션, 공지 등</LinkDescription>
+        <LinkDescription>
+          {name === 'slack'
+            ? '커뮤니케이션, 공지 등'
+            : name === 'discord'
+            ? '음성채팅, 스터디, 모각코 등'
+            : name === 'notion'
+            ? '문서 작성 및 공유'
+            : ''}
+        </LinkDescription>
       </LinkBoxInner>
     </>
   );
