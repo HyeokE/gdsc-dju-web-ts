@@ -32,9 +32,15 @@ export const OnboardingInput = styled(motion.input)`
   margin-top: 88px;
   font-size: 40px;
   border-style: solid;
+  padding-left: 8px;
+  padding-bottom: 30px;
   border-width: 0px;
   border-bottom-width: 5px;
   width: 800px;
+  ::placeholder {
+    color: black;
+    opacity: 20%;
+  }
 `;
 export const OnboardingMiddleButton = styled(motion.button)`
   margin-top: 80px;

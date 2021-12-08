@@ -6,10 +6,10 @@ import {
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
 import backArrow from '../../../img/backArrow.png';
-import Human1 from '../../../img/Human1.png';
-import Human2 from '../../../img/Human2.png';
-import Human3 from '../../../img/Human3.png';
-import Human4 from '../../../img/Human4.png';
+import Human1 from '../../../img/Humen/Human1.png';
+import Human2 from '../../../img/Humen/Human2.png';
+import Human3 from '../../../img/Humen/Human3.png';
+import Human4 from '../../../img/Humen/Human4.png';
 import {
   OnboardingBackArrow,
   OnboardingBackText,
@@ -70,13 +70,13 @@ const OnboardingMiddle = () => {
         <OnboardingInput
           variants={onboardingAnimate}
           placeholder={pageData?.placeHolder}
-          style={{ borderColor: color, caretColor: color }}
+          style={{ borderColor: color, caretColor: color, color: color }}
         />
         <OnboardingMiddleButton
           variants={onboardingAnimate}
           style={{ background: color }}
           onClick={() => {
-            navigate('/onboarding/middle/' + pageData?.next);
+            navigate('/onboarding/' + pageData?.next);
           }}
         >
           다음으로

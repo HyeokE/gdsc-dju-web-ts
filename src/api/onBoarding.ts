@@ -6,7 +6,7 @@ export const onBoardingData = [
     color: '#E94436',
     placeHolder: '사용 중인 구글 이메일',
     img: 'Human1',
-    next: 'englishname',
+    next: 'middle/englishname',
   },
   {
     id: 'englishname',
@@ -16,7 +16,7 @@ export const onBoardingData = [
     color: '#179D58',
     placeHolder: '당신의 영어이름을 입력해주세요',
     img: 'Human2',
-    next: 'major',
+    next: 'middle/major',
   },
   {
     id: 'major',
@@ -25,7 +25,7 @@ export const onBoardingData = [
     color: '#4385F3',
     placeHolder: '당신의 학과를 입력해주세요',
     img: 'Human3',
-    next: 'interest',
+    next: 'middle/interest',
   },
   {
     id: 'interest',
