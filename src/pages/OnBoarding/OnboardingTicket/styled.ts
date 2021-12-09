@@ -10,6 +10,8 @@ export const BoardingTicketWrapper = styled.div`
 export const OnboardingMiddleTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 1000px;
   margin-right: 100px;
 `;
 export const BoardingTicketLogoWrapper = styled(motion.div)`

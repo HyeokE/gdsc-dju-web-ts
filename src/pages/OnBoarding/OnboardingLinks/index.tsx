@@ -19,7 +19,7 @@ import {
   OnboardingTitle,
   OnboardingTitleWrapper,
 } from '../OnBoardingHome/styled';
-import Human5 from '../../../img/Humen/Human5.png';
+import Human5 from '../../../img/onBoardingImg/human-black.svg';
 
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import { useNavigate } from 'react-router-dom';

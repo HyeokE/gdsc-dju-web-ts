@@ -61,7 +61,7 @@ export const OnboardingMiddleButton = styled(motion.button)`
   cursor: pointer;
 `;
 export const OnboardingMiddleImage = styled(motion.img)`
-  height: 50vh;
+  height: auto;
   width: auto;
   display: flex;
   right: 0px;
@@ -69,8 +69,12 @@ export const OnboardingMiddleImage = styled(motion.img)`
 `;
 export const OnboardingImageWrapper = styled(motion.div)`
   height: 670px;
-  position: relative;
+  position: static;
+  right: 0px;
   justify-content: center;
   align-items: flex-end;
   display: flex;
+  @media (max-width: 1800px) {
+    position: absolute;
+  }
 `;
