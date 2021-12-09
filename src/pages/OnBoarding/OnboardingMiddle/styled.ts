@@ -11,6 +11,11 @@ export const OnboardingBackText = styled.div`
   color: #c6c6c6;
   margin-left: 15px;
 `;
+export const OnboardingMiddleElementWrapper = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+`;
 export const OnboardingBackWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
@@ -43,7 +48,7 @@ export const OnboardingInput = styled(motion.input)`
   }
 `;
 export const OnboardingMiddleButton = styled(motion.button)`
-  margin-top: 80px;
+  margin-top: 70px;
   min-height: 84px;
   width: 274px;
   color: white;
@@ -56,9 +61,16 @@ export const OnboardingMiddleButton = styled(motion.button)`
   cursor: pointer;
 `;
 export const OnboardingMiddleImage = styled(motion.img)`
-  height: 500px;
+  height: 50vh;
   width: auto;
-  position: absolute;
-  right: 150px;
+  display: flex;
+  right: 0px;
   bottom: 0px;
+`;
+export const OnboardingImageWrapper = styled(motion.div)`
+  height: 670px;
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
 `;

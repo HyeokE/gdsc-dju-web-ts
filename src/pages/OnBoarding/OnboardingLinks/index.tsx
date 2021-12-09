@@ -9,7 +9,9 @@ import {
   OnboardingBackText,
   OnboardingBackWrapper,
   OnboardingDescription,
+  OnboardingImageWrapper,
   OnboardingMiddleButton,
+  OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
 } from '../OnboardingMiddle/styled';
 import backArrow from '../../../img/backArrow.png';
@@ -19,11 +21,12 @@ import {
 } from '../OnBoardingHome/styled';
 import Human5 from '../../../img/Humen/Human5.png';
 
-import { OnboardingContainer } from '../styled';
+import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import { useNavigate } from 'react-router-dom';
 
 import OnboardingLinkBox from '../../../components/common/OnboardingLinkBox';
 import { OnboardingLinkBoxWrapper } from './styled';
+import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
 
 export interface IProps {
   id: string;
@@ -45,7 +48,7 @@ const OnBoardingLinks = () => {
     },
   ];
   return (
-    <div>
+    <OnboardingContainerWrapper>
       <OnboardingContainer
         initial="start"
         animate="end"
@@ -53,50 +56,54 @@ const OnBoardingLinks = () => {
         variants={pageTransitionAnimate}
         transition={pageAnimate}
       >
-        <>
-          <OnboardingBackWrapper
-            variants={onboardingAnimate}
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            <OnboardingBackArrow src={backArrow} />
-            <OnboardingBackText>Back</OnboardingBackText>
-          </OnboardingBackWrapper>
-          <OnboardingTitleWrapper>
-            <OnboardingTitle variants={onboardingAnimate}>
-              Almost There
-            </OnboardingTitle>
-          </OnboardingTitleWrapper>
-          <OnboardingDescription variants={onboardingAnimate}>
-            저희는 다음 서비스들을 이용해서 소통해요. 아래 링크를 눌러서 하나씩
-            가입을 진행해주세요!
-          </OnboardingDescription>
-          <OnboardingLinkBoxWrapper variants={onboardingAnimate}>
-            {link.map((data: IProps, id) => (
-              <div
-                key={id}
-                onClick={() => {
-                  window.open(data.link, '_blank');
-                }}
-              >
-                <OnboardingLinkBox {...data} />
-              </div>
-            ))}
-          </OnboardingLinkBoxWrapper>
-          <OnboardingMiddleButton
-            variants={onboardingAnimate}
-            onClick={() => {
-              navigate('/onboarding/ticket');
-            }}
-            style={{ background: '#262626', color: 'white' }}
-          >
-            다음으로
-          </OnboardingMiddleButton>
-        </>
-        <OnboardingMiddleImage variants={onboardingAnimate} src={Human5} />
+        <OnboardingMiddleElementWrapper>
+          <OnboardingMiddleTextWrapper>
+            <OnboardingBackWrapper
+              variants={onboardingAnimate}
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              <OnboardingBackArrow src={backArrow} />
+              <OnboardingBackText>Back</OnboardingBackText>
+            </OnboardingBackWrapper>
+            <OnboardingTitleWrapper>
+              <OnboardingTitle variants={onboardingAnimate}>
+                Almost There
+              </OnboardingTitle>
+            </OnboardingTitleWrapper>
+            <OnboardingDescription variants={onboardingAnimate}>
+              저희는 다음 서비스들을 이용해서 소통해요. 아래 링크를 눌러서
+              하나씩 가입을 진행해주세요!
+            </OnboardingDescription>
+            <OnboardingLinkBoxWrapper variants={onboardingAnimate}>
+              {link.map((data: IProps, id) => (
+                <div
+                  key={id}
+                  onClick={() => {
+                    window.open(data.link, '_blank');
+                  }}
+                >
+                  <OnboardingLinkBox {...data} />
+                </div>
+              ))}
+            </OnboardingLinkBoxWrapper>
+            <OnboardingMiddleButton
+              variants={onboardingAnimate}
+              onClick={() => {
+                navigate('/onboarding/ticket');
+              }}
+              style={{ background: '#262626', color: 'white' }}
+            >
+              다음으로
+            </OnboardingMiddleButton>
+          </OnboardingMiddleTextWrapper>
+          <OnboardingImageWrapper>
+            <OnboardingMiddleImage variants={onboardingAnimate} src={Human5} />
+          </OnboardingImageWrapper>
+        </OnboardingMiddleElementWrapper>
       </OnboardingContainer>
-    </div>
+    </OnboardingContainerWrapper>
   );
 };
 

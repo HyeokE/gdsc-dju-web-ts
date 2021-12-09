@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnboardingContainer } from '../styled';
+import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import {
   onboardingAnimate,
   pageAnimate,
@@ -15,9 +15,11 @@ import {
   OnboardingBackText,
   OnboardingBackWrapper,
   OnboardingDescription,
+  OnboardingImageWrapper,
   OnboardingInnerWrapper,
   OnboardingInput,
   OnboardingMiddleButton,
+  OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
 } from './styled';
 import './OnboardingMiddle.css';
@@ -28,6 +30,8 @@ import {
 import { onBoardingData } from '../../../api/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
+import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
+import BoardingPass from '../../../components/common/BoardingPass';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -36,67 +40,73 @@ const OnboardingMiddle = () => {
 
   const navigate = useNavigate();
   return (
-    <OnboardingContainer
-      initial="start"
-      animate="end"
-      exit="out"
-      variants={pageTransitionAnimate}
-      transition={pageAnimate}
-    >
-      <>
-        <OnboardingBackWrapper
-          variants={onboardingAnimate}
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          <OnboardingBackArrow src={backArrow} />
-          <OnboardingBackText>Back</OnboardingBackText>
-        </OnboardingBackWrapper>
-        <OnboardingTitleWrapper>
-          <OnboardingTitle variants={onboardingAnimate}>
-            Tell us
-          </OnboardingTitle>
-          <OnboardingInnerWrapper variants={onboardingAnimate}>
-            <OnboardingTitle>Your</OnboardingTitle>
-            <OnboardingTitle style={{ marginLeft: '20px', color: color }}>
-              {pageData?.title}
-            </OnboardingTitle>
-          </OnboardingInnerWrapper>
-        </OnboardingTitleWrapper>
-        <OnboardingDescription variants={onboardingAnimate}>
-          {pageData?.subTitle}
-        </OnboardingDescription>
-        <OnboardingInput
-          variants={onboardingAnimate}
-          placeholder={pageData?.placeHolder}
-          style={{ borderColor: color, caretColor: color, color: color }}
-        />
-        <OnboardingMiddleButton
-          variants={onboardingAnimate}
-          style={{ background: color }}
-          onClick={() => {
-            navigate('/onboarding/' + pageData?.next);
-          }}
-        >
-          다음으로
-        </OnboardingMiddleButton>
-      </>
-      <OnboardingMiddleImage
-        variants={onboardingAnimate}
-        src={
-          pageData?.id === 'email'
-            ? Human1
-            : pageData?.id === 'englishname'
-            ? Human2
-            : pageData?.id === 'major'
-            ? Human3
-            : pageData?.id === 'interest'
-            ? Human4
-            : ''
-        }
-      />
-    </OnboardingContainer>
+    <OnboardingContainerWrapper>
+      <OnboardingContainer
+        initial="start"
+        animate="end"
+        exit="out"
+        variants={pageTransitionAnimate}
+        transition={pageAnimate}
+      >
+        <OnboardingMiddleElementWrapper>
+          <OnboardingMiddleTextWrapper>
+            <OnboardingBackWrapper
+              variants={onboardingAnimate}
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              <OnboardingBackArrow src={backArrow} />
+              <OnboardingBackText>Back</OnboardingBackText>
+            </OnboardingBackWrapper>
+            <OnboardingTitleWrapper>
+              <OnboardingTitle variants={onboardingAnimate}>
+                Tell us
+              </OnboardingTitle>
+              <OnboardingInnerWrapper variants={onboardingAnimate}>
+                <OnboardingTitle>Your</OnboardingTitle>
+                <OnboardingTitle style={{ marginLeft: '20px', color: color }}>
+                  {pageData?.title}
+                </OnboardingTitle>
+              </OnboardingInnerWrapper>
+            </OnboardingTitleWrapper>
+            <OnboardingDescription variants={onboardingAnimate}>
+              {pageData?.subTitle}
+            </OnboardingDescription>
+            <OnboardingInput
+              variants={onboardingAnimate}
+              placeholder={pageData?.placeHolder}
+              style={{ borderColor: color, caretColor: color, color: color }}
+            />
+            <OnboardingMiddleButton
+              variants={onboardingAnimate}
+              style={{ background: color }}
+              onClick={() => {
+                navigate('/onboarding/' + pageData?.next);
+              }}
+            >
+              다음으로
+            </OnboardingMiddleButton>
+          </OnboardingMiddleTextWrapper>
+          <OnboardingImageWrapper>
+            <OnboardingMiddleImage
+              variants={onboardingAnimate}
+              src={
+                pageData?.id === 'email'
+                  ? Human1
+                  : pageData?.id === 'englishname'
+                  ? Human2
+                  : pageData?.id === 'major'
+                  ? Human3
+                  : pageData?.id === 'interest'
+                  ? Human4
+                  : ''
+              }
+            />
+          </OnboardingImageWrapper>
+        </OnboardingMiddleElementWrapper>
+      </OnboardingContainer>
+    </OnboardingContainerWrapper>
   );
 };
 

@@ -15,7 +15,6 @@ import NotionText from '../../../img/Link/NotionText.png';
 import { IProps } from '../../../pages/OnBoarding/OnboardingLinks';
 const OnboardingLinkBox = (data: IProps) => {
   const name = data.id;
-  const link = data.link;
   return (
     <>
       <LinkBoxInner whileHover={{ backgroundColor: '#efefef' }}>
