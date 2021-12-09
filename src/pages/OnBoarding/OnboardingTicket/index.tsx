@@ -1,15 +1,10 @@
 import React, { useRef } from 'react';
-import {
-  MobileText,
-  OnboardingContainer,
-  OnboardingContainerWrapper,
-} from '../styled';
+import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import BoardingPass from '../../../components/common/BoardingPass';
 import {
   onboardingAnimate,
   onboardingTicketAnimate,
   pageAnimate,
-  pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
 import {
   BoardingPassWrapper,
@@ -26,6 +21,7 @@ import Logo from '../../../img/GDSC Logo Clear.png';
 import html2canvas from 'html2canvas';
 import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';
+import MobileBlock from '../../../components/common/MobileBlock';
 
 const OnboardingTicket = () => {
   const issueTicket = useRef<HTMLDivElement>(null);
@@ -55,9 +51,7 @@ const OnboardingTicket = () => {
 
   return (
     <OnboardingContainerWrapper>
-      <MobileText>
-        PC 환경에 최적화 되어 있습니다. PC 에서 다시 실행해주세요!
-      </MobileText>
+      <MobileBlock />
       <OnboardingContainer
         initial="start"
         animate="end"

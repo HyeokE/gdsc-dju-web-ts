@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  MobileText,
-  OnboardingContainer,
-  OnboardingContainerWrapper,
-} from '../styled';
+import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import {
   onboardingAnimate,
   pageAnimate,
@@ -35,7 +31,7 @@ import { onBoardingData } from '../../../api/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
-import BoardingPass from '../../../components/common/BoardingPass';
+import MobileBlock from '../../../components/common/MobileBlock';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -45,9 +41,7 @@ const OnboardingMiddle = () => {
   const navigate = useNavigate();
   return (
     <OnboardingContainerWrapper>
-      <MobileText>
-        PC 환경에 최적화 되어 있습니다. PC 에서 다시 실행해주세요!
-      </MobileText>
+      <MobileBlock />
       <OnboardingContainer
         initial="start"
         animate="end"

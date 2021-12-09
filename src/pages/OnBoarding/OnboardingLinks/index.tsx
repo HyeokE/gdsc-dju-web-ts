@@ -21,16 +21,13 @@ import {
 } from '../OnBoardingHome/styled';
 import Human5 from '../../../img/Humen/Human5.png';
 
-import {
-  MobileText,
-  OnboardingContainer,
-  OnboardingContainerWrapper,
-} from '../styled';
+import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import { useNavigate } from 'react-router-dom';
 
 import OnboardingLinkBox from '../../../components/common/OnboardingLinkBox';
 import { OnboardingLinkBoxWrapper } from './styled';
 import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
+import MobileBlock from '../../../components/common/MobileBlock';
 
 export interface IProps {
   id: string;
@@ -53,9 +50,7 @@ const OnBoardingLinks = () => {
   ];
   return (
     <OnboardingContainerWrapper>
-      <MobileText>
-        PC 환경에 최적화 되어 있습니다. PC 에서 다시 실행해주세요!
-      </MobileText>
+      <MobileBlock />
       <OnboardingContainer
         initial="start"
         animate="end"

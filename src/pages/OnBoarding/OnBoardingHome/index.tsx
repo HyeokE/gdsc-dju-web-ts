@@ -1,15 +1,10 @@
 import React from 'react';
 import {
-  listTageItemAnimate,
   onboardingAnimate,
   pageAnimate,
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
-import {
-  MobileText,
-  OnboardingContainer,
-  OnboardingContainerWrapper,
-} from '../styled';
+import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import {
   OnboardingBottomWrapper,
   OnBoardingButton,
@@ -30,14 +25,13 @@ import '../Onboarding.css';
 import Logo from '../../../img/GDSC Logo Clear.png';
 import Plane from '../../../img/Plane.png';
 import { useNavigate } from 'react-router-dom';
+import MobileBlock from '../../../components/common/MobileBlock';
 
 const OnboardingHome = () => {
   const navigate = useNavigate();
   return (
     <OnboardingContainerWrapper>
-      <MobileText>
-        PC 환경에 최적화 되어 있습니다. PC 에서 다시 실행해주세요!
-      </MobileText>
+      <MobileBlock />
       <OnboardingContainer
         initial="start"
         animate="end"
