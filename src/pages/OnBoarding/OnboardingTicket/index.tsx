@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import BoardingPass from '../../../components/common/BoardingPass';
 import {
@@ -16,10 +16,39 @@ import {
   BoardingTicketTitle,
   BoardingTicketWrapper,
   ElementJustifyCenter,
+  TicketSaveButton,
 } from './styled';
 import Logo from '../../../img/GDSC Logo Clear.png';
+import html2canvas from 'html2canvas';
+import { transparent } from 'material-ui/styles/colors';
+import DownLoadLogo from '../../../img/DownLoad-Logo';
 
 const OnboardingTicket = () => {
+  const issueTicket = useRef<HTMLDivElement>(null);
+  const SaveTicket = async () => {
+    const element = issueTicket.current;
+    const canvas = await html2canvas(
+      element as HTMLDivElement,
+      {
+        background: 'transparent',
+      } as Partial<any>,
+    );
+
+    const data = canvas.toDataURL('JasonBoardingPass/jpg');
+    const link = document.createElement('a');
+
+    if (typeof link.download === 'string') {
+      link.href = data;
+      link.download = 'JasonBoardingPass.jpg';
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(data);
+    }
+  };
+
   return (
     <OnboardingContainerWrapper>
       <OnboardingContainer
@@ -49,10 +78,22 @@ const OnboardingTicket = () => {
               간단하게 Slack, Discord 에서 환영인사를 나눠보세요!
             </BoardingTicketSubTitle>
           </ElementJustifyCenter>
-          <ElementJustifyCenter>
+          <ElementJustifyCenter ref={issueTicket}>
             <BoardingPassWrapper variants={onboardingTicketAnimate}>
               <BoardingPass />
             </BoardingPassWrapper>
+          </ElementJustifyCenter>
+          <ElementJustifyCenter>
+            <TicketSaveButton
+              variants={onboardingTicketAnimate}
+              whileHover={{ shadow: '20', boxShadow: '0px 0px 10px #4385f3' }}
+              onClick={() => {
+                SaveTicket();
+              }}
+            >
+              <DownLoadLogo />
+              이미지 저장하기
+            </TicketSaveButton>
           </ElementJustifyCenter>
         </BoardingTicketWrapper>
       </OnboardingContainer>
