@@ -97,7 +97,11 @@ const OnBoardingLinks = () => {
               onClick={() => {
                 navigate('/onboarding/ticket');
               }}
-              style={{ background: '#262626', color: 'white' }}
+              style={{
+                background: '#262626',
+                color: 'white',
+                marginTop: '0px',
+              }}
             >
               다음으로
             </OnboardingMiddleButton>

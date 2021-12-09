@@ -66,6 +66,7 @@ export const OnboardingMiddleImage = styled(motion.img)`
   display: flex;
   right: 0px;
   bottom: 0px;
+  z-index: -1;
 `;
 export const OnboardingImageWrapper = styled(motion.div)`
   height: 670px;
@@ -74,7 +75,8 @@ export const OnboardingImageWrapper = styled(motion.div)`
   justify-content: center;
   align-items: flex-end;
   display: flex;
-  @media (max-width: 1800px) {
+  z-index: -1;
+  @media (max-width: 1400px) {
     position: absolute;
   }
 `;
