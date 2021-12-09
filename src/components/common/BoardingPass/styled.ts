@@ -51,7 +51,6 @@ export const BoardingPassElementWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: right;
-  margin-right: 70px;
 `;
 export const BoardingPassQrWrapper = styled(motion.div)`
   height: 96px;
@@ -79,7 +78,7 @@ export const BoardingPassDetailWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 320px;
+  width: 300px;
   margin-top: 15px;
 `;
 export const BoardingPassDetailText = styled(motion.div)`
