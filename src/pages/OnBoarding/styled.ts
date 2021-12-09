@@ -7,6 +7,9 @@ export const OnboardingContainer = styled(motion.div)`
   justify-content: center;
   white-space: nowrap;
   flex-direction: column;
+  @media (max-width: 1400px) {
+    display: none;
+  }
 `;
 export const OnboardingContainerWrapper = styled(motion.div)`
   display: flex;
@@ -14,4 +17,13 @@ export const OnboardingContainerWrapper = styled(motion.div)`
   height: 100vh;
   justify-content: center;
   align-items: center;
+`;
+export const MobileText = styled(motion.div)`
+  display: none;
+  font-size: 16px;
+  font-family: 'Gothic A1', sans-serif;
+  color: #4e5968;
+  @media (max-width: 1400px) {
+    display: flex;
+  }
 `;

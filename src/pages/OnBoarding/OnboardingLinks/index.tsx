@@ -21,7 +21,11 @@ import {
 } from '../OnBoardingHome/styled';
 import Human5 from '../../../img/Humen/Human5.png';
 
-import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
+import {
+  MobileText,
+  OnboardingContainer,
+  OnboardingContainerWrapper,
+} from '../styled';
 import { useNavigate } from 'react-router-dom';
 
 import OnboardingLinkBox from '../../../components/common/OnboardingLinkBox';
@@ -49,6 +53,9 @@ const OnBoardingLinks = () => {
   ];
   return (
     <OnboardingContainerWrapper>
+      <MobileText>
+        PC 환경에 최적화 되어 있습니다. PC 에서 다시 실행해주세요!
+      </MobileText>
       <OnboardingContainer
         initial="start"
         animate="end"

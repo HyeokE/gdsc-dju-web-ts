@@ -1,5 +1,9 @@
 import React, { useRef } from 'react';
-import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
+import {
+  MobileText,
+  OnboardingContainer,
+  OnboardingContainerWrapper,
+} from '../styled';
 import BoardingPass from '../../../components/common/BoardingPass';
 import {
   onboardingAnimate,
@@ -51,6 +55,9 @@ const OnboardingTicket = () => {
 
   return (
     <OnboardingContainerWrapper>
+      <MobileText>
+        PC 환경에 최적화 되어 있습니다. PC 에서 다시 실행해주세요!
+      </MobileText>
       <OnboardingContainer
         initial="start"
         animate="end"
