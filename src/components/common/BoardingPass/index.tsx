@@ -4,6 +4,8 @@ import WhitePlane from '../../../img/WhitePlane.png';
 import WhiteGDSC from '../../../img/GDSCWhiteSeeklogo.png';
 import GDSC from '../../../img/GDSCSeekLogo.png';
 import {
+  BoardingPassArrivalTimeWrapper,
+  BoardingPassBoardingTimeWrapper,
   BoardingPassBottmTextWrapper,
   BoardingPassCategory,
   BoardingPassCategoryText,
@@ -17,6 +19,9 @@ import {
   BoardingPassGDSCWrapper,
   BoardingPassInner,
   BoardingPassPlaneImg,
+  BoardingPassQrWrapper,
+  BoardingPassSeasonWrapper,
+  BoardingPassTopElementWrapper,
   BoardingPassTopLine,
   BoardingPassTopTextWrapper,
   BoardingPassWrapper,
@@ -31,8 +36,11 @@ import {
   BoardingTicketGDSCWrapper,
   BoardingTicketInner,
   BoardingTicketPlane,
+  BoardingTicketTopElementWrapper,
+  BoardingTicketTopTextWrapper,
   BoardingTicketWrapper,
 } from './styled';
+import Gdscqr from '../../../img/GDSCQR';
 
 const BoardingPass = () => {
   return (
@@ -48,7 +56,7 @@ const BoardingPass = () => {
               </BoardingPassGDSC>
             </BoardingPassGDSCWrapper>
             <BoardingPassTopTextWrapper>
-              <BoardingPassElementWrapper>
+              <BoardingPassTopElementWrapper>
                 <BoardingPassDetailTitle>
                   Boarding Details
                 </BoardingPassDetailTitle>
@@ -57,27 +65,28 @@ const BoardingPass = () => {
                   <BoardingPassPlaneImg src={Plane} />
                   <BoardingPassDetailText>DJU</BoardingPassDetailText>
                 </BoardingPassDetailWrapper>
-              </BoardingPassElementWrapper>
-              <BoardingPassElementWrapper style={{ marginLeft: '73px' }}>
+              </BoardingPassTopElementWrapper>
+              <BoardingPassElementWrapper>
                 <BoardingPassCategory>Name</BoardingPassCategory>
                 <BoardingPassCategoryText>Jason</BoardingPassCategoryText>
               </BoardingPassElementWrapper>
             </BoardingPassTopTextWrapper>
             <BoardingPassBottmTextWrapper>
-              <BoardingPassElementWrapper>
+              <BoardingPassSeasonWrapper>
                 <BoardingPassCategory>Season</BoardingPassCategory>
                 <BoardingPassCategoryText>1 th</BoardingPassCategoryText>
-              </BoardingPassElementWrapper>
-              <BoardingPassElementWrapper>
+              </BoardingPassSeasonWrapper>
+              <BoardingPassBoardingTimeWrapper>
                 <BoardingPassCategory>Boarding Time</BoardingPassCategory>
-                <BoardingPassCategoryText>
-                  2021. 01. 13
-                </BoardingPassCategoryText>
-              </BoardingPassElementWrapper>
-              <BoardingPassElementWrapper>
+                <BoardingPassCategoryText>2021. 1. 13</BoardingPassCategoryText>
+              </BoardingPassBoardingTimeWrapper>
+              <BoardingPassArrivalTimeWrapper>
                 <BoardingPassCategory>Arrival Time</BoardingPassCategory>
-                <BoardingPassCategoryText>2022. 08</BoardingPassCategoryText>
-              </BoardingPassElementWrapper>
+                <BoardingPassCategoryText>2022. 8</BoardingPassCategoryText>
+              </BoardingPassArrivalTimeWrapper>
+              <BoardingPassQrWrapper>
+                <Gdscqr />
+              </BoardingPassQrWrapper>
             </BoardingPassBottmTextWrapper>
           </BoardingPassInner>
         </BoardingPassWrapper>
@@ -89,16 +98,23 @@ const BoardingPass = () => {
                 Google Developer Student Clubs
               </BoardingTicketGDSC>
             </BoardingTicketGDSCWrapper>
-            <BoardingTicketDetailWrapper>
-              <BoardingTicketDetailText>NWB</BoardingTicketDetailText>
-              <BoardingTicketPlane src={WhitePlane} />
-              <BoardingTicketDetailText>DJU</BoardingTicketDetailText>
-            </BoardingTicketDetailWrapper>
-            <BoardingTicketBr />
-            <BoardingTicketElementWrapper>
-              <BoardingTicketCategory>Name</BoardingTicketCategory>
-              <BoardingTicketCategoryText>Harry</BoardingTicketCategoryText>
-            </BoardingTicketElementWrapper>
+            <BoardingTicketTopElementWrapper>
+              <BoardingTicketTopTextWrapper>
+                <BoardingTicketDetailWrapper>
+                  <BoardingTicketDetailText>NWB</BoardingTicketDetailText>
+                  <BoardingTicketPlane src={WhitePlane} />
+                  <BoardingTicketDetailText>DJU</BoardingTicketDetailText>
+                </BoardingTicketDetailWrapper>
+                <BoardingTicketBr />
+                <BoardingTicketElementWrapper>
+                  <BoardingTicketCategory>Name</BoardingTicketCategory>
+                  <BoardingTicketCategoryText>Harry</BoardingTicketCategoryText>
+                </BoardingTicketElementWrapper>
+              </BoardingTicketTopTextWrapper>
+              <BoardingPassQrWrapper>
+                <Gdscqr />
+              </BoardingPassQrWrapper>
+            </BoardingTicketTopElementWrapper>
             <BoardingTicketBottomElementWrapper>
               <BoardingTicketElementWrapper>
                 <BoardingTicketCategory>Boarding Time</BoardingTicketCategory>

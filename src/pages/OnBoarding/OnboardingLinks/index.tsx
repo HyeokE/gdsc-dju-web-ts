@@ -25,8 +25,10 @@ import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import { useNavigate } from 'react-router-dom';
 
 import OnboardingLinkBox from '../../../components/common/OnboardingLinkBox';
-import { OnboardingLinkBoxWrapper } from './styled';
-import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
+import {
+  OnboardingLinkBoxWrapper,
+  OnboardingLinkElementWrapper,
+} from './styled';
 import MobileBlock from '../../../components/common/MobileBlock';
 
 export interface IProps {
@@ -59,7 +61,7 @@ const OnBoardingLinks = () => {
         transition={pageAnimate}
       >
         <OnboardingMiddleElementWrapper>
-          <OnboardingMiddleTextWrapper>
+          <OnboardingLinkElementWrapper>
             <OnboardingBackWrapper
               variants={onboardingAnimate}
               onClick={() => {
@@ -99,7 +101,7 @@ const OnBoardingLinks = () => {
             >
               다음으로
             </OnboardingMiddleButton>
-          </OnboardingMiddleTextWrapper>
+          </OnboardingLinkElementWrapper>
           <OnboardingImageWrapper>
             <OnboardingMiddleImage variants={onboardingAnimate} src={Human5} />
           </OnboardingImageWrapper>

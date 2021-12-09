@@ -23,10 +23,42 @@ export const BoardingPassTopLine = styled(motion.div)`
 export const BoardingPassInner = styled(motion.div)`
   padding: 0 40px;
 `;
+export const BoardingPassTopElementWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 76px;
+`;
+export const BoardingPassSeasonWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 124px;
+`;
+export const BoardingPassBoardingTimeWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 83px;
+`;
+export const BoardingPassArrivalTimeWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 63px;
+`;
 export const BoardingPassElementWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: right;
+  margin-right: 70px;
+`;
+export const BoardingPassQrWrapper = styled(motion.div)`
+  height: 96px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 export const BoardingPassGDSC = styled(motion.div)`
   font-family: 'Product Sans';
@@ -67,8 +99,7 @@ export const BoardingPassBottmTextWrapper = styled(motion.div)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 507px;
+  width: 670px;
 `;
 export const BoardingPassCategory = styled(motion.div)`
   font-size: 12px;
@@ -113,6 +144,13 @@ export const BoardingPassGDSCLogo = styled.img`
 export const BoardingTicketGDSC = styled.div`
   font-size: 10px;
   font-weight: bold;
+`;
+export const BoardingTicketTopElementWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const BoardingTicketTopTextWrapper = styled.div`
+  margin-right: 20px;
 `;
 export const BoardingTicketDetailWrapper = styled.div`
   display: flex;

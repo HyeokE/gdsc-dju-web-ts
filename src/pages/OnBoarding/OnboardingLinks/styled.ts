@@ -8,3 +8,8 @@ export const OnboardingLinkBoxWrapper = styled(motion.div)`
   flex-direction: row;
   width: 100%;
 `;
+export const OnboardingLinkElementWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+`;
