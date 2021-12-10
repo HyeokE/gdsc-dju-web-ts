@@ -32,6 +32,9 @@ export const OnboardingDescription = styled(motion.div)`
   font-size: 20px;
   font-family: 'Gothic A1', sans-serif;
   color: #7d8b97;
+  @media (max-width: 1500px) {
+    font-size: 17px;
+  }
 `;
 export const OnboardingInput = styled(motion.input)`
   margin-top: 88px;
@@ -46,10 +49,17 @@ export const OnboardingInput = styled(motion.input)`
     color: black;
     opacity: 20%;
   }
+  :focus {
+    outline: none;
+  }
+  @media (max-width: 1500px) {
+    font-size: 30px;
+    width: 750px;
+  }
 `;
 export const OnboardingMiddleButton = styled(motion.button)`
   margin-top: 70px;
-  min-height: 84px;
+  height: 84px;
   width: 274px;
   color: white;
   border-style: solid;
@@ -57,8 +67,13 @@ export const OnboardingMiddleButton = styled(motion.button)`
   border-width: 0px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Gothic A1';
+  font-family: 'Gothic A1', sans-serif;
   cursor: pointer;
+  @media (max-width: 1500px) {
+    width: 230px;
+    height: 75px;
+    font-size: 18px;
+  }
 `;
 export const OnboardingMiddleImage = styled(motion.img)`
   height: auto;

@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 export const OnboardingContainer = styled(motion.div)`
   display: flex;
-  width: auto;
+  width: 1100px;
+  height: 550px;
   margin: auto;
   justify-content: center;
   white-space: nowrap;
