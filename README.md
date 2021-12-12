@@ -31,5 +31,4 @@ https://gdsc-dju.web.app
 - Prettier
 
 
-- eslint 
-
+- eslint

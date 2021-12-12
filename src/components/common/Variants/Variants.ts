@@ -218,7 +218,7 @@ export const onboardingTicketAnimate = {
     x: 0,
     scale: 0,
     transition: {
-      duration: 1,
+      duration: 1.5,
     },
   },
   end: {
@@ -226,14 +226,14 @@ export const onboardingTicketAnimate = {
     x: 0,
     scale: 1,
     transition: {
-      duration: 1,
+      duration: 1.5,
     },
   },
   exit: {
     opacity: 0,
     scale: 1,
     transition: {
-      duration: 1,
+      duration: 2,
     },
   },
 };

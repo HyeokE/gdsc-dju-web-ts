@@ -52,7 +52,7 @@ const OnBoardingLinks = () => {
   ];
   return (
     <OnboardingContainerWrapper>
-      <MobileBlock />
+      {/*<MobileBlock />*/}
       <OnboardingContainer
         initial="start"
         animate="end"

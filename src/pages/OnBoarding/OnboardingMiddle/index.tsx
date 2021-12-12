@@ -41,7 +41,7 @@ const OnboardingMiddle = () => {
   const navigate = useNavigate();
   return (
     <OnboardingContainerWrapper>
-      <MobileBlock />
+      {/*<MobileBlock />*/}
       <OnboardingContainer
         initial="start"
         animate="end"
@@ -77,11 +77,11 @@ const OnboardingMiddle = () => {
             <OnboardingInput
               variants={onboardingAnimate}
               placeholder={pageData?.placeHolder}
-              style={{ borderColor: color, caretColor: color, color: color }}
+              color={color}
             />
             <OnboardingMiddleButton
               variants={onboardingAnimate}
-              style={{ background: color }}
+              color={color}
               onClick={() => {
                 navigate('/onboarding/' + pageData?.next);
               }}

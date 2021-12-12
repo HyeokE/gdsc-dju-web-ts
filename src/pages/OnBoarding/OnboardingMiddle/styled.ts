@@ -44,6 +44,9 @@ export const OnboardingInput = styled(motion.input)`
   padding-bottom: 30px;
   border-width: 0px;
   border-bottom-width: 5px;
+  border-color: ${(props) => props.color};
+  caret-color: ${(props) => props.color};
+  color: ${(props) => props.color};
   width: 800px;
   ::placeholder {
     color: black;
@@ -69,10 +72,11 @@ export const OnboardingMiddleButton = styled(motion.button)`
   font-weight: bold;
   font-family: 'Gothic A1', sans-serif;
   cursor: pointer;
+  background: ${(props) => props.color};
   @media (max-width: 1500px) {
-    width: 230px;
-    height: 75px;
-    font-size: 18px;
+    width: 200px;
+    height: 70px;
+    font-size: 17px;
   }
 `;
 export const OnboardingMiddleImage = styled(motion.img)`
@@ -86,12 +90,9 @@ export const OnboardingMiddleImage = styled(motion.img)`
 export const OnboardingImageWrapper = styled(motion.div)`
   height: 670px;
   position: static;
-  right: 0px;
+
   justify-content: center;
   align-items: flex-end;
   display: flex;
   z-index: -1;
-  @media (max-width: 1400px) {
-    position: absolute;
-  }
 `;

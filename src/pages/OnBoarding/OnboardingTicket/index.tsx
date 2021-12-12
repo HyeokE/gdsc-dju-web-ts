@@ -22,6 +22,8 @@ import html2canvas from 'html2canvas';
 import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';
 import MobileBlock from '../../../components/common/MobileBlock';
+import OnBoarding from '../index';
+import { OnboardingTitle } from '../OnBoardingHome/styled';
 
 const OnboardingTicket = () => {
   const issueTicket = useRef<HTMLDivElement>(null);
@@ -39,7 +41,7 @@ const OnboardingTicket = () => {
 
     if (typeof link.download === 'string') {
       link.href = data;
-      link.download = 'JasonBoardingPass.jpg';
+      link.download = 'UserNameBoardingPass.jpg';
 
       document.body.appendChild(link);
       link.click();
@@ -51,7 +53,7 @@ const OnboardingTicket = () => {
 
   return (
     <OnboardingContainerWrapper>
-      <MobileBlock />
+      {/*<MobileBlock />*/}
       <OnboardingContainer
         initial="start"
         animate="end"
@@ -67,7 +69,7 @@ const OnboardingTicket = () => {
             </BoardingTicketLogoText>
           </BoardingTicketLogoWrapper>
           <ElementJustifyCenter variants={onboardingAnimate}>
-            <BoardingTicketTitle>Welcome aboard!</BoardingTicketTitle>
+            <OnboardingTitle>Welcome aboard!</OnboardingTitle>
           </ElementJustifyCenter>
           <ElementJustifyCenter variants={onboardingAnimate}>
             <BoardingTicketSubTitle style={{ marginTop: '25px' }}>

@@ -29,7 +29,7 @@ export const OnboardingTitle = styled(motion.div)`
   font-weight: bold;
   font-family: 'Product Sans', sans-serif;
   @media (max-width: 1500px) {
-    font-size: 70px;
+    font-size: 65px;
   }
 `;
 export const OnboardingSubTitle = styled(motion.div)`
@@ -102,7 +102,7 @@ export const OnBoardingButton = styled(motion.button)`
   cursor: pointer;
   @media (max-width: 1500px) {
     margin-left: 100px;
-    min-width: 230px;
+    width: 200px;
     height: 75px;
     font-size: 18px;
   }

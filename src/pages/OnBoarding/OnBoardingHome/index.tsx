@@ -31,7 +31,7 @@ const OnboardingHome = () => {
   const navigate = useNavigate();
   return (
     <OnboardingContainerWrapper>
-      <MobileBlock />
+      {/*<MobileBlock />*/}
       <OnboardingContainer
         initial="start"
         animate="end"

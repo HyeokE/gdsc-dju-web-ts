@@ -11,7 +11,6 @@ export const OnboardingMiddleTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 1000px;
   margin-right: 100px;
 `;
 export const BoardingTicketLogoWrapper = styled(motion.div)`
@@ -29,7 +28,7 @@ export const BoardingTicketLogoImage = styled.img`
   height: 22px;
 `;
 export const BoardingTicketTitle = styled.div`
-  margin-top: 50px;
+  margin-top: 60px;
   font-size: 80px;
   font-weight: bold;
 `;
