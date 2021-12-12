@@ -88,9 +88,8 @@ export const OnboardingMiddleImage = styled(motion.img)`
   z-index: -1;
 `;
 export const OnboardingImageWrapper = styled(motion.div)`
-  height: 670px;
   position: static;
-
+  height: 850px;
   justify-content: center;
   align-items: flex-end;
   display: flex;

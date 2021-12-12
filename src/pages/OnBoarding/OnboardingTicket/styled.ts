@@ -10,8 +10,11 @@ export const BoardingTicketWrapper = styled.div`
 export const OnboardingMiddleTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  margin-right: 100px;
+  position: relative;
+  width: 900px;
+  @media (min-width: 1600px) {
+    width: 1100px;
+  }
 `;
 export const BoardingTicketLogoWrapper = styled(motion.div)`
   display: flex;
@@ -32,8 +35,8 @@ export const BoardingTicketTitle = styled.div`
   font-size: 80px;
   font-weight: bold;
 `;
-export const BoardingTicketSubTitle = styled(motion.div)`
-  margin-top: 5px;
+export const BoardingTicketSubTitle = styled(motion.div)<any>`
+  margin-top: ${(props) => props.margin}px;
   color: #afb8c1;
 `;
 export const BoardingPassWrapper = styled(motion.div)`

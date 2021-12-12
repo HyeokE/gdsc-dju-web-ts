@@ -72,12 +72,12 @@ const OnboardingTicket = () => {
             <OnboardingTitle>Welcome aboard!</OnboardingTitle>
           </ElementJustifyCenter>
           <ElementJustifyCenter variants={onboardingAnimate}>
-            <BoardingTicketSubTitle style={{ marginTop: '25px' }}>
+            <BoardingTicketSubTitle margin={25}>
               1기 멤버가 되신 것을 환영합니다. 이제 활동을 시작해주시면 됩니다.
             </BoardingTicketSubTitle>
           </ElementJustifyCenter>
-          <ElementJustifyCenter>
-            <BoardingTicketSubTitle variants={onboardingAnimate}>
+          <ElementJustifyCenter variants={onboardingAnimate}>
+            <BoardingTicketSubTitle margin={5}>
               간단하게 Slack, Discord 에서 환영인사를 나눠보세요!
             </BoardingTicketSubTitle>
           </ElementJustifyCenter>
