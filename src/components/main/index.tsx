@@ -49,7 +49,9 @@ export const Main = () => {
   // }, []);
   const [alert] = useRecoilState(alertState);
   const [navHandler, setNavHandler] = useState<boolean>(true);
-
+  {
+    /*Onboarding page navigation 숨김 */
+  }
   const hideNavigation = () => {
     if (location.pathname.includes('/onboarding')) {
       setNavHandler(false);

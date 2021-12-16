@@ -6,10 +6,10 @@ export const onBoardingData = [
     color: '#E94436',
     placeHolder: '사용 중인 구글 이메일',
     img: 'Human1',
-    next: 'middle/englishname',
+    next: 'middle/nickname',
   },
   {
-    id: 'englishname',
+    id: 'nickname',
     title: 'English Name',
     subTitle:
       '지원서에 다들 적어주셨듯, GDSC DJU 에서는 영어이름을 호칭으로 사용합니다. ',

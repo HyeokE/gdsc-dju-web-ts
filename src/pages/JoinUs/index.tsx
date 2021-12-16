@@ -43,6 +43,7 @@ export const JoinUs = () => {
             <TeamSubCategory>Skill</TeamSubCategory>
             <TeamSubCategory>Stack</TeamSubCategory>
           </TeamCategoryWrapper>
+          {/*PC 환경 팀 리스트*/}
           {TeamList.map((data, key) => (
             <CategoryWrapper
               key={key}
@@ -57,6 +58,7 @@ export const JoinUs = () => {
               </CategoryInner>
             </CategoryWrapper>
           ))}
+          {/*모바일 환경 팀 리스트*/}
           {TeamList.map((data, key) => (
             <MobileCategoryWrapper
               key={key}

@@ -39,6 +39,7 @@ export const Introduce = () => {
 
   return (
     <>
+      {/*Modal*/}
       <StyledModal
         size={'small'}
         isOpen={modalHandler}
