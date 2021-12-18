@@ -16,7 +16,7 @@ export const Name = styled.div`
   color: #aaaaaa;
 `;
 export const Role = styled.div`
-  color: #4385f3;
+  color: ${(props) => props.theme.color.googleBlue}
   font-family: 'Gothic A1', sans-serif;
   font-size: 13px;
   margin-top: 10px;
@@ -25,5 +25,5 @@ export const MemberImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  border: 1px solid #9f9f9f;
+  border: 1px solid ${(props) => props.theme.color.subCategory};
 `;

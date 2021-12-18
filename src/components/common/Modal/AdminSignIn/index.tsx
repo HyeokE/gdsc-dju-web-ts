@@ -61,9 +61,7 @@ const AdminSignInModal = () => {
             onChange={onChange}
           />
         </ModalElementWrapper>
-        <ModalElementWrapper style={{ color: '#f44336' }}>
-          {error}
-        </ModalElementWrapper>
+        <ModalElementWrapper error={'#f44336'}>{error}</ModalElementWrapper>
         <ButtonWrapper>
           <StyledButton onClick={onEmailLogIn}>Admin SignIn</StyledButton>
         </ButtonWrapper>

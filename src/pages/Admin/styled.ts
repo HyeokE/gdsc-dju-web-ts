@@ -19,12 +19,15 @@ export const StyledAdminButton = styled.button`
   border-radius: 10px;
   font-size: 16px;
   color: white;
-  background: #42a5f5;
+  transition: 0.3s;
+  transition-delay: 0.3ms;
+  transform-style: initial;
+  cursor: pointer;
+  background: ${(props) => props.theme.color.tossBlue};
   padding: 7px 20px;
   align-items: center;
   :hover {
-    background: #3886f6;
-    cursor: pointer;
+    background: ${(props) => props.theme.color.tossBlueActive};
   }
   @media (max-width: 500px) {
     padding: 7px 13px;
@@ -37,7 +40,7 @@ export const ButtonElementWrapper = styled.div`
   margin-left: 20px;
 `;
 export const StyledUserName = styled.div`
-  color: #4e5968;
+  color: ${(props) => props.theme.color.body};
   font-size: 20px;
   font-weight: bold;
   @media (max-width: 500px) {
@@ -61,6 +64,6 @@ export const AdminBlockPage = styled.div`
   left: 0;
   right: 0;
   opacity: 50%;
-  background: #f9fafb;
+  background: ${(props) => props.theme.color.dimGray};
   z-index: 999;
 `;
