@@ -34,7 +34,7 @@ https://gdsc-dju.web.app
 - eslint 
 
 
-- formilk
+- formik
 
 
 - yup
