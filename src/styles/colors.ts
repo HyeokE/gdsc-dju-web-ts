@@ -1,41 +1,55 @@
 export const gray = {
-  white: '#ffffff',
-  gray100: '#FCFCFC',
-  gray150: '#F5F5F5',
-  gray200: '#EFEFEF',
-  gray250: '#E8E8E8',
-  gray300: '#DFDFDF',
-  gray350: '#C8C8C8',
-  gray400: '#B7B7B7',
-  gray500: '#949494',
-  gray600: '#777777',
-  gray650: '#616161',
-  gray700: '#555555',
-  gray750: '#3F3F3F',
-  gray800: '#2a2a2a',
-  gray850: '#1F1F1F',
-  gray900: '#111111',
-  black: '#000000',
+  ghostWhite: '#f9fafb',
+  whiteSmoke: '#efefef',
+  lavender: '#e5e8eb',
+  gainsboro: '#d4d8dc',
+  lightSlateGray: '#8b95a1',
 };
-export const blue = {
-  blue400: '#96B2FF',
-  blue500: '#638DFF',
-  blue600: '#4270ED',
-  blue700: '#2F59CC',
+export const assetGreen = {
+  green100: '#E8F5E9',
+  green200: '#C8E6C9',
+  green300: '#A5D6A7',
+  green400: '#81C784',
+  green500: '#66BB6A',
+  green600: '#4CAF50',
 };
-export const navy = {
-  navy400: '#C8CFDC',
-  navy500: '#98A0B3',
-  navy600: '#707991',
-  navy700: '#464F69',
-  navy800: '#323B54',
-  navy850: '#262F4A',
-  navy900: '#202A43',
+export const assetYellow = {
+  yellow100: '#FFF8E1',
+  yellow200: '#FFECB3',
+  yellow300: '#FFE082',
+  yellow400: '#FFD54F',
+  yellow500: '#FFCA28',
+  yellow600: '#FFC107',
+};
+export const assetRed = {
+  red100: '#FFEBEE',
+  red200: '#FFCDD2',
+  red300: '#EF9A9A',
+  red400: '#E57373',
+  red500: '#EF5350',
+  red600: '#F44336',
+};
+export const assetBlue = {
+  blue100: '#E3F2FD',
+  blue200: '#BBDEFB',
+  blue300: '#90CAF9',
+  blue400: '#64B5F6',
+  blue500: '#42A5F5',
+  blue600: '#2196F3',
+};
+export const googleLogoColor = {
+  googleBlue: '#4285F4',
+  googleRed: '#EA4335',
+  googleYellow: '#FBBC04',
+  googleGreen: '#34A853',
 };
 export const primaryColor = {
   ...gray,
-  ...blue,
-  ...navy,
+  ...assetGreen,
+  ...assetYellow,
+  ...assetRed,
+  ...assetBlue,
+  ...googleLogoColor,
 };
 
 export const colors = { ...primaryColor };
