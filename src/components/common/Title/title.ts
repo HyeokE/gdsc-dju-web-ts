@@ -16,7 +16,7 @@ export const Title = styled(motion.div)`
 export const SubTitle = styled(motion.div)`
   font-size: 17px;
   font-weight: bold;
-  color: #333c4b;
+  color: ${(props) => props.theme.color.head};
   margin-bottom: 12px;
   @media (max-width: 500px) {
     font-size: 16px;
@@ -24,7 +24,7 @@ export const SubTitle = styled(motion.div)`
 `;
 export const MainText = styled(motion.div)`
   font-size: 16px;
-  color: #4e5968;
+  color: ${(props) => props.theme.color.body};
   padding-bottom: 10px;
   @media (max-width: 500px) {
     font-size: 15px;
