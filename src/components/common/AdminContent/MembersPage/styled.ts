@@ -10,6 +10,7 @@ export const StyledTableCategoryWrapper = styled.div`
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
+  background-color: white;
   font-weight: bold;
   @media (max-width: 500px) {
     display: none;
@@ -22,6 +23,7 @@ export const StyledMobileTableCategoryWrapper = styled.div`
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
+
   font-weight: bold;
   @media (max-width: 500px) {
     display: flex;
@@ -37,16 +39,9 @@ export const StyledTableWrapper = styled(motion.div)`
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
-  transition: 0.5s;
-  transition-delay: 0.8ms;
-
-  border-width: 1px;
-  border-color: #f2f4f6;
-  &:hover {
-    background: #f2f4f6;
-    border-color: #9f9f9f;
-    cursor: pointer;
-  }
+  border-width: 0px;
+  background-color: white;
+  cursor: pointer;
   @media (max-width: 500px) {
     display: none;
   }
@@ -61,13 +56,8 @@ export const StyledMobileTableWrapper = styled(motion.div)`
   padding: 15px 0px;
   text-align: center;
   justify-content: space-around;
-  transition: 0.3s;
-  transition-delay: 0.2ms;
+  background-color: white;
   font-size: 16px;
-  &:hover {
-    background: #f2f4f6;
-    cursor: pointer;
-  }
   @media (max-width: 500px) {
     display: flex;
   }

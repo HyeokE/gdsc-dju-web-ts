@@ -48,7 +48,7 @@ export const MinTitle = styled.div`
   font-size: 15px;
   font-weight: 500;
   line-height: 24px;
-  color: rgb(107, 118, 132);
+  color: ${(props) => props.theme.color.subCategory};
 `;
 export const MinText = styled.div`
   color: #3886f6;
@@ -57,7 +57,7 @@ export const MinText = styled.div`
 export const ElementWrapper = styled.div`
   padding: 14px 0px;
   display: flex;
-  border-top: 1px solid rgba(0, 29, 58, 0.18);
+  border-top: 1px solid ${(props) => props.theme.color.brColor};
   @media (max-width: 500px) {
     width: 100%;
   }

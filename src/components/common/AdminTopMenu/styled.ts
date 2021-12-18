@@ -10,7 +10,6 @@ export const StyledTap = styled.div`
   font-weight: bold;
   :hover {
     cursor: pointer;
-    background: #efefef;
   }
   @media (max-width: 320px) {
     font-size: 16px;

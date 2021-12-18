@@ -4,7 +4,7 @@ export const QuestionTitle = styled.div`
   font-size: 32px;
   font-weight: 600;
   line-height: 130%;
-  color: rgb(51, 61, 75);
+  color: ${(props) => props.theme.color.head};
   margin-bottom: 16px;
   @media (max-width: 500px) {
     font-size: 22px;
@@ -14,7 +14,7 @@ export const AnswerWrapper = styled.div`
   font-size: 18px;
   font-weight: 400;
   line-height: 150%;
-  color: rgb(107, 118, 132);
+  color: ${(props) => props.theme.color.body};
   margin-bottom: 72px;
   @media (max-width: 500px) {
     font-size: 13px;

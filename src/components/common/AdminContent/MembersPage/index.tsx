@@ -86,7 +86,7 @@ const MemberPage = () => {
         setSelectMember={setSelectMember}
       />
 
-      {memberData ? (
+      {memberData && (
         <>
           <div>
             <MainText>Total • {memberData?.length}</MainText>
@@ -107,6 +107,7 @@ const MemberPage = () => {
               {memberData?.map((data: any, id) => (
                 <StyledTableWrapper
                   variants={listItemAnimate}
+                  whileHover={{ backgroundColor: '#efefef', color: '#3886f6' }}
                   key={id}
                   className={
                     (data?.warning as number) == 0
@@ -147,6 +148,7 @@ const MemberPage = () => {
               {memberData?.map((data: any, id) => (
                 <StyledMobileTableWrapper
                   variants={listItemAnimate}
+                  whileHover={{ backgroundColor: '#f2f4f6' }}
                   key={id}
                   className={
                     (data?.warning as number) == 0
@@ -173,7 +175,7 @@ const MemberPage = () => {
             </MotionSelector>
           </MemberPageWrapper>
         </>
-      ) : null}
+      )}
     </>
   );
 };
