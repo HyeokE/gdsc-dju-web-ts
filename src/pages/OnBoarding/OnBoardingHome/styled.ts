@@ -24,10 +24,12 @@ export const OnboardingTopText = styled(motion.div)`
     margin-left: 25px;
   }
 `;
-export const OnboardingTitle = styled(motion.div)`
+export const OnboardingTitle = styled(motion.div)<any>`
   font-size: 80px;
   font-weight: bold;
   font-family: 'Product Sans', sans-serif;
+  color: ${(props) => props.color};
+  margin-left: ${(props) => props.marginLeft};
   @media (max-width: 1500px) {
     font-size: 65px;
   }

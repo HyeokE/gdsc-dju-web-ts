@@ -41,8 +41,12 @@ import {
   BoardingTicketWrapper,
 } from './styled';
 import Gdscqr from '../../../img/GDSCQR';
+import { useRecoilState } from 'recoil';
+import { onboardingUserState } from '../../../store/onboardingUser';
 
 const BoardingPass = () => {
+  const [onboardingUser] = useRecoilState(onboardingUserState);
+
   return (
     <>
       <BoardingPassFullWrapper>
@@ -68,7 +72,9 @@ const BoardingPass = () => {
               </BoardingPassTopElementWrapper>
               <BoardingPassElementWrapper>
                 <BoardingPassCategory>Name</BoardingPassCategory>
-                <BoardingPassCategoryText>Jason</BoardingPassCategoryText>
+                <BoardingPassCategoryText>
+                  {onboardingUser.nickname}
+                </BoardingPassCategoryText>
               </BoardingPassElementWrapper>
             </BoardingPassTopTextWrapper>
             <BoardingPassBottmTextWrapper>
@@ -108,7 +114,9 @@ const BoardingPass = () => {
                 <BoardingTicketBr />
                 <BoardingTicketElementWrapper>
                   <BoardingTicketCategory>Name</BoardingTicketCategory>
-                  <BoardingTicketCategoryText>Harry</BoardingTicketCategoryText>
+                  <BoardingTicketCategoryText>
+                    {onboardingUser.nickname}
+                  </BoardingTicketCategoryText>
                 </BoardingTicketElementWrapper>
               </BoardingTicketTopTextWrapper>
               <BoardingPassQrWrapper>

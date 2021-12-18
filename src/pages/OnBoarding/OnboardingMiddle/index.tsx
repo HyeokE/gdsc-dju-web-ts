@@ -110,7 +110,7 @@ const OnboardingMiddle = () => {
               </OnboardingTitle>
               <OnboardingInnerWrapper variants={onboardingAnimate}>
                 <OnboardingTitle>Your</OnboardingTitle>
-                <OnboardingTitle style={{ marginLeft: '20px', color: color }}>
+                <OnboardingTitle marginLeft={20} color={color}>
                   {pageData?.title}
                 </OnboardingTitle>
               </OnboardingInnerWrapper>
@@ -142,7 +142,7 @@ const OnboardingMiddle = () => {
               src={
                 pageData?.id === 'email'
                   ? Human1
-                  : pageData?.id === 'englishname'
+                  : pageData?.id === 'nickname'
                   ? Human2
                   : pageData?.id === 'major'
                   ? Human3

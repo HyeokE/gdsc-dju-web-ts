@@ -4,7 +4,7 @@ const ONBOARDING_USER_KEY = 'onboardingUser';
 
 export const OnboardingUserState = {
   email: '',
-  nickname: '',
+  nickname: 'unknown',
   major: '',
   interest: '',
 };
