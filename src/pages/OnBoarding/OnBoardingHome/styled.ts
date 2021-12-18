@@ -29,7 +29,7 @@ export const OnboardingTitle = styled(motion.div)<any>`
   font-weight: bold;
   font-family: 'Product Sans', sans-serif;
   color: ${(props) => props.color};
-  margin-left: ${(props) => props.marginLeft};
+  margin-left: ${(props) => props.marginLeft}px;
   @media (max-width: 1500px) {
     font-size: 65px;
   }

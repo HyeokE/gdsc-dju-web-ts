@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
 
 export const OnboardingBackArrow = styled.img`
   height: 25px;
@@ -36,7 +37,9 @@ export const OnboardingDescription = styled(motion.div)`
     font-size: 17px;
   }
 `;
-export const OnboardingInput = styled(motion.input)`
+
+export const OnboardingInputWrapper = styled(motion.div)``;
+export const OnboardingInput = styled(Field)`
   margin-top: 88px;
   font-size: 40px;
   border-style: solid;
