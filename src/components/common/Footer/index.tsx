@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   FooterContent,
   FooterLogo,
@@ -10,10 +10,14 @@ import {
 } from '../../../Layout';
 import googleDevelopers from '../../../img/googleDevelopers.png';
 import GDSCChapterLogo from '../../../img/GDSC-Chapter-Logo.png';
+import { useLocation } from 'react-router';
 
 export const Footer = () => {
+  const location = useLocation();
+  const locate = location.pathname;
+
   return (
-    <FooterWrapper>
+    <FooterWrapper className={locate === '/onboarding' ? 'none' : ''}>
       <FooterContent>
         <TopMargin />
         <FooterLogo src={googleDevelopers} />

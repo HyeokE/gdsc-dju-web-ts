@@ -170,3 +170,76 @@ export const topToBottomAnimate = {
     opacity: 0,
   },
 };
+export const pageTransitionAnimate = {
+  start: {
+    opacity: 0,
+    x: '100vw',
+    // scale: 1.2,
+  },
+  end: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 1,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+  out: {
+    opacity: 0,
+    x: '-100vw',
+    scale: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+export const onboardingAnimate = {
+  start: {
+    opacity: 0,
+    x: 50,
+  },
+  end: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -30,
+  },
+};
+export const onboardingTicketAnimate = {
+  start: {
+    opacity: 0,
+    x: 0,
+    scale: 0,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  end: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 1,
+    transition: {
+      duration: 2,
+    },
+  },
+};
+
+export const pageAnimate = {
+  type: 'tween',
+  ease: 'anticipate',
+  duration: 0.5,
+};

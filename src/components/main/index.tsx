@@ -1,12 +1,13 @@
-import React from 'react';
-import { Route, Routes } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router';
 import { Pages } from '../../pages';
-import Navigation from '../common/Navigation';
 import { useRecoilState } from 'recoil';
-import { Footer } from '../common/Footer';
-import MoblieMenu from '../common/Navigation/MobileMenu';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
+import Navigation from '../common/Navigation';
+import MoblieMenu from '../common/Navigation/MobileMenu';
+import { Footer } from '../common/Footer';
+import { MENU_KEY, menuState } from '../../store/menu';
 
 export const Main = () => {
   // const [status, setStatus] = useRecoilState(statusState);
@@ -47,16 +48,31 @@ export const Main = () => {
   //   getPost();
   // }, []);
   const [alert] = useRecoilState(alertState);
+  const [navHandler, setNavHandler] = useState<boolean>(true);
+  {
+    /*Onboarding page navigation 숨김 */
+  }
+  const hideNavigation = () => {
+    if (location.pathname.includes('/onboarding')) {
+      setNavHandler(false);
+    } else {
+      setNavHandler(true);
+    }
+  };
+  useEffect(() => {
+    hideNavigation();
+  }, []);
+
   return (
     <>
-      <Navigation />
+      {navHandler ? <Navigation /> : null}
       <MoblieMenu />
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
       <Routes>
         <Route path={'*'} element={<Pages />} />
       </Routes>
-      <Footer />
+      {navHandler ? <Footer /> : null}
     </>
   );
 };

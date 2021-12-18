@@ -26,6 +26,7 @@ export const StyledTapWrapper = styled.div`
 export const StyledUl = styled.ul`
   display: flex;
   padding-left: 0;
+  justify-content: space-around;
 `;
 export const StyledLi = styled.li`
   background: white;
@@ -40,7 +41,10 @@ export const StyledLi = styled.li`
   position: relative;
   user-select: none;
   font-size: 17px;
-  font-family: 'Apple SD Gothic Neo', sans-serif;
+  @media (max-width: 500px) {
+    font-size: 15px;
+    margin: 0px 15px;
+  }
 `;
 export const StyledLine = styled.div`
   background: black;
