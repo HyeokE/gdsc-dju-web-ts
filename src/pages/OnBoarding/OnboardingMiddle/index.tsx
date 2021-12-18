@@ -53,19 +53,10 @@ const OnboardingMiddle = () => {
       major: '',
       interest: '',
     },
-    //교체예정
     onSubmit: async () => {
-      try {
-        onApply();
-      } catch (error: any) {
-        console.log(error.message);
-      }
+      console.log(formik.values);
     },
-    // validate: (values) => {
-    //   const errors = {};
-    //   if (!values.email) errors.email = 'Required';
-    //   return errors;
-    // },
+    //validation setting
     validationSchema: Yup.object({
       email: Yup.string()
         .matches(
@@ -82,7 +73,7 @@ const OnboardingMiddle = () => {
         .required('필수입력란입니다.'),
     }),
   });
-
+  //set formik values
   const setFormik = () => {
     const name = pageData?.id;
     if (name === 'email') {
@@ -95,6 +86,7 @@ const OnboardingMiddle = () => {
       setFormikInput(formik.values.interest);
     }
   };
+  //connect data in recoil
   const onApply = () => {
     const id = pageData?.id;
     if (id === 'email') {
