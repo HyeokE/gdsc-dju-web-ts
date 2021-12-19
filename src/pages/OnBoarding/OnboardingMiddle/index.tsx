@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import {
   onboardingAnimate,
@@ -11,6 +11,8 @@ import Human2 from '../../../img/onBoardingImg/human-green.svg';
 import Human3 from '../../../img/onBoardingImg/human-blue.svg';
 import Human4 from '../../../img/onBoardingImg/human-yellow.svg';
 import {
+  StyledErrorMessage,
+  ErrorMessageWrapper,
   OnboardingBackArrow,
   OnboardingBackText,
   OnboardingBackWrapper,
@@ -32,7 +34,6 @@ import { onBoardingData } from '../../../api/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
-import MobileBlock from '../../../components/common/MobileBlock';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
@@ -61,7 +62,7 @@ const OnboardingMiddle = () => {
       email: Yup.string()
         .matches(
           /^[A-Z0-9._%+-]+@[gmail]+\.[com]{2,4}$/i,
-          '이메일 형식에 맞게 작성해주세요',
+          'Gmail로 작성해주세요',
         )
         .required('필수입력란입니다.'),
       nickname: Yup.string()
@@ -158,6 +159,9 @@ const OnboardingMiddle = () => {
                       color={color}
                     />
                   </OnboardingInputWrapper>
+                  <ErrorMessageWrapper>
+                    <StyledErrorMessage name={pageData.id} component="div" />
+                  </ErrorMessageWrapper>
                   <OnboardingMiddleButton
                     variants={onboardingAnimate}
                     color={color}

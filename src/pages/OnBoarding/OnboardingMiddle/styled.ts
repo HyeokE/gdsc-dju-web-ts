@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
+import {
+  withFormik,
+  FormikProps,
+  FormikErrors,
+  Form,
+  Field,
+  ErrorMessage,
+} from 'formik';
 
 export const OnboardingBackArrow = styled.img`
   height: 25px;
@@ -39,6 +46,12 @@ export const OnboardingDescription = styled(motion.div)`
 `;
 
 export const OnboardingInputWrapper = styled(motion.div)``;
+export const ErrorMessageWrapper = styled.div`
+  height: 30px;
+`;
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: #f44336;
+`;
 export const OnboardingInput = styled(Field)`
   margin-top: 88px;
   font-size: 40px;
