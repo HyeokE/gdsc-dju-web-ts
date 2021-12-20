@@ -23,7 +23,7 @@ import {
 } from './styled';
 import '../Onboarding.css';
 import Logo from '../../../img/GDSC Logo Clear.png';
-import Plane from '../../../img/Plane.png';
+import Plane from '../../../img/onBoardingImg/Plane.png';
 import { useNavigate } from 'react-router-dom';
 import MobileBlock from '../../../components/common/MobileBlock';
 

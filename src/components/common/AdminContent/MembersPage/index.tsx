@@ -110,14 +110,14 @@ const MemberPage = () => {
                   whileHover={{ backgroundColor: '#efefef', color: '#3886f6' }}
                   key={id}
                   className={
-                    (data?.warning as number) == 0
+                    (data.warning as number) == 0
                       ? 'count0'
-                      : (data?.warning as number) == 1
+                      : (data.warning as number) == 1
                       ? 'count1'
-                      : (data?.warning as number) == 2
+                      : (data.warning as number) == 2
                       ? 'count2'
-                      : (data?.warning as number) < 3 &&
-                        (data?.warning as number) > 2
+                      : (data.warning as number) < 3 &&
+                        (data.warning as number) > 2
                       ? 'count3'
                       : ''
                   }

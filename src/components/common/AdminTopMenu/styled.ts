@@ -27,6 +27,9 @@ export const StyledUl = styled.ul`
   display: flex;
   padding-left: 0;
   justify-content: space-around;
+  @media (min-width: 500px) {
+    justify-content: flex-start;
+  }
 `;
 export const StyledLi = styled.li`
   background: white;

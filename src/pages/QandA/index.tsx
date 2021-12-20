@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-import { Banner } from '../../img/Banner';
-import YellowBanner from '../../img/YellowBanner.png';
+import { Banner } from '../../img/Banner/Banner';
+import YellowBanner from '../../img/Banner/YellowBanner.png';
 import {
   BannerWrapper,
   ContainerInner,

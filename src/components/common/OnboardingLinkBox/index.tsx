@@ -6,12 +6,12 @@ import {
   LinkLogoWrapper,
   LinkText,
 } from './styled';
-import SlackLogo from '../../../img/Link/SlackLogo.png';
-import SlackText from '../../../img/Link/SlackText.png';
-import DiscordLogo from '../../../img/Link/DiscordLogo.png';
-import DiscordText from '../../../img/Link/DiscordText.png';
-import NotionLogo from '../../../img/Link/NotionLogo.png';
-import NotionText from '../../../img/Link/NotionText.png';
+import SlackLogo from '../../../img/onBoardingImg/slack.svg';
+
+import DiscordLogo from '../../../img/onBoardingImg/discord.svg';
+
+import NotionLogo from '../../../img/onBoardingImg/notion.svg';
+
 import { IProps } from '../../../pages/OnBoarding/OnboardingLinks';
 const OnboardingLinkBox = (data: IProps) => {
   const name = data.id;
@@ -27,17 +27,6 @@ const OnboardingLinkBox = (data: IProps) => {
                 ? DiscordLogo
                 : name === 'notion'
                 ? NotionLogo
-                : ''
-            }
-          />
-          <LinkText
-            src={
-              name === 'slack'
-                ? SlackText
-                : name === 'discord'
-                ? DiscordText
-                : name === 'notion'
-                ? NotionText
                 : ''
             }
           />

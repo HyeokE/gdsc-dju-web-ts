@@ -13,6 +13,10 @@ export const LinkBoxInner = styled(motion.div)`
   :hover {
     cursor: pointer;
   }
+  @media (min-width: 1400px) {
+    height: 210px;
+    width: 300px;
+  }
 `;
 export const LinkLogoWrapper = styled.div`
   height: 40px;
@@ -21,9 +25,17 @@ export const LinkLogoWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  @media (min-width: 1400px) {
+    height: 50px;
+    margin-top: 60px;
+    margin-bottom: 35px;
+  }
 `;
 export const LinkLogo = styled.img`
   height: 35px;
+  @media (min-width: 1400px) {
+    height: 40px;
+  }
 `;
 export const LinkText = styled.img`
   height: 25px;
