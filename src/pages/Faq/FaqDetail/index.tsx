@@ -1,10 +1,10 @@
 import React from 'react';
-import { BannerWrapper, ContainerInner, TopMargin } from '../../Layout';
-import { Banner } from '../../img/Banner/Banner';
-import YellowBanner from '../../img/Banner/YellowBanner.png';
-import { LayoutContainer } from '../../styles/layout';
-import { Title } from '../../components/common/Title/title';
-import { Faq } from '../../api/faq';
+import { BannerWrapper, ContainerInner, TopMargin } from '../../../Layout';
+import { Banner } from '../../../img/Banner/Banner';
+import YellowBanner from '../../../img/Banner/YellowBanner.png';
+import { LayoutContainer } from '../../../styles/layout';
+import { Title } from '../../../components/common/Title/title';
+import { Faq } from '../../../api/faq';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AnswerText, AnswerWrapper, BackToFaq, QuestionTitle } from './styled';
 

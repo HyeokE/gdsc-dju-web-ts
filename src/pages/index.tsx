@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router';
 import { Home } from './Home';
 import { Blog } from './Blog';
-import { Question } from './QandA/index';
+import { Question } from './Faq/index';
 import { CodeOfConduct } from './CodeOfConduct';
 import { SignUp } from './SignUp';
 import { SignIn } from './SignIn';
@@ -11,12 +11,8 @@ import { JoinUs } from './JoinUs';
 import { Recruitment } from './TeamRecruitment';
 import Apply from './Apply';
 import Admin from './Admin';
-import FaqDetail from './FaqDetail';
+import FaqDetail from './Faq/FaqDetail';
 import OnBoarding from './OnBoarding';
-import OnboardingHome from './OnBoarding/OnBoardingHome';
-import Navigation from '../components/common/Navigation';
-import MoblieMenu from '../components/common/Navigation/MobileMenu';
-import { Footer } from '../components/common/Footer';
 
 export const Pages = () => {
   return (
