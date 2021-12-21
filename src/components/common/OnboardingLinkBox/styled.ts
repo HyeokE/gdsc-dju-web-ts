@@ -1,27 +1,26 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-export const LinkBoxInner = styled(motion.div)`
-  width: 250px;
-  height: 180px;
+export const LinkBox = styled(motion.div)`
+  width: 253px;
+  height: 164px;
   border-style: solid;
   border-radius: 20px;
   border-color: #d8d8d8;
   border-width: 1px;
-  padding-left: 38px;
+
   background: white;
   margin-right: 30px;
   :hover {
     cursor: pointer;
   }
-  @media (min-width: 1400px) {
-    height: 210px;
-    width: 300px;
-  }
+`;
+export const LinkBoxInner = styled.div`
+  padding-left: 28px;
 `;
 export const LinkLogoWrapper = styled.div`
   height: 40px;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  margin-bottom: 27px;
+  margin-top: 48px;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -45,7 +44,7 @@ export const LinkText = styled.img`
 export const LinkDescription = styled.div`
   font-family: 'Gothic A1', sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 11px;
   opacity: 34%;
-  margin-bottom: 58px;
+  margin-bottom: 46px;
 `;

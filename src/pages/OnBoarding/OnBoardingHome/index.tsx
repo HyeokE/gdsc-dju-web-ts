@@ -12,6 +12,7 @@ import {
   OnboardingDetailTitle,
   OnboardingDetailWrapper,
   OnboardingLogo,
+  OnboardingPlaceWrapper,
   OnboardingSubTitle,
   OnboardingTitle,
   OnboardingTitleWrapper,
@@ -56,9 +57,11 @@ const OnboardingHome = () => {
             Boarding Details
           </OnboardingSubTitle>
           <OnboardingTravelWrapper variants={onboardingAnimate}>
-            <OnboardingTravel>NWB</OnboardingTravel>
-            <OnboardingTravelImage src={Plane} />
-            <OnboardingTravel>DJU</OnboardingTravel>
+            <OnboardingPlaceWrapper>
+              <OnboardingTravel>NWB</OnboardingTravel>
+              <OnboardingTravelImage src={Plane} />
+              <OnboardingTravel>DJU</OnboardingTravel>
+            </OnboardingPlaceWrapper>
             <OnboardingDetailWrapper>
               <OnboardingDetailTitle>Season</OnboardingDetailTitle>
               <OnboardingDetailText>1th</OnboardingDetailText>

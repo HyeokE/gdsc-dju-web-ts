@@ -8,104 +8,81 @@ export const OnboardingTopLogoWrapper = styled(motion.div)`
   flex-direction: row;
 `;
 export const OnboardingLogo = styled(motion.img)`
-  height: 28px;
-  @media (max-width: 1500px) {
-    height: 20px;
-  }
+  height: 22px;
 `;
 
 export const OnboardingTopText = styled(motion.div)`
-  font-size: 30px;
+  font-size: 23px;
   color: #4e4e4e;
-  margin-left: 35px;
+  margin-left: 30px;
   font-weight: normal;
-  @media (max-width: 1500px) {
-    font-size: 20px;
-    margin-left: 25px;
-  }
+  font-family: 'Product Sans';
 `;
 export const OnboardingTitle = styled(motion.div)<any>`
-  font-size: 80px;
-  font-weight: bold;
-  font-family: 'Product Sans', sans-serif;
+  font-size: 65px;
+  font-family: 'Product Sans Bold';
   color: ${(props) => props.color};
   margin-left: ${(props) => props.marginLeft}px;
-  @media (max-width: 1500px) {
-    font-size: 65px;
-  }
 `;
 export const OnboardingSubTitle = styled(motion.div)`
-  font-size: 25px;
+  font-size: 19px;
   font-weight: bold;
   color: #4385f3;
-  @media (max-width: 1500px) {
-    font-size: 19px;
-  }
+  font-family: 'Product Sans Bold';
+`;
+export const OnboardingPlaceWrapper = styled(motion.div)`
+  margin-top: 19px;
+  display: flex;
+  flex-direction: row;
 `;
 export const OnboardingTravel = styled(motion.div)`
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 31px;
+
+  font-family: 'Product Sans Bold';
 `;
 export const OnboardingTravelWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin-top: 30px;
+  margin-top: 9px;
 `;
 export const OnboardingTravelImage = styled(motion.img)`
-  height: 45px;
-  margin: 0px 45px;
-  @media (max-width: 1500px) {
-    margin: 0px 40px;
-  }
+  height: 40px;
+  margin: 0px 40px;
 `;
 
 export const OnboardingTitleWrapper = styled(motion.div)`
-  margin-top: 55px;
-  @media (max-width: 1500px) {
-    margin-top: 45px;
-  }
+  margin-top: 29px;
 `;
 export const OnboardingBottomWrapper = styled(motion.div)`
-  margin-top: 178px;
-  @media (max-width: 1500px) {
-    margin-top: 150px;
-  }
+  margin-top: 140px;
 `;
 export const OnboardingDetailWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  margin-left: 95px;
-  @media (max-width: 1500px) {
-    margin-left: 75px;
-  }
+  margin-left: 85px;
 `;
 export const OnboardingDetailTitle = styled.div`
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 10px;
   opacity: 30%;
+  font-family: 'Product Sans Bold';
 `;
 export const OnboardingDetailText = styled.div`
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 `;
 export const OnBoardingButton = styled(motion.button)`
-  margin-left: 174px;
-  width: 274px;
-  height: 84px;
+  margin-left: 142px;
+  width: 221px;
+  height: 67px;
   border-radius: 42px;
   border-style: solid;
   border-width: 0px;
   background: #4385f3;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  @media (max-width: 1500px) {
-    margin-left: 100px;
-    width: 200px;
-    height: 75px;
-    font-size: 18px;
-  }
 `;
