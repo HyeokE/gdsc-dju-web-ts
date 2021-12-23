@@ -28,7 +28,7 @@ export const OnboardingSubTitle = styled(motion.div)`
   font-size: 19px;
   font-weight: bold;
   color: #4385f3;
-  font-family: 'Product Sans Bold';
+  font-family: 'Product Sans';
 `;
 export const OnboardingPlaceWrapper = styled(motion.div)`
   margin-top: 19px;
@@ -67,7 +67,7 @@ export const OnboardingDetailTitle = styled.div`
   font-weight: bold;
   margin-bottom: 10px;
   opacity: 30%;
-  font-family: 'Product Sans Bold';
+  font-family: 'Product Sans';
 `;
 export const OnboardingDetailText = styled.div`
   font-size: 22px;

@@ -5,7 +5,7 @@ import {
   pageAnimate,
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
-import backArrow from '../../../img/backArrow.png';
+import backArrow from '../../../img/onBoardingImg/back.svg';
 import Human1 from '../../../img/onBoardingImg/human_red.svg';
 import Human2 from '../../../img/onBoardingImg/human-green.svg';
 import Human3 from '../../../img/onBoardingImg/human-blue.svg';

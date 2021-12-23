@@ -21,6 +21,7 @@ export const BoardingTicketLogoWrapper = styled(motion.div)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-bottom: 56px;
 `;
 export const BoardingTicketLogoText = styled.div`
   font-size: 24px;
@@ -44,9 +45,10 @@ export const BoardingPassWrapper = styled(motion.div)`
   height: 100%;
   background: transparent;
 `;
-export const ElementJustifyCenter = styled(motion.div)`
+export const ElementJustifyCenter = styled(motion.div)<any>`
   display: flex;
   justify-content: center;
+  margin-top: ${(props) => props.marginTop}px;
 `;
 export const TicketSaveButton = styled(motion.button)`
   width: 250px;

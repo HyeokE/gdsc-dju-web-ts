@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import BoardingPass from '../../../components/common/BoardingPass';
 import {
@@ -72,7 +72,7 @@ const OnboardingTicket = () => {
             <OnboardingTitle>Welcome aboard!</OnboardingTitle>
           </ElementJustifyCenter>
           <ElementJustifyCenter variants={onboardingAnimate}>
-            <BoardingTicketSubTitle margin={25}>
+            <BoardingTicketSubTitle margin={19}>
               1기 멤버가 되신 것을 환영합니다. 이제 활동을 시작해주시면 됩니다.
             </BoardingTicketSubTitle>
           </ElementJustifyCenter>
@@ -86,7 +86,7 @@ const OnboardingTicket = () => {
               <BoardingPass />
             </BoardingPassWrapper>
           </ElementJustifyCenter>
-          <ElementJustifyCenter>
+          <ElementJustifyCenter marginTop={56}>
             <TicketSaveButton
               variants={onboardingTicketAnimate}
               whileHover={{ shadow: '20', boxShadow: '0px 0px 10px #4385f3' }}

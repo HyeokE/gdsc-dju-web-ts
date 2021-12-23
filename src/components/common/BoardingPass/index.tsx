@@ -1,8 +1,8 @@
 import React from 'react';
-import Plane from '../../../img/onBoardingImg/Plane.png';
-import WhitePlane from '../../../img/onBoardingImg/WhitePlane.png';
-import WhiteGDSC from '../../../img/onBoardingImg/GDSCWhiteSeeklogo.png';
-import GDSC from '../../../img/onBoardingImg/GDSCSeekLogo.png';
+import Plane from '../../../img/onBoardingImg/plane-blue.svg';
+import WhitePlane from '../../../img/onBoardingImg/plane-white.svg';
+import WhiteGDSC from '../../../img/onBoardingImg/gdsc-white.svg';
+import GDSC from '../../../img/onBoardingImg/gdsc-blue.svg';
 import {
   BoardingPassArrivalTimeWrapper,
   BoardingPassBoardingTimeWrapper,

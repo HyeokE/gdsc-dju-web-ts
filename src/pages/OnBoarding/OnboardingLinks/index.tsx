@@ -14,7 +14,7 @@ import {
   OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
 } from '../OnboardingMiddle/styled';
-import backArrow from '../../../img/backArrow.png';
+import backArrow from '../../../img/onBoardingImg/back.svg';
 import {
   OnboardingTitle,
   OnboardingTitleWrapper,
