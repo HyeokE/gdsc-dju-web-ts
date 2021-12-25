@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SubTitle } from '../../Title/title';
 import { StyledInput } from '../../../Input/Input';
-import { ButtonWrapper } from '../../../../pages/Admin/styled';
+import { ButtonWrapper } from '../../../../pages/Admin/AdminHome/styled';
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';

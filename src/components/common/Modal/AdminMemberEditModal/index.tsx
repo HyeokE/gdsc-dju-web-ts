@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { SubTitle } from '../../Title/title';
 import { ModalElementWrapper, StyledModal } from '../styled';
 import { StyledInput } from '../../../Input/Input';
-import { ButtonWrapper } from '../../../../pages/Admin/styled';
+import { ButtonWrapper } from '../../../../pages/Admin/AdminHome/styled';
 import { StyledButton } from '../../Button/styled';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../store/modal';
