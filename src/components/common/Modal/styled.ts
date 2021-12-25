@@ -5,6 +5,9 @@ export const ModalElementWrapper = styled.div<any>`
   margin-bottom: 15px;
   color: ${(props) => props.error};
 `;
+export const ModalButtonWrapper = styled.div<any>`
+  margin-top: 15px;
+`;
 export const StyledModal = styled(Modal)`
   display: flex;
   padding: 10px;

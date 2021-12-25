@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { SubTitle } from '../../Title/title';
 import { StyledInput } from '../../../Input/Input';
-import { ButtonWrapper } from '../../../../pages/Admin/styled';
+
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../../../store/modal';
-import { ModalElementWrapper, StyledModal } from '../styled';
+import {
+  ModalButtonWrapper,
+  ModalElementWrapper,
+  StyledModal,
+} from '../styled';
 import { authService } from '../../../../firebase/firebase';
 
 const AdminSignInModal = () => {
@@ -62,9 +66,9 @@ const AdminSignInModal = () => {
           />
         </ModalElementWrapper>
         <ModalElementWrapper error={'#f44336'}>{error}</ModalElementWrapper>
-        <ButtonWrapper>
+        <ModalButtonWrapper>
           <StyledButton onClick={onEmailLogIn}>Admin SignIn</StyledButton>
-        </ButtonWrapper>
+        </ModalButtonWrapper>
       </StyledModal>
     </>
   );

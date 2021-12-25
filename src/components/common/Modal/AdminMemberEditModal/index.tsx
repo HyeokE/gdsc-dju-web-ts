@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
 import { SubTitle } from '../../Title/title';
-import { ModalElementWrapper, StyledModal } from '../styled';
+import {
+  ModalButtonWrapper,
+  ModalElementWrapper,
+  StyledModal,
+} from '../styled';
 import { StyledInput } from '../../../Input/Input';
-import { ButtonWrapper } from '../../../../pages/Admin/styled';
+
 import { StyledButton } from '../../Button/styled';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../store/modal';
 import { dbService } from '../../../../firebase/firebase';
-import { UserDataState } from '../../AdminContent';
+
 import { alertState } from '../../../../store/alert';
 
 const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
@@ -141,7 +145,7 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         <ModalElementWrapper style={{ color: '#f44336' }}>
           {/*{error}*/}
         </ModalElementWrapper>
-        <ButtonWrapper>
+        <ModalButtonWrapper>
           <StyledButton
             onClick={() => {
               editMemberProfile();
@@ -149,7 +153,7 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
           >
             수정하기
           </StyledButton>
-        </ButtonWrapper>
+        </ModalButtonWrapper>
       </StyledModal>
     </div>
   );

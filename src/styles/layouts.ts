@@ -43,14 +43,15 @@ export const Tage = styled.div`
 export const LayoutContainer = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
   width: 100%;
   max-width: 1140px;
   margin: auto;
   min-width: 320px;
 `;
 export const ContainerInner = styled.div`
-  width: 90%;
+  padding: 0 20px;
   margin: auto;
   min-height: 100vh;
 `;

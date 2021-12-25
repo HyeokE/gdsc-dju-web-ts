@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { SubTitle } from '../../Title/title';
-import { ModalElementWrapper } from '../styled';
+import { ModalButtonWrapper, ModalElementWrapper } from '../styled';
 import { StyledInput } from '../../../Input/Input';
-import { ButtonWrapper } from '../../../../pages/Admin/styled';
+
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
@@ -76,7 +76,7 @@ const AdminSetUserProfile = () => {
         <ModalElementWrapper style={{ color: '#f44336' }}>
           {/*{error}*/}
         </ModalElementWrapper>
-        <ButtonWrapper>
+        <ModalButtonWrapper>
           <StyledButton
             onClick={() => {
               setUserProfile();
@@ -84,7 +84,7 @@ const AdminSetUserProfile = () => {
           >
             Admin SignIn
           </StyledButton>
-        </ButtonWrapper>
+        </ModalButtonWrapper>
       </Modal>
     </div>
   );

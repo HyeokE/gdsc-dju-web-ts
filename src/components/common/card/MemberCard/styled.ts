@@ -16,7 +16,7 @@ export const Name = styled.div`
   color: #aaaaaa;
 `;
 export const Role = styled.div`
-  color: ${(props) => props.theme.color.googleBlue}
+  color: ${(props) => props.theme.color.googleBlue};
   font-family: 'Gothic A1', sans-serif;
   font-size: 13px;
   margin-top: 10px;

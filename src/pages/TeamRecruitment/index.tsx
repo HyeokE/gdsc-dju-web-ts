@@ -9,7 +9,7 @@ import {
   SmallTopMargin,
   Tage,
   TopMargin,
-} from '../../Layout';
+} from '../../styles/layouts';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import {
   ElementWrapper,
