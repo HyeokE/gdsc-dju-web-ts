@@ -29,9 +29,13 @@ import {
 } from '../../../styles/layouts';
 import { BannerWrapper } from '../../../styles/layouts';
 import { Title } from '../../../components/common/Title/title';
+import { useLocation } from 'react-router';
 
 const AdminHome = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('Home');
+  const location = useLocation();
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    location.pathname,
+  );
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
@@ -39,12 +43,11 @@ const AdminHome = () => {
   const [value, setValue] = useState(false);
 
   const tabs = [
-    { label: 'Home', route: 'home' },
-    { label: 'Members', route: 'member' },
-    { label: 'Setting', route: 'setting' },
+    { label: 'Home', route: '/admin/home' },
+    { label: 'Members', route: '/admin/member' },
+    { label: 'Setting', route: '/admin/setting' },
   ];
   const { data: memberData } = useGetMemberList();
-
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
       if (user) {
