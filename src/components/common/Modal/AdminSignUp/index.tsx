@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { SubTitle } from '../../Title/title';
 import { StyledInput } from '../../../Input/Input';
-import { ButtonWrapper } from '../../../../pages/Admin/AdminHome/styled';
+
 import { StyledButton } from '../../Button/styled';
 import { Modal } from 'react-rainbow-components';
 import { useRecoilState } from 'recoil';
 import { modalState, MODAL_KEY } from '../../../../store/modal';
 import { authService } from '../../../../firebase/firebase';
-import { ModalElementWrapper, StyledModal } from '../styled';
+import {
+  ModalButtonWrapper,
+  ModalElementWrapper,
+  StyledModal,
+} from '../styled';
 import './AdminSignUp.css';
 
 const AdminSignUpModal = () => {
@@ -84,9 +88,9 @@ const AdminSignUpModal = () => {
         <ModalElementWrapper style={{ color: '#f44336' }}>
           {error}
         </ModalElementWrapper>
-        <ButtonWrapper>
+        <ModalButtonWrapper>
           <StyledButton onClick={onRegisterIn}>Admin Signup</StyledButton>
-        </ButtonWrapper>
+        </ModalButtonWrapper>
       </StyledModal>
     </>
   );

@@ -26,7 +26,7 @@ export const StyledTapWrapper = styled.div`
 export const StyledUl = styled.ul`
   display: flex;
   padding-left: 0;
-  justify-content: space-around;
+  justify-content: flex-start;
 `;
 export const StyledLi = styled.li`
   background: white;

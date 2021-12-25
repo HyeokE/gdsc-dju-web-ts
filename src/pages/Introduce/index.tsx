@@ -6,11 +6,11 @@ import {
   List,
   Tage,
   TopMargin,
-} from '../../Layout';
+} from '../../styles/layouts';
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper, StyledModal } from './styled';
-import { memberList } from '../../api/memberList';
-import { BannerWrapper } from '../../Layout/index';
+
+import { BannerWrapper } from '../../styles/layouts';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 // import Modal from '../../components/common/Modal/index';
 import {
@@ -32,6 +32,7 @@ import { Banner } from '../../img/Banner';
 import YellowBanner from '../../img/YellowBanner.png';
 import { introduceText, workWhenCome } from '../../api/introduceText';
 import { motion } from 'framer-motion';
+import { memberList } from '../../api/MemberList';
 
 export const Introduce = () => {
   const [selectedMember, setSelectedMember] = useState<number>(0);

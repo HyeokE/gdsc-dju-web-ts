@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { DateTimePicker } from 'react-rainbow-components';
-import { getDbTime } from '../../../../firebase/firebase';
-import { SubTitle } from '../../Title/title';
+import { SubTitle } from '../../../components/common/Title/title';
+import { getDbTime } from '../../../firebase/firebase';
+
 import {
   CalendarWrapper,
   DatePickerWrapper,
@@ -11,7 +12,7 @@ import {
   StatusWrapper,
 } from './styled';
 
-const SettingPage = () => {
+const AdminSetting = () => {
   const [startDate, setStartDate] = useState<any>([]);
   const [endDate, setEndDate] = useState<any>([]);
 
@@ -56,4 +57,4 @@ const SettingPage = () => {
   );
 };
 
-export default SettingPage;
+export default AdminSetting;

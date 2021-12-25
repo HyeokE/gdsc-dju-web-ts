@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MainText } from '../../Title/title';
-import { UserDataState } from '../index';
+
 import {
   MemberPageWrapper,
   MotionSelector,
@@ -12,16 +11,20 @@ import {
   StyledTableCategoryWrapper,
   StyledTableWrapper,
 } from './styled';
-import AdminEditMemberModal from '../../Modal/AdminMemberEditModal';
 import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../store/modal';
 import './MemberPage.css';
-import { listAnimate, listItemAnimate } from '../../Variants/Variants';
-import { UserDataField, UserDataRow } from '../../../../api/types';
-import { useGetMemberList } from '../../../../api/hooks/useGetMemberData';
-import { dbService } from '../../../../firebase/firebase';
+import { UserDataField, UserDataRow, UserDataState } from '../../../api/types';
+import { modalState, MODAL_KEY } from '../../../store/modal';
+import { useGetMemberList } from '../../../api/hooks/useGetMemberData';
+import { dbService } from '../../../firebase/firebase';
+import AdminEditMemberModal from '../../../components/common/Modal/AdminMemberEditModal';
+import { MainText } from '../../../components/common/Title/title';
+import {
+  listAnimate,
+  listItemAnimate,
+} from '../../../components/common/Variants/Variants';
 
-const MemberPage = () => {
+const AdminMember = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>();
   const [selectMember, setSelectMember] = useState<UserDataState>();
   const [modal, setModal] = useRecoilState(modalState);
@@ -118,6 +121,8 @@ const MemberPage = () => {
                       ? 'count2'
                       : (data?.warning as number) < 3 &&
                         (data?.warning as number) > 2
+                      ? 'last'
+                      : (data?.warning as number) == 3
                       ? 'count3'
                       : ''
                   }
@@ -180,4 +185,4 @@ const MemberPage = () => {
   );
 };
 
-export default MemberPage;
+export default AdminMember;

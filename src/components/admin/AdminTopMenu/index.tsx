@@ -8,8 +8,9 @@ import {
 } from './styled';
 import './AdminTopMenu.css';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 type Props = {
-  tabs: { label: string }[];
+  tabs: { label: string; route: string }[];
   setSelectedCategory: (selectedCategory: string) => void;
   selectedCategory: string;
 };
@@ -18,6 +19,7 @@ const AdminTopMenu = ({
   setSelectedCategory,
   selectedCategory,
 }: Props) => {
+  const navigate = useNavigate();
   return (
     <>
       <nav>
@@ -26,7 +28,10 @@ const AdminTopMenu = ({
             <StyledLi
               key={item.label}
               className={item.label === selectedCategory ? 'selected' : ''}
-              onClick={() => setSelectedCategory(item.label)}
+              onClick={() => {
+                setSelectedCategory(item.label);
+                navigate('/admin/' + item.route);
+              }}
             >
               {item.label}
               {item.label === selectedCategory ? (
