@@ -18,7 +18,12 @@ const OnboardingLinkBox = (data: IProps) => {
   const name = data.id;
   return (
     <>
-      <LinkBox whileHover={{ backgroundColor: '#efefef' }}>
+      <LinkBox
+        whileHover={{
+          shadow: '20',
+          boxShadow: '0px 0px 10px #4385f3',
+        }}
+      >
         <LinkBoxInner>
           <LinkLogoWrapper>
             <LinkLogo

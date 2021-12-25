@@ -5,7 +5,6 @@ export const BoardingTicketWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-right: 20px;
 `;
 export const OnboardingMiddleTextWrapper = styled.div`
   display: flex;

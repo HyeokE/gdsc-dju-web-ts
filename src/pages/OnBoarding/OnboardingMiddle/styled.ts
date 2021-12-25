@@ -10,14 +10,17 @@ import {
 } from 'formik';
 
 export const OnboardingBackArrow = styled.img`
-  height: 25px;
+  height: 30px;
+  display: flex;
+  align-items: center;
 `;
 export const OnboardingBackText = styled.div`
-  font-size: 14px;
+  font-size: 20px;
   font-family: 'Gothic A1', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   color: #c6c6c6;
   margin-left: 15px;
+  height: 20px;
 `;
 export const OnboardingMiddleElementWrapper = styled(motion.div)`
   display: flex;
@@ -27,7 +30,7 @@ export const OnboardingMiddleElementWrapper = styled(motion.div)`
 export const OnboardingBackWrapper = styled(motion.div)`
   display: flex;
   position: absolute;
-  top: -10px;
+  top: -40px;
   align-items: center;
   text-align: center;
   flex-direction: row;
@@ -40,9 +43,9 @@ export const OnboardingInnerWrapper = styled(motion.div)`
 `;
 export const OnboardingDescription = styled(motion.div)`
   margin-top: 15px;
-  font-size: 16px;
+  font-size: 20px;
   font-family: 'Gothic A1', sans-serif;
-  color: #7d8b97;
+  color: ${(props) => props.theme.color.subCategory};
 `;
 
 export const OnboardingInputWrapper = styled(motion.div)``;
@@ -75,8 +78,8 @@ export const OnboardingInput = styled(Field)`
 export const OnboardingMiddleButton = styled(motion.button)`
   margin-top: 50px;
   height: 70px;
-  width: 220px;
-  color: white;
+  width: 230px;
+  color: white !important;
   border-style: solid;
   border-radius: 50px;
   border-width: 0px;
@@ -99,7 +102,7 @@ export const OnboardingImageWrapper = styled(motion.div)`
   justify-content: center;
   align-items: flex-end;
   display: flex;
-  right: -50px;
-  bottom: -150px;
+  right: -200px;
+  bottom: -200px;
   z-index: -1;
 `;

@@ -6,6 +6,10 @@
 .count2{
     background: #fde4d0;
 }
-.count3{
+.last{
     background: #f9807b;
+}
+.black{
+    background: #9f9f9f;
+    color: white;
 }

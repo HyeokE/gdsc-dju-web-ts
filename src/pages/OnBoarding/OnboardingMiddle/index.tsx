@@ -165,6 +165,10 @@ const OnboardingMiddle = () => {
                   <OnboardingMiddleButton
                     variants={onboardingAnimate}
                     color={color}
+                    whileHover={{
+                      shadow: '20',
+                      boxShadow: '0px 0px 10px #4385f3',
+                    }}
                     onClick={() => {
                       setFormik();
                       onApply();

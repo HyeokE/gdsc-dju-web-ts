@@ -30,6 +30,9 @@ import {
   OnboardingLinkElementWrapper,
 } from './styled';
 import MobileBlock from '../../../components/common/MobileBlock';
+import { dbService } from '../../../firebase/firebase';
+import { useRecoilState } from 'recoil';
+import { onboardingUserState } from '../../../store/onboardingUser';
 
 export interface IProps {
   id: string;
@@ -38,6 +41,7 @@ export interface IProps {
 
 const OnBoardingLinks = () => {
   const navigate = useNavigate();
+  const [member, setMember] = useRecoilState(onboardingUserState);
 
   const link: IProps[] = [
     {
@@ -50,6 +54,20 @@ const OnBoardingLinks = () => {
       link: 'https://www.notion.so/Ice-Breaking-Manual-da55214857db442ca945a574f02152dc',
     },
   ];
+
+  const uploadMembers = async () => {
+    try {
+      await dbService.collection('onoboardingMembers').doc().set({
+        nickName: member.nickname,
+        major: member.major,
+        email: member.email,
+        interest: member.interest,
+        uploadDate: Date.now(),
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <OnboardingContainerWrapper>
       {/*<MobileBlock />*/}
@@ -96,12 +114,13 @@ const OnBoardingLinks = () => {
               variants={onboardingAnimate}
               onClick={() => {
                 navigate('/onboarding/ticket');
+                uploadMembers();
               }}
               style={{
-                background: '#262626',
-                color: 'white',
                 marginTop: '0px',
               }}
+              whileHover={{ shadow: '20', boxShadow: '0px 0px 10px black' }}
+              color={'#262626'}
             >
               다음으로
             </OnboardingMiddleButton>

@@ -65,13 +65,17 @@ const MemberPage = () => {
 
   const getMemberList = async () => {
     try {
-      await dbService.collection('members').onSnapshot((data) => {
-        const memberList: any = data.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setMemberData(memberList);
-      });
+      await dbService
+        .collection('members')
+        .orderBy('role')
+        .get()
+        .then((data) => {
+          const memberList: any = data.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setMemberData(memberList);
+        });
     } catch (e) {
       console.log(e);
     }
@@ -118,7 +122,9 @@ const MemberPage = () => {
                       ? 'count2'
                       : (data.warning as number) < 3 &&
                         (data.warning as number) > 2
-                      ? 'count3'
+                      ? 'last'
+                      : (data.warning as number) == 3
+                      ? 'black'
                       : ''
                   }
                   onClick={() => {

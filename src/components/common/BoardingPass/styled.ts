@@ -23,7 +23,6 @@ export const BoardingPassTopLine = styled(motion.div)`
 export const BoardingPassInner = styled(motion.div)`
   display: flex;
   flex-direction: row;
-
   padding-left: 40px;
 `;
 export const BoardingPassTopElementWrapper = styled(motion.div)`
@@ -54,6 +53,7 @@ export const BoardingPassElementWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: right;
+  width: 658px;
 `;
 export const BoardingPassQrWrapper = styled(motion.div)`
   height: 96px;
