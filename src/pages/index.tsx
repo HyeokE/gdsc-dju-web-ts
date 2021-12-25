@@ -29,7 +29,7 @@ export const Pages = () => {
         <Route path={'/signin'} element={<SignIn />} />
         <Route path={'/signup'} element={<SignUp />} />
         <Route path={'/apply'} element={<Apply />} />
-        <Route path={'/admin'} element={<Admin />} />
+        <Route path={'/admin/*'} element={<Admin />} />
         <Route path={'/onboarding/*'} element={<OnBoarding />} />
       </>
     </Routes>

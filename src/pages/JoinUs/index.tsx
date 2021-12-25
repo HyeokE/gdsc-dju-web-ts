@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { ContainerInner, LayoutContainer, TopMargin } from '../../Layout';
+import {
+  ContainerInner,
+  LayoutContainer,
+  TopMargin,
+} from '../../styles/layouts';
 import { MainText, Title } from '../../components/common/Title/title';
-import { BannerImage, BannerWrapper } from '../../Layout/index';
+import { BannerImage, BannerWrapper } from '../../styles/layouts';
 
 import {
   Category,

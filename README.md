@@ -34,6 +34,12 @@ https://gdsc-dju.web.app
 - eslint 
 
 
+- formik
+
+
+- yup
+
+
 ## Preview
 
 ### WEB

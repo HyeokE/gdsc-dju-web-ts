@@ -26,17 +26,19 @@ export const StyledTapWrapper = styled.div`
 export const StyledUl = styled.ul`
   display: flex;
   padding-left: 0;
-  justify-content: space-around;
-  @media (min-width: 500px) {
-    justify-content: flex-start;
-  }
+  justify-content: flex-start;
+`;
+export const StyledLabel = styled.div`
+  z-index: 1;
+  background: transparent;
+  color: #737d89;
 `;
 export const StyledLi = styled.li`
-  background: white;
+  background: transparent;
   cursor: pointer;
   height: 24px;
-  padding-top: 24px;
-  margin: 0px 30px;
+  padding: 24px 20px;
+  margin: 0px 5px;
   padding-bottom: 7px;
   display: flex;
   justify-content: center;

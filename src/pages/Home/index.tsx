@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContainerInner, LayoutContainer } from '../../Layout';
+import { ContainerInner, LayoutContainer } from '../../styles/layouts';
 import {
   BannerTitleWrapper,
   ButtonWrapper,

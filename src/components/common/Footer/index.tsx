@@ -7,7 +7,7 @@ import {
   FooterGDSCLogo,
   FooterWrapper,
   TopMargin,
-} from '../../../Layout';
+} from '../../../styles/layouts';
 import googleDevelopers from '../../../img/googleDevelopers.png';
 import GDSCChapterLogo from '../../../img/GDSC-Chapter-Logo.png';
 import { useLocation } from 'react-router';

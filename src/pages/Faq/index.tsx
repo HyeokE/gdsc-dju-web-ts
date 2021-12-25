@@ -5,11 +5,12 @@ import YellowBanner from '../../img/Banner/YellowBanner.png';
 import {
   BannerWrapper,
   ContainerInner,
+  LayoutContainer,
   List,
   Tage,
   TopMargin,
-} from '../../Layout';
-import { LayoutContainer } from '../../styles/layout';
+} from '../../styles/layouts';
+
 import { QuestionMark, QuestionWrapper } from './styled';
 import { Faq } from '../../api/faq';
 import { useNavigate } from 'react-router-dom';
@@ -22,22 +23,20 @@ export const Question = () => {
         <Banner src={YellowBanner} />
       </BannerWrapper>
       <LayoutContainer>
-        <ContainerInner>
-          <TopMargin />
-          <Title>자주 묻는 질문</Title>
-          <TopMargin />
-          {Faq.map((data, id) => (
-            <QuestionWrapper
-              key={id}
-              whileHover={{ backgroundColor: '#efefef', color: '#3886f6' }}
-              onClick={() => navigate('/faq/' + data.id)}
-            >
-              <QuestionMark />
-              {data.question}
-            </QuestionWrapper>
-          ))}
-          <TopMargin />
-        </ContainerInner>
+        <TopMargin />
+        <Title>자주 묻는 질문</Title>
+        <TopMargin />
+        {Faq.map((data, id) => (
+          <QuestionWrapper
+            key={id}
+            whileHover={{ backgroundColor: '#efefef', color: '#3886f6' }}
+            onClick={() => navigate('/faq/' + data.id)}
+          >
+            <QuestionMark />
+            {data.question}
+          </QuestionWrapper>
+        ))}
+        <TopMargin />
       </LayoutContainer>
     </>
   );

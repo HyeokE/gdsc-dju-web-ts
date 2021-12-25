@@ -1,12 +1,16 @@
 import React from 'react';
-import { BannerWrapper, ContainerInner, TopMargin } from '../../../Layout';
-import { Banner } from '../../../img/Banner/Banner';
+
 import YellowBanner from '../../../img/Banner/YellowBanner.png';
-import { LayoutContainer } from '../../../styles/layout';
-import { Title } from '../../../components/common/Title/title';
-import { Faq } from '../../../api/faq';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import { AnswerText, AnswerWrapper, BackToFaq, QuestionTitle } from './styled';
+import {
+  BannerWrapper,
+  LayoutContainer,
+  TopMargin,
+} from '../../../styles/layouts';
+import { Faq } from '../../../api/faq';
+import { Banner } from '../../../img/Banner/Banner';
 
 const FaqDetail = () => {
   const { id } = useParams();
@@ -20,17 +24,15 @@ const FaqDetail = () => {
       </BannerWrapper>
       <TopMargin />
       <LayoutContainer>
-        <ContainerInner>
-          <BackToFaq onClick={() => navigate('/faq')}>← 질문 목록</BackToFaq>
-          <QuestionTitle>{faqData?.question}</QuestionTitle>
-          <TopMargin />
-          <AnswerWrapper>
-            {faqData?.answer.split('\n').map((text, id) => (
-              <AnswerText key={id}>{text}</AnswerText>
-            ))}
-          </AnswerWrapper>
-          <TopMargin />
-        </ContainerInner>
+        <BackToFaq onClick={() => navigate('/faq')}>← 질문 목록</BackToFaq>
+        <QuestionTitle>{faqData?.question}</QuestionTitle>
+        <TopMargin />
+        <AnswerWrapper>
+          {faqData?.answer.split('\n').map((text, id) => (
+            <AnswerText key={id}>{text}</AnswerText>
+          ))}
+        </AnswerWrapper>
+        <TopMargin />
       </LayoutContainer>
     </>
   );

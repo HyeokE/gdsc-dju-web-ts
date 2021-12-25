@@ -6,7 +6,7 @@ import {
   List,
   Tage,
   TopMargin,
-} from '../../Layout';
+} from '../../styles/layouts';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
 import { Banner } from '../../img/Banner/Banner';
 import RedBanner from '../../img/Banner/RedBanner.png';
