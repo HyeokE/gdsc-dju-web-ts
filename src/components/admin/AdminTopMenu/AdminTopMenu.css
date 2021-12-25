@@ -6,9 +6,9 @@
     height: 40px;
     z-index: -1;
     background: #f3f4f6;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 .selected{
-    color: black;
+    color: black !important;
     font-weight: bold;
 }

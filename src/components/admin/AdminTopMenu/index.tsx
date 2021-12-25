@@ -10,6 +10,7 @@ import {
 import './AdminTopMenu.css';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router';
 type Props = {
   tabs: { label: string; route: string }[];
   setSelectedCategory: (selectedCategory: string) => void;
@@ -21,6 +22,7 @@ const AdminTopMenu = ({
   selectedCategory,
 }: Props) => {
   const navigate = useNavigate();
+
   return (
     <>
       <nav>
@@ -29,14 +31,17 @@ const AdminTopMenu = ({
             <>
               <StyledLi
                 key={item.label}
-                className={item.label === selectedCategory ? 'selected' : ''}
                 onClick={() => {
-                  setSelectedCategory(item.label);
-                  navigate('/admin/' + item.route);
+                  setSelectedCategory(item.route);
+                  navigate(item.route);
                 }}
               >
-                <StyledLabel>{item.label}</StyledLabel>
-                {item.label === selectedCategory ? (
+                <StyledLabel
+                  className={item.route === selectedCategory ? 'selected' : ''}
+                >
+                  {item.label}
+                </StyledLabel>
+                {item.route === selectedCategory ? (
                   <motion.div className="underline" layoutId="underline" />
                 ) : null}
               </StyledLi>
