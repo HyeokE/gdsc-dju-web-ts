@@ -23,6 +23,7 @@ import {
   listAnimate,
   listItemAnimate,
 } from '../../../components/common/Variants/Variants';
+import { LayoutContainer } from '../../../styles/layouts';
 
 const AdminMember = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>();
@@ -91,94 +92,105 @@ const AdminMember = () => {
 
       {memberData && (
         <>
-          <div>
-            <MainText>Total • {memberData?.length}</MainText>
-          </div>
-          <MemberPageWrapper>
-            <StyledTableCategoryWrapper>
-              <StyledSmallColumn>Name</StyledSmallColumn>
-              <StyledColumn>nickName</StyledColumn>
-              <StyledLargeColumn>Email</StyledLargeColumn>
-              <StyledSmallColumn>Position</StyledSmallColumn>
-              <StyledSmallColumn>Warn Count</StyledSmallColumn>
-            </StyledTableCategoryWrapper>
-            <MotionSelector
-              variants={listAnimate}
-              initial="start"
-              animate="end"
-            >
-              {memberData?.map((data: any, id) => (
-                <StyledTableWrapper
-                  variants={listItemAnimate}
-                  whileHover={{ backgroundColor: '#efefef', color: '#3886f6' }}
-                  key={id}
-                  className={
-                    (data?.warning as number) == 0
-                      ? 'count0'
-                      : (data?.warning as number) == 1
-                      ? 'count1'
-                      : (data?.warning as number) == 2
-                      ? 'count2'
-                      : (data?.warning as number) < 3 &&
-                        (data?.warning as number) > 2
-                      ? 'last'
-                      : (data?.warning as number) == 3
-                      ? 'count3'
-                      : ''
-                  }
-                  onClick={() => {
-                    setSelectMember(data);
-                    setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
-                  }}
-                >
-                  <StyledSmallColumn>{data.name}</StyledSmallColumn>
-                  <StyledColumn>{data.nickName}</StyledColumn>
-                  <StyledLargeColumn>{data.email}</StyledLargeColumn>
-                  <StyledSmallColumn>{data.position}</StyledSmallColumn>
-                  <StyledSmallColumn>{data.warning}</StyledSmallColumn>
-                </StyledTableWrapper>
-              ))}
-            </MotionSelector>
-            <StyledMobileTableCategoryWrapper>
-              <StyledColumn>Nickname</StyledColumn>
-              <StyledSmallColumn>Name</StyledSmallColumn>
-              <StyledSmallColumn>Position</StyledSmallColumn>
-              <StyledSmallColumn>Warn</StyledSmallColumn>
-            </StyledMobileTableCategoryWrapper>
-            <MotionSelector
-              variants={listAnimate}
-              initial="start"
-              animate="end"
-            >
-              {memberData?.map((data: any, id) => (
-                <StyledMobileTableWrapper
-                  variants={listItemAnimate}
-                  whileHover={{ backgroundColor: '#f2f4f6' }}
-                  key={id}
-                  className={
-                    (data?.warning as number) == 0
-                      ? 'count0'
-                      : (data?.warning as number) == 1
-                      ? 'count1'
-                      : (data?.warning as number) == 2
-                      ? 'count2'
-                      : (data?.warning as number) == 3
-                      ? 'count3'
-                      : 'none'
-                  }
-                  onClick={() => {
-                    setSelectMember(data);
-                    setModal({ ...modal, [MODAL_KEY.ADMIN_EDIT_MEMBER]: true });
-                  }}
-                >
-                  <StyledColumn>{data.nickName}</StyledColumn>
-                  <StyledSmallColumn>{data.name}</StyledSmallColumn>
-                  <StyledSmallColumn>{data.position}</StyledSmallColumn>
-                  <StyledSmallColumn>{data.warning}</StyledSmallColumn>
-                </StyledMobileTableWrapper>
-              ))}
-            </MotionSelector>
-          </MemberPageWrapper>
+          <LayoutContainer>
+            <div>
+              <MainText>Total • {memberData?.length}</MainText>
+            </div>
+            <MemberPageWrapper>
+              <StyledTableCategoryWrapper>
+                <StyledSmallColumn>Name</StyledSmallColumn>
+                <StyledColumn>nickName</StyledColumn>
+                <StyledLargeColumn>Email</StyledLargeColumn>
+                <StyledSmallColumn>Position</StyledSmallColumn>
+                <StyledSmallColumn>Warn Count</StyledSmallColumn>
+              </StyledTableCategoryWrapper>
+              <MotionSelector
+                variants={listAnimate}
+                initial="start"
+                animate="end"
+              >
+                {memberData?.map((data: any, id) => (
+                  <StyledTableWrapper
+                    variants={listItemAnimate}
+                    whileHover={{
+                      backgroundColor: '#efefef',
+                      color: '#3886f6',
+                    }}
+                    key={id}
+                    className={
+                      (data?.warning as number) == 0
+                        ? 'count0'
+                        : (data?.warning as number) == 1
+                        ? 'count1'
+                        : (data?.warning as number) == 2
+                        ? 'count2'
+                        : (data?.warning as number) < 3 &&
+                          (data?.warning as number) > 2
+                        ? 'last'
+                        : (data?.warning as number) == 3
+                        ? 'count3'
+                        : ''
+                    }
+                    onClick={() => {
+                      setSelectMember(data);
+                      setModal({
+                        ...modal,
+                        [MODAL_KEY.ADMIN_EDIT_MEMBER]: true,
+                      });
+                    }}
+                  >
+                    <StyledSmallColumn>{data.name}</StyledSmallColumn>
+                    <StyledColumn>{data.nickName}</StyledColumn>
+                    <StyledLargeColumn>{data.email}</StyledLargeColumn>
+                    <StyledSmallColumn>{data.position}</StyledSmallColumn>
+                    <StyledSmallColumn>{data.warning}</StyledSmallColumn>
+                  </StyledTableWrapper>
+                ))}
+              </MotionSelector>
+              <StyledMobileTableCategoryWrapper>
+                <StyledColumn>Nickname</StyledColumn>
+                <StyledSmallColumn>Name</StyledSmallColumn>
+                <StyledSmallColumn>Position</StyledSmallColumn>
+                <StyledSmallColumn>Warn</StyledSmallColumn>
+              </StyledMobileTableCategoryWrapper>
+              <MotionSelector
+                variants={listAnimate}
+                initial="start"
+                animate="end"
+              >
+                {memberData?.map((data: any, id) => (
+                  <StyledMobileTableWrapper
+                    variants={listItemAnimate}
+                    whileHover={{ backgroundColor: '#f2f4f6' }}
+                    key={id}
+                    className={
+                      (data?.warning as number) == 0
+                        ? 'count0'
+                        : (data?.warning as number) == 1
+                        ? 'count1'
+                        : (data?.warning as number) == 2
+                        ? 'count2'
+                        : (data?.warning as number) == 3
+                        ? 'count3'
+                        : 'none'
+                    }
+                    onClick={() => {
+                      setSelectMember(data);
+                      setModal({
+                        ...modal,
+                        [MODAL_KEY.ADMIN_EDIT_MEMBER]: true,
+                      });
+                    }}
+                  >
+                    <StyledColumn>{data.nickName}</StyledColumn>
+                    <StyledSmallColumn>{data.name}</StyledSmallColumn>
+                    <StyledSmallColumn>{data.position}</StyledSmallColumn>
+                    <StyledSmallColumn>{data.warning}</StyledSmallColumn>
+                  </StyledMobileTableWrapper>
+                ))}
+              </MotionSelector>
+            </MemberPageWrapper>
+          </LayoutContainer>
         </>
       )}
     </>

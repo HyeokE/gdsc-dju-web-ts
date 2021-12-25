@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  StyledLabel,
   StyledLi,
   StyledLine,
   StyledTap,
@@ -25,23 +26,25 @@ const AdminTopMenu = ({
       <nav>
         <StyledUl>
           {tabs.map((item) => (
-            <StyledLi
-              key={item.label}
-              className={item.label === selectedCategory ? 'selected' : ''}
-              onClick={() => {
-                setSelectedCategory(item.label);
-                navigate('/admin/' + item.route);
-              }}
-            >
-              {item.label}
-              {item.label === selectedCategory ? (
-                <motion.div className="underline" layoutId="underline" />
-              ) : null}
-            </StyledLi>
+            <>
+              <StyledLi
+                key={item.label}
+                className={item.label === selectedCategory ? 'selected' : ''}
+                onClick={() => {
+                  setSelectedCategory(item.label);
+                  navigate('/admin/' + item.route);
+                }}
+              >
+                <StyledLabel>{item.label}</StyledLabel>
+                {item.label === selectedCategory ? (
+                  <motion.div className="underline" layoutId="underline" />
+                ) : null}
+              </StyledLi>
+            </>
           ))}
         </StyledUl>
       </nav>
-      <StyledLine />
+      {/*<StyledLine />*/}
     </>
   );
 };
