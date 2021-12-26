@@ -47,20 +47,43 @@ const AdminMember = () => {
     console.log(memberData);
     switch (id) {
       case 'warning':
-        return memberData?.sort((a, b) => (a.warning > b.warning ? 1 : -1));
+        setMemberData([
+          ...memberData.sort((a: UserDataState, b: any) =>
+            a.warning > b.warning ? 1 : -1,
+          ),
+        ]);
+        return [];
       case 'name':
         setMemberData([
-          memberData,
-          ...memberData?.sort((a, b) => (a.name > b.name ? 1 : -1)),
+          ...memberData.sort((a: any, b: any) => (a.name > b.name ? 1 : -1)),
         ]);
+        return [];
       case 'nickName':
-        return memberData?.sort((a, b) => (a.nickName > b.nickName ? 1 : -1));
+        setMemberData([
+          ...memberData.sort((a: any, b: any) =>
+            a.nickName > b.nickName ? 1 : -1,
+          ),
+        ]);
+        return [];
       case 'email':
-        return memberData?.sort((a, b) => (a.email > b.email ? 1 : -1));
+        setMemberData([
+          ...memberData.sort((a: any, b: any) => (a.email > b.email ? 1 : -1)),
+        ]);
+        return [];
       case 'position':
-        return memberData?.sort((a, b) => (a.position > b.position ? 1 : -1));
+        setMemberData([
+          ...memberData.sort((a: any, b: any) =>
+            a.position > b.position ? 1 : -1,
+          ),
+        ]);
+        return [];
       default:
-        return memberData?.sort((a, b) => (a.nickName > b.nickName ? 1 : -1));
+        setMemberData([
+          ...memberData.sort((a: any, b: any) =>
+            a.nickName > b.nickName ? 1 : -1,
+          ),
+        ]);
+        return [];
     }
   };
 
@@ -108,24 +131,20 @@ const AdminMember = () => {
                   </StyledSmallColumn>
                   <StyledColumn
                     id={'nickname'}
-                    onClick={() => setMemberData(memberSortHandler('nickName'))}
+                    onClick={() => memberSortHandler('nickName')}
                   >
                     nickname
                   </StyledColumn>
-                  <StyledLargeColumn
-                    onClick={() => setMemberData(memberSortHandler('email'))}
-                  >
+                  <StyledLargeColumn onClick={() => memberSortHandler('email')}>
                     email
                   </StyledLargeColumn>
                   <StyledSmallColumn
-                    onClick={() =>
-                      setMemberData(memberSortHandler('position '))
-                    }
+                    onClick={() => memberSortHandler('position ')}
                   >
                     position
                   </StyledSmallColumn>
                   <StyledSmallColumn
-                    onClick={() => setMemberData(memberSortHandler('warning'))}
+                    onClick={() => memberSortHandler('warning')}
                   >
                     warn
                   </StyledSmallColumn>
