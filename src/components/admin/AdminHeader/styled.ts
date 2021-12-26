@@ -14,10 +14,13 @@ export const AdminContainerWrapper = styled.div`
 export const StyledButtonWrapper = styled.div`
   margin-right: 10px;
 `;
+export const AdminHeaderWrapper = styled.div`
+  background: ${(props) => props.theme.color.whiteSmoke};
+`;
 export const StyledAdminButton = styled.button`
   border-style: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   transition: 0.3s;
   transition-delay: 0.3ms;
@@ -31,13 +34,13 @@ export const StyledAdminButton = styled.button`
   }
   @media (max-width: 500px) {
     padding: 7px 13px;
-    font-size: 14px;
+    font-size: 13px;
   }
 `;
 export const ButtonElementWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  margin-top: 10px;
 `;
 export const StyledUserName = styled.div`
   color: ${(props) => props.theme.color.body};

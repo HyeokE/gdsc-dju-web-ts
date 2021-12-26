@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Admin.css';
 import {
   AdminContainerWrapper,
+  AdminHeaderWrapper,
   ButtonElementWrapper,
   SidebarContainer,
   StyledAdminButton,
@@ -44,7 +45,7 @@ const AdminHome = () => {
   const [value, setValue] = useState(false);
 
   const tabs = [
-    { label: 'Home', route: '/admin/home' },
+    { label: 'Home', route: '/admin' },
     { label: 'Members', route: '/admin/member' },
     { label: 'Setting', route: '/admin/setting' },
   ];
@@ -117,15 +118,17 @@ const AdminHome = () => {
         <CircularProgress color="inherit" />
       </Backdrop>
       <AdminSetUserProfile />
-      <BannerWrapper>
-        <Banner src={RedBanner} />
-      </BannerWrapper>
-      <LayoutContainer>
-        <TopMargin />
-        <Title>Admin Setting</Title>
-        {adminUser ? (
-          <StyledSubTitle>
-            <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
+
+      <AdminHeaderWrapper>
+        <LayoutContainer>
+          <ContainerInner>
+            <TopMargin />
+            <Title>Admin Page</Title>
+            {adminUser ? (
+              <StyledSubTitle>
+                <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
+              </StyledSubTitle>
+            ) : null}
             <ButtonElementWrapper>
               <StyledButtonWrapper>
                 <StyledAdminButton
@@ -146,20 +149,19 @@ const AdminHome = () => {
                 </StyledAdminButton>
               </StyledButtonWrapper>
             </ButtonElementWrapper>
-          </StyledSubTitle>
-        ) : null}
+            <TopMargin />
 
-        <TopMargin />
-
-        <SidebarContainer>
-          <AdminTopMenu
-            tabs={tabs}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-        </SidebarContainer>
-        <TopMargin />
-      </LayoutContainer>
+            <SidebarContainer>
+              <AdminTopMenu
+                tabs={tabs}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
+            </SidebarContainer>
+          </ContainerInner>
+        </LayoutContainer>
+      </AdminHeaderWrapper>
+      <TopMargin />
     </>
   );
 };

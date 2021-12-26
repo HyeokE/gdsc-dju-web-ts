@@ -16,7 +16,6 @@ export const List = styled(motion.li)`
   margin: 8px 0px;
   font-size: 16px;
   line-height: 24px;
-
   color: rgb(78, 89, 104);
   list-style: none;
   @media (max-width: 500px) {
@@ -44,7 +43,6 @@ export const LayoutContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
   width: 100%;
   max-width: 1140px;
   margin: auto;
@@ -52,8 +50,6 @@ export const LayoutContainer = styled.div`
 `;
 export const ContainerInner = styled.div`
   padding: 0 20px;
-  margin: auto;
-  min-height: 100vh;
 `;
 export const CardList = styled(motion.section)`
   display: flex;
