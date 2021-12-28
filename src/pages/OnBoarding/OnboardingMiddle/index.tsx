@@ -39,6 +39,7 @@ import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
+import { MemberNicknameData } from '../../../api/MemberList';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -71,6 +72,8 @@ const OnboardingMiddle = () => {
       nickname: Yup.string()
         .min(3, '3글자이상 작성해주세요')
         .max(15, '2~15사이의 길이로 입력해주세요')
+        .matches(/^[A-Z]/, '대문자로 시작해야합니다.')
+        .notOneOf(MemberNicknameData, '중복된 닉네임입니다.')
         .required('필수입력란입니다.'),
       major: Yup.string()
         .min(10, '10글자 이상 작성해주세요')
