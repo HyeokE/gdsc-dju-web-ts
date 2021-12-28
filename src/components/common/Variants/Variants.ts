@@ -209,7 +209,21 @@ export const onboardingAnimate = {
   },
   exit: {
     opacity: 0,
-    x: -30,
+  },
+};
+export const buttonFadeAnimate = {
+  start: {
+    opacity: 0,
+    x: 0,
+  },
+  end: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+  exit: {
+    opacity: 0,
   },
 };
 export const onboardingTicketAnimate = {

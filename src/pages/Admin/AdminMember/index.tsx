@@ -72,9 +72,7 @@ const AdminMember = () => {
         return [];
       case 'position':
         setMemberData([
-          ...memberData.sort((a: any, b: any) =>
-            a.position > b.position ? 1 : -1,
-          ),
+          ...memberData.sort((a, b) => (a.position > b.position ? 1 : -1)),
         ]);
         return [];
       default:
@@ -146,7 +144,7 @@ const AdminMember = () => {
                   <StyledSmallColumn
                     onClick={() => memberSortHandler('warning')}
                   >
-                    warn
+                    warning
                   </StyledSmallColumn>
                 </StyledTableCategoryWrapper>
                 <MotionSelector
@@ -193,10 +191,22 @@ const AdminMember = () => {
                   ))}
                 </MotionSelector>
                 <StyledMobileTableCategoryWrapper>
-                  <StyledColumn>Nickname</StyledColumn>
-                  <StyledSmallColumn>Name</StyledSmallColumn>
-                  <StyledSmallColumn>Position</StyledSmallColumn>
-                  <StyledSmallColumn>Warn</StyledSmallColumn>
+                  <StyledColumn onClick={() => memberSortHandler('nickName')}>
+                    Nickname
+                  </StyledColumn>
+                  <StyledSmallColumn onClick={() => memberSortHandler('name')}>
+                    Name
+                  </StyledSmallColumn>
+                  <StyledSmallColumn
+                    onClick={() => memberSortHandler('position')}
+                  >
+                    Position
+                  </StyledSmallColumn>
+                  <StyledSmallColumn
+                    onClick={() => memberSortHandler('warning')}
+                  >
+                    Warn
+                  </StyledSmallColumn>
                 </StyledMobileTableCategoryWrapper>
                 <MotionSelector
                   variants={listAnimate}

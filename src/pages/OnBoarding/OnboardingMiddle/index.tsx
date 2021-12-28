@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import {
+  buttonFadeAnimate,
   onboardingAnimate,
   pageAnimate,
   pageTransitionAnimate,
@@ -46,6 +47,7 @@ const OnboardingMiddle = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useRecoilState(onboardingUserState);
   const [formikInput, setFormikInput] = useState<any>();
+  const [button, setButton] = useState<any>(false);
 
   const formik = useFormik({
     initialValues: {
@@ -60,30 +62,54 @@ const OnboardingMiddle = () => {
     //validation setting
     validationSchema: Yup.object({
       email: Yup.string()
+        .min(4, '필수입력란입니다.')
         .matches(
-          /^[A-Z0-9._%+-]+@[gmail]+\.[com]{2,4}$/i,
-          'Gmail로 작성해주세요',
+          /^[A-Z0-9._%+-]+@[gmail]+\.[A-Z]{3}$/i,
+          'gmail.com형식으로 작성해주세요',
         )
         .required('필수입력란입니다.'),
       nickname: Yup.string()
-        .min(2, '2글자이상 작성해주세요')
+        .min(3, '3글자이상 작성해주세요')
         .max(15, '2~15사이의 길이로 입력해주세요')
         .required('필수입력란입니다.'),
       major: Yup.string()
         .min(10, '10글자 이상 작성해주세요')
         .required('필수입력란입니다.'),
+      interest: Yup.string()
+        .min(10, '10글자 이상 작성해주세요')
+        .required('필수입력란입니다. 각 단어는 ,로 구분합니다.'),
     }),
   });
+  const buttonHandler = () => {
+    const id = pageData?.id;
+    if (id === 'email') {
+      formik.errors.email || formik.values.email.length < 1
+        ? setButton(false)
+        : setButton(true);
+    } else if (id === 'nickname') {
+      formik.errors.nickname || formik.values.nickname.length < 1
+        ? setButton(false)
+        : setButton(true);
+    } else if (id === 'major') {
+      formik.errors.major || formik.values.major.length < 1
+        ? setButton(false)
+        : setButton(true);
+    } else if (id === 'interest') {
+      formik.errors.interest || formik.values.interest.length < 1
+        ? setButton(false)
+        : setButton(true);
+    }
+  };
   //set formik values
   const setFormik = () => {
-    const name = pageData?.id;
-    if (name === 'email') {
+    const id = pageData?.id;
+    if (id === 'email') {
       setFormikInput(formik.values.email);
-    } else if (name === 'nickname') {
+    } else if (id === 'nickname') {
       setFormikInput(formik.values.nickname);
-    } else if (name === 'major') {
+    } else if (id === 'major') {
       setFormikInput(formik.values.major);
-    } else if (name === 'interest') {
+    } else if (id === 'interest') {
       setFormikInput(formik.values.interest);
     }
   };
@@ -112,6 +138,13 @@ const OnboardingMiddle = () => {
       });
     }
   };
+
+  useEffect(() => {
+    buttonHandler();
+    console.log(button);
+    console.log(formik.values.email);
+  });
+
   return (
     <OnboardingContainerWrapper>
       {pageData && (
@@ -162,21 +195,27 @@ const OnboardingMiddle = () => {
                   <ErrorMessageWrapper>
                     <StyledErrorMessage name={pageData.id} component="div" />
                   </ErrorMessageWrapper>
-                  <OnboardingMiddleButton
-                    variants={onboardingAnimate}
-                    color={color}
-                    whileHover={{
-                      shadow: '20',
-                      boxShadow: '0px 0px 10px #4385f3',
-                    }}
-                    onClick={() => {
-                      setFormik();
-                      onApply();
-                      navigate('/onboarding/' + pageData.next);
-                    }}
-                  >
-                    다음으로
-                  </OnboardingMiddleButton>
+                  {button ? (
+                    <OnboardingMiddleButton
+                      variants={buttonFadeAnimate}
+                      color={color}
+                      whileHover={{
+                        shadow: '20',
+                        boxShadow: '0px 0px 10px #4385f3',
+                      }}
+                      onClick={() => {
+                        setFormik();
+                        onApply();
+                        navigate('/onboarding/' + pageData.next);
+                      }}
+                    >
+                      다음으로
+                    </OnboardingMiddleButton>
+                  ) : (
+                    <OnboardingMiddleButton variants={buttonFadeAnimate}>
+                      다음으로
+                    </OnboardingMiddleButton>
+                  )}
                 </OnboardingMiddleTextWrapper>
                 <OnboardingImageWrapper>
                   <OnboardingMiddleImage
