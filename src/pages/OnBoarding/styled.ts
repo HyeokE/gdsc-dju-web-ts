@@ -14,4 +14,5 @@ export const OnboardingContainerWrapper = styled(motion.div)`
   height: 100vh;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;

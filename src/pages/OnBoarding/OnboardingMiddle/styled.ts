@@ -26,6 +26,8 @@ export const OnboardingMiddleElementWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: row;
+  width: 100%;
+  position: fixed;
 `;
 export const OnboardingBackWrapper = styled(motion.div)`
   display: flex;
@@ -93,7 +95,6 @@ export const OnboardingMiddleImage = styled(motion.img)`
   height: auto;
   width: auto;
   display: flex;
-
   z-index: -1;
 `;
 export const OnboardingImageWrapper = styled(motion.div)`

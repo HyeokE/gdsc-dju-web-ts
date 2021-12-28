@@ -76,7 +76,7 @@ const OnboardingMiddle = () => {
         .notOneOf(MemberNicknameData, '중복된 닉네임입니다.')
         .required('필수입력란입니다.'),
       major: Yup.string()
-        .min(10, '10글자 이상 작성해주세요')
+        .min(3, '3글자 이상 작성해주세요')
         .required('필수입력란입니다.'),
       interest: Yup.string()
         .min(10, '10글자 이상 작성해주세요')
