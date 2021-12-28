@@ -28,8 +28,8 @@ import {
   titleItemAnimate,
   topToBottomAnimate,
 } from '../../components/common/Variants/Variants';
-import { Banner } from '../../img/Banner';
-import YellowBanner from '../../img/YellowBanner.png';
+import { Banner } from '../../img/Banner/Banner';
+import YellowBanner from '../../img/Banner/YellowBanner.png';
 import { introduceText, workWhenCome } from '../../api/introduceText';
 import { motion } from 'framer-motion';
 import { memberList } from '../../api/MemberList';

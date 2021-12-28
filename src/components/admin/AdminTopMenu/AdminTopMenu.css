@@ -4,11 +4,12 @@
     left: 0;
     right: 0;
     height: 40px;
-    z-index: -1;
-    background: #f3f4f6;
-    border-radius: 30px;
+    z-index: 0;
+    background: #42a5f5;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 .selected{
     color: black !important;
-    font-weight: bold;
+
 }

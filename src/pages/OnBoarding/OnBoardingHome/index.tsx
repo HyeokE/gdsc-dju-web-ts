@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   onboardingAnimate,
   pageAnimate,
@@ -12,6 +12,7 @@ import {
   OnboardingDetailTitle,
   OnboardingDetailWrapper,
   OnboardingLogo,
+  OnboardingPlaceWrapper,
   OnboardingSubTitle,
   OnboardingTitle,
   OnboardingTitleWrapper,
@@ -23,12 +24,36 @@ import {
 } from './styled';
 import '../Onboarding.css';
 import Logo from '../../../img/GDSC Logo Clear.png';
-import Plane from '../../../img/Plane.png';
+import Plane from '../../../img/onBoardingImg/plane-blue.svg';
 import { useNavigate } from 'react-router-dom';
 import MobileBlock from '../../../components/common/MobileBlock';
+import { dbService } from '../../../firebase/firebase';
 
 const OnboardingHome = () => {
   const navigate = useNavigate();
+
+  const [nicknameList, setnickNameList] = useState<any>();
+  const [nicknameList1, setnickNameList1] = useState<any>();
+
+  const getNicknameList = async () => {
+    try {
+      await dbService
+        .collection('members')
+        .where('name', '==', 'true')
+        .get()
+        .then((data) => {
+          data.docs.map((doc) => setnickNameList(doc.data()));
+        });
+    } catch (e: any) {
+      console.log(e.message);
+    }
+  };
+
+  useEffect(() => {
+    getNicknameList();
+  }, []);
+  console.log(nicknameList);
+  // console.log('console: ' + nicknameList1);
   return (
     <OnboardingContainerWrapper>
       {/*<MobileBlock />*/}
@@ -56,9 +81,11 @@ const OnboardingHome = () => {
             Boarding Details
           </OnboardingSubTitle>
           <OnboardingTravelWrapper variants={onboardingAnimate}>
-            <OnboardingTravel>NWB</OnboardingTravel>
-            <OnboardingTravelImage src={Plane} />
-            <OnboardingTravel>DJU</OnboardingTravel>
+            <OnboardingPlaceWrapper>
+              <OnboardingTravel>NWB</OnboardingTravel>
+              <OnboardingTravelImage src={Plane} />
+              <OnboardingTravel>DJU</OnboardingTravel>
+            </OnboardingPlaceWrapper>
             <OnboardingDetailWrapper>
               <OnboardingDetailTitle>Season</OnboardingDetailTitle>
               <OnboardingDetailText>1th</OnboardingDetailText>

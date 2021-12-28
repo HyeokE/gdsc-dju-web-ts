@@ -68,14 +68,17 @@ export const StyledMobileTableWrapper = styled(motion.div)`
 export const StyledSmallColumn = styled(motion.div)`
   padding: 0px 5px;
   width: 100px;
+  cursor: pointer;
 `;
 export const StyledColumn = styled(motion.div)`
   padding: 0px 7px;
   width: 120px;
+  cursor: pointer;
 `;
 export const StyledLargeColumn = styled(motion.div)`
   padding: 0px 7px;
   width: 220px;
+  cursor: pointer;
 `;
 export const MemberPageWrapper = styled(motion.div)`
   margin-top: 10px;

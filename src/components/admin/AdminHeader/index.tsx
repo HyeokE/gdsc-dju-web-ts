@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Admin.css';
 import {
   AdminContainerWrapper,
+  AdminHeaderWrapper,
   ButtonElementWrapper,
   SidebarContainer,
   StyledAdminButton,
@@ -11,7 +12,7 @@ import {
 } from './styled';
 import { useRecoilState } from 'recoil';
 import { Backdrop, CircularProgress } from '@mui/material';
-import RedBanner from '../../../img/RedBanner.png';
+
 import { alertState } from '../../../store/alert';
 import { localUserState } from '../../../store/localUser';
 import { modalState, MODAL_KEY } from '../../../store/modal';
@@ -20,7 +21,7 @@ import { authService, dbService } from '../../../firebase/firebase';
 import AdminSignInModal from '../../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../../components/common/Modal/AdminSignUp';
 import AdminSetUserProfile from '../../../components/common/Modal/AdminSetUserProfile';
-import { Banner } from '../../../img/Banner';
+import RedBanner from '../../../img/Banner/RedBanner.png';
 import AdminTopMenu from '../../../components/admin/AdminTopMenu';
 import {
   LayoutContainer,
@@ -30,6 +31,7 @@ import {
 import { BannerWrapper } from '../../../styles/layouts';
 import { Title } from '../../../components/common/Title/title';
 import { useLocation } from 'react-router';
+import { Banner } from '../../../img/Banner/Banner';
 
 const AdminHome = () => {
   const location = useLocation();
@@ -43,7 +45,7 @@ const AdminHome = () => {
   const [value, setValue] = useState(false);
 
   const tabs = [
-    { label: 'Home', route: '/admin/home' },
+    { label: 'Home', route: '/admin' },
     { label: 'Members', route: '/admin/member' },
     { label: 'Setting', route: '/admin/setting' },
   ];
@@ -116,15 +118,17 @@ const AdminHome = () => {
         <CircularProgress color="inherit" />
       </Backdrop>
       <AdminSetUserProfile />
-      <BannerWrapper>
-        <Banner src={RedBanner} />
-      </BannerWrapper>
-      <LayoutContainer>
-        <TopMargin />
-        <Title>Admin Setting</Title>
-        {adminUser ? (
-          <StyledSubTitle>
-            <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
+
+      <AdminHeaderWrapper>
+        <LayoutContainer>
+          <ContainerInner>
+            <TopMargin />
+            <Title>Admin Page</Title>
+            {adminUser ? (
+              <StyledSubTitle>
+                <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
+              </StyledSubTitle>
+            ) : null}
             <ButtonElementWrapper>
               <StyledButtonWrapper>
                 <StyledAdminButton
@@ -145,20 +149,19 @@ const AdminHome = () => {
                 </StyledAdminButton>
               </StyledButtonWrapper>
             </ButtonElementWrapper>
-          </StyledSubTitle>
-        ) : null}
+            <TopMargin />
 
-        <TopMargin />
-
-        <SidebarContainer>
-          <AdminTopMenu
-            tabs={tabs}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-        </SidebarContainer>
-        <TopMargin />
-      </LayoutContainer>
+            <SidebarContainer>
+              <AdminTopMenu
+                tabs={tabs}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
+            </SidebarContainer>
+          </ContainerInner>
+        </LayoutContainer>
+      </AdminHeaderWrapper>
+      <TopMargin />
     </>
   );
 };

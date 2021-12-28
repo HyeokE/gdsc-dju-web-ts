@@ -1,12 +1,12 @@
 import React from 'react';
-import Plane from '../../../img/Plane.png';
-import WhitePlane from '../../../img/WhitePlane.png';
-import WhiteGDSC from '../../../img/GDSCWhiteSeeklogo.png';
-import GDSC from '../../../img/GDSCSeekLogo.png';
+import Plane from '../../../img/onBoardingImg/plane-blue.svg';
+import WhitePlane from '../../../img/onBoardingImg/plane-white.svg';
+import WhiteGDSC from '../../../img/onBoardingImg/gdsc-white.svg';
+import GDSC from '../../../img/onBoardingImg/gdsc-blue.svg';
 import {
   BoardingPassArrivalTimeWrapper,
   BoardingPassBoardingTimeWrapper,
-  BoardingPassBottmTextWrapper,
+  BoardingPassBottomTextWrapper,
   BoardingPassCategory,
   BoardingPassCategoryText,
   BoardingPassDetailText,
@@ -40,9 +40,10 @@ import {
   BoardingTicketTopTextWrapper,
   BoardingTicketWrapper,
 } from './styled';
-import Gdscqr from '../../../img/GDSCQR';
+import Gdscqr from '../../../img/onBoardingImg/GDSCQR';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
+import DottedLine from '../../../img/DottedLine';
 
 const BoardingPass = () => {
   const [onboardingUser] = useRecoilState(onboardingUserState);
@@ -53,47 +54,52 @@ const BoardingPass = () => {
         <BoardingPassWrapper>
           <BoardingPassTopLine />
           <BoardingPassInner>
-            <BoardingPassGDSCWrapper>
-              <BoardingPassGDSCLogo src={GDSC} />
-              <BoardingPassGDSC>
-                Google Developer Student Clubs
-              </BoardingPassGDSC>
-            </BoardingPassGDSCWrapper>
-            <BoardingPassTopTextWrapper>
-              <BoardingPassTopElementWrapper>
-                <BoardingPassDetailTitle>
-                  Boarding Details
-                </BoardingPassDetailTitle>
-                <BoardingPassDetailWrapper>
-                  <BoardingPassDetailText>NWB</BoardingPassDetailText>
-                  <BoardingPassPlaneImg src={Plane} />
-                  <BoardingPassDetailText>DJU</BoardingPassDetailText>
-                </BoardingPassDetailWrapper>
-              </BoardingPassTopElementWrapper>
-              <BoardingPassElementWrapper>
-                <BoardingPassCategory>Name</BoardingPassCategory>
-                <BoardingPassCategoryText>
-                  {onboardingUser.nickname}
-                </BoardingPassCategoryText>
-              </BoardingPassElementWrapper>
-            </BoardingPassTopTextWrapper>
-            <BoardingPassBottmTextWrapper>
-              <BoardingPassSeasonWrapper>
-                <BoardingPassCategory>Season</BoardingPassCategory>
-                <BoardingPassCategoryText>1 th</BoardingPassCategoryText>
-              </BoardingPassSeasonWrapper>
-              <BoardingPassBoardingTimeWrapper>
-                <BoardingPassCategory>Boarding Time</BoardingPassCategory>
-                <BoardingPassCategoryText>2021. 1. 13</BoardingPassCategoryText>
-              </BoardingPassBoardingTimeWrapper>
-              <BoardingPassArrivalTimeWrapper>
-                <BoardingPassCategory>Arrival Time</BoardingPassCategory>
-                <BoardingPassCategoryText>2022. 8</BoardingPassCategoryText>
-              </BoardingPassArrivalTimeWrapper>
-              <BoardingPassQrWrapper>
-                <Gdscqr />
-              </BoardingPassQrWrapper>
-            </BoardingPassBottmTextWrapper>
+            <BoardingPassElementWrapper>
+              <BoardingPassGDSCWrapper>
+                <BoardingPassGDSCLogo src={GDSC} />
+                <BoardingPassGDSC>
+                  Google Developer Student Clubs
+                </BoardingPassGDSC>
+              </BoardingPassGDSCWrapper>
+              <BoardingPassTopTextWrapper>
+                <BoardingPassTopElementWrapper>
+                  <BoardingPassDetailTitle>
+                    Boarding Details
+                  </BoardingPassDetailTitle>
+                  <BoardingPassDetailWrapper>
+                    <BoardingPassDetailText>NWB</BoardingPassDetailText>
+                    <BoardingPassPlaneImg src={Plane} />
+                    <BoardingPassDetailText>DJU</BoardingPassDetailText>
+                  </BoardingPassDetailWrapper>
+                </BoardingPassTopElementWrapper>
+                <BoardingPassElementWrapper>
+                  <BoardingPassCategory>Name</BoardingPassCategory>
+                  <BoardingPassCategoryText>
+                    {onboardingUser.nickname}
+                  </BoardingPassCategoryText>
+                </BoardingPassElementWrapper>
+              </BoardingPassTopTextWrapper>
+              <BoardingPassBottomTextWrapper>
+                <BoardingPassSeasonWrapper>
+                  <BoardingPassCategory>Season</BoardingPassCategory>
+                  <BoardingPassCategoryText>1 th</BoardingPassCategoryText>
+                </BoardingPassSeasonWrapper>
+                <BoardingPassBoardingTimeWrapper>
+                  <BoardingPassCategory>Boarding Time</BoardingPassCategory>
+                  <BoardingPassCategoryText>
+                    2021. 1. 13
+                  </BoardingPassCategoryText>
+                </BoardingPassBoardingTimeWrapper>
+                <BoardingPassArrivalTimeWrapper>
+                  <BoardingPassCategory>Arrival Time</BoardingPassCategory>
+                  <BoardingPassCategoryText>2022. 8</BoardingPassCategoryText>
+                </BoardingPassArrivalTimeWrapper>
+                <BoardingPassQrWrapper>
+                  <Gdscqr />
+                </BoardingPassQrWrapper>
+              </BoardingPassBottomTextWrapper>
+            </BoardingPassElementWrapper>
+            <DottedLine />
           </BoardingPassInner>
         </BoardingPassWrapper>
         <BoardingTicketWrapper>

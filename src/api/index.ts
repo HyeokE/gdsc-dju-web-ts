@@ -1,6 +1,7 @@
 // https://firestore.googleapis.com/v1/projects/gdsc-dju/databases/(default)/documents/members?key=AIzaSyDrAEizOXHcCXYrQa96w6TxfddOS2Yb0tU
 import axios from 'axios';
 import { UserDataState } from './types';
+import { OnboardingUserState } from '../store/onboardingUser';
 
 export class GDSCApi {
   private API: string;
@@ -12,6 +13,11 @@ export class GDSCApi {
   }
   getMembers = () => {
     return axios.get<UserDataState>(`${this.API}/documents/members`);
+  };
+  postOnboardingMembers = () => {
+    return axios.get<typeof OnboardingUserState>(
+      `${this.API}/documents/members`,
+    );
   };
 }
 export default new GDSCApi();

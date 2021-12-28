@@ -1,17 +1,16 @@
 import React from 'react';
-import {
-  BannerWrapper,
-  ContainerInner,
-  LayoutContainer,
-  TopMargin,
-} from '../../styles/layouts';
-import { Banner } from '../../img/Banner';
-import YellowBanner from '../../img/YellowBanner.png';
 
-import { Title } from '../../components/common/Title/title';
-import { Faq } from '../../api/faq';
+import YellowBanner from '../../../img/Banner/YellowBanner.png';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import { AnswerText, AnswerWrapper, BackToFaq, QuestionTitle } from './styled';
+import {
+  BannerWrapper,
+  LayoutContainer,
+  TopMargin,
+} from '../../../styles/layouts';
+import { Faq } from '../../../api/faq';
+import { Banner } from '../../../img/Banner/Banner';
 
 const FaqDetail = () => {
   const { id } = useParams();

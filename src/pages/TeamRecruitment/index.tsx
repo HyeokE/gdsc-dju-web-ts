@@ -25,8 +25,8 @@ import {
 import { teamRecruitmentDefaultText } from '../../api/teamRecruitmentDefaultText';
 import { StyledButton } from '../../components/common/Button/styled';
 import { TeamInfomation } from '../../api/teamInfomation';
-import { Banner } from '../../img/Banner';
-import BlueBanner from '../../img/BlueBanner.png';
+import { Banner } from '../../img/Banner/Banner';
+import BlueBanner from '../../img/Banner/BlueBanner.png';
 
 export const Recruitment: React.FC = () => {
   const { id } = useParams();

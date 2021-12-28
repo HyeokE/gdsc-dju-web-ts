@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import {
+  buttonFadeAnimate,
   onboardingAnimate,
   pageAnimate,
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
-import backArrow from '../../../img/backArrow.png';
+import backArrow from '../../../img/onBoardingImg/back.svg';
 import Human1 from '../../../img/onBoardingImg/human_red.svg';
 import Human2 from '../../../img/onBoardingImg/human-green.svg';
 import Human3 from '../../../img/onBoardingImg/human-blue.svg';
 import Human4 from '../../../img/onBoardingImg/human-yellow.svg';
 import {
+  StyledErrorMessage,
+  ErrorMessageWrapper,
   OnboardingBackArrow,
   OnboardingBackText,
   OnboardingBackWrapper,
@@ -18,6 +21,7 @@ import {
   OnboardingImageWrapper,
   OnboardingInnerWrapper,
   OnboardingInput,
+  OnboardingInputWrapper,
   OnboardingMiddleButton,
   OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
@@ -31,9 +35,11 @@ import { onBoardingData } from '../../../api/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
-import MobileBlock from '../../../components/common/MobileBlock';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
+import { Form, FormikProvider, useFormik } from 'formik';
+import * as Yup from 'yup';
+import { MemberNicknameData } from '../../../api/MemberList';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -41,119 +47,200 @@ const OnboardingMiddle = () => {
   const color = pageData?.color;
   const navigate = useNavigate();
   const [userData, setUserData] = useRecoilState(onboardingUserState);
-  const [email, setEmail] = useState<string>('');
-  const [nickname, setNickName] = useState('');
-  const [major, setMajor] = useState('');
-  const [interest, setInterest] = useState('');
-  const onChange = (e: any) => {
-    const {
-      target: { name, value },
-    } = e;
-    if (name === 'email') {
-      setEmail(value);
-    } else if (name === 'nickname') {
-      setNickName(value);
-    } else if (name === 'major') {
-      setMajor(value);
-    } else if (name === 'interest') {
-      setInterest(value);
+  const [formikInput, setFormikInput] = useState<any>();
+  const [button, setButton] = useState<any>(false);
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      nickname: '',
+      major: '',
+      interest: '',
+    },
+    onSubmit: async () => {
+      console.log(formik.values);
+    },
+    //validation setting
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .min(4, '필수입력란입니다.')
+        .matches(
+          /^[A-Z0-9._%+-]+@[gmail]+\.[A-Z]{3}$/i,
+          'gmail.com형식으로 작성해주세요',
+        )
+        .required('필수입력란입니다.'),
+      nickname: Yup.string()
+        .min(3, '3글자이상 작성해주세요')
+        .max(15, '2~15사이의 길이로 입력해주세요')
+        .matches(/^[A-Z]/, '대문자로 시작해야합니다.')
+        .notOneOf(MemberNicknameData, '중복된 닉네임입니다.')
+        .required('필수입력란입니다.'),
+      major: Yup.string()
+        .min(3, '3글자 이상 작성해주세요')
+        .required('필수입력란입니다.'),
+      interest: Yup.string()
+        .min(10, '10글자 이상 작성해주세요')
+        .required('필수입력란입니다. 각 단어는 ,로 구분합니다.'),
+    }),
+  });
+  const buttonHandler = () => {
+    const id = pageData?.id;
+    if (id === 'email') {
+      formik.errors.email || formik.values.email.length < 1
+        ? setButton(false)
+        : setButton(true);
+    } else if (id === 'nickname') {
+      formik.errors.nickname || formik.values.nickname.length < 1
+        ? setButton(false)
+        : setButton(true);
+    } else if (id === 'major') {
+      formik.errors.major || formik.values.major.length < 1
+        ? setButton(false)
+        : setButton(true);
+    } else if (id === 'interest') {
+      formik.errors.interest || formik.values.interest.length < 1
+        ? setButton(false)
+        : setButton(true);
     }
   };
+  //set formik values
+  const setFormik = () => {
+    const id = pageData?.id;
+    if (id === 'email') {
+      setFormikInput(formik.values.email);
+    } else if (id === 'nickname') {
+      setFormikInput(formik.values.nickname);
+    } else if (id === 'major') {
+      setFormikInput(formik.values.major);
+    } else if (id === 'interest') {
+      setFormikInput(formik.values.interest);
+    }
+  };
+  //connect data in recoil
   const onApply = () => {
     const id = pageData?.id;
     if (id === 'email') {
       setUserData({
         ...userData,
-        email: email,
+        email: formik.values.email,
       });
     } else if (id === 'nickname') {
       setUserData({
         ...userData,
-        nickname: nickname,
+        nickname: formik.values.nickname,
       });
     } else if (id === 'major') {
       setUserData({
         ...userData,
-        major: major,
+        major: formik.values.major,
       });
     } else if (id === 'interest') {
       setUserData({
         ...userData,
-        interest: interest,
+        interest: formik.values.interest,
       });
     }
   };
+
+  useEffect(() => {
+    buttonHandler();
+    console.log(button);
+    console.log(formik.values.email);
+  });
+
   return (
     <OnboardingContainerWrapper>
-      {/*<MobileBlock />*/}
-      <OnboardingContainer
-        initial="start"
-        animate="end"
-        exit="out"
-        variants={pageTransitionAnimate}
-        transition={pageAnimate}
-      >
-        <OnboardingMiddleElementWrapper>
-          <OnboardingMiddleTextWrapper>
-            <OnboardingBackWrapper
-              variants={onboardingAnimate}
-              onClick={() => {
-                navigate(-1);
-              }}
+      {pageData && (
+        <FormikProvider value={formik}>
+          <Form>
+            <OnboardingContainer
+              initial="start"
+              animate="end"
+              exit="out"
+              variants={pageTransitionAnimate}
+              transition={pageAnimate}
             >
-              <OnboardingBackArrow src={backArrow} />
-              <OnboardingBackText>Back</OnboardingBackText>
-            </OnboardingBackWrapper>
-            <OnboardingTitleWrapper>
-              <OnboardingTitle variants={onboardingAnimate}>
-                Tell us
-              </OnboardingTitle>
-              <OnboardingInnerWrapper variants={onboardingAnimate}>
-                <OnboardingTitle>Your</OnboardingTitle>
-                <OnboardingTitle marginLeft={20} color={color}>
-                  {pageData?.title}
-                </OnboardingTitle>
-              </OnboardingInnerWrapper>
-            </OnboardingTitleWrapper>
-            <OnboardingDescription variants={onboardingAnimate}>
-              {pageData?.subTitle}
-            </OnboardingDescription>
-            <OnboardingInput
-              variants={onboardingAnimate}
-              placeholder={pageData?.placeHolder}
-              name={pageData?.id}
-              onChange={onChange}
-              color={color}
-            />
-            <OnboardingMiddleButton
-              variants={onboardingAnimate}
-              color={color}
-              onClick={() => {
-                onApply();
-                navigate('/onboarding/' + pageData?.next);
-              }}
-            >
-              다음으로
-            </OnboardingMiddleButton>
-          </OnboardingMiddleTextWrapper>
-          <OnboardingImageWrapper>
-            <OnboardingMiddleImage
-              variants={onboardingAnimate}
-              src={
-                pageData?.id === 'email'
-                  ? Human1
-                  : pageData?.id === 'nickname'
-                  ? Human2
-                  : pageData?.id === 'major'
-                  ? Human3
-                  : pageData?.id === 'interest'
-                  ? Human4
-                  : ''
-              }
-            />
-          </OnboardingImageWrapper>
-        </OnboardingMiddleElementWrapper>
-      </OnboardingContainer>
+              <OnboardingMiddleElementWrapper>
+                <OnboardingMiddleTextWrapper>
+                  <OnboardingBackWrapper
+                    variants={onboardingAnimate}
+                    onClick={() => {
+                      navigate(-1);
+                    }}
+                  >
+                    <OnboardingBackArrow src={backArrow} />
+                    <OnboardingBackText>Back</OnboardingBackText>
+                  </OnboardingBackWrapper>
+                  <OnboardingTitleWrapper>
+                    <OnboardingTitle variants={onboardingAnimate}>
+                      Tell us
+                    </OnboardingTitle>
+                    <OnboardingInnerWrapper variants={onboardingAnimate}>
+                      <OnboardingTitle>Your</OnboardingTitle>
+                      <OnboardingTitle marginLeft={20} color={color}>
+                        {pageData.title}
+                      </OnboardingTitle>
+                    </OnboardingInnerWrapper>
+                  </OnboardingTitleWrapper>
+                  <OnboardingDescription variants={onboardingAnimate}>
+                    {pageData.subTitle}
+                  </OnboardingDescription>
+                  <OnboardingInputWrapper variants={onboardingAnimate}>
+                    <OnboardingInput
+                      placeholder={pageData.placeHolder}
+                      name={pageData.id}
+                      type={pageData.id}
+                      value={formikInput}
+                      onChange={formik.handleChange}
+                      color={color}
+                    />
+                  </OnboardingInputWrapper>
+                  <ErrorMessageWrapper>
+                    <StyledErrorMessage name={pageData.id} component="div" />
+                  </ErrorMessageWrapper>
+                  {button ? (
+                    <OnboardingMiddleButton
+                      variants={buttonFadeAnimate}
+                      color={color}
+                      whileHover={{
+                        shadow: '20',
+                        boxShadow: '0px 0px 10px #4385f3',
+                      }}
+                      onClick={() => {
+                        setFormik();
+                        onApply();
+                        navigate('/onboarding/' + pageData.next);
+                      }}
+                    >
+                      다음으로
+                    </OnboardingMiddleButton>
+                  ) : (
+                    <OnboardingMiddleButton variants={buttonFadeAnimate}>
+                      다음으로
+                    </OnboardingMiddleButton>
+                  )}
+                </OnboardingMiddleTextWrapper>
+                <OnboardingImageWrapper>
+                  <OnboardingMiddleImage
+                    variants={onboardingAnimate}
+                    src={
+                      pageData.id === 'email'
+                        ? Human1
+                        : pageData.id === 'nickname'
+                        ? Human2
+                        : pageData.id === 'major'
+                        ? Human3
+                        : pageData.id === 'interest'
+                        ? Human4
+                        : ''
+                    }
+                  />
+                </OnboardingImageWrapper>
+              </OnboardingMiddleElementWrapper>
+            </OnboardingContainer>
+          </Form>
+        </FormikProvider>
+      )}
     </OnboardingContainerWrapper>
   );
 };

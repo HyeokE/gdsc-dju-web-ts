@@ -11,7 +11,6 @@ const Admin = () => {
       <AdminHeader />
       <Routes>
         <Route path={'/*'} element={<AdminHome />} />
-        <Route path={'/home'} element={<AdminHome />} />
         <Route path={'/member'} element={<AdminMember />} />
         <Route path={'/setting'} element={<AdminSetting />} />
       </Routes>
