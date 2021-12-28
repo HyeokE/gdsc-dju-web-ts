@@ -38,13 +38,10 @@ export const StyledTableWrapper = styled(motion.div)`
   flex-direction: row;
   padding: 15px 0px;
   text-align: center;
+  background: white;
   justify-content: space-around;
   border-width: 0px;
-  background-color: white;
   cursor: pointer;
-  @media (max-width: 500px) {
-    display: none;
-  }
   @media (max-width: 500px) {
     display: none;
   }
