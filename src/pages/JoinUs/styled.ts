@@ -1,18 +1,13 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const CategoryWrapper = styled.div`
+export const CategoryWrapper = styled(motion.div)`
   display: flex;
   padding: 24px 0px;
   margin-right: 30px;
   cursor: pointer;
+  background: white;
   border-radius: 10px;
-  transition-property: all;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-  &:hover {
-    background: ${(props) => props.theme.color.whiteSmoke};
-  }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     margin-right: 10px;
   }
