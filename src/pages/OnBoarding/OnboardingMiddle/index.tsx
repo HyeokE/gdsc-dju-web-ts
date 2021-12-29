@@ -204,7 +204,7 @@ const OnboardingMiddle = () => {
                       color={color}
                       whileHover={{
                         shadow: '20',
-                        boxShadow: '0px 0px 10px #4385f3',
+                        boxShadow: '0px 3px 20px #b7b7b7',
                       }}
                       onClick={() => {
                         setFormik();
