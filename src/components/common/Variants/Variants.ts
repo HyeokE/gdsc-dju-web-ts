@@ -275,3 +275,22 @@ export const categoryAnimate = {
     opacity: 1,
   },
 };
+export const QuestionCategoryAnimate = {
+  unHover: {
+    clipPath: 'inset(1% round 1%)',
+    background: '#fff',
+    transition: {
+      duration: 0.3,
+    },
+    opacity: 1,
+  },
+  hovered: {
+    clipPath: `inset(0% round 1%)`,
+    background: '#f2f4f6',
+    transition: {
+      duration: 0.3,
+    },
+    color: '#3886f6',
+    opacity: 1,
+  },
+};
