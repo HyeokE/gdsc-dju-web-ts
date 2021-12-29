@@ -14,6 +14,7 @@ import {
 import { QuestionMark, QuestionWrapper } from './styled';
 import { Faq } from '../../api/faq';
 import { useNavigate } from 'react-router-dom';
+import { QuestionCategoryAnimate } from '../../components/common/Variants/Variants';
 
 export const Question = () => {
   const navigate = useNavigate();
@@ -29,7 +30,9 @@ export const Question = () => {
         {Faq.map((data, id) => (
           <QuestionWrapper
             key={id}
-            whileHover={{ backgroundColor: '#efefef', color: '#3886f6' }}
+            variants={QuestionCategoryAnimate}
+            initial={'unHover'}
+            whileHover={'hovered'}
             onClick={() => navigate('/faq/' + data.id)}
           >
             <QuestionMark />

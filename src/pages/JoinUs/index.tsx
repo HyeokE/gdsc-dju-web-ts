@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router';
 import { Banner } from '../../img/Banner/Banner';
 
 import BlueBanner from '../../img/Banner/BlueBanner.png';
+import { categoryAnimate } from '../../components/common/Variants/Variants';
 export const JoinUs = () => {
   const navigate = useNavigate();
 
@@ -51,6 +52,9 @@ export const JoinUs = () => {
           {TeamList.map((data, key) => (
             <CategoryWrapper
               key={key}
+              initial={'unHover'}
+              whileHover={'hovered'}
+              variants={categoryAnimate}
               onClick={() => {
                 navigate('/joinus/' + data.id);
               }}

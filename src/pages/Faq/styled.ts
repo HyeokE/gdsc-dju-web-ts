@@ -5,9 +5,9 @@ export const QuestionWrapper = styled(motion.a)`
   margin-bottom: 24px;
   cursor: pointer;
   font-size: 20px;
-  background-color: #fff;
   padding: 20px 20px;
   display: flex;
+  background: white;
   color: ${(props) => props.theme.color.dimGray};
   flex-direction: row;
   border-radius: 10px;
