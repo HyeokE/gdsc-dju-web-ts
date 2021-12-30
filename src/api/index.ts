@@ -14,9 +14,20 @@ export class GDSCApi {
   getMembers = () => {
     return axios.get<UserDataState>(`${this.API}/documents/members`);
   };
-  postOnboardingMembers = (payload: typeof OnboardingUserState) => {
+  postMemberNickname = (payload: typeof OnboardingUserState) => {
     return axios.post<typeof OnboardingUserState>(
       `${this.API}/api/onBoading/nickname`,
+      payload,
+    );
+  };
+  getMemberNickname = () => {
+    return axios.get<typeof OnboardingUserState>(
+      `${this.API}/api/onBoading/nickname`,
+    );
+  };
+  postOnboardingMembers = (payload: typeof OnboardingUserState) => {
+    return axios.get<typeof OnboardingUserState>(
+      `${this.API}/api/onBoarding/join`,
       payload,
     );
   };
