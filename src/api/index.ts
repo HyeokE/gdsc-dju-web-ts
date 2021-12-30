@@ -26,7 +26,7 @@ export class GDSCApi {
     );
   };
   postOnboardingMembers = (payload: typeof OnboardingUserState) => {
-    return axios.get<typeof OnboardingUserState>(
+    return axios.post<typeof OnboardingUserState>(
       `${this.API}/api/onBoarding/join`,
       payload,
     );
