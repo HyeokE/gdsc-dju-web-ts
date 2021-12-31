@@ -40,3 +40,9 @@ export type UserDataField = {
   phoneNumber: string;
   warning: number;
 };
+export type onBoardingMember = {
+  email: string;
+  nickname: string;
+  major: string;
+  interest: string;
+};
