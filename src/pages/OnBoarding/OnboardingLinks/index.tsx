@@ -33,6 +33,7 @@ import MobileBlock from '../../../components/common/MobileBlock';
 import { dbService } from '../../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
+import Api from '../../../api/index';
 
 export interface IProps {
   id: string;
@@ -55,15 +56,23 @@ const OnBoardingLinks = () => {
     },
   ];
 
+  // const uploadMembers = async () => {
+  //   try {
+  //     await dbService.collection('onoboardingMembers').doc().set({
+  //       nickName: member.nickname,
+  //       major: member.major,
+  //       email: member.email,
+  //       interest: member.interest,
+  //       uploadDate: Date.now(),
+  //     });
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+  console.log(member);
   const uploadMembers = async () => {
     try {
-      await dbService.collection('onoboardingMembers').doc().set({
-        nickName: member.nickname,
-        major: member.major,
-        email: member.email,
-        interest: member.interest,
-        uploadDate: Date.now(),
-      });
+      await Api.postOnboardingMembers(member);
     } catch (e) {
       console.log(e);
     }

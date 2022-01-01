@@ -31,29 +31,6 @@ import { dbService } from '../../../firebase/firebase';
 
 const OnboardingHome = () => {
   const navigate = useNavigate();
-
-  const [nicknameList, setnickNameList] = useState<any>();
-  const [nicknameList1, setnickNameList1] = useState<any>();
-
-  const getNicknameList = async () => {
-    try {
-      await dbService
-        .collection('members')
-        .where('name', '==', 'true')
-        .get()
-        .then((data) => {
-          data.docs.map((doc) => setnickNameList(doc.data()));
-        });
-    } catch (e: any) {
-      console.log(e.message);
-    }
-  };
-
-  useEffect(() => {
-    getNicknameList();
-  }, []);
-  console.log(nicknameList);
-  // console.log('console: ' + nicknameList1);
   return (
     <OnboardingContainerWrapper>
       {/*<MobileBlock />*/}
