@@ -5,8 +5,8 @@ import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
 import Navigation from '../common/Navigation';
-import MoblieMenu from '../common/Navigation/MobileMenu';
 import { Footer } from '../common/Footer';
+import MobileMenu from '../common/Navigation/MobileMenu';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
@@ -28,7 +28,7 @@ export const Main = () => {
   return (
     <>
       {navHandler ? <Navigation /> : null}
-      <MoblieMenu />
+      <MobileMenu />
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
       <Routes>
