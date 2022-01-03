@@ -58,6 +58,9 @@ export const WideNavigation = styled.div`
     display: none;
   }
 `;
+export const NavigationWapper = styled.div`
+  position: sticky;
+`;
 export const ShortNavigation = styled(motion.nav)`
   position: absolute;
   top: 0;

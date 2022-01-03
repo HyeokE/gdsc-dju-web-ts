@@ -24,22 +24,24 @@ export const Question = () => {
         <Banner src={YellowBanner} />
       </BannerWrapper>
       <LayoutContainer>
-        <TopMargin />
-        <Title>자주 묻는 질문</Title>
-        <TopMargin />
-        {Faq.map((data, id) => (
-          <QuestionWrapper
-            key={id}
-            variants={QuestionCategoryAnimate}
-            initial={'unHover'}
-            whileHover={'hovered'}
-            onClick={() => navigate('/faq/' + data.id)}
-          >
-            <QuestionMark />
-            {data.question}
-          </QuestionWrapper>
-        ))}
-        <TopMargin />
+        <ContainerInner>
+          <TopMargin />
+          <Title>자주 묻는 질문</Title>
+          <TopMargin />
+          {Faq.map((data, id) => (
+            <QuestionWrapper
+              key={id}
+              variants={QuestionCategoryAnimate}
+              initial={'unHover'}
+              whileHover={'hovered'}
+              onClick={() => navigate('/faq/' + data.id)}
+            >
+              <QuestionMark />
+              {data.question}
+            </QuestionWrapper>
+          ))}
+          <TopMargin />
+        </ContainerInner>
       </LayoutContainer>
     </>
   );

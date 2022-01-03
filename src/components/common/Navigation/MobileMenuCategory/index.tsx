@@ -46,6 +46,7 @@ const MobileMenuCategory = () => {
           }}
         >
           <StyledLink>{item.title}</StyledLink>
+          <CategoryLine />
         </MenuWrapper>
       ))}
     </MenuInner>

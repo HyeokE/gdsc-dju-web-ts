@@ -16,6 +16,7 @@ import WideNavCategory from './WideNavCategory';
 import { useLocation } from 'react-router';
 import './Navigation.css';
 import ShortNavCategory from './MobileMenu';
+import MobileMenu from './MobileMenu';
 
 const Navigation: React.FC = () => {
   const locaton = useLocation();
@@ -40,7 +41,7 @@ const Navigation: React.FC = () => {
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
-
+        <MobileMenu />
         <WideNavCategory routeStyle={routeStyle} />
       </NavInner>
     </NavDesign>

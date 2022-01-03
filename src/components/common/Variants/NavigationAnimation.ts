@@ -33,7 +33,7 @@ export const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(0px at 250px 40px)',
+    clipPath: 'circle(0px at 300px 0px)',
     transition: {
       delay: 0.5,
       type: 'spring',

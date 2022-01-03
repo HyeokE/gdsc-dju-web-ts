@@ -15,7 +15,7 @@ export const MenuInner = styled(motion.div)`
   position: absolute;
   top: 100px;
   right: 0px;
-  width: 230px;
+  width: 200px;
   z-index: 999;
 `;
 
@@ -23,8 +23,9 @@ export const MenuWrapper = styled(motion.div)`
   list-style: none;
   margin-bottom: 20px;
   display: flex;
-  align-items: center;
   cursor: pointer;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 export const CategoryLine = styled.div`
   background: #f5f5f5;

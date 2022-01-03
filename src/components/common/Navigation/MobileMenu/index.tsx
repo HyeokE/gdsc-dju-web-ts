@@ -6,6 +6,7 @@ import {
   StyledLink,
   NavIconWrapper,
   ShortNavigation,
+  NavigationWapper,
 } from '../styled';
 import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
@@ -20,18 +21,16 @@ const MobileMenu = () => {
   const containerRef = useRef(null);
   const height = '100vh';
   return (
-    <>
-      <ShortNavigation
-        initial={false}
-        animate={menu.appMenu ? 'open' : 'closed'}
-        custom={height}
-        ref={containerRef}
-      >
-        <MobileMenuCategory />
-        <MobileNavBackGround variants={sidebar} />
-        <MenuToggleIcon />
-      </ShortNavigation>
-    </>
+    <ShortNavigation
+      initial={false}
+      animate={menu.appMenu ? 'open' : 'closed'}
+      custom={height}
+      ref={containerRef}
+    >
+      <MobileMenuCategory />
+      <MobileNavBackGround variants={sidebar} />
+      <MenuToggleIcon />
+    </ShortNavigation>
   );
 };
 

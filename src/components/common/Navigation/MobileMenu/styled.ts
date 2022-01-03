@@ -6,7 +6,7 @@ export const MobileNavBackGround = styled(motion.div)`
   top: 0;
   right: 0;
   bottom: 0;
-  width: 300px;
+  width: 250px;
   background: #fff;
-  z-index: 99;
+  z-index: 998;
 `;
