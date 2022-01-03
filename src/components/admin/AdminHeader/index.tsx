@@ -16,7 +16,6 @@ import { Backdrop, CircularProgress } from '@mui/material';
 import { alertState } from '../../../store/alert';
 import { localUserState } from '../../../store/localUser';
 import { modalState, MODAL_KEY } from '../../../store/modal';
-import { useGetMemberList } from '../../../api/hooks/useGetMemberData';
 import { authService, dbService } from '../../../firebase/firebase';
 import AdminSignInModal from '../../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../../components/common/Modal/AdminSignUp';
@@ -49,7 +48,7 @@ const AdminHome = () => {
     { label: 'Members', route: '/admin/member' },
     { label: 'Setting', route: '/admin/setting' },
   ];
-  const { data: memberData } = useGetMemberList();
+
   const checkAdminUser = () => {
     authService.onAuthStateChanged(async (user: any) => {
       if (user) {

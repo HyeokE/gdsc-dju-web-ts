@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   MemberPageWrapper,
@@ -15,7 +15,6 @@ import { useRecoilState } from 'recoil';
 import './MemberPage.css';
 import { UserDataState } from '../../../api/types';
 import { MODAL_KEY, modalState } from '../../../store/modal';
-import { useGetMemberList } from '../../../api/hooks/useGetMemberData';
 import { dbService } from '../../../firebase/firebase';
 import AdminEditMemberModal from '../../../components/common/Modal/AdminMemberEditModal';
 import { MainText } from '../../../components/common/Title/title';
@@ -28,15 +27,6 @@ import {
   LayoutContainer,
   TopMargin,
 } from '../../../styles/layouts';
-import {
-  Badge,
-  ButtonMenu,
-  Column,
-  MenuItem,
-  Table,
-} from 'react-rainbow-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 const AdminMember = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>([]);

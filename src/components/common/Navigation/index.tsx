@@ -13,9 +13,10 @@ import {
 } from './styled';
 import GDSCLogoClear from '../../../img/GDSCLogoClear.png';
 import WideNavCategory from './WideNavCategory';
-import ShortNavCategory from './ShortNavCategory';
 import { useLocation } from 'react-router';
 import './Navigation.css';
+import ShortNavCategory from './MobileMenu';
+import MobileMenu from './MobileMenu';
 
 const Navigation: React.FC = () => {
   const locaton = useLocation();
@@ -40,7 +41,7 @@ const Navigation: React.FC = () => {
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
-        <ShortNavCategory />
+        <MobileMenu />
         <WideNavCategory routeStyle={routeStyle} />
       </NavInner>
     </NavDesign>

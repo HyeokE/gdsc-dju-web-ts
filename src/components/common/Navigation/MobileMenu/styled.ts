@@ -1,37 +1,12 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Menu = styled.div`
-  top: 0px;
-  position: fixed;
+export const MobileNavBackGround = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
   background: #fff;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  z-index: 99;
-`;
-export const MenuInner = styled.div`
-  top: 70px;
-  position: fixed;
-  background: #fff;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const MenuWrapper = styled.div`
-  transition-timing-function: ease;
-  display: flex;
-  align-items: center;
-  padding: 3px 20px;
-  font-size: 15px;
-  :hover {
-    background: #f2f4f6;
-    cursor: pointer;
-  }
-`;
-export const CategoryLine = styled.div`
-  background: #f5f5f5;
-  height: 1px;
-  width: 100%;
-  opacity: 50;
+  z-index: 998;
 `;
