@@ -9,4 +9,8 @@ export const MobileNavBackGround = styled(motion.div)`
   width: 250px;
   background: #fff;
   z-index: 998;
+  border-style: solid;
+  border-width: 0px;
+  border-left-width: 1px;
+  border-color: ${(props) => props.theme.color.brColor};
 `;
