@@ -15,6 +15,7 @@ import MenuToggleIcon from '../../MenuToggleIcon';
 import { motion, useCycle } from 'framer-motion';
 import { sidebar } from '../../Variants/NavigationAnimation';
 import { MobileNavBackGround } from './styled';
+import { navigationDataType } from '../../../../api/types';
 
 const MobileMenu = () => {
   const [menu, setMenu] = useRecoilState(menuState);

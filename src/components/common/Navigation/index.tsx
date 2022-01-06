@@ -17,9 +17,28 @@ import { useLocation } from 'react-router';
 import './Navigation.css';
 import ShortNavCategory from './MobileMenu';
 import MobileMenu from './MobileMenu';
-
-const Navigation: React.FC = () => {
+import { navigationDataType } from '../../../api/types';
+export const navigationData = [
+  {
+    route: '/introduce',
+    title: '소개',
+  },
+  {
+    route: '/joinus',
+    title: '지원하기',
+  },
+  {
+    route: '/conduct',
+    title: 'Code of Conduct',
+  },
+  {
+    route: '/faq',
+    title: '자주 하는 질문',
+  },
+];
+export const Navigation: React.FC = () => {
   const locaton = useLocation();
+
   const [routeStyle, setRoutStyle] = useState<string>('/');
   useEffect(() => {
     setRoutStyle(locaton.pathname);
@@ -42,7 +61,10 @@ const Navigation: React.FC = () => {
           </NavTask>
         </NavTaskWrapper>
         <MobileMenu />
-        <WideNavCategory routeStyle={routeStyle} />
+        <WideNavCategory
+          routeStyle={routeStyle}
+          navigationData={navigationData}
+        />
       </NavInner>
     </NavDesign>
   );

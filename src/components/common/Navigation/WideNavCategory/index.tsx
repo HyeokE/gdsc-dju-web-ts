@@ -4,39 +4,21 @@ import { useLocation } from 'react-router';
 import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
 import { useNavigate } from 'react-router-dom';
+import { navigationData } from '../index';
 
 const WideNavCategory = ({ routeStyle }: any) => {
-  const routeData = [
-    {
-      route: '/introduce',
-      title: '소개',
-    },
-    {
-      route: '/joinus',
-      title: '지원하기',
-    },
-    {
-      route: '/conduct',
-      title: 'code of conduct',
-    },
-    {
-      route: '/faq',
-      title: '자주 하는 질문',
-    },
-  ];
-
   const navigate = useNavigate();
   return (
     <>
       <WideNavigation>
         <NavTaskWrapper>
-          {routeData.map((data, id) => (
-            <NavTask>
+          {navigationData.map((data, id) => (
+            <NavTask key={id}>
               <StyledLink
                 onClick={() => {
                   navigate(data.route);
                 }}
-                className={routeStyle == data.title ? 'active' : 'noneActive'}
+                className={routeStyle == data.route ? 'active' : 'noneActive'}
               >
                 {data.title}
               </StyledLink>
