@@ -7,9 +7,6 @@ import { alertState } from '../../store/alert';
 import Navigation from '../common/navigation/DeskNavigation';
 import { Footer } from '../common/Footer';
 import MobileMenu from '../common/navigation/MobileMenu';
-import MobileMenuCategory from '../common/navigation/MobileMenuCategory';
-import { MobileNavBackGround } from '../common/navigation/MobileMenu/styled';
-import { sidebar } from '../common/Variants/NavigationAnimation';
 import { menuState } from '../../store/menu';
 import { ShortNavigation } from '../common/navigation/DeskNavigation/styled';
 
