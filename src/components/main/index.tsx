@@ -34,8 +34,8 @@ export const Main = () => {
 
   return (
     <>
-      {navHandler ? <Navigation /> : null}
       <MobileMenu />
+      {navHandler ? <Navigation /> : null}
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
       <Routes>

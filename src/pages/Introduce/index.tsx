@@ -30,9 +30,9 @@ import {
 } from '../../components/common/Variants/Variants';
 import { Banner } from '../../img/Banner/Banner';
 import YellowBanner from '../../img/Banner/YellowBanner.png';
-import { introduceText, workWhenCome } from '../../api/introduceText';
+import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
 import { motion } from 'framer-motion';
-import { memberList } from '../../api/MemberList';
+import { memberList } from '../../api/pageData/MemberList';
 
 export const Introduce = () => {
   const [selectedMember, setSelectedMember] = useState<number>(0);

@@ -9,7 +9,7 @@ import {
   LayoutContainer,
   TopMargin,
 } from '../../../styles/layouts';
-import { Faq } from '../../../api/faq';
+import { Faq } from '../../../api/pageData/faq';
 import { Banner } from '../../../img/Banner/Banner';
 
 const FaqDetail = () => {

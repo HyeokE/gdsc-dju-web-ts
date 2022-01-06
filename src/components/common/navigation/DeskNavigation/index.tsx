@@ -15,9 +15,8 @@ import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
 import WideNavCategory from '../WideNavCategory';
 import { useLocation } from 'react-router';
 import './Navigation.css';
-import ShortNavCategory from '../MobileMenu';
-import MobileMenu from '../MobileMenu';
-import { navigationDataType } from '../../../../api/types';
+import MenuToggleIcon from '../../MenuToggleIcon';
+
 export const navigationData = [
   {
     route: '/introduce',
@@ -60,7 +59,7 @@ export const Navigation: React.FC = () => {
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
-        <MobileMenu />
+        <MenuToggleIcon />
         <WideNavCategory
           routeStyle={routeStyle}
           navigationData={navigationData}

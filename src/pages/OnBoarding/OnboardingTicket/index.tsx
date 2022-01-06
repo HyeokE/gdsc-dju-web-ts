@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import BoardingPass from '../../../components/common/BoardingPass';
 import {
@@ -12,7 +12,6 @@ import {
   BoardingTicketLogoText,
   BoardingTicketLogoWrapper,
   BoardingTicketSubTitle,
-  BoardingTicketTitle,
   BoardingTicketWrapper,
   ElementJustifyCenter,
   TicketSaveButton,
@@ -21,8 +20,6 @@ import Logo from '../../../img/GDSC Logo Clear.png';
 import html2canvas from 'html2canvas';
 import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';
-import MobileBlock from '../../../components/common/MobileBlock';
-import OnBoarding from '../index';
 import { OnboardingTitle } from '../OnBoardingHome/styled';
 
 const OnboardingTicket = () => {

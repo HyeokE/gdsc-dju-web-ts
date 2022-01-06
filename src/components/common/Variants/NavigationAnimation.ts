@@ -10,6 +10,7 @@ export const navigationAnimate = {
 export const navigationItemAnimate = {
   open: {
     y: 0,
+    display: '',
     opacity: 1,
     transition: {
       y: { stiffness: 1000, velocity: -100 },
@@ -19,6 +20,7 @@ export const navigationItemAnimate = {
     y: 50,
     opacity: 0,
     transition: {
+      duration: 1,
       y: { stiffness: 1000 },
     },
   },

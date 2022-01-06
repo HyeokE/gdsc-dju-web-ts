@@ -9,11 +9,10 @@ import {
   navigationAnimate,
   navigationItemAnimate,
 } from '../../Variants/NavigationAnimation';
-import { navigationData } from '..';
+import { navigationData } from '../DeskNavigation';
 
 const MobileMenuCategory = () => {
   const navigate = useNavigate();
-
   const [menu, setMenu] = useRecoilState(menuState);
 
   return (
