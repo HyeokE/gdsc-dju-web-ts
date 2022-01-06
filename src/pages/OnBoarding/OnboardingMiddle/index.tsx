@@ -31,7 +31,7 @@ import {
   OnboardingTitle,
   OnboardingTitleWrapper,
 } from '../OnBoardingHome/styled';
-import { onBoardingData } from '../../../api/onBoarding';
+import { onBoardingData } from '../../../api/pageData/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
@@ -39,7 +39,7 @@ import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { MemberNicknameData } from '../../../api/MemberList';
+import { MemberNicknameData } from '../../../api/pageData/MemberList';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();

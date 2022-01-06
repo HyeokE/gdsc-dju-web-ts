@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   onboardingAnimate,
   pageAnimate,
@@ -26,8 +26,6 @@ import '../Onboarding.css';
 import Logo from '../../../img/GDSC Logo Clear.png';
 import Plane from '../../../img/onBoardingImg/plane-blue.svg';
 import { useNavigate } from 'react-router-dom';
-import MobileBlock from '../../../components/common/MobileBlock';
-import { dbService } from '../../../firebase/firebase';
 
 const OnboardingHome = () => {
   const navigate = useNavigate();

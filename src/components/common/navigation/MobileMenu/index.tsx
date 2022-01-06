@@ -1,18 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import {
-  NavTask,
-  NavTaskWrapper,
-  StyledLink,
-  NavIconWrapper,
-  ShortNavigation,
-  NavigationWapper,
-} from '../styled';
+import React, { useRef } from 'react';
+import { ShortNavigation } from '../DeskNavigation/styled';
 import { useRecoilState } from 'recoil';
-import { MENU_KEY, menuState } from '../../../../store/menu';
+import { menuState } from '../../../../store/menu';
 import MobileMenuCategory from '../MobileMenuCategory';
-import MenuToggleIcon from '../../MenuToggleIcon';
-import { motion, useCycle } from 'framer-motion';
 import { sidebar } from '../../Variants/NavigationAnimation';
 import { MobileNavBackGround } from './styled';
 
@@ -27,9 +17,9 @@ const MobileMenu = () => {
       custom={height}
       ref={containerRef}
     >
-      <MobileMenuCategory />
-      <MobileNavBackGround variants={sidebar} />
-      <MenuToggleIcon />
+      <MobileNavBackGround variants={sidebar}>
+        <MobileMenuCategory />
+      </MobileNavBackGround>
     </ShortNavigation>
   );
 };

@@ -22,9 +22,9 @@ import {
   MoblieTopElementWrapper,
   SectionWrapper,
 } from './styled';
-import { teamRecruitmentDefaultText } from '../../api/teamRecruitmentDefaultText';
+import { teamRecruitmentDefaultText } from '../../api/pageData/teamRecruitmentDefaultText';
 import { StyledButton } from '../../components/common/Button/styled';
-import { TeamInfomation } from '../../api/teamInfomation';
+import { TeamInfomation } from '../../api/pageData/teamInfomation';
 import { Banner } from '../../img/Banner/Banner';
 import BlueBanner from '../../img/Banner/BlueBanner.png';
 

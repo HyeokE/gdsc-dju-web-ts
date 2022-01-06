@@ -4,10 +4,11 @@ import { Pages } from '../../pages';
 import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
-import Navigation from '../common/Navigation';
+import Navigation from '../common/navigation/DeskNavigation';
 import { Footer } from '../common/Footer';
-import MobileMenu from '../common/Navigation/MobileMenu';
+import MobileMenu from '../common/navigation/MobileMenu';
 import { menuState } from '../../store/menu';
+import { ShortNavigation } from '../common/navigation/DeskNavigation/styled';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
@@ -30,8 +31,8 @@ export const Main = () => {
 
   return (
     <>
-      {navHandler ? <Navigation /> : null}
       <MobileMenu />
+      {navHandler ? <Navigation /> : null}
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
       <Routes>

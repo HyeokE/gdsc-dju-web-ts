@@ -12,7 +12,7 @@ import {
 } from '../../styles/layouts';
 
 import { QuestionMark, QuestionWrapper } from './styled';
-import { Faq } from '../../api/faq';
+import { Faq } from '../../api/pageData/faq';
 import { useNavigate } from 'react-router-dom';
 import { QuestionCategoryAnimate } from '../../components/common/Variants/Variants';
 

@@ -62,11 +62,11 @@ export const NavigationWapper = styled.div`
   position: sticky;
 `;
 export const ShortNavigation = styled(motion.nav)`
-  position: absolute;
+  position: sticky;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 300px;
+  z-index: 999;
   @media (min-width: 560px) {
     display: none;
   }

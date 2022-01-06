@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledLink } from '../styled';
+import { StyledLink } from '../DeskNavigation/styled';
 import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
 import { CategoryLine, Menu, MenuInner, MenuWrapper } from './styled';
@@ -9,43 +9,24 @@ import {
   navigationAnimate,
   navigationItemAnimate,
 } from '../../Variants/NavigationAnimation';
-import { listAnimate, listItemAnimate } from '../../Variants/Variants';
+import { navigationData } from '../DeskNavigation';
 
 const MobileMenuCategory = () => {
   const navigate = useNavigate();
-
-  const mobileNavItems = [
-    {
-      route: '/introduce',
-      title: '소개',
-    },
-    {
-      route: '/joinus',
-      title: '지원하기',
-    },
-    {
-      route: '/conduct',
-      title: 'Code of Conduct',
-    },
-    {
-      route: '/faq',
-      title: '자주하는 질문',
-    },
-  ];
   const [menu, setMenu] = useRecoilState(menuState);
 
   return (
     <MenuInner variants={navigationAnimate}>
-      {mobileNavItems.map((item, id) => (
+      {navigationData.map((data, id) => (
         <MenuWrapper
           variants={navigationItemAnimate}
           key={id}
           onClick={() => {
-            navigate(item.route);
+            navigate(data.route);
             setMenu({ ...menu, [MENU_KEY.APPMENU]: false });
           }}
         >
-          <StyledLink>{item.title}</StyledLink>
+          <StyledLink>{data.title}</StyledLink>
           <CategoryLine />
         </MenuWrapper>
       ))}

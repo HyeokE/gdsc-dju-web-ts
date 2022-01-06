@@ -18,7 +18,7 @@ import {
   TeamCategoryWrapper,
   TeamSubCategory,
 } from './styled';
-import { TeamList } from '../../api/teamList';
+import { TeamList } from '../../api/pageData/teamList';
 import { useNavigate } from 'react-router';
 import { Banner } from '../../img/Banner/Banner';
 
