@@ -6,61 +6,43 @@ import { MENU_KEY, menuState } from '../../../../store/menu';
 import { useNavigate } from 'react-router-dom';
 
 const WideNavCategory = ({ routeStyle }: any) => {
+  const routeData = [
+    {
+      route: '/introduce',
+      title: '소개',
+    },
+    {
+      route: '/joinus',
+      title: '지원하기',
+    },
+    {
+      route: '/conduct',
+      title: 'code of conduct',
+    },
+    {
+      route: '/faq',
+      title: '자주 하는 질문',
+    },
+  ];
+
   const navigate = useNavigate();
   return (
     <>
       <WideNavigation>
         <NavTaskWrapper>
-          <NavTask>
-            <StyledLink
-              onClick={() => {
-                navigate('/introduce');
-              }}
-              className={routeStyle == '/introduce' ? 'active' : 'noneActive'}
-            >
-              소개
-            </StyledLink>
-          </NavTask>
-          <NavTask>
-            <StyledLink
-              onClick={() => {
-                navigate('/joinus');
-              }}
-              className={routeStyle == '/joinus' ? 'active' : 'noneActive'}
-            >
-              지원하기
-            </StyledLink>
-          </NavTask>
-          <NavTask>
-            <StyledLink
-              onClick={() => {
-                navigate('/conduct');
-              }}
-              className={routeStyle == '/conduct' ? 'active' : 'noneActive'}
-            >
-              Code of Conduct
-            </StyledLink>
-          </NavTask>
-          <NavTask>
-            <StyledLink
-              onClick={() => {
-                navigate('/faq');
-              }}
-              className={routeStyle == '/faq' ? 'active' : 'noneActive'}
-            >
-              자주하는 질문
-            </StyledLink>
-          </NavTask>
+          {routeData.map((data, id) => (
+            <NavTask>
+              <StyledLink
+                onClick={() => {
+                  navigate(data.route);
+                }}
+                className={routeStyle == data.title ? 'active' : 'noneActive'}
+              >
+                {data.title}
+              </StyledLink>
+            </NavTask>
+          ))}
         </NavTaskWrapper>
-        {/*<NavTaskWrapper>*/}
-        {/*  {status.loggedIn ? (*/}
-        {/*    <NavTask>Hello {userData.nickname}</NavTask>*/}
-        {/*  ) : (*/}
-        {/*    <NavTask>*/}
-        {/*      <StyledLink to={'/signin'}>로그인</StyledLink>*/}
-        {/*    </NavTask>*/}
-        {/*  )}*/}
-        {/*</NavTaskWrapper>*/}
       </WideNavigation>
     </>
   );
