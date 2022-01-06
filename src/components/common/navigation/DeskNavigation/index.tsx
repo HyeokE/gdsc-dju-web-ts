@@ -11,13 +11,13 @@ import {
   StyledLogo,
   StyledLogoWrapper,
 } from './styled';
-import GDSCLogoClear from '../../../img/GDSCLogoClear.png';
-import WideNavCategory from './WideNavCategory';
+import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
+import WideNavCategory from '../WideNavCategory';
 import { useLocation } from 'react-router';
 import './Navigation.css';
-import ShortNavCategory from './MobileMenu';
-import MobileMenu from './MobileMenu';
-import { navigationDataType } from '../../../api/types';
+import ShortNavCategory from '../MobileMenu';
+import MobileMenu from '../MobileMenu';
+import { navigationDataType } from '../../../../api/types';
 export const navigationData = [
   {
     route: '/introduce',

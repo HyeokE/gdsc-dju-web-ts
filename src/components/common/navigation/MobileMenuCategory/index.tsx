@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledLink } from '../styled';
+import { StyledLink } from '../DeskNavigation/styled';
 import { useRecoilState } from 'recoil';
 import { MENU_KEY, menuState } from '../../../../store/menu';
 import { CategoryLine, Menu, MenuInner, MenuWrapper } from './styled';

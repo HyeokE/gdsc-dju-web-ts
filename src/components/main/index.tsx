@@ -4,14 +4,14 @@ import { Pages } from '../../pages';
 import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
-import Navigation from '../common/Navigation';
+import Navigation from '../common/navigation/DeskNavigation';
 import { Footer } from '../common/Footer';
-import MobileMenu from '../common/Navigation/MobileMenu';
-import MobileMenuCategory from '../common/Navigation/MobileMenuCategory';
-import { MobileNavBackGround } from '../common/Navigation/MobileMenu/styled';
+import MobileMenu from '../common/navigation/MobileMenu';
+import MobileMenuCategory from '../common/navigation/MobileMenuCategory';
+import { MobileNavBackGround } from '../common/navigation/MobileMenu/styled';
 import { sidebar } from '../common/Variants/NavigationAnimation';
 import { menuState } from '../../store/menu';
-import { ShortNavigation } from '../common/Navigation/styled';
+import { ShortNavigation } from '../common/navigation/DeskNavigation/styled';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
