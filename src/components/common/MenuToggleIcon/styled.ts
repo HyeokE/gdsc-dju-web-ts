@@ -16,4 +16,7 @@ export const StyledMenuButton = styled(motion.button)`
   border-radius: 50%;
   background: transparent;
   z-index: 1000;
+  @media (min-width: 500px) {
+    display: none;
+  }
 `;
