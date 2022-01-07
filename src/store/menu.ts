@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 const MENU = 'menu';
 
 export const MENU_KEY = {
-  APPMENU: 'menu',
+  APPMENU: 'appMenu',
   NAV: 'nav',
   FOOTER: 'footer',
 };

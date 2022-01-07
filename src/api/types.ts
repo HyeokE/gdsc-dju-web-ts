@@ -46,3 +46,4 @@ export type onBoardingMember = {
   major: string;
   interest: string;
 };
+export type navigationDataType = { route: string; title: string }[];

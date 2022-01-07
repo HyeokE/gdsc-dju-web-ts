@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Route, Routes } from 'react-router';
 import { Pages } from '../../pages';
 import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
-import Navigation from '../common/Navigation';
-import MoblieMenu from '../common/Navigation/MobileMenu';
+import Navigation from '../common/navigation/DeskNavigation';
 import { Footer } from '../common/Footer';
+import MobileMenu from '../common/navigation/MobileMenu';
+import { menuState } from '../../store/menu';
+import { ShortNavigation } from '../common/navigation/DeskNavigation/styled';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
@@ -24,11 +26,13 @@ export const Main = () => {
   useEffect(() => {
     hideNavigation();
   }, []);
+  const [menu, setMenu] = useRecoilState(menuState);
+  const containerRef = useRef(null);
 
   return (
     <>
+      <MobileMenu />
       {navHandler ? <Navigation /> : null}
-      <MoblieMenu />
       {alert.alertHandle && <Alert />}
       {/*<Alert />*/}
       <Routes>

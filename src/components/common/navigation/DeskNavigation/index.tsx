@@ -11,14 +11,33 @@ import {
   StyledLogo,
   StyledLogoWrapper,
 } from './styled';
-import GDSCLogoClear from '../../../img/GDSCLogoClear.png';
-import WideNavCategory from './WideNavCategory';
-import ShortNavCategory from './ShortNavCategory';
+import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
+import WideNavCategory from '../WideNavCategory';
 import { useLocation } from 'react-router';
 import './Navigation.css';
+import MenuToggleIcon from '../../MenuToggleIcon';
 
-const Navigation: React.FC = () => {
+export const navigationData = [
+  {
+    route: '/introduce',
+    title: '소개',
+  },
+  {
+    route: '/joinus',
+    title: '지원하기',
+  },
+  {
+    route: '/conduct',
+    title: 'Code of Conduct',
+  },
+  {
+    route: '/faq',
+    title: '자주 하는 질문',
+  },
+];
+export const Navigation: React.FC = () => {
   const locaton = useLocation();
+
   const [routeStyle, setRoutStyle] = useState<string>('/');
   useEffect(() => {
     setRoutStyle(locaton.pathname);
@@ -40,8 +59,11 @@ const Navigation: React.FC = () => {
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
-        <ShortNavCategory />
-        <WideNavCategory routeStyle={routeStyle} />
+        <MenuToggleIcon />
+        <WideNavCategory
+          routeStyle={routeStyle}
+          navigationData={navigationData}
+        />
       </NavInner>
     </NavDesign>
   );

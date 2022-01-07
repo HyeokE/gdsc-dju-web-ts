@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const NavDesign = styled.div`
   position: sticky;
@@ -57,14 +58,21 @@ export const WideNavigation = styled.div`
     display: none;
   }
 `;
-export const ShortNavigation = styled.div`
-  z-index: 99;
+export const NavigationWapper = styled.div`
+  position: sticky;
+`;
+export const ShortNavigation = styled(motion.nav)`
+  position: sticky;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
   @media (min-width: 560px) {
     display: none;
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(motion.div)`
   text-decoration: none;
   list-style: none;
   display: flex;

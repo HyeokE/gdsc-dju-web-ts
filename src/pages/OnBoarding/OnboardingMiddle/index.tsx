@@ -31,7 +31,7 @@ import {
   OnboardingTitle,
   OnboardingTitleWrapper,
 } from '../OnBoardingHome/styled';
-import { onBoardingData } from '../../../api/onBoarding';
+import { onBoardingData } from '../../../api/pageData/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';

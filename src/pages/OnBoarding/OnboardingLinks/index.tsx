@@ -29,8 +29,6 @@ import {
   OnboardingLinkBoxWrapper,
   OnboardingLinkElementWrapper,
 } from './styled';
-import MobileBlock from '../../../components/common/MobileBlock';
-import { dbService } from '../../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import Api from '../../../api/index';
