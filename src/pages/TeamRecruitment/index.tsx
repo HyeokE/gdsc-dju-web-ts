@@ -170,7 +170,7 @@ export const Recruitment: React.FC = () => {
                 </StyledButton>
                 <StyledButton
                   onClick={() => {
-                    navigate('/question');
+                    navigate('/faq');
                   }}
                 >
                   자주 하는 질문
@@ -182,7 +182,7 @@ export const Recruitment: React.FC = () => {
           <MoblieBottomElementWrapper>
             <StyledButton
               onClick={() => {
-                navigate('/question');
+                navigate('/faq');
               }}
             >
               자주 하는 질문

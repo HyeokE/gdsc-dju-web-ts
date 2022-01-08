@@ -26,5 +26,8 @@ export class GDSCApi {
       payload,
     );
   };
+  SignIn = (payload: onBoardingMember) => {
+    return axios.post<onBoardingMember>(`${this.API}/join`, payload);
+  };
 }
 export default new GDSCApi();
