@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
+import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
+
+import { useLocation } from 'react-router';
+import './Navigation.css';
+import MenuToggleIcon from '../../MenuToggleIcon';
 import {
   NavDesign,
   NavInner,
   NavTask,
-  NavTaskWrapper,
-  SchoolName,
-  SchoolNameUni,
   StyledImg,
   StyledLogo,
+  SchoolName,
+  NavTaskWrapper,
+  SchoolNameUni,
   StyledLogoWrapper,
 } from './styled';
-import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
 import WideNavCategory from '../WideNavCategory';
-import { useLocation } from 'react-router';
-import './Navigation.css';
-import MenuToggleIcon from '../../MenuToggleIcon';
 
 export const navigationData = [
   {

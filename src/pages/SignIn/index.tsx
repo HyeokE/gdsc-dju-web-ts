@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ContainerInner, LayoutContainer } from '../../styles/layouts';
 
 export const SignIn = () => {
-  return <div>SignIn</div>;
+  return (
+    <LayoutContainer>
+      <ContainerInner></ContainerInner>
+    </LayoutContainer>
+  );
 };

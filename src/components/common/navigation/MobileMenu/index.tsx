@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
-import { ShortNavigation } from '../DeskNavigation/styled';
+
 import { useRecoilState } from 'recoil';
 import { menuState } from '../../../../store/menu';
-import MobileMenuCategory from '../MobileMenuCategory';
+
 import { sidebar } from '../../Variants/NavigationAnimation';
+import { ShortNavigation } from '../DeskNavigation/styled';
+import MobileMenuCategory from '../MobileMenuCategory';
 import { MobileNavBackGround } from './styled';
 
 const MobileMenu = () => {
