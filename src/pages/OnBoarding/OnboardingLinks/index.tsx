@@ -54,20 +54,6 @@ const OnBoardingLinks = () => {
     },
   ];
 
-  // const uploadMembers = async () => {
-  //   try {
-  //     await dbService.collection('onoboardingMembers').doc().set({
-  //       nickName: member.nickname,
-  //       major: member.major,
-  //       email: member.email,
-  //       interest: member.interest,
-  //       uploadDate: Date.now(),
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-  console.log(member);
   const uploadMembers = async () => {
     try {
       await Api.postOnboardingMembers(member);
