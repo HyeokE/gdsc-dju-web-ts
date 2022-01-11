@@ -44,6 +44,7 @@ import Gdscqr from '../../../img/onBoardingImg/GDSCQR';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import DottedLine from '../../../img/DottedLine';
+import { getCurrentDate } from '../../../store/hooks/getCurrentDate';
 
 const BoardingPass = () => {
   const [onboardingUser] = useRecoilState(onboardingUserState);
@@ -87,7 +88,7 @@ const BoardingPass = () => {
                 <BoardingPassBoardingTimeWrapper>
                   <BoardingPassCategory>Boarding Time</BoardingPassCategory>
                   <BoardingPassCategoryText>
-                    2021. 1. 13
+                    {getCurrentDate()}
                   </BoardingPassCategoryText>
                 </BoardingPassBoardingTimeWrapper>
                 <BoardingPassArrivalTimeWrapper>

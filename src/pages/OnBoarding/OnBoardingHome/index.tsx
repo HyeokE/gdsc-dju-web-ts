@@ -26,6 +26,7 @@ import '../Onboarding.css';
 import Logo from '../../../img/GDSC Logo Clear.png';
 import Plane from '../../../img/onBoardingImg/plane-blue.svg';
 import { useNavigate } from 'react-router-dom';
+import { getCurrentDate } from '../../../store/hooks/getCurrentDate';
 
 const OnboardingHome = () => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const OnboardingHome = () => {
             </OnboardingDetailWrapper>
             <OnboardingDetailWrapper>
               <OnboardingDetailTitle>Boarding Time</OnboardingDetailTitle>
-              <OnboardingDetailText>2021.01.13</OnboardingDetailText>
+              <OnboardingDetailText>{getCurrentDate()}</OnboardingDetailText>
             </OnboardingDetailWrapper>
             <OnboardingDetailWrapper>
               <OnboardingDetailTitle>Arrival Time</OnboardingDetailTitle>
