@@ -12,7 +12,6 @@ import Human2 from '../../../img/onBoardingImg/human-green.svg';
 import Human3 from '../../../img/onBoardingImg/human-blue.svg';
 import Human4 from '../../../img/onBoardingImg/human-yellow.svg';
 import {
-  StyledErrorMessage,
   ErrorMessageWrapper,
   OnboardingBackArrow,
   OnboardingBackText,
@@ -25,6 +24,7 @@ import {
   OnboardingMiddleButton,
   OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
+  StyledErrorMessage,
 } from './styled';
 import './OnboardingMiddle.css';
 import {
@@ -39,9 +39,8 @@ import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { MemberNicknameData } from '../../../api/pageData/MemberList';
-import { useGetMemberNickname } from '../../../api/hooks/useGetMemberData';
-import Api from '../../../api/index';
+import { dbService } from '../../../firebase/firebase';
+import { UserDataState } from '../../../api/types';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -51,10 +50,31 @@ const OnboardingMiddle = () => {
   const [userData, setUserData] = useRecoilState(onboardingUserState);
   const [formikInput, setFormikInput] = useState<any>();
   const [button, setButton] = useState<boolean>(false);
+  const [memberList, setMemberList] = useState<UserDataState[]>([]);
+  // const { data } = useGetMemberNickname();
+  // const nicknameList = data?.map((a) => a.nickname);
 
-  const { data } = useGetMemberNickname();
+  const getMemberList = async () => {
+    await dbService
+      .collection('members')
+      .get()
+      .then((data) => {
+        const memberList: any = data.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setMemberList(memberList);
+      });
+  };
 
-  const nicknameList = data?.map((a) => a.nickname);
+  useEffect(() => {
+    buttonHandler();
+  });
+  useEffect(() => {
+    getMemberList();
+  }, []);
+  const allNicknameList = memberList.map((data) => data.nickName);
+  const allEmailList = memberList.map((data) => data.email);
 
   const formik = useFormik({
     initialValues: {
@@ -74,12 +94,16 @@ const OnboardingMiddle = () => {
           /^[A-Z0-9._%+-]+@[gmail]+\.[A-Z]{3}$/i,
           'gmail.com형식으로 작성해주세요',
         )
+        .notOneOf(allEmailList ? allEmailList : [], '중복된 이메일입니다.')
         .required('필수입력란입니다.'),
       nickname: Yup.string()
         .min(3, '3글자이상 작성해주세요')
         .max(15, '2~15사이의 길이로 입력해주세요')
         .matches(/^[A-Z]/, '대문자로 시작해야합니다.')
-        .notOneOf(nicknameList ? nicknameList : [], '중복된 닉네임입니다.')
+        .notOneOf(
+          allNicknameList ? allNicknameList : [],
+          '중복된 닉네임입니다.',
+        )
         .required('필수입력란입니다.'),
       major: Yup.string()
         .min(3, '3글자 이상 작성해주세요')
@@ -148,10 +172,6 @@ const OnboardingMiddle = () => {
       });
     }
   };
-
-  useEffect(() => {
-    buttonHandler();
-  });
 
   return (
     <OnboardingContainerWrapper>

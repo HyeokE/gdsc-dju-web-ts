@@ -32,6 +32,7 @@ import {
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import Api from '../../../api/index';
+import { dbService } from '../../../firebase/firebase';
 
 export interface IProps {
   id: string;
@@ -50,17 +51,30 @@ const OnBoardingLinks = () => {
     { id: 'discord', link: 'https://discord.gg/FjrCbjpKt3' },
     {
       id: 'notion',
-      link: 'https://www.notion.so/Ice-Breaking-Manual-da55214857db442ca945a574f02152dc',
+      link: 'https://www.notion.so/invite/e58f15389c5542412d73f05d0ffd38fe58f90e35',
     },
   ];
-
   const uploadMembers = async () => {
     try {
-      await Api.postOnboardingMembers(member);
+      await dbService.collection('members').doc().set({
+        nickName: member.nickname,
+        major: member.major,
+        email: member.email,
+        interest: member.interest,
+        uploadDate: Date.now(),
+      });
     } catch (e) {
       console.log(e);
     }
   };
+
+  // const uploadMembers = async () => {
+  //   try {
+  //     await Api.postOnboardingMembers(member);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
   return (
     <OnboardingContainerWrapper>
       {/*<MobileBlock />*/}
