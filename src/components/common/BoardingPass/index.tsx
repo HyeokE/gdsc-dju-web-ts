@@ -134,7 +134,7 @@ const BoardingPass = () => {
               <BoardingTicketElementWrapper>
                 <BoardingTicketCategory>Boarding Time</BoardingTicketCategory>
                 <BoardingTicketCategoryText>
-                  2021. 1. 13
+                  {getCurrentDate()}
                 </BoardingTicketCategoryText>
               </BoardingTicketElementWrapper>
               <BoardingTicketElementWrapper>
