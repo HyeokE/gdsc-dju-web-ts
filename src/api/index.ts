@@ -6,8 +6,7 @@ import { OnboardingUserState } from '../store/onboardingUser';
 export class GDSCApi {
   private API: string;
   constructor() {
-    this.API =
-      'http://ec2-15-165-170-84.ap-northeast-2.compute.amazonaws.com:8080';
+    this.API = 'https://gdscwebdaejinfree.gq';
   }
   getMemberList = () => {
     return axios.get<typeof OnboardingUserState>(
