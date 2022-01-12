@@ -39,10 +39,8 @@ import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { dbService } from '../../../firebase/firebase';
 import { UserDataState } from '../../../api/types';
 import { useGetMemberNickname } from '../../../api/hooks/useGetMemberData';
-import Api from '../../../api';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -53,18 +51,9 @@ const OnboardingMiddle = () => {
   const [formikInput, setFormikInput] = useState<any>();
   const [button, setButton] = useState<boolean>(false);
   const [memberList, setMemberList] = useState<UserDataState[]>([]);
-  const [member, setMember] = useRecoilState(onboardingUserState);
 
   const { data } = useGetMemberNickname();
   const nicknameList = data?.map((a) => a.nickname);
-
-  const uploadMembers = async () => {
-    try {
-      await Api.postOnboardingMembers(member);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   useEffect(() => {
     buttonHandler();
@@ -224,9 +213,7 @@ const OnboardingMiddle = () => {
                       onClick={() => {
                         setFormik();
                         onApply();
-                        {
-                          pageData?.id == 'interest' && uploadMembers();
-                        }
+
                         navigate('/onboarding/' + pageData.next);
                       }}
                     >

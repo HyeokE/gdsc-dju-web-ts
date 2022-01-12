@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   onboardingAnimate,
   pageAnimate,
@@ -32,7 +32,6 @@ import {
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import Api from '../../../api/index';
-import { dbService } from '../../../firebase/firebase';
 
 export interface IProps {
   id: string;
@@ -41,6 +40,14 @@ export interface IProps {
 
 const OnBoardingLinks = () => {
   const navigate = useNavigate();
+  const [member, setMember] = useRecoilState(onboardingUserState);
+  const uploadMembers = async () => {
+    try {
+      await Api.postOnboardingMembers(member);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const link: IProps[] = [
     {
@@ -113,6 +120,12 @@ const OnBoardingLinks = () => {
               variants={onboardingAnimate}
               onClick={() => {
                 navigate('/onboarding/ticket');
+                {
+                  member.email.length > 2 &&
+                    member.nickname.length > 2 &&
+                    member.major.length > 2 &&
+                    uploadMembers();
+                }
               }}
               style={{
                 marginTop: '0px',
