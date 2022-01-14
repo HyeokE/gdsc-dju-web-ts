@@ -122,7 +122,7 @@ const OnBoardingLinks = () => {
                 navigate('/onboarding/ticket');
                 {
                   member.email.length > 2 &&
-                    member.nickname.length > 2 &&
+                    member.interest.length > 2 &&
                     member.major.length > 2 &&
                     uploadMembers();
                 }

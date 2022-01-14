@@ -50,7 +50,6 @@ const OnboardingMiddle = () => {
   const [userData, setUserData] = useRecoilState(onboardingUserState);
   const [formikInput, setFormikInput] = useState<any>();
   const [button, setButton] = useState<boolean>(false);
-  const [memberList, setMemberList] = useState<UserDataState[]>([]);
 
   const { data } = useGetMemberNickname();
   const nicknameList = data?.map((a) => a.nickname);
@@ -76,7 +75,6 @@ const OnboardingMiddle = () => {
           /^[A-Z0-9._%+-]+@[gmail]+\.[A-Z]{3}$/i,
           'gmail.com형식으로 작성해주세요',
         )
-        // .notOneOf(allEmailList ? allEmailList : [], '중복된 이메일입니다.')
         .required('필수입력란입니다.'),
       nickname: Yup.string()
         .min(3, '3글자이상 작성해주세요')
@@ -114,16 +112,16 @@ const OnboardingMiddle = () => {
     }
   };
   //set formik values
-  const setFormik = () => {
+  const setFormik = async () => {
     const id = pageData?.id;
     if (id === 'email') {
-      setFormikInput(formik.values.email);
+      await setFormikInput(formik.values.email);
     } else if (id === 'nickname') {
-      setFormikInput(formik.values.nickname);
+      await setFormikInput(formik.values.nickname);
     } else if (id === 'major') {
-      setFormikInput(formik.values.major);
+      await setFormikInput(formik.values.major);
     } else if (id === 'interest') {
-      setFormikInput(formik.values.interest);
+      await setFormikInput(formik.values.interest);
     }
   };
   //connect data in recoil
