@@ -21,8 +21,12 @@ import html2canvas from 'html2canvas';
 import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';
 import { OnboardingTitle } from '../OnBoardingHome/styled';
+import { useRecoilState } from 'recoil';
+import { onboardingUserState } from '../../../store/onboardingUser';
 
 const OnboardingTicket = () => {
+  const [userData, setUserData] = useRecoilState(onboardingUserState);
+
   const issueTicket = useRef<HTMLDivElement>(null);
   const SaveTicket = async () => {
     const element = issueTicket.current;
@@ -38,7 +42,7 @@ const OnboardingTicket = () => {
 
     if (typeof link.download === 'string') {
       link.href = data;
-      link.download = 'UserNameBoardingPass.jpg';
+      link.download = `${userData.nickname}BoardingPass.jpg`;
 
       document.body.appendChild(link);
       link.click();
