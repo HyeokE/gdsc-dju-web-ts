@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   onboardingAnimate,
   pageAnimate,
@@ -41,6 +41,13 @@ export interface IProps {
 const OnBoardingLinks = () => {
   const navigate = useNavigate();
   const [member, setMember] = useRecoilState(onboardingUserState);
+  const uploadMembers = async () => {
+    try {
+      await Api.postOnboardingMembers(member);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const link: IProps[] = [
     {
@@ -50,17 +57,23 @@ const OnBoardingLinks = () => {
     { id: 'discord', link: 'https://discord.gg/FjrCbjpKt3' },
     {
       id: 'notion',
-      link: 'https://www.notion.so/Ice-Breaking-Manual-da55214857db442ca945a574f02152dc',
+      link: 'https://www.notion.so/invite/e58f15389c5542412d73f05d0ffd38fe58f90e35',
     },
   ];
+  // const uploadMembers = async () => {
+  //   try {
+  //     await dbService.collection('members').doc().set({
+  //       nickName: member.nickname,
+  //       major: member.major,
+  //       email: member.email,
+  //       interest: member.interest,
+  //       uploadDate: Date.now(),
+  //     });
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
-  const uploadMembers = async () => {
-    try {
-      await Api.postOnboardingMembers(member);
-    } catch (e) {
-      console.log(e);
-    }
-  };
   return (
     <OnboardingContainerWrapper>
       {/*<MobileBlock />*/}
@@ -107,7 +120,12 @@ const OnBoardingLinks = () => {
               variants={onboardingAnimate}
               onClick={() => {
                 navigate('/onboarding/ticket');
-                uploadMembers();
+                {
+                  member.email.length > 2 &&
+                    member.interest.length > 2 &&
+                    member.major.length > 2 &&
+                    uploadMembers();
+                }
               }}
               style={{
                 marginTop: '0px',

@@ -12,7 +12,6 @@ import Human2 from '../../../img/onBoardingImg/human-green.svg';
 import Human3 from '../../../img/onBoardingImg/human-blue.svg';
 import Human4 from '../../../img/onBoardingImg/human-yellow.svg';
 import {
-  StyledErrorMessage,
   ErrorMessageWrapper,
   OnboardingBackArrow,
   OnboardingBackText,
@@ -25,6 +24,7 @@ import {
   OnboardingMiddleButton,
   OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
+  StyledErrorMessage,
 } from './styled';
 import './OnboardingMiddle.css';
 import {
@@ -39,9 +39,8 @@ import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { MemberNicknameData } from '../../../api/pageData/MemberList';
+import { UserDataState } from '../../../api/types';
 import { useGetMemberNickname } from '../../../api/hooks/useGetMemberData';
-import Api from '../../../api/index';
 
 const OnboardingMiddle = () => {
   const { id } = useParams();
@@ -53,9 +52,11 @@ const OnboardingMiddle = () => {
   const [button, setButton] = useState<boolean>(false);
 
   const { data } = useGetMemberNickname();
-
   const nicknameList = data?.map((a) => a.nickname);
 
+  useEffect(() => {
+    buttonHandler();
+  });
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -111,16 +112,16 @@ const OnboardingMiddle = () => {
     }
   };
   //set formik values
-  const setFormik = () => {
+  const setFormik = async () => {
     const id = pageData?.id;
     if (id === 'email') {
-      setFormikInput(formik.values.email);
+      await setFormikInput(formik.values.email);
     } else if (id === 'nickname') {
-      setFormikInput(formik.values.nickname);
+      await setFormikInput(formik.values.nickname);
     } else if (id === 'major') {
-      setFormikInput(formik.values.major);
+      await setFormikInput(formik.values.major);
     } else if (id === 'interest') {
-      setFormikInput(formik.values.interest);
+      await setFormikInput(formik.values.interest);
     }
   };
   //connect data in recoil
@@ -148,10 +149,6 @@ const OnboardingMiddle = () => {
       });
     }
   };
-
-  useEffect(() => {
-    buttonHandler();
-  });
 
   return (
     <OnboardingContainerWrapper>
@@ -214,6 +211,7 @@ const OnboardingMiddle = () => {
                       onClick={() => {
                         setFormik();
                         onApply();
+
                         navigate('/onboarding/' + pageData.next);
                       }}
                     >
