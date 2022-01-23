@@ -1,0 +1,29 @@
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+export const StyledLi = styled(motion.li)`
+  position: relative;
+  padding-left: 24px;
+  margin: 8px 0px;
+  font-size: 16px;
+  line-height: 24px;
+  list-style: none;
+  color: rgb(78, 89, 104);
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 23px;
+    color: ${(props) => props.theme.color.tossBlue};
+    text-align: center;
+    content: '•';
+  }
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
+`;

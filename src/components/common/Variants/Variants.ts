@@ -16,7 +16,7 @@ export const listAnimate = {
   end: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
       delayChildren: 0.3,
     },
   },
@@ -90,11 +90,11 @@ export const bannerItemAnimate = {
   },
 };
 export const memberCardAnimate = {
-  offView: {
+  start: {
     opacity: 0,
     y: 30,
   },
-  onView: {
+  end: {
     opacity: 1,
     y: 0,
     transition: {

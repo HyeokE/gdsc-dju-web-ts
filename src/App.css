@@ -14,10 +14,10 @@
   margin: 0;
   word-break: keep-all;
   -webkit-tap-highlight-color: transparent;
-
 }
 html {
   background: white !important;
+  font-size: 10px;
 }
 a {
   text-decoration: none;

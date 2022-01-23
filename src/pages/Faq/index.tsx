@@ -1,13 +1,11 @@
 import React from 'react';
-import { MainText, SubTitle, Title } from '../../components/common/Title/title';
+import { Title } from '../../components/common/Title/title';
 import { Banner } from '../../img/Banner/Banner';
 import YellowBanner from '../../img/Banner/YellowBanner.png';
 import {
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
-  List,
-  Tage,
   TopMargin,
 } from '../../styles/layouts';
 

@@ -10,34 +10,8 @@ export const TopMargin = styled.div`
 export const SmallTopMargin = styled.div`
   height: 30px;
 `;
-export const List = styled(motion.li)`
-  position: relative;
-  padding-left: 24px;
-  margin: 8px 0px;
-  font-size: 16px;
-  line-height: 24px;
-  color: rgb(78, 89, 104);
-  list-style: none;
-  @media (max-width: 500px) {
-    font-size: 15px;
-  }
-`;
-export const Tage = styled.div`
-  &::before {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 24px;
-    color: rgb(139, 149, 161);
-    text-align: center;
-    content: '•';
-  }
-`;
+
+export const Tage = styled.div``;
 
 export const LayoutContainer = styled.div`
   position: relative;
