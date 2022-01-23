@@ -1,5 +1,4 @@
 import React from 'react';
-import { ContainerInner, LayoutContainer } from '../../styles/layouts';
 import {
   BannerTitleWrapper,
   ButtonWrapper,
@@ -7,11 +6,10 @@ import {
   HomeWrapper,
   LeftColorLinesWrapper,
   MainBannerText,
-  MarginPage,
   RecruitingWrapper,
   RightColorLinesWrapper,
-  StyledButton,
   StyledMainBanner,
+  StyledRecruitmentButton,
 } from './styled';
 import Recruiting from '../../img/Recruiting';
 import ColorLines from '../../img/ColorLines';
@@ -19,15 +17,15 @@ import {
   bannerItemAnimate,
   homeBannerAnimate,
   leftLineItemAnimate,
-  listAnimate,
   rightLineItemAnimate,
   titleAnimate,
-  titleItemAnimate,
 } from '../../components/common/Variants/Variants';
 import DownArrow from '../../img/DownArrow';
-import { motion } from 'framer-motion';
+import { useRecoilState } from 'recoil';
+import { recruitmentState } from '../../store/recruitHandler';
 
 export const Home = () => {
+  const [recruit, setrecruit] = useRecoilState(recruitmentState);
   return (
     <>
       <HomeWrapper
@@ -54,13 +52,22 @@ export const Home = () => {
               GDSC Daejin Univ. 에서 새로운 식구들을 모집하고 있습니다.
             </MainBannerText>
             <ButtonWrapper variants={bannerItemAnimate}>
-              <StyledButton
-                onClick={() => {
-                  window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
-                }}
-              >
-                지원하기
-              </StyledButton>
+              {recruit.member.option ? (
+                <StyledRecruitmentButton
+                  onClick={() => {
+                    window.open(
+                      'https://forms.gle/FwoDUZSCcHHow8iC7',
+                      '_blank',
+                    );
+                  }}
+                >
+                  지원하기
+                </StyledRecruitmentButton>
+              ) : (
+                <StyledRecruitmentButton>
+                  지원기간이 아닙니다.
+                </StyledRecruitmentButton>
+              )}
             </ButtonWrapper>
             <MainBannerText variants={bannerItemAnimate}>
               11. 22 ~ 12. 19
@@ -82,13 +89,6 @@ export const Home = () => {
           <DownArrow />
         </DownArrowWrapper>
       </HomeWrapper>
-
-      {/*<hr />*/}
-      <LayoutContainer>
-        <ContainerInner>
-          <MarginPage />
-        </ContainerInner>
-      </LayoutContainer>
     </>
   );
 };

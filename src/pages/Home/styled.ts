@@ -1,16 +1,14 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const HomeWrapper = styled(motion.div)`
+export const HomeWrapper = styled(motion.main)`
   position: static;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  width: 100%;
+  justify-content: center;
   height: 100vh;
 `;
-export const StyledButton = styled.button`
+export const StyledRecruitmentButton = styled.button`
   width: 220px;
   height: 60px;
   border-radius: 75px;
@@ -38,8 +36,7 @@ export const StyledMainBanner = styled(motion.div)`
   align-items: center;
   flex-direction: row;
   overflow-x: hidden;
-  min-height: 100vh;
-  height: 800px;
+  height: 100vh;
   z-index: 1;
   top: -70px;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
@@ -54,9 +51,7 @@ export const StyledMainBanner = styled(motion.div)`
 `;
 export const BannerTitleWrapper = styled(motion.section)`
   position: static;
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 export const RecruitingWrapper = styled(motion.div)`
@@ -120,18 +115,16 @@ export const RightColorLinesWrapper = styled(motion.div)`
     top: 20px;
   }
 `;
-export const MarginPage = styled.div`
-  height: 500px;
-`;
+
 export const ButtonWrapper = styled(motion.div)`
   margin-top: 50px;
 `;
-export const MainBannerText = styled(motion.div)`
+export const MainBannerText = styled(motion.p)`
   margin-top: 30px;
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: 23px;
+  font-size: 20px;
   color: rgb(139, 149, 161);
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     font-size: 20px;
@@ -144,14 +137,12 @@ export const MainBannerText = styled(motion.div)`
   }
 `;
 export const DownArrowWrapper = styled(motion.div)`
-  width: 100%;
-  position: sticky;
-  bottom: 10px;
+  position: absolute;
+  bottom: 30px;
   display: flex;
-  align-items: center;
+  width: 100vw;
   justify-content: center;
   opacity: 50;
-  margin-top: 80px;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     margin-top: 150px;
   }
