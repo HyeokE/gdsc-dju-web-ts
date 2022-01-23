@@ -9,12 +9,12 @@ import {
   LayoutContainer,
   TopMargin,
 } from '../../../styles/layouts';
-import { Faq } from '../../../api/pageData/faq';
+import { FaqData } from '../../../api/pageData/faq';
 import { Banner } from '../../../img/Banner/Banner';
 
 const FaqDetail = () => {
   const { id } = useParams();
-  const faqData = Faq.find((data) => data.id === Number(id));
+  const faqData = FaqData.find((data) => data.id === Number(id));
   const navigate = useNavigate();
 
   return (

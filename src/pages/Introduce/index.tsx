@@ -7,9 +7,8 @@ import {
   TopMargin,
 } from '../../styles/layouts';
 import { MemberCard } from '../../components/common/card/MemberCard/';
-import { MemberCardWrapper, StyledModal } from './styled';
+import { MemberCardWrapper } from './styled';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-
 import {
   listAnimate,
   memberCardAnimate,
@@ -23,7 +22,7 @@ import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../store/modal';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
 
-export const Introduce = () => {
+const Introduce = () => {
   const [modalHandler, setModalHandler] = useRecoilState(modalState);
   const [selectedId, setSelectedId] = useState(0);
 
@@ -80,3 +79,4 @@ export const Introduce = () => {
     </>
   );
 };
+export default Introduce;

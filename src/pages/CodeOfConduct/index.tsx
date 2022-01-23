@@ -11,7 +11,7 @@ import RedBanner from '../../img/Banner/RedBanner.png';
 import { codeOfConduct } from '../../api/pageData/codeOfConduct';
 import BulletList from '../../components/common/BulletList';
 
-export const CodeOfConduct = () => {
+const CodeOfConduct = () => {
   return (
     <>
       <BannerWrapper>
@@ -36,3 +36,4 @@ export const CodeOfConduct = () => {
     </>
   );
 };
+export default CodeOfConduct;

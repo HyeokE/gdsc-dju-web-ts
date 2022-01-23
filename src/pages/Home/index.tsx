@@ -24,8 +24,8 @@ import DownArrow from '../../img/DownArrow';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../store/recruitHandler';
 
-export const Home = () => {
-  const [recruit, setrecruit] = useRecoilState(recruitmentState);
+const Home = () => {
+  const [recruit] = useRecoilState(recruitmentState);
   return (
     <>
       <HomeWrapper
@@ -92,3 +92,4 @@ export const Home = () => {
     </>
   );
 };
+export default Home;

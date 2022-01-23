@@ -10,11 +10,11 @@ import {
 } from '../../styles/layouts';
 
 import { QuestionMark, QuestionWrapper } from './styled';
-import { Faq } from '../../api/pageData/faq';
+import { FaqData } from '../../api/pageData/faq';
 import { useNavigate } from 'react-router-dom';
 import { QuestionCategoryAnimate } from '../../components/common/Variants/Variants';
 
-export const Question = () => {
+const Faq = () => {
   const navigate = useNavigate();
   return (
     <>
@@ -26,7 +26,7 @@ export const Question = () => {
           <TopMargin />
           <Title>자주 묻는 질문</Title>
           <TopMargin />
-          {Faq.map((data, id) => (
+          {FaqData.map((data, id) => (
             <QuestionWrapper
               key={id}
               variants={QuestionCategoryAnimate}
@@ -44,3 +44,4 @@ export const Question = () => {
     </>
   );
 };
+export default Faq;

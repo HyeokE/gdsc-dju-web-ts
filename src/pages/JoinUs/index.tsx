@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
+  BannerWrapper,
   ContainerInner,
   LayoutContainer,
   TopMargin,
 } from '../../styles/layouts';
 import { MainText, Title } from '../../components/common/Title/title';
-import { BannerImage, BannerWrapper } from '../../styles/layouts';
 
 import {
   Category,
@@ -24,7 +24,8 @@ import { Banner } from '../../img/Banner/Banner';
 
 import BlueBanner from '../../img/Banner/BlueBanner.png';
 import { categoryAnimate } from '../../components/common/Variants/Variants';
-export const JoinUs = () => {
+
+const JoinUs = () => {
   const navigate = useNavigate();
 
   return (
@@ -86,3 +87,4 @@ export const JoinUs = () => {
     </>
   );
 };
+export default JoinUs;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   BannerWrapper,
   ContainerInner,
@@ -16,7 +16,6 @@ import {
   SectionWrapper,
 } from './styled';
 import { recruitDefaultText } from '../../api/pageData/recruitDefaultText';
-import { StyledButton } from '../../components/common/Button/styled';
 import { RecruitDetails } from '../../api/pageData/recruitDetails';
 import { Banner } from '../../img/Banner/Banner';
 import BlueBanner from '../../img/Banner/BlueBanner.png';
@@ -24,10 +23,9 @@ import BulletList from '../../components/common/BulletList';
 import InformationBar from './InformationBar';
 import RecruitFaqButton from './RecruitFaqButton';
 
-export const Recruitment: React.FC = () => {
+const Recruitment: React.FC = () => {
   const { id } = useParams();
   const aboutTeam = RecruitDetails.find((aboutTeam) => aboutTeam.id === id);
-  const navigate = useNavigate();
   return (
     <>
       <BannerWrapper>
@@ -100,3 +98,4 @@ export const Recruitment: React.FC = () => {
     </>
   );
 };
+export default Recruitment;
