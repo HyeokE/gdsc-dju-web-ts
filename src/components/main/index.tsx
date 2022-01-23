@@ -10,9 +10,12 @@ import { Footer } from '../common/Footer';
 import { menuState } from '../../store/menu';
 import MobileMenu from '../common/navigation/MobileMenu';
 import Navigation from '../common/navigation/DeskNavigation';
+import MemberCardModal from '../common/Modal/MemberCardModal';
+import { modalState } from '../../store/modal';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
+
   const [navHandler, setNavHandler] = useState<boolean>(true);
   {
     /*Onboarding page navigation 숨김 */
@@ -33,6 +36,7 @@ export const Main = () => {
       <MobileMenu />
       {navHandler ? <Navigation /> : null}
       {alert.alertHandle && <Alert />}
+
       {/*<Alert />*/}
       <Routes>
         <Route path={'*'} element={<Pages />} />

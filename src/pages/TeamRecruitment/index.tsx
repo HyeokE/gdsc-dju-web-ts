@@ -15,9 +15,9 @@ import {
   MoblieTopElementWrapper,
   SectionWrapper,
 } from './styled';
-import { teamRecruitmentDefaultText } from '../../api/pageData/teamRecruitmentDefaultText';
+import { recruitDefaultText } from '../../api/pageData/recruitDefaultText';
 import { StyledButton } from '../../components/common/Button/styled';
-import { TeamInfomation } from '../../api/pageData/teamInfomation';
+import { RecruitDetails } from '../../api/pageData/recruitDetails';
 import { Banner } from '../../img/Banner/Banner';
 import BlueBanner from '../../img/Banner/BlueBanner.png';
 import BulletList from '../../components/common/BulletList';
@@ -26,7 +26,7 @@ import RecruitFaqButton from './RecruitFaqButton';
 
 export const Recruitment: React.FC = () => {
   const { id } = useParams();
-  const aboutTeam = TeamInfomation.find((aboutTeam) => aboutTeam.id === id);
+  const aboutTeam = RecruitDetails.find((aboutTeam) => aboutTeam.id === id);
   const navigate = useNavigate();
   return (
     <>
@@ -62,13 +62,13 @@ export const Recruitment: React.FC = () => {
                   ) : null}
                   <SubTitle>이런 분을 찾습니다</SubTitle>
                   <MainText>
-                    <BulletList text={teamRecruitmentDefaultText.findMember} />
+                    <BulletList text={recruitDefaultText.findMember} />
                     {aboutTeam.people && <BulletList text={aboutTeam.people} />}
                   </MainText>
                   <TopMargin />
                   <SubTitle>이런 경험이 있다면 더 좋습니다</SubTitle>
                   <MainText>
-                    <BulletList text={teamRecruitmentDefaultText.goodMember} />
+                    <BulletList text={recruitDefaultText.goodMember} />
                     {aboutTeam.preferential && (
                       <BulletList text={aboutTeam.preferential} />
                     )}
@@ -76,7 +76,7 @@ export const Recruitment: React.FC = () => {
                   <TopMargin />
                   <SubTitle>GDSC의 혜택</SubTitle>
                   <MainText>
-                    <BulletList text={teamRecruitmentDefaultText.benefits} />
+                    <BulletList text={recruitDefaultText.benefits} />
                   </MainText>
                   <TopMargin />
                 </IntroduceWrapper>

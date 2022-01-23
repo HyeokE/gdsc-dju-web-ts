@@ -9,14 +9,7 @@ import {
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper, StyledModal } from './styled';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
-// import Modal from '../../components/common/Modal/index';
-import {
-  MemberImg,
-  Name,
-  NickName,
-  Role,
-} from '../../components/common/card/MemberCard/styled';
-import { Skeleton } from '@mui/material';
+
 import {
   listAnimate,
   memberCardAnimate,
@@ -26,28 +19,17 @@ import YellowBanner from '../../img/Banner/YellowBanner.png';
 import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
 import { memberList } from '../../api/pageData/MemberList';
 import BulletList from '../../components/common/BulletList';
+import { useRecoilState } from 'recoil';
+import { MODAL_KEY, modalState } from '../../store/modal';
+import MemberCardModal from '../../components/common/Modal/MemberCardModal';
 
 export const Introduce = () => {
-  const [selectedMember, setSelectedMember] = useState<number>(0);
-  const [modalHandler, setModalHandler] = useState(false);
+  const [modalHandler, setModalHandler] = useRecoilState(modalState);
+  const [selectedId, setSelectedId] = useState(0);
 
   return (
     <>
-      <StyledModal
-        size={'small'}
-        isOpen={modalHandler}
-        onRequestClose={() => setModalHandler(false)}
-      >
-        {memberList[selectedMember].memberImg ? (
-          <MemberImg src={memberList[selectedMember].memberImg} />
-        ) : (
-          <Skeleton variant={'circular'} height={200} width={200} />
-        )}
-        <NickName>{memberList[selectedMember].nickName}</NickName>
-        <Name>{memberList[selectedMember].name}</Name>
-        <Role>{memberList[selectedMember].role}</Role>
-        <Name>{memberList[selectedMember].introduce}</Name>
-      </StyledModal>
+      {modalHandler.memberCard && <MemberCardModal id={selectedId} />}
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>
@@ -81,8 +63,11 @@ export const Introduce = () => {
                 variants={memberCardAnimate}
                 key={id}
                 onClick={() => {
-                  setSelectedMember(id);
-                  setModalHandler(true);
+                  setSelectedId(id);
+                  setModalHandler({
+                    ...modalHandler,
+                    [MODAL_KEY.MEMBER_CARD]: true,
+                  });
                 }}
               >
                 <MemberCard memberInfo={memberInfo} />

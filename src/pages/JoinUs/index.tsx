@@ -18,7 +18,7 @@ import {
   TeamCategoryWrapper,
   TeamSubCategory,
 } from './styled';
-import { TeamList } from '../../api/pageData/teamList';
+import { RecruitTeam } from '../../api/pageData/recruitTeam';
 import { useNavigate } from 'react-router';
 import { Banner } from '../../img/Banner/Banner';
 
@@ -49,7 +49,7 @@ export const JoinUs = () => {
             <TeamSubCategory>Stack</TeamSubCategory>
           </TeamCategoryWrapper>
           {/*PC 환경 팀 리스트*/}
-          {TeamList.map((data, key) => (
+          {RecruitTeam.map((data, key) => (
             <CategoryWrapper
               key={key}
               initial={'unHover'}
@@ -67,7 +67,7 @@ export const JoinUs = () => {
             </CategoryWrapper>
           ))}
           {/*모바일 환경 팀 리스트*/}
-          {TeamList.map((data, key) => (
+          {RecruitTeam.map((data, key) => (
             <MobileCategoryWrapper
               key={key}
               onClick={() => {

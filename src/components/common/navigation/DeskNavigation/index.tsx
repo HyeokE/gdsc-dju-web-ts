@@ -9,14 +9,14 @@ import {
   NavDesign,
   NavInner,
   NavTask,
+  NavTaskWrapper,
+  SchoolName,
+  SchoolNameUni,
   StyledImg,
   StyledLogo,
-  SchoolName,
-  NavTaskWrapper,
-  SchoolNameUni,
   StyledLogoWrapper,
 } from './styled';
-import WideNavCategory from '../WideNavCategory';
+import DeskeNavCategory from '../DeskNavCategory';
 
 export const navigationData = [
   {
@@ -61,7 +61,7 @@ export const Navigation: React.FC = () => {
           </NavTask>
         </NavTaskWrapper>
         <MenuToggleIcon />
-        <WideNavCategory
+        <DeskeNavCategory
           routeStyle={routeStyle}
           navigationData={navigationData}
         />
