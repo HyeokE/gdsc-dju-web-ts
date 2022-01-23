@@ -6,6 +6,7 @@ export const HomeWrapper = styled(motion.main)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100vh;
 `;
 export const StyledRecruitmentButton = styled.button`
@@ -40,10 +41,10 @@ export const StyledMainBanner = styled(motion.div)`
   z-index: 1;
   top: -70px;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    height: 800px;
+    height: 100vh;
   }
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    height: 700px;
+    height: 100vh;
   }
   @media (max-width: 320px) {
     height: 800px;
@@ -57,7 +58,6 @@ export const BannerTitleWrapper = styled(motion.section)`
 export const RecruitingWrapper = styled(motion.div)`
   position: static;
   z-index: 50;
-  width: 40%;
   max-width: 600px;
   display: flex;
   flex-direction: column;

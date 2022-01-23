@@ -62,10 +62,11 @@ export const FooterWrapper = styled.footer`
   display: flex;
   bottom: 0;
   padding: 20px 30px;
+  justify-content: center;
   background: #f9fafb;
 `;
 export const FooterLogo = styled.img`
-  height: 40px;
+  height: 25px;
 
   padding-right: 5px;
   @media (max-width: 500px) {
@@ -73,10 +74,13 @@ export const FooterLogo = styled.img`
   }
 `;
 export const FooterLogoWrapper = styled.div`
-  margin-bottom: 10px;
+  margin: 20px 0;
+  &:nth-child(2) {
+    margin-top: 0px;
+  }
 `;
 export const FooterGDSCLogo = styled.img`
-  height: 50px;
+  height: 30px;
 
   padding-right: 5px;
   @media (max-width: 500px) {

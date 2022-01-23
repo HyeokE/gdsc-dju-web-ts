@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const NavDesign = styled.div`
-  position: sticky;
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
@@ -28,8 +28,9 @@ export const StyledLogoWrapper = styled(Link)`
 `;
 export const StyledImg = styled.img`
   margin-top: 3px;
-  height: 50px;
+  height: 25px;
   width: 100%;
+  margin-right: 10px;
 `;
 export const StyledLogo = styled.div`
   color: #4e4e4e;

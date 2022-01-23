@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   BannerTitleWrapper,
   ButtonWrapper,
@@ -26,6 +26,8 @@ import { recruitmentState } from '../../store/recruitHandler';
 
 const Home = () => {
   const [recruit] = useRecoilState(recruitmentState);
+  const banner = useRef<HTMLDivElement>(null);
+  console.log(banner.current?.offsetTop);
   return (
     <>
       <HomeWrapper
@@ -45,7 +47,7 @@ const Home = () => {
             <ColorLines />
           </RightColorLinesWrapper>
         </StyledMainBanner>
-        <BannerTitleWrapper>
+        <BannerTitleWrapper ref={banner}>
           <RecruitingWrapper variants={bannerItemAnimate}>
             <Recruiting />
             <MainBannerText variants={bannerItemAnimate}>
