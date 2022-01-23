@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { Route, Routes } from 'react-router';
 import { Pages } from '../../pages';
 import { useRecoilState } from 'recoil';
@@ -12,14 +12,13 @@ import MobileMenu from '../common/navigation/MobileMenu';
 import Navigation from '../common/navigation/DeskNavigation';
 import MemberCardModal from '../common/Modal/MemberCardModal';
 import { modalState } from '../../store/modal';
+import GoogleSpinner from '../common/GoogleSpinner';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
 
   const [navHandler, setNavHandler] = useState<boolean>(true);
-  {
-    /*Onboarding page navigation 숨김 */
-  }
+
   const hideNavigation = () => {
     if (location.pathname.includes('/onboarding')) {
       setNavHandler(false);
@@ -33,15 +32,17 @@ export const Main = () => {
 
   return (
     <>
-      <MobileMenu />
-      {navHandler ? <Navigation /> : null}
-      {alert.alertHandle && <Alert />}
+      <Suspense fallback={<GoogleSpinner />}>
+        <MobileMenu />
+        {navHandler ? <Navigation /> : null}
+        {alert.alertHandle && <Alert />}
 
-      {/*<Alert />*/}
-      <Routes>
-        <Route path={'*'} element={<Pages />} />
-      </Routes>
-      {navHandler ? <Footer /> : null}
+        {/*<Alert />*/}
+        <Routes>
+          <Route path={'*'} element={<Pages />} />
+        </Routes>
+        {navHandler ? <Footer /> : null}
+      </Suspense>
     </>
   );
 };
