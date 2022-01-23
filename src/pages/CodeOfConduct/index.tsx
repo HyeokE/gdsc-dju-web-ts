@@ -21,6 +21,7 @@ export const CodeOfConduct = () => {
         <ContainerInner>
           <TopMargin />
           <Title>Code of Conduct (Google)</Title>
+          <TopMargin />
           {codeOfConduct.map((data, id) => (
             <>
               <SubTitle>{data.title}</SubTitle>

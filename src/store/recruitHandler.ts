@@ -3,14 +3,13 @@ import { atom } from 'recoil';
 const RECRUITMENT = 'recruitment';
 export const RecruitmentState = {
   member: {
+    frontend: false,
+    backend: false,
+    android: false,
+    design: true,
+    ml: false,
+    beginner: false,
     option: false,
-    startDate: '',
-    endDate: '',
-  },
-  coreMember: {
-    option: false,
-    startDate: '',
-    endDate: '',
   },
 };
 export const recruitmentState = atom<typeof RecruitmentState>({

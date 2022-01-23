@@ -18,7 +18,7 @@ export const TeamList = [
     stack: 'JAVA',
   },
   {
-    id: 'machineLearning',
+    id: 'ml',
     name: 'AI (Machine Learning)',
     skill: 'Open CV',
     stack: '',

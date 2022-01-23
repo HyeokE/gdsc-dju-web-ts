@@ -22,6 +22,7 @@ import { Banner } from '../../img/Banner/Banner';
 import BlueBanner from '../../img/Banner/BlueBanner.png';
 import BulletList from '../../components/common/BulletList';
 import InformationBar from './InformationBar';
+import RecruitFaqButton from './RecruitFaqButton';
 
 export const Recruitment: React.FC = () => {
   const { id } = useParams();
@@ -41,6 +42,7 @@ export const Recruitment: React.FC = () => {
             <MoblieTopElementWrapper>
               <JoinInner>
                 <InformationBar name={aboutTeam.name} />
+                <TopMargin />
               </JoinInner>
             </MoblieTopElementWrapper>
             <MainText>열정적인 동료를 얻기 위해 이 자리에 모였습니다.</MainText>
@@ -83,42 +85,13 @@ export const Recruitment: React.FC = () => {
                 <JoinInner>
                   <InformationBar name={aboutTeam.name} />
                   <TopMargin />
-                  <StyledButton
-                    onClick={() => {
-                      window.open(
-                        'https://forms.gle/FwoDUZSCcHHow8iC7',
-                        '_blank',
-                      );
-                    }}
-                  >
-                    지원하기
-                  </StyledButton>
-                  <StyledButton
-                    onClick={() => {
-                      navigate('/faq');
-                    }}
-                  >
-                    자주 하는 질문
-                  </StyledButton>
+                  <RecruitFaqButton name={id as string} />
                   <TopMargin />
                 </JoinInner>
               </JoinWrapper>
             </SectionWrapper>
             <MoblieBottomElementWrapper>
-              <StyledButton
-                onClick={() => {
-                  navigate('/faq');
-                }}
-              >
-                자주 하는 질문
-              </StyledButton>
-              <StyledButton
-                onClick={() => {
-                  window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
-                }}
-              >
-                지원하기
-              </StyledButton>
+              <RecruitFaqButton name={id as string} />
             </MoblieBottomElementWrapper>
           </ContainerInner>
         </LayoutContainer>
