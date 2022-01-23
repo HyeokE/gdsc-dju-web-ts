@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
+import GDSCLogoClear from '../../../../img/GDSCLogoClear.svg';
 
 import { useLocation } from 'react-router';
 import './Navigation.css';
@@ -49,11 +49,7 @@ export const Navigation: React.FC = () => {
         <NavTaskWrapper>
           <NavTask>
             <StyledLogoWrapper to={'/'}>
-              <StyledImg
-                src={GDSCLogoClear}
-                alt="GDSC-Chapter-Logo"
-                height={40}
-              />
+              <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
               <StyledLogo>GDSC </StyledLogo>
               <SchoolName>Daejin</SchoolName>
               <SchoolNameUni>Univ.</SchoolNameUni>

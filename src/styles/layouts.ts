@@ -45,6 +45,7 @@ export const FooterContent = styled.div`
   width: 100%;
   max-width: 1140px;
   padding: 10px 0px;
+  justify-content: flex-start;
 `;
 
 export const FooterTitle = styled.p`
@@ -60,23 +61,26 @@ export const FooterSubTitle = styled.span`
 export const FooterWrapper = styled.footer`
   display: flex;
   bottom: 0;
-  justify-content: center;
   padding: 20px 30px;
   background: #f9fafb;
 `;
 export const FooterLogo = styled.img`
-  width: 200px;
-  padding-right: 5px;
+  height: 40px;
 
-  @media (max-width: 320px) {
-    width: 150px;
+  padding-right: 5px;
+  @media (max-width: 500px) {
+    height: 20px;
   }
 `;
+export const FooterLogoWrapper = styled.div`
+  margin-bottom: 10px;
+`;
 export const FooterGDSCLogo = styled.img`
-  width: 300px;
+  height: 50px;
+
   padding-right: 5px;
-  @media (max-width: 320px) {
-    width: 250px;
+  @media (max-width: 500px) {
+    height: 30px;
   }
 `;
 export const BannerImage = styled.img`
