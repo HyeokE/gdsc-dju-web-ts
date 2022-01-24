@@ -27,10 +27,9 @@ export const StyledLogoWrapper = styled(Link)`
   font-size: 18px;
 `;
 export const StyledImg = styled.img`
-  margin-top: 3px;
-  height: 25px;
+  height: 27px;
   width: 100%;
-  margin-right: 10px;
+  margin: 0 20px;
 `;
 export const StyledLogo = styled.div`
   color: #4e4e4e;

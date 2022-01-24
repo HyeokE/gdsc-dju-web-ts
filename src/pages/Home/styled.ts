@@ -39,16 +39,7 @@ export const StyledMainBanner = styled(motion.div)`
   overflow-x: hidden;
   height: 100vh;
   z-index: 1;
-  top: -70px;
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    height: 100vh;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    height: 100vh;
-  }
-  @media (max-width: 320px) {
-    height: 800px;
-  }
+  top: 0;
 `;
 export const BannerTitleWrapper = styled(motion.section)`
   position: static;
