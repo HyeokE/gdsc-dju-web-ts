@@ -15,7 +15,7 @@ export const StyledButtonWrapper = styled.div`
   margin-right: 10px;
 `;
 export const AdminHeaderWrapper = styled.div`
-  background: ${(props) => props.theme.color.grey200};
+  background: white;
 `;
 export const StyledAdminButton = styled.button`
   border-style: none;

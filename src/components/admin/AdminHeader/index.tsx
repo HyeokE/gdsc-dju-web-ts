@@ -21,6 +21,7 @@ import AdminSetUserProfile from '../../../components/common/Modal/AdminSetUserPr
 import AdminTopMenu from '../../../components/admin/AdminTopMenu';
 import {
   BannerBlock,
+  BannerWrapper,
   ContainerInner,
   LayoutContainer,
   TopMargin,
@@ -28,6 +29,8 @@ import {
 import { Title } from '../../../components/common/Title/title';
 import { useLocation } from 'react-router';
 import GoogleSpinner from '../../common/GoogleSpinner';
+import { Banner } from '../../../img/Banner/Banner';
+import RedBanner from '../../../img/Banner/RedBanner.png';
 
 const AdminHome = () => {
   const location = useLocation();
@@ -112,11 +115,13 @@ const AdminHome = () => {
       <AdminSetUserProfile />
       {!value && <GoogleSpinner />}
       <AdminSetUserProfile />
-
+      <BannerBlock />
+      <BannerWrapper>
+        <Banner src={RedBanner} />
+      </BannerWrapper>
       <AdminHeaderWrapper>
         <LayoutContainer>
           <ContainerInner>
-            <BannerBlock />
             <TopMargin />
             <Title>Admin Page</Title>
             {adminUser ? (
