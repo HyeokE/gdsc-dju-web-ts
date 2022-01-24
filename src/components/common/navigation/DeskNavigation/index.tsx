@@ -10,13 +10,14 @@ import {
   NavInner,
   NavTask,
   NavTaskWrapper,
+  NavWrapper,
   SchoolName,
   SchoolNameUni,
   StyledImg,
   StyledLogo,
   StyledLogoWrapper,
 } from './styled';
-import DeskeNavCategory from '../DeskNavCategory';
+import DeskNavCategory from '../DeskNavCategory';
 
 export const navigationData = [
   {
@@ -29,11 +30,11 @@ export const navigationData = [
   },
   {
     route: '/conduct',
-    title: 'Code of Conduct',
+    title: 'Code of conduct',
   },
   {
     route: '/faq',
-    title: '자주 하는 질문',
+    title: 'FAQ',
   },
 ];
 export const Navigation: React.FC = () => {
@@ -45,23 +46,25 @@ export const Navigation: React.FC = () => {
   });
   return (
     <NavDesign className={routeStyle === '/' ? 'transparent' : 'white'}>
-      <NavInner>
-        <NavTaskWrapper>
-          <NavTask>
-            <StyledLogoWrapper to={'/'}>
-              <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
-              <StyledLogo>GDSC </StyledLogo>
-              <SchoolName>Daejin</SchoolName>
-              <SchoolNameUni>Univ.</SchoolNameUni>
-            </StyledLogoWrapper>
-          </NavTask>
-        </NavTaskWrapper>
-        <MenuToggleIcon />
-        <DeskeNavCategory
-          routeStyle={routeStyle}
-          navigationData={navigationData}
-        />
-      </NavInner>
+      <NavWrapper>
+        <NavInner>
+          <NavTaskWrapper>
+            <NavTask>
+              <StyledLogoWrapper to={'/'}>
+                <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                <StyledLogo>GDSC </StyledLogo>
+                <SchoolName>Daejin</SchoolName>
+                <SchoolNameUni>Univ.</SchoolNameUni>
+              </StyledLogoWrapper>
+            </NavTask>
+          </NavTaskWrapper>
+          <MenuToggleIcon />
+          <DeskNavCategory
+            routeStyle={routeStyle}
+            navigationData={navigationData}
+          />
+        </NavInner>
+      </NavWrapper>
     </NavDesign>
   );
 };

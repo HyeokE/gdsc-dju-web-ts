@@ -8,7 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { navigationData } from '../DeskNavigation';
 
-const DeskeNavCategory = ({ routeStyle }: any) => {
+const DeskNavCategory = ({ routeStyle }: any) => {
   const navigate = useNavigate();
   return (
     <>
@@ -32,4 +32,4 @@ const DeskeNavCategory = ({ routeStyle }: any) => {
   );
 };
 
-export default DeskeNavCategory;
+export default DeskNavCategory;

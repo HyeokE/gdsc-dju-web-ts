@@ -37,7 +37,7 @@ export const SubCategory = styled.div`
   align-items: center;
   width: 300px;
   font-size: 13px;
-  color: ${(props) => props.theme.color.gray600};
+  color: ${(props) => props.theme.color.grey600};
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 300px;
   }
@@ -54,7 +54,7 @@ export const TeamCategory = styled.div`
   margin-left: 30px;
   width: 330px;
   font-size: 13px;
-  color: ${(props) => props.theme.color.gray700};
+  color: ${(props) => props.theme.color.grey700};
 `;
 export const TeamSubCategory = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ export const TeamSubCategory = styled.div`
   margin-left: 10px;
   width: 200px;
   font-size: 13px;
-  color: ${(props) => props.theme.color.gray700};
+  color: ${(props) => props.theme.color.grey700};
 `;
 export const Category = styled.div`
   display: flex;
@@ -102,7 +102,7 @@ export const MobileCategoryWrapper = styled.div`
   transition-timing-function: ease;
   transition-delay: 0s;
   &:hover {
-    background: ${(props) => props.theme.color.gray200};
+    background: ${(props) => props.theme.color.grey200};
   }
   @media (max-width: 500px) {
     display: flex;

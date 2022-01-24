@@ -25,5 +25,5 @@ export const MemberImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  border: 1px solid ${(props) => props.theme.color.gray800};
+  border: 1px solid ${(props) => props.theme.color.grey800};
 `;

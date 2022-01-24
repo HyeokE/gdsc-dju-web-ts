@@ -5,7 +5,7 @@ export const MinTitle = styled.div`
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 24px;
-  color: ${(props) => props.theme.color.gray800};
+  color: ${(props) => props.theme.color.grey800};
 `;
 export const MinText = styled.div`
   color: #3886f6;
@@ -15,7 +15,7 @@ export const MinText = styled.div`
 export const ElementWrapper = styled.div`
   padding: 14px 0px;
   display: flex;
-  border-top: 1px solid ${(props) => props.theme.color.gray200};
+  border-top: 1px solid ${(props) => props.theme.color.grey200};
   @media (max-width: 500px) {
     width: 100%;
   }

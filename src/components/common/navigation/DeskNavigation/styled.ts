@@ -2,29 +2,31 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-export const NavDesign = styled.div`
+export const NavDesign = styled.nav`
   position: fixed;
-  width: 100%;
   top: 0;
   z-index: 999;
+  height: 60px;
+  width: 100%;
+`;
+export const NavWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1140px;
+  width: 100%;
+  margin: auto;
+  height: 100%;
 `;
 export const NavInner = styled.div`
+  width: 92%;
+  margin: 0 auto;
   display: flex;
-  flex: 1;
-  max-width: 1140px;
-  min-width: 320px;
-  height: 70px;
-  justify-content: space-between;
   align-items: center;
-  margin: auto;
-  @media (max-width: 500px) {
-    height: 70px;
-  }
 `;
 export const StyledLogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.6rem;
 `;
 export const StyledImg = styled.img`
   height: 27px;
@@ -84,7 +86,7 @@ export const StyledLink = styled(motion.div)`
   transition-timing-function: ease;
   transition-delay: 0s;
   &:hover {
-    color: #4e5968;
+    color: ${(props) => props.theme.color.grey800};
     background: #f2f4f6;
     text-decoration: none;
   }
@@ -93,10 +95,10 @@ export const StyledLink = styled(motion.div)`
 export const NavTask = styled.li`
   display: flex;
   align-items: center;
-  margin: 0px 5px;
+  margin: 0 5px;
   cursor: pointer;
-  color: #4e5968;
-  font-size: 16px;
+  color: ${(props) => props.theme.color.grey800};
+  font-size: 1.4rem;
   font-style: normal;
   word-break: keep-all;
   list-style: none;
@@ -106,9 +108,10 @@ export const NavTask = styled.li`
 
 export const NavTaskWrapper = styled.ul`
   display: flex;
+  flex: 1;
   align-items: center;
   list-style: none;
-  padding-left: 0px;
+  padding-left: 0;
 `;
 export const NavIconWrapper = styled.div`
   display: flex;
@@ -120,7 +123,7 @@ export const NavIconWrapper = styled.div`
   transition-duration: 0.2s;
   transition-timing-function: ease;
   :hover {
-    background: #f2f4f6;
+    background: ${(props) => props.theme.color.grey100};
     cursor: pointer;
   }
 `;
