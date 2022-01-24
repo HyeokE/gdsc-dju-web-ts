@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  BannerBlock,
   BannerWrapper,
   CardList,
   ContainerInner,
@@ -29,6 +30,7 @@ const Introduce = () => {
   return (
     <>
       {modalHandler.memberCard && <MemberCardModal id={selectedId} />}
+      <BannerBlock />
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>

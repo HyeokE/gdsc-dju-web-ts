@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  BannerBlock,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
@@ -30,6 +31,7 @@ const JoinUs = () => {
 
   return (
     <>
+      <BannerBlock />
       <BannerWrapper>
         <Banner src={BlueBanner} />
       </BannerWrapper>

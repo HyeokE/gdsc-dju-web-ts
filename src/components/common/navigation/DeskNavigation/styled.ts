@@ -31,7 +31,7 @@ export const StyledLogoWrapper = styled(Link)`
 export const StyledImg = styled.img`
   height: 27px;
   width: 100%;
-  margin: 0 20px;
+  margin: 0 15px;
 `;
 export const StyledLogo = styled.div`
   color: #4e4e4e;
