@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Admin.css';
 import {
-  AdminContainerWrapper,
   AdminHeaderWrapper,
   ButtonElementWrapper,
   SidebarContainer,
@@ -11,26 +10,24 @@ import {
   StyledUserName,
 } from './styled';
 import { useRecoilState } from 'recoil';
-import { Backdrop, CircularProgress } from '@mui/material';
 
 import { alertState } from '../../../store/alert';
 import { localUserState } from '../../../store/localUser';
-import { modalState, MODAL_KEY } from '../../../store/modal';
+import { MODAL_KEY, modalState } from '../../../store/modal';
 import { authService, dbService } from '../../../firebase/firebase';
 import AdminSignInModal from '../../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../../components/common/Modal/AdminSignUp';
 import AdminSetUserProfile from '../../../components/common/Modal/AdminSetUserProfile';
-import RedBanner from '../../../img/Banner/RedBanner.png';
 import AdminTopMenu from '../../../components/admin/AdminTopMenu';
 import {
+  BannerBlock,
+  ContainerInner,
   LayoutContainer,
   TopMargin,
-  ContainerInner,
 } from '../../../styles/layouts';
-import { BannerWrapper } from '../../../styles/layouts';
 import { Title } from '../../../components/common/Title/title';
 import { useLocation } from 'react-router';
-import { Banner } from '../../../img/Banner/Banner';
+import GoogleSpinner from '../../common/GoogleSpinner';
 
 const AdminHome = () => {
   const location = useLocation();
@@ -113,14 +110,13 @@ const AdminHome = () => {
       <AdminSignInModal />
       <AdminSignUpModal />
       <AdminSetUserProfile />
-      <Backdrop sx={{ color: '#fff', zIndex: 999 }} open={!value}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
+      {!value && <GoogleSpinner />}
       <AdminSetUserProfile />
 
       <AdminHeaderWrapper>
         <LayoutContainer>
           <ContainerInner>
+            <BannerBlock />
             <TopMargin />
             <Title>Admin Page</Title>
             {adminUser ? (

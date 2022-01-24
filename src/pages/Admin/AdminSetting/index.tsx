@@ -1,61 +1,98 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import { DateTimePicker } from 'react-rainbow-components';
-import { SubTitle } from '../../../components/common/Title/title';
-import { getDbTime } from '../../../firebase/firebase';
+import React, { useEffect, useState } from 'react';
 import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
-
 import {
-  CalendarWrapper,
-  DatePickerWrapper,
-  DateStatusText,
-  SettingInner,
-  StatusWrapper,
+  Handle,
+  StyledPosition,
+  Switch,
+  ToggleButtonSection,
+  ToggleButtonWrapper,
 } from './styled';
+import { useRecoilState } from 'recoil';
+import { recruitmentState } from '../../../store/recruitHandler';
+import API from '../../../api/index';
+import { ToggleButton } from '@mui/material';
 
 const AdminSetting = () => {
-  const [startDate, setStartDate] = useState<any>([]);
-  const [endDate, setEndDate] = useState<any>([]);
-
-  console.log(startDate);
-  console.log(endDate);
-  useEffect(() => getDbTime(), []);
+  const [recruit, setRecruit] = useRecoilState(recruitmentState);
+  useEffect(() => {
+    API.putRecruitmentInfo(recruit);
+  }, [recruit]);
+  // const keyTyped = name as keyof typeof recruit;
+  const toggleSwitch = (key: string) => {
+    switch (key) {
+      case 'frontend':
+        return setRecruit({ ...recruit, frontend: !recruit.frontend });
+      case 'backend':
+        return setRecruit({ ...recruit, backend: !recruit.backend });
+      case 'android':
+        return setRecruit({ ...recruit, android: !recruit.android });
+      case 'beginner':
+        return setRecruit({ ...recruit, beginner: !recruit.beginner });
+      case 'design':
+        return setRecruit({ ...recruit, design: !recruit.design });
+      case 'ml':
+        return setRecruit({ ...recruit, ml: !recruit.ml });
+      case 'home':
+        return setRecruit({ ...recruit, home: !recruit.home });
+      default:
+        return console.log('error');
+    }
+  };
+  const isOn = (key: string) => {
+    switch (key) {
+      case 'frontend':
+        return recruit.frontend;
+      case 'backend':
+        return recruit.backend;
+      case 'android':
+        return recruit.android;
+      case 'beginner':
+        return recruit.beginner;
+      case 'design':
+        return recruit.design;
+      case 'ml':
+        return recruit.ml;
+      case 'home':
+        return recruit.home;
+    }
+  };
+  const convertPosition = (key: string) => {
+    switch (key) {
+      case 'frontend':
+        return 'Frontend Developer';
+      case 'backend':
+        return 'Backend Developer';
+      case 'android':
+        return 'Android Developer';
+      case 'beginner':
+        return 'Beginner';
+      case 'design':
+        return 'Designer';
+      case 'ml':
+        return 'Machine Learning';
+      case 'home':
+        return 'Home Button Setting';
+    }
+  };
+  const spring = {
+    type: 'spring',
+    stiffness: 700,
+    damping: 30,
+  };
   return (
     <>
       <LayoutContainer>
         <ContainerInner>
-          <SettingInner>
-            {/*<StatusWrapper>*/}
-            {/*  <DateStatusText>2021.10.30 12:00AM</DateStatusText>*/}
-            {/*  <DateStatusText>2021.10.30 12:00AM</DateStatusText>*/}
-            {/*</StatusWrapper>*/}
-            <CalendarWrapper>
-              <SubTitle>모집 시작일</SubTitle>
-              <DatePickerWrapper>
-                <DateTimePicker
-                  value={startDate}
-                  selectionType="range"
-                  formatStyle="large"
-                  variant="single"
-                  onChange={(e) => setStartDate(e)}
-                  className="rainbow-m-around_small"
-                  style={{ borderRadius: '8px' }}
-                />
-              </DatePickerWrapper>
-              <SubTitle>모집 마감일</SubTitle>
-              <DatePickerWrapper>
-                <DateTimePicker
-                  selectionType="range"
-                  formatStyle={'large'}
-                  variant="single"
-                  value={endDate}
-                  onChange={(e) => setEndDate(e)}
-                  className="rainbow-m-around_small"
-                  style={{ borderRadius: '8px' }}
-                />
-              </DatePickerWrapper>
-            </CalendarWrapper>
-          </SettingInner>
+          <ToggleButtonSection>
+            {Object.keys(recruit).map((key, id) => (
+              <ToggleButtonWrapper key={id}>
+                <StyledPosition>{convertPosition(key)}</StyledPosition>
+                <Switch data-isOn={isOn(key)} onClick={() => toggleSwitch(key)}>
+                  <Handle layout transition={spring} />
+                </Switch>
+              </ToggleButtonWrapper>
+            ))}
+          </ToggleButtonSection>
         </ContainerInner>
       </LayoutContainer>
     </>

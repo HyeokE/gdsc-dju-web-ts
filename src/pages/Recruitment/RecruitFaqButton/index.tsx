@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const RecruitFaqButton = (props: { name: string }) => {
   const { name } = props;
   const [recruit] = useRecoilState(recruitmentState);
-  const keyTyped = name as keyof typeof recruit.member;
-  console.log(keyTyped);
+  const keyTyped = name as keyof typeof recruit;
   const navigate = useNavigate();
   return (
     <>
@@ -19,7 +18,7 @@ const RecruitFaqButton = (props: { name: string }) => {
       >
         자주 하는 질문
       </StyledButton>
-      {recruit.member[`${keyTyped}`] ? (
+      {recruit[`${keyTyped}`] ? (
         <StyledButton
           onClick={() => {
             window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');

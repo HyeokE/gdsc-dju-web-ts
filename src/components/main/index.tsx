@@ -13,12 +13,13 @@ import Navigation from '../common/navigation/DeskNavigation';
 import MemberCardModal from '../common/Modal/MemberCardModal';
 import { modalState } from '../../store/modal';
 import GoogleSpinner from '../common/GoogleSpinner';
+import { recruitmentState } from '../../store/recruitHandler';
+import API from '../../api';
 
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
-
   const [navHandler, setNavHandler] = useState<boolean>(true);
-
+  const [recruitment, setRecruitment] = useRecoilState(recruitmentState);
   const hideNavigation = () => {
     if (location.pathname.includes('/onboarding')) {
       setNavHandler(false);
@@ -26,8 +27,13 @@ export const Main = () => {
       setNavHandler(true);
     }
   };
+  const getRecruitment = async (): Promise<void> => {
+    const data = await API.getRecruitmentInfo();
+    setRecruitment({ ...recruitment, ...data.data });
+  };
   useEffect(() => {
     hideNavigation();
+    getRecruitment();
   }, []);
 
   return (
