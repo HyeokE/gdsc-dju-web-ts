@@ -22,9 +22,3 @@ export const MemberCardWrapper = styled(motion.div)`
     width: 100%;
   }
 `;
-export const StyledModal = styled(Modal)`
-  display: flex;
-  align-items: center;
-  padding: 10px 5px;
-  width: 300px;
-`;

@@ -54,7 +54,7 @@ const Home = () => {
               GDSC Daejin Univ. 에서 새로운 식구들을 모집하고 있습니다.
             </MainBannerText>
             <ButtonWrapper variants={bannerItemAnimate}>
-              {recruit.member.option ? (
+              {recruit.home ? (
                 <StyledRecruitmentButton
                   onClick={() => {
                     window.open(

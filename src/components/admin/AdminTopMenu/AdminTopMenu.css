@@ -1,15 +1,14 @@
 .underline {
     position: absolute;
-    bottom: -1px;
+    bottom: -4px;
     left: 0;
     right: 0;
     height: 40px;
     z-index: 0;
-    background: #42a5f5;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    background: #90CAF9;
+  border-radius: 40px;
 }
 .selected{
     color: black !important;
-
+    font-weight: 600;
 }

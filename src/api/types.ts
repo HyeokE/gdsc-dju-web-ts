@@ -11,40 +11,20 @@ export type UserDataState = {
   phoneNumber: string;
   warning: number;
 };
-export type UserDataRow = {
-  name: string;
-  fields: {
-    id: string | undefined;
-    nickName: string;
-    name: string;
-    role: string;
-    memberImg: string | undefined;
-    introduce: string | undefined;
-    position: string | undefined;
-    email: string;
-    uploadDate: string;
-    phoneNumber: string;
-    warning: number;
-  };
-};
-export type UserDataField = {
-  id: string | undefined;
-  nickName: string;
-  name: string;
-  role: string;
-  memberImg: string | undefined;
-  introduce: string | undefined;
-  position: string | undefined;
-  email: string;
-  uploadDate: string;
-  phoneNumber: string;
-  warning: number;
-};
 export type onBoardingMember = {
   email: string;
   nickname: string;
   major: string;
   interest: string;
+};
+export type recruitmentInfoDataType = {
+  frontend: boolean;
+  backend: boolean;
+  android: boolean;
+  design: boolean;
+  ml: boolean;
+  beginner: boolean;
+  home: boolean;
 };
 export type nickNameDataType = {
   nickname: string;

@@ -17,7 +17,7 @@ import { UserDataState } from '../../../api/types';
 import { MODAL_KEY, modalState } from '../../../store/modal';
 import { dbService } from '../../../firebase/firebase';
 import AdminEditMemberModal from '../../../components/common/Modal/AdminMemberEditModal';
-import { MainText } from '../../../components/common/Title/title';
+import { MainText, Title } from '../../../components/common/Title/title';
 import {
   listAnimate,
   listItemAnimate,
@@ -102,12 +102,14 @@ const AdminMember = () => {
         setSelectMember={setSelectMember}
       />
 
-      {memberData && (
+      {memberData.length > 0 && (
         <>
           <LayoutContainer>
             <ContainerInner>
+              <Title>Members</Title>
+              <TopMargin />
               <div>
-                <MainText>Total • {memberData?.length}</MainText>
+                <MainText>Total • {memberData.length}</MainText>
               </div>
               <MemberPageWrapper>
                 <StyledTableCategoryWrapper>
@@ -139,8 +141,8 @@ const AdminMember = () => {
                 </StyledTableCategoryWrapper>
                 <MotionSelector
                   variants={listAnimate}
-                  initial="start"
-                  animate="end"
+                  initial={'start'}
+                  animate={'end'}
                 >
                   {memberData.map((data: any, id) => (
                     <StyledTableWrapper

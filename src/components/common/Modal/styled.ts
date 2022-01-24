@@ -3,6 +3,7 @@ import { Modal } from 'react-rainbow-components';
 
 export const ModalElementWrapper = styled.div<any>`
   margin-bottom: 15px;
+  font-size: 1.6rem;
   color: ${(props) => props.error};
 `;
 export const ModalButtonWrapper = styled.div<any>`

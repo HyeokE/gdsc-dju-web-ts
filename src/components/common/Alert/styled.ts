@@ -28,7 +28,7 @@ export const AlertText = styled.div`
 export const AlertWrapper = styled(motion.div)`
   position: fixed;
   width: 100%;
-  top: 70px;
+  top: 60px;
   flex: 1;
   display: flex;
   justify-content: flex-end;

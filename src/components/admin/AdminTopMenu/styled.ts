@@ -37,16 +37,15 @@ export const StyledLi = styled.li`
   background: transparent;
   cursor: pointer;
   height: 24px;
-  padding: 24px 20px;
-  padding-bottom: 7px;
+  padding: 5px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   user-select: none;
-  font-size: 17px;
+  font-size: 1.4rem;
   @media (max-width: 500px) {
-    font-size: 15px;
+    font-size: 1.3rem;
   }
 `;
 export const StyledLine = styled.div`
