@@ -20,7 +20,7 @@ export const AdminHeaderWrapper = styled.div`
 export const StyledAdminButton = styled.button`
   border-style: none;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: white;
   transition: 0.3s;
   transition-delay: 0.3ms;
@@ -34,7 +34,7 @@ export const StyledAdminButton = styled.button`
   }
   @media (max-width: 500px) {
     padding: 7px 13px;
-    font-size: 13px;
+    font-size: 1.3rem;
   }
 `;
 export const ButtonElementWrapper = styled.div`
@@ -42,12 +42,29 @@ export const ButtonElementWrapper = styled.div`
   flex-direction: row;
   margin-top: 10px;
 `;
+export const AdminNavigationWrapper = styled.nav`
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  height: 60px;
+  width: 100%;
+  background: ${(props) => props.theme.color.grey50};
+`;
+export const AdminNavCategoryWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+`;
 export const StyledUserName = styled.div`
   color: ${(props) => props.theme.color.grey700};
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: bold;
+  white-space: nowrap;
+  margin-left: 10px;
   @media (max-width: 500px) {
-    font-size: 16px;
+    font-size: 1.3rem;
+  }
+  &:hover {
+    cursor: pointer;
   }
 `;
 export const StyledSubTitle = styled.div`

@@ -23,6 +23,9 @@ export const Main = () => {
   const hideNavigation = () => {
     if (location.pathname.includes('/onboarding')) {
       setNavHandler(false);
+    }
+    if (location.pathname.includes('/admin')) {
+      setNavHandler(false);
     } else {
       setNavHandler(true);
     }

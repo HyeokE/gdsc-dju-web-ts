@@ -51,6 +51,7 @@ export const SchoolNameUni = styled.div`
 export const SchoolName = styled.div`
   color: #4e4e4e;
   margin-right: 5px;
+  display: flex;
   @media (max-width: 670px) {
     display: none;
   }

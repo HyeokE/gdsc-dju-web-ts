@@ -1,11 +1,11 @@
 .underline {
     position: absolute;
-    bottom: -2px;
+    bottom: -4px;
     left: 0;
     right: 0;
     height: 40px;
     z-index: 0;
-    background: #efefef;
+    background: #90CAF9;
   border-radius: 40px;
 }
 .selected{

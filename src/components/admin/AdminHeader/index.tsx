@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Admin.css';
 import {
   AdminHeaderWrapper,
+  AdminNavCategoryWrapper,
+  AdminNavigationWrapper,
   ButtonElementWrapper,
   SidebarContainer,
   StyledAdminButton,
@@ -31,6 +33,19 @@ import { useLocation } from 'react-router';
 import GoogleSpinner from '../../common/GoogleSpinner';
 import { Banner } from '../../../img/Banner/Banner';
 import RedBanner from '../../../img/Banner/RedBanner.png';
+import {
+  NavDesign,
+  NavInner,
+  NavTask,
+  NavTaskWrapper,
+  NavWrapper,
+  SchoolName,
+  SchoolNameUni,
+  StyledImg,
+  StyledLogo,
+  StyledLogoWrapper,
+} from '../../common/navigation/DeskNavigation/styled';
+import GDSCLogoClear from '../../../img/GDSCLogoClear.svg';
 
 const AdminHome = () => {
   const location = useLocation();
@@ -116,51 +131,48 @@ const AdminHome = () => {
       {!value && <GoogleSpinner />}
       <AdminSetUserProfile />
       <BannerBlock />
-      <BannerWrapper>
-        <Banner src={RedBanner} />
-      </BannerWrapper>
-      <AdminHeaderWrapper>
-        <LayoutContainer>
-          <ContainerInner>
-            <TopMargin />
-            <Title>Admin Page</Title>
-            {adminUser ? (
-              <StyledSubTitle>
-                <StyledUserName>Hello {adminUser.nickName}</StyledUserName>
-              </StyledSubTitle>
-            ) : null}
-            <ButtonElementWrapper>
-              <StyledButtonWrapper>
-                <StyledAdminButton
-                  onClick={() => {
-                    authService.signOut();
-                  }}
-                >
-                  로그아웃
-                </StyledAdminButton>
-              </StyledButtonWrapper>
-              <StyledButtonWrapper>
-                <StyledAdminButton
-                  onClick={() => {
-                    setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
-                  }}
-                >
-                  회원가입
-                </StyledAdminButton>
-              </StyledButtonWrapper>
-            </ButtonElementWrapper>
-            <TopMargin />
-
-            <SidebarContainer>
-              <AdminTopMenu
-                tabs={tabs}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-              />
-            </SidebarContainer>
-          </ContainerInner>
-        </LayoutContainer>
-      </AdminHeaderWrapper>
+      <AdminNavigationWrapper>
+        <NavWrapper>
+          <NavInner>
+            <NavTaskWrapper>
+              <NavTask>
+                <StyledLogoWrapper to={'/'}>
+                  <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                  <StyledLogo>GDSC</StyledLogo>
+                  <SchoolName>Daejin </SchoolName>
+                  <SchoolNameUni>Admin</SchoolNameUni>
+                </StyledLogoWrapper>
+              </NavTask>
+            </NavTaskWrapper>
+            <AdminNavCategoryWrapper>
+              <SidebarContainer>
+                <AdminTopMenu
+                  tabs={tabs}
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                />
+              </SidebarContainer>
+              {adminUser && (
+                <StyledUserName>Hi {adminUser.nickName}</StyledUserName>
+              )}
+            </AdminNavCategoryWrapper>
+          </NavInner>
+        </NavWrapper>
+      </AdminNavigationWrapper>
+      <StyledAdminButton
+        onClick={() => {
+          authService.signOut();
+        }}
+      >
+        로그아웃
+      </StyledAdminButton>
+      <StyledAdminButton
+        onClick={() => {
+          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
+        }}
+      >
+        회원가입
+      </StyledAdminButton>
       <TopMargin />
     </>
   );
