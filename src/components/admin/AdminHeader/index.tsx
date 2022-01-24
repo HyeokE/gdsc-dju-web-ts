@@ -46,6 +46,7 @@ import {
   StyledLogoWrapper,
 } from '../../common/navigation/DeskNavigation/styled';
 import GDSCLogoClear from '../../../img/GDSCLogoClear.svg';
+import AdminUserMenu from '../AdminUserMenu';
 
 const AdminHome = () => {
   const location = useLocation();
@@ -55,8 +56,8 @@ const AdminHome = () => {
   const [alert, setAlert] = useRecoilState(alertState);
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
-
   const [value, setValue] = useState(false);
+  const [adminMenuHandler, setAdminMenuHandler] = useState(false);
 
   const tabs = [
     { label: 'Home', route: '/admin' },
@@ -152,27 +153,23 @@ const AdminHome = () => {
                   setSelectedCategory={setSelectedCategory}
                 />
               </SidebarContainer>
+              <div>
+                <AdminUserMenu
+                  isOpen={adminMenuHandler}
+                  setIsOpen={setAdminMenuHandler}
+                />
+              </div>
               {adminUser && (
-                <StyledUserName>Hi {adminUser.nickName}</StyledUserName>
+                <StyledUserName
+                  onClick={() => setAdminMenuHandler(!adminMenuHandler)}
+                >
+                  Hi {adminUser.nickName}
+                </StyledUserName>
               )}
             </AdminNavCategoryWrapper>
           </NavInner>
         </NavWrapper>
       </AdminNavigationWrapper>
-      <StyledAdminButton
-        onClick={() => {
-          authService.signOut();
-        }}
-      >
-        로그아웃
-      </StyledAdminButton>
-      <StyledAdminButton
-        onClick={() => {
-          setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_UP]: true });
-        }}
-      >
-        회원가입
-      </StyledAdminButton>
       <TopMargin />
     </>
   );

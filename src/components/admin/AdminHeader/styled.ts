@@ -59,7 +59,7 @@ export const StyledUserName = styled.div`
   font-size: 1.4rem;
   font-weight: bold;
   white-space: nowrap;
-  margin-left: 10px;
+  margin-left: 20px;
   @media (max-width: 500px) {
     font-size: 1.3rem;
   }

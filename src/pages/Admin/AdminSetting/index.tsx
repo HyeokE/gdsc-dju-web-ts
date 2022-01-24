@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
+import {
+  ContainerInner,
+  LayoutContainer,
+  TopMargin,
+} from '../../../styles/layouts';
 import {
   Handle,
   StyledPosition,
@@ -11,6 +15,7 @@ import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../../store/recruitHandler';
 import API from '../../../api/index';
 import { ToggleButton } from '@mui/material';
+import { Title } from '../../../components/common/Title/title';
 
 const AdminSetting = () => {
   const [recruit, setRecruit] = useRecoilState(recruitmentState);
@@ -71,7 +76,7 @@ const AdminSetting = () => {
       case 'ml':
         return 'Machine Learning';
       case 'home':
-        return 'Home Button Setting';
+        return 'Home Setting';
     }
   };
   const spring = {
@@ -83,6 +88,8 @@ const AdminSetting = () => {
     <>
       <LayoutContainer>
         <ContainerInner>
+          <Title>Recruitment Management</Title>
+          <TopMargin />
           <ToggleButtonSection>
             {Object.keys(recruit).map((key, id) => (
               <ToggleButtonWrapper key={id}>
