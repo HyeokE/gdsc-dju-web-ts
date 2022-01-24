@@ -17,7 +17,6 @@ export const Switch = styled.div`
     background-color: ${(props) => props.theme.color.tossBlue};
   }
 `;
-
 export const Handle = styled(motion.div)`
   width: 20px;
   height: 20px;

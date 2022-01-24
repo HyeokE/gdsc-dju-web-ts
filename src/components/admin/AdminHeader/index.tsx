@@ -138,7 +138,7 @@ const AdminHome = () => {
           <NavInner>
             <NavTaskWrapper>
               <NavTask>
-                <StyledLogoWrapper to={'/'}>
+                <StyledLogoWrapper to={'/admin'}>
                   <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
                   <StyledLogo>GDSC</StyledLogo>
                   <SchoolName>Daejin </SchoolName>
