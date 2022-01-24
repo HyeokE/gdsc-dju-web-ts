@@ -17,11 +17,11 @@ export const navigationItemAnimate = {
     },
   },
   closed: {
-    y: 50,
+    y: -50,
     opacity: 0,
     transition: {
-      duration: 1,
-      y: { stiffness: 1000 },
+      duration: 0.5,
+      y: { stiffness: 1000, velocity: 100 },
     },
   },
 };

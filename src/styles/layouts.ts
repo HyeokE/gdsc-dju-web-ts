@@ -44,6 +44,6 @@ export const BannerWrapper = styled.div`
   display: flex;
   justify-content: center;
   @media (max-width: 500px) {
-    height: 150px;
+    height: 180px;
   }
 `;

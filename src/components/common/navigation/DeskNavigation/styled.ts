@@ -84,6 +84,7 @@ export const StyledLink = styled(motion.div)`
   border-radius: 8px;
   transition-duration: 0.3s;
   transition-timing-function: ease;
+  font-size: 1.4rem;
   transition-delay: 0s;
   &:hover {
     color: ${(props) => props.theme.color.grey800};

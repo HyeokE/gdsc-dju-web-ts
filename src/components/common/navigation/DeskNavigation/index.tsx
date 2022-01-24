@@ -30,7 +30,7 @@ export const navigationData = [
   },
   {
     route: '/conduct',
-    title: 'Code of conduct',
+    title: 'Code of Conduct',
   },
   {
     route: '/faq',
