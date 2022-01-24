@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { AlertInnerWrapper, AlertText, AlertWrapper } from './styled';
 import { alertState } from '../../../store/alert';
 import './Alert.css';
+import { AnimatePresence } from 'framer-motion';
 
 const variants = {
   active: {
@@ -22,21 +23,23 @@ const Alert = () => {
     setTimeout(() => {
       setToggle(false);
     }, 4000);
-    setTimeout(() => {
-      setAlert({ ...alert, alertHandle: false });
-    }, 5000);
   }, []);
   return (
-    <AlertWrapper
-      variants={variants}
-      animate={toggle ? 'active' : 'unActive'}
-      initial={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <AlertInnerWrapper className={alert.alertStatus}>
-        <AlertText>{alert.alertMessage}</AlertText>
-      </AlertInnerWrapper>
-    </AlertWrapper>
+    <AnimatePresence>
+      {toggle && (
+        <AlertWrapper
+          variants={variants}
+          exit={'unActive'}
+          animate={'active'}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <AlertInnerWrapper className={alert.alertStatus}>
+            <AlertText>{alert.alertMessage}</AlertText>
+          </AlertInnerWrapper>
+        </AlertWrapper>
+      )}
+    </AnimatePresence>
   );
 };
 

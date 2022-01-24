@@ -94,20 +94,21 @@ const AdminHome = () => {
                   ...modal,
                   [MODAL_KEY.ADMIN_SET_PROFILE]: true,
                 });
-              } else {
+              }
+              if (userData) {
                 setAlert({
                   ...alert,
                   alertHandle: true,
                   alertStatus: 'success',
-                  alertMessage: '반가워요 ' + userData?.nickName,
+                  alertMessage: '반가워요 ' + userData.nickName,
                 });
                 setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
                 setAdminUser({
                   ...adminUser,
                   uid: user.uid,
-                  nickName: userData?.nickName,
-                  name: userData?.name,
-                  phoneNumber: userData?.phoneNumber,
+                  nickName: userData.nickName,
+                  name: userData.name,
+                  phoneNumber: userData.phoneNumber,
                 });
               }
             });
@@ -159,7 +160,7 @@ const AdminHome = () => {
                   setIsOpen={setAdminMenuHandler}
                 />
               </div>
-              {adminUser && (
+              {adminUser.nickName.length > 0 && (
                 <StyledUserName
                   onClick={() => setAdminMenuHandler(!adminMenuHandler)}
                 >

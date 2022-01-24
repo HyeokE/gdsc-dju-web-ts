@@ -8,6 +8,7 @@ import {
   Handle,
   StyledPosition,
   Switch,
+  ToggleButtonInner,
   ToggleButtonSection,
   ToggleButtonWrapper,
 } from './styled';
@@ -93,10 +94,15 @@ const AdminSetting = () => {
           <ToggleButtonSection>
             {Object.keys(recruit).map((key, id) => (
               <ToggleButtonWrapper key={id}>
-                <StyledPosition>{convertPosition(key)}</StyledPosition>
-                <Switch data-isOn={isOn(key)} onClick={() => toggleSwitch(key)}>
-                  <Handle layout transition={spring} />
-                </Switch>
+                <ToggleButtonInner>
+                  <StyledPosition>{convertPosition(key)}</StyledPosition>
+                  <Switch
+                    data-isOn={isOn(key)}
+                    onClick={() => toggleSwitch(key)}
+                  >
+                    <Handle layout transition={spring} />
+                  </Switch>
+                </ToggleButtonInner>
               </ToggleButtonWrapper>
             ))}
           </ToggleButtonSection>

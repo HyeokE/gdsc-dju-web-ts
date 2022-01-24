@@ -31,11 +31,11 @@ export const StyledLogoWrapper = styled(Link)`
 export const StyledImg = styled.img`
   height: 27px;
   width: 100%;
-  margin: 0 15px;
+  margin: 0 10px;
 `;
 export const StyledLogo = styled.div`
   color: #4e4e4e;
-  margin-right: 10px;
+  margin-right: 5px;
   font-weight: bold;
   @media (max-width: 600px) {
     display: none;

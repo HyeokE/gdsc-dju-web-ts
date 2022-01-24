@@ -37,7 +37,7 @@ export const StyledLi = styled.li`
   background: transparent;
   cursor: pointer;
   height: 24px;
-  padding: 5px 15px;
+  padding: 5px 20px;
   display: flex;
   justify-content: center;
   align-items: center;

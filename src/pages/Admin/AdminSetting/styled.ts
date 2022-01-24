@@ -27,7 +27,6 @@ export const Handle = styled(motion.div)`
 export const StyledPosition = styled.div`
   font-size: 1.5rem;
   margin-right: 10px;
-  margin-bottom: 10px;
 `;
 export const ToggleButtonWrapper = styled.div`
   width: 33.333%;
@@ -35,6 +34,12 @@ export const ToggleButtonWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
+`;
+export const ToggleButtonInner = styled.div`
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
 `;
 export const ToggleButtonSection = styled.section`
   flex-wrap: wrap;
