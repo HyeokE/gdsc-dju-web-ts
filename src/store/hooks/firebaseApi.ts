@@ -1,13 +1,4 @@
 import { dbService } from '../../firebase/firebase';
-interface Iprops {
-  setData: (data: string[]) => void;
-}
-type Data = {
-  email: string;
-  nickName: string;
-  major: string;
-  interest: string;
-}[];
 
 export const getMemberList = async (setData: any) => {
   await dbService
@@ -26,7 +17,7 @@ export const getMemberList = async (setData: any) => {
       };
     });
 };
-export const getonBoardingMemberList = async (element: string) => {
+export const getOnboardingMemberList = async (element: string) => {
   await dbService
     .collection('onboardingMembers')
     .get()
