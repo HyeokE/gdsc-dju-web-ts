@@ -23,7 +23,8 @@ export const LayoutContainer = styled.div`
   min-width: 320px;
 `;
 export const ContainerInner = styled.div`
-  padding: 0 20px;
+  width: 92%;
+  margin: 0 auto;
 `;
 export const CardList = styled(motion.section)`
   display: flex;
