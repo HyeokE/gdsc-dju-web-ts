@@ -14,20 +14,20 @@ export const StyledRecruitmentButton = styled.button`
   height: 60px;
   border-radius: 75px;
   border-style: solid;
-  background: #4385f3;
-  border-width: 0px;
+  background: ${(props) => props.theme.color.tossBlueActive};
+  border-width: 0;
   color: white;
-  font-size: 16px;
+  font-size: 1.6rem;
   cursor: pointer;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 180px;
     height: 55px;
-    font-size: 15px;
+    font-size: 1.5rem;
   }
   @media (max-width: 500px) {
     width: 150px;
     height: 45px;
-    font-size: 13px;
+    font-size: 1.3rem;
   }
 `;
 export const StyledMainBanner = styled(motion.div)`
@@ -115,16 +115,13 @@ export const MainBannerText = styled(motion.p)`
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: 20px;
-  color: rgb(139, 149, 161);
-  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    font-size: 20px;
-  }
+  font-size: 2rem;
+  color: ${(props) => props.theme.color.grey500};
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    font-size: 15px;
+    font-size: 1.5rem;
   }
   @media (max-width: 320px) {
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 `;
 export const DownArrowWrapper = styled(motion.div)`
