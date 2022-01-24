@@ -49,7 +49,7 @@ const JoinUs = () => {
             <TeamSubCategory>Skill</TeamSubCategory>
             <TeamSubCategory>Stack</TeamSubCategory>
           </TeamCategoryWrapper>
-          {/*PC 환경 팀 리스트*/}
+          {/*Desk 팀 리스트*/}
           {RecruitTeam.map((data, key) => (
             <CategoryWrapper
               key={key}

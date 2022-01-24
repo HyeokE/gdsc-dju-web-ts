@@ -15,7 +15,7 @@ export const StyledButtonWrapper = styled.div`
   margin-right: 10px;
 `;
 export const AdminHeaderWrapper = styled.div`
-  background: ${(props) => props.theme.color.whiteSmoke};
+  background: ${(props) => props.theme.color.gray200};
 `;
 export const StyledAdminButton = styled.button`
   border-style: none;
@@ -43,7 +43,7 @@ export const ButtonElementWrapper = styled.div`
   margin-top: 10px;
 `;
 export const StyledUserName = styled.div`
-  color: ${(props) => props.theme.color.body};
+  color: ${(props) => props.theme.color.gray700};
   font-size: 20px;
   font-weight: bold;
   @media (max-width: 500px) {
@@ -67,6 +67,6 @@ export const AdminBlockPage = styled.div`
   left: 0;
   right: 0;
   opacity: 50%;
-  background: ${(props) => props.theme.color.dimGray};
+  background: ${(props) => props.theme.color.gray500};
   z-index: 999;
 `;

@@ -38,5 +38,5 @@ export const LinkDescription = styled.div`
   font-weight: 600;
   margin-bottom: 46px;
   font-size: 12px;
-  color: ${(props) => props.theme.color.subCategory};
+  color: ${(props) => props.theme.color.gray700};
 `;

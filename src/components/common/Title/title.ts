@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Title = styled(motion.h1)`
   font-size: 4.8rem;
   font-weight: bold;
-  color: ${(props) => props.theme.color.head};
+  color: ${(props) => props.theme.color.gray900};
   word-break: keep-all;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 4rem;
@@ -16,7 +16,7 @@ export const Title = styled(motion.h1)`
 export const SubTitle = styled(motion.h4)`
   font-size: 1.7rem;
   font-weight: bold;
-  color: ${(props) => props.theme.color.head};
+  color: ${(props) => props.theme.color.gray900};
   margin-bottom: 12px;
   @media (max-width: 500px) {
     font-size: 1.6rem;
@@ -24,6 +24,6 @@ export const SubTitle = styled(motion.h4)`
 `;
 export const MainText = styled(motion.p)`
   font-size: 1.6rem;
-  color: ${(props) => props.theme.color.body};
+  color: ${(props) => props.theme.color.gray800};
   padding-bottom: 10px;
 `;

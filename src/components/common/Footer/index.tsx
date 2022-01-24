@@ -1,17 +1,17 @@
 import React from 'react';
+
+import GDSCLogo from '../../../img/GDSCDaejinLogo.svg';
+import GoogleDeveloperLogo from '../../../img/googleDevelopers.svg';
+
+import { useLocation } from 'react-router';
 import {
   FooterContent,
   FooterGDSCLogo,
   FooterLogo,
   FooterLogoWrapper,
   FooterSubTitle,
-  FooterWrapper,
-  TopMargin,
-} from '../../../styles/layouts';
-import GDSCLogo from '../../../img/GDSCDaejinLogo.svg';
-import GoogleDeveloperLogo from '../../../img/googleDevelopers.svg';
-
-import { useLocation } from 'react-router';
+} from './styled';
+import { FooterWrapper } from './styled';
 
 export const Footer = () => {
   const location = useLocation();
