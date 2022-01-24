@@ -16,7 +16,7 @@ import {
   ElementJustifyCenter,
   TicketSaveButton,
 } from './styled';
-import Logo from '../../../img/GDSC Logo Clear.png';
+import Logo from '../../../img/GDSCLogoClear.svg';
 import html2canvas from 'html2canvas';
 import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';

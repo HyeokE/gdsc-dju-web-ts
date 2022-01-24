@@ -1,4 +1,4 @@
-export const Faq = [
+export const FaqData = [
   {
     id: 1,
     question: '전형결과는 언제 알 수 있나요?',

@@ -6,24 +6,24 @@ export const StyledMemberCard = styled.div`
 `;
 export const NickName = styled.div`
   font-family: 'Gothic A1', sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
   margin-top: 22px;
 `;
 export const Name = styled.div`
   font-family: 'Gothic A1', sans-serif;
-  font-size: 13px;
+  font-size: 1.3rem;
   margin-top: 10px;
   color: #aaaaaa;
 `;
 export const Role = styled.div`
   color: ${(props) => props.theme.color.googleBlue};
   font-family: 'Gothic A1', sans-serif;
-  font-size: 13px;
+  font-size: 1.3rem;
   margin-top: 10px;
 `;
 export const MemberImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  border: 1px solid ${(props) => props.theme.color.subCategory};
+  border: 1px solid ${(props) => props.theme.color.grey500};
 `;

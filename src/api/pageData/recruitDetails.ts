@@ -1,4 +1,4 @@
-export const TeamInfomation = [
+export const RecruitDetails = [
   {
     id: 'android',
     name: 'Android Developer (Kotlin)',
@@ -34,7 +34,7 @@ export const TeamInfomation = [
       '최신 개발 트렌드에 관심이 많으신 분이면 좋습니다.',
   },
   {
-    id: 'machineLearning',
+    id: 'ml',
     name: 'Machine Learning (Open CV)',
     people:
       '머신 러닝 알고리즘에 대한 기본기를 갖추신 분\n' +

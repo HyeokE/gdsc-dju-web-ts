@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
+import GDSCLogoClear from '../../../../img/GDSCLogoClear.svg';
 
 import { useLocation } from 'react-router';
 import './Navigation.css';
@@ -9,14 +9,15 @@ import {
   NavDesign,
   NavInner,
   NavTask,
+  NavTaskWrapper,
+  NavWrapper,
+  SchoolName,
+  SchoolNameUni,
   StyledImg,
   StyledLogo,
-  SchoolName,
-  NavTaskWrapper,
-  SchoolNameUni,
   StyledLogoWrapper,
 } from './styled';
-import WideNavCategory from '../WideNavCategory';
+import DeskNavCategory from '../DeskNavCategory';
 
 export const navigationData = [
   {
@@ -33,7 +34,7 @@ export const navigationData = [
   },
   {
     route: '/faq',
-    title: '자주 하는 질문',
+    title: 'FAQ',
   },
 ];
 export const Navigation: React.FC = () => {
@@ -45,27 +46,25 @@ export const Navigation: React.FC = () => {
   });
   return (
     <NavDesign className={routeStyle === '/' ? 'transparent' : 'white'}>
-      <NavInner>
-        <NavTaskWrapper>
-          <NavTask>
-            <StyledLogoWrapper to={'/'}>
-              <StyledImg
-                src={GDSCLogoClear}
-                alt="GDSC-Chapter-Logo"
-                height={40}
-              />
-              <StyledLogo>GDSC </StyledLogo>
-              <SchoolName>Daejin</SchoolName>
-              <SchoolNameUni>Univ.</SchoolNameUni>
-            </StyledLogoWrapper>
-          </NavTask>
-        </NavTaskWrapper>
-        <MenuToggleIcon />
-        <WideNavCategory
-          routeStyle={routeStyle}
-          navigationData={navigationData}
-        />
-      </NavInner>
+      <NavWrapper>
+        <NavInner>
+          <NavTaskWrapper>
+            <NavTask>
+              <StyledLogoWrapper to={'/'}>
+                <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                <StyledLogo>GDSC </StyledLogo>
+                <SchoolName>Daejin</SchoolName>
+                <SchoolNameUni>Univ.</SchoolNameUni>
+              </StyledLogoWrapper>
+            </NavTask>
+          </NavTaskWrapper>
+          <MenuToggleIcon />
+          <DeskNavCategory
+            routeStyle={routeStyle}
+            navigationData={navigationData}
+          />
+        </NavInner>
+      </NavWrapper>
     </NavDesign>
   );
 };

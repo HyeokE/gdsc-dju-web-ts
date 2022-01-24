@@ -23,7 +23,7 @@ import {
   OnboardingTravelWrapper,
 } from './styled';
 import '../Onboarding.css';
-import Logo from '../../../img/GDSC Logo Clear.png';
+import Logo from '../../../img/GDSCLogoClear.svg';
 import Plane from '../../../img/onBoardingImg/plane-blue.svg';
 import { useNavigate } from 'react-router-dom';
 import { getCurrentDate } from '../../../store/hooks/getCurrentDate';

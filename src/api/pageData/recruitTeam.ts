@@ -1,4 +1,4 @@
-export const TeamList = [
+export const RecruitTeam = [
   {
     id: 'android',
     name: 'Android Developer',
@@ -18,7 +18,7 @@ export const TeamList = [
     stack: 'JAVA',
   },
   {
-    id: 'machineLearning',
+    id: 'ml',
     name: 'AI (Machine Learning)',
     skill: 'Open CV',
     stack: '',

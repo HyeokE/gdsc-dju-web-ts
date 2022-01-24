@@ -8,7 +8,7 @@ export const QuestionWrapper = styled(motion.a)`
   padding: 20px 20px;
   display: flex;
   background: white;
-  color: ${(props) => props.theme.color.dimGray};
+  color: ${(props) => props.theme.color.grey700};
   flex-direction: row;
   border-radius: 10px;
   @media (max-width: 500px) {
@@ -23,7 +23,7 @@ export const QuestionMark = styled.div`
     margin-right: 16px;
     margin-bottom: 2px;
     font-weight: 700;
-    color: ${(props) => props.theme.color.silver};
+    color: ${(props) => props.theme.color.grey700};
     content: 'Q';
   }
 `;

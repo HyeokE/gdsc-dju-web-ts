@@ -43,25 +43,7 @@ export const JoinInner = styled.div`
     position: initial;
   }
 `;
-export const MinTitle = styled.div`
-  width: 90px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 24px;
-  color: ${(props) => props.theme.color.subCategory};
-`;
-export const MinText = styled.div`
-  color: #3886f6;
-`;
 
-export const ElementWrapper = styled.div`
-  padding: 14px 0px;
-  display: flex;
-  border-top: 1px solid ${(props) => props.theme.color.brColor};
-  @media (max-width: 500px) {
-    width: 100%;
-  }
-`;
 export const MoblieTopElementWrapper = styled.div`
   display: none;
   @media (max-width: 500px) {

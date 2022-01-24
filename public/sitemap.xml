@@ -8,8 +8,6 @@
 <url> <loc>https://gdsc-dju.web.app/joinus/:id</loc> </url>
 <url> <loc>https://gdsc-dju.web.app/conduct</loc> </url>
 <url> <loc>https://gdsc-dju.web.app/question</loc> </url>
-<url> <loc>https://gdsc-dju.web.app/signin</loc> </url>
-<url> <loc>https://gdsc-dju.web.app/signup</loc> </url>
 <url> <loc>https://gdsc-dju.web.app/apply</loc> </url>
 <url> <loc>https://gdsc-dju.web.app/admin</loc> </url>
 </urlset>

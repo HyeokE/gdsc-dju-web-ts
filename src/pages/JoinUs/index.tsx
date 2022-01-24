@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
+  BannerBlock,
+  BannerWrapper,
   ContainerInner,
   LayoutContainer,
   TopMargin,
 } from '../../styles/layouts';
 import { MainText, Title } from '../../components/common/Title/title';
-import { BannerImage, BannerWrapper } from '../../styles/layouts';
 
 import {
   Category,
@@ -18,17 +19,19 @@ import {
   TeamCategoryWrapper,
   TeamSubCategory,
 } from './styled';
-import { TeamList } from '../../api/pageData/teamList';
+import { RecruitTeam } from '../../api/pageData/recruitTeam';
 import { useNavigate } from 'react-router';
 import { Banner } from '../../img/Banner/Banner';
 
 import BlueBanner from '../../img/Banner/BlueBanner.png';
 import { categoryAnimate } from '../../components/common/Variants/Variants';
-export const JoinUs = () => {
+
+const JoinUs = () => {
   const navigate = useNavigate();
 
   return (
     <>
+      <BannerBlock />
       <BannerWrapper>
         <Banner src={BlueBanner} />
       </BannerWrapper>
@@ -48,8 +51,8 @@ export const JoinUs = () => {
             <TeamSubCategory>Skill</TeamSubCategory>
             <TeamSubCategory>Stack</TeamSubCategory>
           </TeamCategoryWrapper>
-          {/*PC 환경 팀 리스트*/}
-          {TeamList.map((data, key) => (
+          {/*Desk 팀 리스트*/}
+          {RecruitTeam.map((data, key) => (
             <CategoryWrapper
               key={key}
               initial={'unHover'}
@@ -67,7 +70,7 @@ export const JoinUs = () => {
             </CategoryWrapper>
           ))}
           {/*모바일 환경 팀 리스트*/}
-          {TeamList.map((data, key) => (
+          {RecruitTeam.map((data, key) => (
             <MobileCategoryWrapper
               key={key}
               onClick={() => {
@@ -86,3 +89,4 @@ export const JoinUs = () => {
     </>
   );
 };
+export default JoinUs;

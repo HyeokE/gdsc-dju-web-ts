@@ -47,7 +47,7 @@ export const OnboardingDescription = styled(motion.div)`
   margin-top: 15px;
   font-size: 20px;
   font-family: 'Gothic A1', sans-serif;
-  color: ${(props) => props.theme.color.subCategory};
+  color: ${(props) => props.theme.color.grey800};
 `;
 
 export const OnboardingInputWrapper = styled(motion.div)``;

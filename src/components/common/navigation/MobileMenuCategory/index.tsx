@@ -16,7 +16,11 @@ const MobileMenuCategory = () => {
   const [menu, setMenu] = useRecoilState(menuState);
 
   return (
-    <MenuInner variants={navigationAnimate}>
+    <MenuInner
+      variants={navigationAnimate}
+      initial={false}
+      animate={menu.appMenu ? 'open' : 'closed'}
+    >
       {navigationData.map((data, id) => (
         <MenuWrapper
           variants={navigationItemAnimate}

@@ -1,22 +1,14 @@
-export const textColor = {
-  head: '#333c4b',
-  head1: '#515b69',
-  body: '#4e5968',
-  body1: '#747c88',
-  category: '#6c7684',
-  subCategory: '#bfc4cb',
-  hoverBackground: '#f2f4f6',
-  brColor: '#d1d6db',
-};
-export const gray = {
-  ghostWhite: '#f9fafb',
-  whiteSmoke: '#f2f4f6',
-  lavender: '#e5e8eb',
-  gainsboro: '#d4d8dc',
-  silver: '#b1b8c0',
-  darkGray: '#a4acb5',
-  lightSlateGray: '#8b95a1',
-  dimGray: '#4f5968',
+export const assetGrey = {
+  grey50: '#F9FAFB',
+  grey100: '#F2F4F6',
+  grey200: '#E5E8EB',
+  grey300: '#D1D6DB',
+  grey400: '#B0B8C1',
+  grey500: '#8B95A1',
+  grey600: '#6B7684',
+  grey700: '#4E5968',
+  grey800: '#333D4B',
+  grey900: '#191F28',
 };
 export const assetGreen = {
   green100: '#E8F5E9',
@@ -60,13 +52,12 @@ export const googleLogoColor = {
   googleGreen: '#34A853',
 };
 export const primaryColor = {
-  ...gray,
+  ...assetGrey,
   ...assetGreen,
   ...assetYellow,
   ...assetRed,
   ...assetBlue,
   ...googleLogoColor,
-  ...textColor,
 };
 
 export const colors = { ...primaryColor };
