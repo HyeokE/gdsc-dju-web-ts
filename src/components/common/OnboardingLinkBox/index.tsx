@@ -12,7 +12,7 @@ import DiscordLogo from '../../../img/onBoardingImg/discord.svg';
 
 import NotionLogo from '../../../img/onBoardingImg/notion.svg';
 
-import { IProps } from '../../../pages/OnBoarding/OnboardingLinks';
+import { IProps } from '../../../pages/OnBoard/OnboardLink';
 
 const OnboardingLinkBox = (data: IProps) => {
   const name = data.id;

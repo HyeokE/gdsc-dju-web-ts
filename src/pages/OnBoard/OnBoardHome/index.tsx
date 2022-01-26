@@ -22,13 +22,13 @@ import {
   OnboardingTravelImage,
   OnboardingTravelWrapper,
 } from './styled';
-import '../Onboarding.css';
+import '../Onboard.css';
 import Logo from '../../../img/GDSCLogoClear.svg';
 import Plane from '../../../img/onBoardingImg/plane-blue.svg';
 import { useNavigate } from 'react-router-dom';
 import { getCurrentDate } from '../../../store/hooks/getCurrentDate';
 
-const OnboardingHome = () => {
+const OnboardHome = () => {
   const navigate = useNavigate();
   return (
     <OnboardingContainerWrapper>
@@ -77,7 +77,7 @@ const OnboardingHome = () => {
             <OnBoardingButton
               variants={onboardingAnimate}
               onClick={() => {
-                navigate('/onboarding/middle/email');
+                navigate('/onboard/middle/email');
               }}
             >
               시작하기
@@ -89,4 +89,4 @@ const OnboardingHome = () => {
   );
 };
 
-export default OnboardingHome;
+export default OnboardHome;

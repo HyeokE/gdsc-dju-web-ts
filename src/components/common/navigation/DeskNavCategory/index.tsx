@@ -20,7 +20,9 @@ const DeskNavCategory = ({ routeStyle }: any) => {
                 onClick={() => {
                   navigate(data.route);
                 }}
-                className={routeStyle == data.route ? 'active' : 'noneActive'}
+                className={
+                  routeStyle.includes(data.route) ? 'active' : 'noneActive'
+                }
               >
                 {data.title}
               </StyledLink>

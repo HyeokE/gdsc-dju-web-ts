@@ -25,7 +25,7 @@ export const navigationData = [
     title: '소개',
   },
   {
-    route: '/joinus',
+    route: '/join',
     title: '지원하기',
   },
   {
@@ -38,11 +38,11 @@ export const navigationData = [
   },
 ];
 export const Navigation: React.FC = () => {
-  const locaton = useLocation();
+  const location = useLocation();
 
   const [routeStyle, setRoutStyle] = useState<string>('/');
   useEffect(() => {
-    setRoutStyle(locaton.pathname);
+    setRoutStyle(location.pathname);
   });
   return (
     <NavDesign className={routeStyle === '/' ? 'transparent' : 'white'}>

@@ -13,12 +13,9 @@ import {
   OnboardingMiddleButton,
   OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
-} from '../OnboardingMiddle/styled';
+} from '../OnboardMiddle/styled';
 import backArrow from '../../../img/onBoardingImg/back.svg';
-import {
-  OnboardingTitle,
-  OnboardingTitleWrapper,
-} from '../OnBoardingHome/styled';
+import { OnboardingTitle, OnboardingTitleWrapper } from '../OnBoardHome/styled';
 import Human5 from '../../../img/onBoardingImg/human-black.svg';
 
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
@@ -38,7 +35,7 @@ export interface IProps {
   link: string;
 }
 
-const OnBoardingLinks = () => {
+const OnBoardLink = () => {
   const navigate = useNavigate();
   const [member, setMember] = useRecoilState(onboardingUserState);
   const uploadMembers = async () => {
@@ -60,19 +57,6 @@ const OnBoardingLinks = () => {
       link: 'https://www.notion.so/invite/e58f15389c5542412d73f05d0ffd38fe58f90e35',
     },
   ];
-  // const uploadMembers = async () => {
-  //   try {
-  //     await dbService.collection('members').doc().set({
-  //       nickName: member.nickname,
-  //       major: member.major,
-  //       email: member.email,
-  //       interest: member.interest,
-  //       uploadDate: Date.now(),
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
 
   return (
     <OnboardingContainerWrapper>
@@ -119,7 +103,7 @@ const OnBoardingLinks = () => {
             <OnboardingMiddleButton
               variants={onboardingAnimate}
               onClick={() => {
-                navigate('/onboarding/ticket');
+                navigate('/onboard/ticket');
                 {
                   member.email.length > 2 &&
                     member.interest.length > 2 &&
@@ -145,4 +129,4 @@ const OnBoardingLinks = () => {
   );
 };
 
-export default OnBoardingLinks;
+export default OnBoardLink;

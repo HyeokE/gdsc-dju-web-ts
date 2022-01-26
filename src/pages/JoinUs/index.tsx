@@ -59,7 +59,7 @@ const JoinUs = () => {
               whileHover={'hovered'}
               variants={categoryAnimate}
               onClick={() => {
-                navigate('/joinus/' + data.id);
+                navigate('/join/' + data.id);
               }}
             >
               <CategoryInner>
@@ -74,7 +74,7 @@ const JoinUs = () => {
             <MobileCategoryWrapper
               key={key}
               onClick={() => {
-                navigate('/joinus/' + data.id);
+                navigate('/join/' + data.id);
               }}
             >
               <MobileCategoryInner>

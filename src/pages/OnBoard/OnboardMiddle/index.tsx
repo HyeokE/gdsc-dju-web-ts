@@ -27,14 +27,11 @@ import {
   StyledErrorMessage,
 } from './styled';
 import './OnboardingMiddle.css';
-import {
-  OnboardingTitle,
-  OnboardingTitleWrapper,
-} from '../OnBoardingHome/styled';
+import { OnboardingTitle, OnboardingTitleWrapper } from '../OnBoardHome/styled';
 import { onBoardingData } from '../../../api/pageData/onBoarding';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { OnboardingMiddleTextWrapper } from '../OnboardingTicket/styled';
+import { OnboardingMiddleTextWrapper } from '../OnboardTicket/styled';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
@@ -42,7 +39,7 @@ import * as Yup from 'yup';
 import { UserDataState } from '../../../api/types';
 import { useGetMemberNickname } from '../../../api/hooks/useGetMemberData';
 
-const OnboardingMiddle = () => {
+const OnboardMiddle = () => {
   const { id } = useParams();
   const pageData = onBoardingData.find((data) => data.id === id);
   const color = pageData?.color;
@@ -212,7 +209,7 @@ const OnboardingMiddle = () => {
                         setFormik();
                         onApply();
 
-                        navigate('/onboarding/' + pageData.next);
+                        navigate('/onboard/' + pageData.next);
                       }}
                     >
                       다음으로
@@ -248,4 +245,4 @@ const OnboardingMiddle = () => {
   );
 };
 
-export default OnboardingMiddle;
+export default OnboardMiddle;

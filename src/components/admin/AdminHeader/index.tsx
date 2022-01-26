@@ -1,40 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Admin.css';
 import {
-  AdminHeaderWrapper,
   AdminNavCategoryWrapper,
   AdminNavigationWrapper,
-  ButtonElementWrapper,
   SidebarContainer,
-  StyledAdminButton,
-  StyledButtonWrapper,
-  StyledSubTitle,
   StyledUserName,
 } from './styled';
-import { useRecoilState } from 'recoil';
-
-import { alertState } from '../../../store/alert';
-import { localUserState } from '../../../store/localUser';
-import { MODAL_KEY, modalState } from '../../../store/modal';
-import { authService, dbService } from '../../../firebase/firebase';
 import AdminSignInModal from '../../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../../components/common/Modal/AdminSignUp';
 import AdminSetUserProfile from '../../../components/common/Modal/AdminSetUserProfile';
 import AdminTopMenu from '../../../components/admin/AdminTopMenu';
-import {
-  BannerBlock,
-  BannerWrapper,
-  ContainerInner,
-  LayoutContainer,
-  TopMargin,
-} from '../../../styles/layouts';
-import { Title } from '../../../components/common/Title/title';
+import { BannerBlock, TopMargin } from '../../../styles/layouts';
 import { useLocation } from 'react-router';
-import GoogleSpinner from '../../common/GoogleSpinner';
-import { Banner } from '../../../img/Banner/Banner';
-import RedBanner from '../../../img/Banner/RedBanner.png';
 import {
-  NavDesign,
   NavInner,
   NavTask,
   NavTaskWrapper,
@@ -47,17 +25,18 @@ import {
 } from '../../common/navigation/DeskNavigation/styled';
 import GDSCLogoClear from '../../../img/GDSCLogoClear.svg';
 import AdminUserMenu from '../AdminUserMenu';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { localUserState } from '../../../store/localUser';
 
 const AdminHome = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [adminMenuHandler, setAdminMenuHandler] = useState(false);
+  const [adminUser] = useRecoilState(localUserState);
   const [selectedCategory, setSelectedCategory] = useState<string>(
     location.pathname,
   );
-  const [alert, setAlert] = useRecoilState(alertState);
-  const [modal, setModal] = useRecoilState(modalState);
-  const [adminUser, setAdminUser] = useRecoilState(localUserState);
-  const [value, setValue] = useState(false);
-  const [adminMenuHandler, setAdminMenuHandler] = useState(false);
 
   const tabs = [
     { label: 'Home', route: '/admin' },
@@ -65,72 +44,11 @@ const AdminHome = () => {
     { label: 'Setting', route: '/admin/setting' },
   ];
 
-  const checkAdminUser = () => {
-    authService.onAuthStateChanged(async (user: any) => {
-      if (user) {
-        await setAdminUser({
-          ...adminUser,
-          uid: user.uid,
-        });
-        setValue(true);
-
-        try {
-          await dbService
-            .collection('adminUsers')
-            .doc(user.uid)
-            .get()
-            .then(async (data) => {
-              const userData = data.data();
-
-              if (userData === undefined) {
-                setAlert({
-                  ...alert,
-                  alertHandle: true,
-                  alertStatus: 'warning',
-                  alertMessage: '추가정보를 입력하셔야합니다.',
-                });
-                setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
-                setModal({
-                  ...modal,
-                  [MODAL_KEY.ADMIN_SET_PROFILE]: true,
-                });
-              }
-              if (userData) {
-                setAlert({
-                  ...alert,
-                  alertHandle: true,
-                  alertStatus: 'success',
-                  alertMessage: '반가워요 ' + userData.nickName,
-                });
-                setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: false });
-                setAdminUser({
-                  ...adminUser,
-                  uid: user.uid,
-                  nickName: userData.nickName,
-                  name: userData.name,
-                  phoneNumber: userData.phoneNumber,
-                });
-              }
-            });
-        } catch (e: any) {
-          console.log(e.message);
-        }
-      } else {
-        setModal({ ...modal, [MODAL_KEY.ADMIN_SIGN_IN]: true });
-        setValue(false);
-      }
-    });
-  };
-  useEffect(() => {
-    checkAdminUser();
-  }, []);
-
   return (
     <>
       <AdminSignInModal />
       <AdminSignUpModal />
       <AdminSetUserProfile />
-      {!value && <GoogleSpinner />}
       <AdminSetUserProfile />
       <BannerBlock />
       <AdminNavigationWrapper>

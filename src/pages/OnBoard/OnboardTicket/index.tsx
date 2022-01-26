@@ -20,11 +20,11 @@ import Logo from '../../../img/GDSCLogoClear.svg';
 import html2canvas from 'html2canvas';
 import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';
-import { OnboardingTitle } from '../OnBoardingHome/styled';
+import { OnboardingTitle } from '../OnBoardHome/styled';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 
-const OnboardingTicket = () => {
+const OnboardTicket = () => {
   const [userData, setUserData] = useRecoilState(onboardingUserState);
 
   const issueTicket = useRef<HTMLDivElement>(null);
@@ -105,4 +105,4 @@ const OnboardingTicket = () => {
   );
 };
 
-export default OnboardingTicket;
+export default OnboardTicket;
