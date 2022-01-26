@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import SignUp from './SignUp';
+
+import SignIn from './SignUp';
 
 const Auth = () => {
   return (
     <Routes>
-      <Route path={'/*'} element={<SignUp />} />
-      <Route path={'/SignUp'} element={<SignUp />} />
+      <Route path={'/*'} element={<SignIn />} />
+      <Route path={'/signin'} element={<SignIn />} />
     </Routes>
   );
 };
