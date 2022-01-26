@@ -7,6 +7,7 @@ import { recruitmentState } from '../store/recruitHandler';
 import API from '../api';
 import { hideNavigation } from '../store/hooks/hideNavigation';
 import MobileMenu from '../components/common/navigation/MobileMenu';
+import ScrollTop from '../components/common/ScrollTop';
 
 const Home = lazy(() => import('./Home'));
 const Introduce = lazy(() => import('./Introduce'));
@@ -19,6 +20,7 @@ const FaqDetail = lazy(() => import('./Faq/FaqDetail'));
 const Pages = () => {
   return (
     <>
+      <ScrollTop />
       <MobileMenu />
       <Navigation />
       <Routes>
