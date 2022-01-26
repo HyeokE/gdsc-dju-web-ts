@@ -1,58 +1,28 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router';
-import { Pages } from '../../pages';
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router';
 import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
-
-import { Footer } from '../common/Footer';
-
-import { menuState } from '../../store/menu';
-import MobileMenu from '../common/navigation/MobileMenu';
-import Navigation from '../common/navigation/DeskNavigation';
-import MemberCardModal from '../common/Modal/MemberCardModal';
-import { modalState } from '../../store/modal';
 import GoogleSpinner from '../common/GoogleSpinner';
-import { recruitmentState } from '../../store/recruitHandler';
-import API from '../../api';
 
+const Admin = lazy(() => import('../../pages/Admin'));
+const OnBoard = lazy(() => import('../../pages/OnBoard'));
+const Auth = lazy(() => import('../../pages/Auth'));
+const Pages = lazy(() => import('../../pages'));
 export const Main = () => {
   const [alert] = useRecoilState(alertState);
-  const [navHandler, setNavHandler] = useState<boolean>(true);
-  const [recruitment, setRecruitment] = useRecoilState(recruitmentState);
-  const location = useLocation();
-  const hideNavigation = () => {
-    if (location.pathname.includes('/')) {
-      setNavHandler(true);
-    }
-    if (location.pathname.includes('/onboarding')) {
-      setNavHandler(false);
-    }
-    if (location.pathname.includes('/admin')) {
-      setNavHandler(false);
-    }
-  };
-  const getRecruitment = async (): Promise<void> => {
-    const data = await API.getRecruitmentInfo();
-    setRecruitment({ ...recruitment, ...data.data });
-  };
-  useEffect(() => {
-    hideNavigation();
-    getRecruitment();
-  }, []);
 
   return (
     <>
       <Suspense fallback={<GoogleSpinner />}>
-        <MobileMenu />
-        {navHandler && <Navigation />}
         {alert.alertHandle && <Alert />}
-
-        {/*<Alert />*/}
         <Routes>
-          <Route path={'*'} element={<Pages />} />
+          <Route path={'/*'} element={<Pages />} />
+          <Route path={'/main/*'} element={<Pages />} />
+          <Route path={'/admin/*'} element={<Admin />} />
+          <Route path={'/onboard/*'} element={<OnBoard />} />
+          <Route path={'/auth/*'} element={<Auth />} />
         </Routes>
-        {navHandler ? <Footer /> : null}
       </Suspense>
     </>
   );
