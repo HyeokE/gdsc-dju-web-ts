@@ -17,6 +17,12 @@ export type onBoardingMember = {
   major: string;
   interest: string;
 };
+export type AdminDataType = {
+  uid: string;
+  name: string;
+  nickName: string;
+  phoneNumber: string;
+};
 export type recruitmentInfoDataType = {
   frontend: boolean;
   backend: boolean;

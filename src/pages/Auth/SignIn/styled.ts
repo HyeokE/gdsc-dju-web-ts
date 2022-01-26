@@ -14,6 +14,9 @@ export const AuthBoxWrapper = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    width: 100%;
+  }
 `;
 export const AuthBoxInner = styled.div`
   padding: 50px 60px;
@@ -22,7 +25,7 @@ export const AuthBoxInner = styled.div`
   border-radius: 10px;
 `;
 export const GDSCLogoImage = styled.img`
-  height: 17px;
+  height: 20px;
   margin-right: 15px;
 `;
 export const AuthElementWrapper = styled.div<{
@@ -34,6 +37,12 @@ export const AuthElementWrapper = styled.div<{
   align-items: ${(props) => props.align};
   margin-bottom: 15px;
   flex-direction: ${(props) => props.direction};
+`;
+export const AuthErrorText = styled.p`
+  height: 15px;
+  padding: 0 10px;
+  font-size: 1.4rem;
+  color: ${(props) => props.theme.color.tossRed};
 `;
 export const AuthButtonWrapper = styled.div`
   display: flex;
@@ -57,12 +66,13 @@ export const AuthSignButton = styled.button`
 export const AuthTitle = styled.h1`
   font-size: 3.2rem;
   font-weight: bold;
+  color: ${(props) => props.theme.color.grey800};
 `;
 export const AuthSubTitle = styled.h4`
   font-size: 1.6rem;
-  font-weight: 600;
   word-break: keep-all;
   justify-content: flex-start;
+  font-weight: normal;
   color: ${(props) => props.theme.color.grey500};
   margin-right: 10px;
   &:nth-child(n + 1):nth-child(-n + 2) {
@@ -78,7 +88,7 @@ export const AuthInput = styled.input`
 `;
 export const AuthLinkText = styled.a`
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 500;
   color: ${(props) => props.theme.color.tossBlue};
   margin-right: 10px;
   &:hover {
@@ -120,7 +130,7 @@ export const OAuthButton = styled.button`
 export const OAuthText = styled.div<{ weight?: string }>`
   font-size: 1.6rem;
   font-weight: ${(props) => props.weight};
-  color: ${(props) => props.theme.color.grey900};
+  color: ${(props) => props.theme.color.grey800};
 `;
 export const OAuthImage = styled.img`
   height: 25px;

@@ -17,16 +17,6 @@ const Faq = lazy(() => import('./Faq'));
 const FaqDetail = lazy(() => import('./Faq/FaqDetail'));
 
 const Pages = () => {
-  const [recruitment, setRecruitment] = useRecoilState(recruitmentState);
-
-  const getRecruitment = async (): Promise<void> => {
-    const data = await API.getRecruitmentInfo();
-    setRecruitment({ ...recruitment, ...data.data });
-  };
-  useEffect(() => {
-    getRecruitment();
-  }, []);
-
   return (
     <>
       <MobileMenu />

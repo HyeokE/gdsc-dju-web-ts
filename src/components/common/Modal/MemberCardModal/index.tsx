@@ -10,6 +10,7 @@ import './MemberCard.css';
 const MemberCardModal = (props: { id: number }) => {
   const { id } = props;
   const [modalHandler, setModalHandler] = useRecoilState(modalState);
+  const { memberImg, nickName, name, introduce, role } = memberList[id];
   return (
     <>
       <StyledModal
@@ -20,15 +21,15 @@ const MemberCardModal = (props: { id: number }) => {
         }
       >
         <MemberCardModalInner>
-          {memberList[id].memberImg ? (
-            <MemberImg src={memberList[id].memberImg} />
+          {memberImg ? (
+            <MemberImg src={memberImg} />
           ) : (
             <Skeleton variant={'circular'} height={200} width={200} />
           )}
-          <NickName>{memberList[id].nickName}</NickName>
-          <Name>{memberList[id].name}</Name>
-          <Role>{memberList[id].role}</Role>
-          <Name>{memberList[id].introduce}</Name>
+          <NickName>{nickName}</NickName>
+          <Name>{name}</Name>
+          <Role>{role}</Role>
+          <Name>{introduce}</Name>
         </MemberCardModalInner>
       </StyledModal>
     </>

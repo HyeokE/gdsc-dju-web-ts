@@ -26,7 +26,7 @@ const AdminSignInModal = () => {
         setError('이미 사용 중인 이메일입니다.');
       }
       if (error.code == 'auth/invalid-email') {
-        setError('유효하지 않은 이메일입니다.');
+        setError('해당 이메일 주소로 등록된 계정을 찾을 수 없습니다.\n');
       }
       if (error.code == 'operation-not-allowed') {
         setError('이메일 가입이 중지되었습니다.');

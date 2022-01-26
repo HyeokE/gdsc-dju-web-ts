@@ -4,6 +4,7 @@ import { AdminUserMenuWrapper, MenuElement } from './styled';
 import { authService } from '../../../firebase/firebase';
 import { MODAL_KEY, modalState } from '../../../store/modal';
 import { useRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 
 const AdminUserMenu = (props: {
   isOpen: boolean;
@@ -11,6 +12,7 @@ const AdminUserMenu = (props: {
 }) => {
   const { isOpen, setIsOpen } = props;
   const [modal, setModal] = useRecoilState(modalState);
+  const navigate = useNavigate();
   const hoverMotion = {
     cursor: 'pointer',
     backgroundColor: '#E5E8EB',
@@ -31,6 +33,7 @@ const AdminUserMenu = (props: {
               onClick={() => {
                 setIsOpen(false);
                 authService.signOut();
+                navigate('/auth');
               }}
             >
               로그아웃
