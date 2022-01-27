@@ -111,8 +111,8 @@ const SignIn = () => {
             <AuthElementWrapper align={'center'}>
               <AuthTitle>로그인</AuthTitle>
             </AuthElementWrapper>
-            <AuthElementWrapper>
-              <AuthSubTitle>계정이 없으신가요?</AuthSubTitle>
+            <AuthElementWrapper direction={'column'}>
+              <AuthSubTitle>이메일 주소</AuthSubTitle>
               <AuthLinkText
                 onClick={() => {
                   navigate('/');
@@ -120,10 +120,12 @@ const SignIn = () => {
               >
                 계정 만들기
               </AuthLinkText>
-            </AuthElementWrapper>
-            <AuthElementWrapper direction={'column'}>
-              <AuthSubTitle>이메일 주소</AuthSubTitle>
-              <AuthInput type={'email'} name={'email'} onChange={onChange} />
+              <AuthInput
+                type={'email'}
+                name={'email'}
+                onChange={onChange}
+                placeholder={'gdsc@gmail.com'}
+              />
             </AuthElementWrapper>
             <AuthElementWrapper direction={'column'}>
               <AuthSubTitle>비밀번호</AuthSubTitle>
