@@ -19,7 +19,7 @@ export const AuthBoxWrapper = styled.div`
   }
 `;
 export const AuthBoxInner = styled.div`
-  padding: 50px 60px;
+  padding: 40px 50px;
   background: white;
   border: 0 solid;
   border-radius: 10px;
@@ -73,7 +73,7 @@ export const AuthSubTitle = styled.h4`
   word-break: keep-all;
   justify-content: flex-start;
   font-weight: normal;
-  color: ${(props) => props.theme.color.grey500};
+  color: ${(props) => props.theme.color.grey600};
   margin-right: 10px;
   &:nth-child(n + 1):nth-child(-n + 2) {
     margin-bottom: 10px;
@@ -87,7 +87,7 @@ export const AuthInput = styled.input`
   padding: 0 20px;
 `;
 export const AuthLinkText = styled.a`
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: ${(props) => props.theme.color.tossBlue};
   margin-right: 10px;
@@ -96,7 +96,7 @@ export const AuthLinkText = styled.a`
   }
 `;
 export const AuthLogoText = styled.div<any>`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: ${(props) => props.border};
   margin-right: 5px;
 `;

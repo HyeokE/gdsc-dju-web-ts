@@ -7,8 +7,6 @@
   src: url("fonts/Product Sans Bold.ttf");
 }
 * {
-  /*font-family: "Product Sans";*/
-  /*font-family: "Apple SD Gothic Neo", sans-serif;*/
   font-family: "Noto Sans KR", sans-serif;
   font-style: normal;
   margin: 0;

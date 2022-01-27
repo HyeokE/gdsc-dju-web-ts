@@ -34,7 +34,7 @@ export const CardList = styled(motion.section)`
 export const BannerImage = styled.img`
   height: 500px;
 `;
-export const BannerBlock = styled.div`
+export const NavigationBlock = styled.div`
   height: 60px;
   width: 100%;
 `;

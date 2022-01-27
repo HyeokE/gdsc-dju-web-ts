@@ -26,7 +26,7 @@ export const TeamCategoryWrapper = styled.div`
 `;
 export const CategoryInner = styled.div`
   padding-left: 30px;
-  font-size: 18px;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,7 +36,7 @@ export const SubCategory = styled.div`
   display: flex;
   align-items: center;
   width: 300px;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: ${(props) => props.theme.color.grey600};
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 300px;
@@ -53,7 +53,7 @@ export const TeamCategory = styled.div`
   align-items: center;
   margin-left: 30px;
   width: 330px;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: ${(props) => props.theme.color.grey700};
 `;
 export const TeamSubCategory = styled.div`
@@ -62,7 +62,7 @@ export const TeamSubCategory = styled.div`
   align-items: center;
   margin-left: 10px;
   width: 200px;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: ${(props) => props.theme.color.grey700};
 `;
 export const Category = styled.div`
@@ -70,7 +70,7 @@ export const Category = styled.div`
   font-weight: bold;
   align-items: center;
   width: 500px;
-  font-size: 18px;
+  font-size: 1.8rem;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 500px;
   }

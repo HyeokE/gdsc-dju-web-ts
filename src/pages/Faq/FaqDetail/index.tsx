@@ -5,10 +5,10 @@ import YellowBanner from '../../../img/Banner/YellowBanner.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AnswerText, AnswerWrapper, BackToFaq, QuestionTitle } from './styled';
 import {
-  BannerBlock,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
+  NavigationBlock,
   TopMargin,
 } from '../../../styles/layouts';
 import { FaqData } from '../../../api/pageData/faq';
@@ -21,7 +21,7 @@ const FaqDetail = () => {
 
   return (
     <>
-      <BannerBlock />
+      <NavigationBlock />
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>

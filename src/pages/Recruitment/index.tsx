@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  BannerBlock,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
+  NavigationBlock,
   TopMargin,
 } from '../../styles/layouts';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
@@ -29,7 +29,7 @@ const Recruitment: React.FC = () => {
   const aboutTeam = RecruitDetails.find((aboutTeam) => aboutTeam.id === id);
   return (
     <>
-      <BannerBlock />
+      <NavigationBlock />
       <BannerWrapper>
         <Banner src={BlueBanner} />
       </BannerWrapper>

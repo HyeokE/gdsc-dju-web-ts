@@ -40,12 +40,12 @@ export const navigationData = [
 export const Navigation: React.FC = () => {
   const location = useLocation();
 
-  const [routeStyle, setRoutStyle] = useState<string>('/');
-  useEffect(() => {
-    setRoutStyle(location.pathname);
-  });
   return (
-    <NavDesign className={routeStyle === '/' ? 'transparent' : 'white'}>
+    <NavDesign
+      className={
+        location.pathname == ('/' || '/main') ? 'transparent' : 'white'
+      }
+    >
       <NavWrapper>
         <NavInner>
           <NavTaskWrapper>
@@ -60,7 +60,7 @@ export const Navigation: React.FC = () => {
           </NavTaskWrapper>
           <MenuToggleIcon />
           <DeskNavCategory
-            routeStyle={routeStyle}
+            routeStyle={location.pathname}
             navigationData={navigationData}
           />
         </NavInner>
