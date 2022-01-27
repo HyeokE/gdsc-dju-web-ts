@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  BannerBlock,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
+  NavigationBlock,
   TopMargin,
 } from '../../styles/layouts';
 import { MainText, SubTitle, Title } from '../../components/common/Title/title';
@@ -15,7 +15,7 @@ import BulletList from '../../components/common/BulletList';
 const CodeOfConduct = () => {
   return (
     <>
-      <BannerBlock />
+      <NavigationBlock />
       <BannerWrapper>
         <Banner src={RedBanner} />
       </BannerWrapper>

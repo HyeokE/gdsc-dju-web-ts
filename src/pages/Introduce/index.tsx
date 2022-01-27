@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
-  BannerBlock,
   BannerWrapper,
   CardList,
   ContainerInner,
   LayoutContainer,
+  NavigationBlock,
   TopMargin,
 } from '../../styles/layouts';
 import { MemberCard } from '../../components/common/card/MemberCard/';
@@ -30,7 +30,7 @@ const Introduce = () => {
   return (
     <>
       {modalHandler.memberCard && <MemberCardModal id={selectedId} />}
-      <BannerBlock />
+      <NavigationBlock />
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>

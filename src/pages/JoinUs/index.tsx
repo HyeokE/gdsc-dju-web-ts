@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  BannerBlock,
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
+  NavigationBlock,
   TopMargin,
 } from '../../styles/layouts';
 import { MainText, Title } from '../../components/common/Title/title';
@@ -31,7 +31,7 @@ const JoinUs = () => {
 
   return (
     <>
-      <BannerBlock />
+      <NavigationBlock />
       <BannerWrapper>
         <Banner src={BlueBanner} />
       </BannerWrapper>

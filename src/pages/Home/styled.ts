@@ -33,7 +33,7 @@ export const StyledRecruitmentButton = styled.button`
 export const StyledMainBanner = styled(motion.div)`
   position: absolute;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -55,7 +55,7 @@ export const RecruitingWrapper = styled(motion.div)`
   justify-content: center;
   align-items: center;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    width: 70%;
+    width: 60%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     width: 80%;
@@ -76,21 +76,14 @@ export const LeftColorLinesWrapper = styled(motion.div)`
     width: 45%;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    top: 200px;
+    bottom: 100px;
     width: 300px;
     left: -100px;
-  }
-  @media (max-width: 760px) {
-    top: 400px;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    top: 350px;
   }
 `;
 export const RightColorLinesWrapper = styled(motion.div)`
   z-index: 1;
   position: absolute;
-
   max-width: 500px;
   width: 40%;
   right: -200px;
@@ -115,7 +108,7 @@ export const MainBannerText = styled(motion.p)`
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: ${(props) => props.theme.color.grey500};
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 1.5rem;

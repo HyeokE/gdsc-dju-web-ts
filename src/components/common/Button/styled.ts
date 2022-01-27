@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
   border-color: ${(props) => props.theme.color.tossBlue};
   border-style: inherit;
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 1.6rem;
   &:hover {
     background: ${(props) => props.theme.color.tossBlueActive};
     cursor: pointer;

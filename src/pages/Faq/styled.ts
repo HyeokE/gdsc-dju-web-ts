@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const QuestionWrapper = styled(motion.a)`
   margin-bottom: 24px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 2rem;
   padding: 20px 20px;
   display: flex;
   background: white;
@@ -12,7 +12,7 @@ export const QuestionWrapper = styled(motion.a)`
   flex-direction: row;
   border-radius: 10px;
   @media (max-width: 500px) {
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 `;
 export const QuestionMark = styled.div`
