@@ -94,15 +94,18 @@ const OnboardMiddle = () => {
       formik.errors.email || formik.values.email.length < 1
         ? setButton(false)
         : setButton(true);
-    } else if (id === 'nickname') {
+    }
+    if (id === 'nickname') {
       formik.errors.nickname || formik.values.nickname.length < 1
         ? setButton(false)
         : setButton(true);
-    } else if (id === 'major') {
+    }
+    if (id === 'major') {
       formik.errors.major || formik.values.major.length < 1
         ? setButton(false)
         : setButton(true);
-    } else if (id === 'interest') {
+    }
+    if (id === 'interest') {
       formik.errors.interest || formik.values.interest.length < 1
         ? setButton(false)
         : setButton(true);
@@ -113,11 +116,14 @@ const OnboardMiddle = () => {
     const id = pageData?.id;
     if (id === 'email') {
       await setFormikInput(formik.values.email);
-    } else if (id === 'nickname') {
+    }
+    if (id === 'nickname') {
       await setFormikInput(formik.values.nickname);
-    } else if (id === 'major') {
+    }
+    if (id === 'major') {
       await setFormikInput(formik.values.major);
-    } else if (id === 'interest') {
+    }
+    if (id === 'interest') {
       await setFormikInput(formik.values.interest);
     }
   };
@@ -129,17 +135,20 @@ const OnboardMiddle = () => {
         ...userData,
         email: formik.values.email,
       });
-    } else if (id === 'nickname') {
+    }
+    if (id === 'nickname') {
       setUserData({
         ...userData,
         nickname: formik.values.nickname,
       });
-    } else if (id === 'major') {
+    }
+    if (id === 'major') {
       setUserData({
         ...userData,
         major: formik.values.major,
       });
-    } else if (id === 'interest') {
+    }
+    if (id === 'interest') {
       setUserData({
         ...userData,
         interest: formik.values.interest,
