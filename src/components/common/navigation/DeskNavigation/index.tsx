@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import GDSCLogoClear from '../../../../img/GDSCLogoClear.png';
+import GDSCLogoClear from '../../../../img/GDSCLogoClear.svg';
 
 import { useLocation } from 'react-router';
 import './Navigation.css';
@@ -9,14 +9,15 @@ import {
   NavDesign,
   NavInner,
   NavTask,
+  NavTaskWrapper,
+  NavWrapper,
+  SchoolName,
+  SchoolNameUni,
   StyledImg,
   StyledLogo,
-  SchoolName,
-  NavTaskWrapper,
-  SchoolNameUni,
   StyledLogoWrapper,
 } from './styled';
-import WideNavCategory from '../WideNavCategory';
+import DeskNavCategory from '../DeskNavCategory';
 
 export const navigationData = [
   {
@@ -24,7 +25,7 @@ export const navigationData = [
     title: '소개',
   },
   {
-    route: '/joinus',
+    route: '/join',
     title: '지원하기',
   },
   {
@@ -33,39 +34,37 @@ export const navigationData = [
   },
   {
     route: '/faq',
-    title: '자주 하는 질문',
+    title: 'FAQ',
   },
 ];
 export const Navigation: React.FC = () => {
-  const locaton = useLocation();
+  const location = useLocation();
 
-  const [routeStyle, setRoutStyle] = useState<string>('/');
-  useEffect(() => {
-    setRoutStyle(locaton.pathname);
-  });
   return (
-    <NavDesign className={routeStyle === '/' ? 'transparent' : 'white'}>
-      <NavInner>
-        <NavTaskWrapper>
-          <NavTask>
-            <StyledLogoWrapper to={'/'}>
-              <StyledImg
-                src={GDSCLogoClear}
-                alt="GDSC-Chapter-Logo"
-                height={40}
-              />
-              <StyledLogo>GDSC </StyledLogo>
-              <SchoolName>Daejin</SchoolName>
-              <SchoolNameUni>Univ.</SchoolNameUni>
-            </StyledLogoWrapper>
-          </NavTask>
-        </NavTaskWrapper>
-        <MenuToggleIcon />
-        <WideNavCategory
-          routeStyle={routeStyle}
-          navigationData={navigationData}
-        />
-      </NavInner>
+    <NavDesign
+      className={
+        location.pathname == ('/' || '/main') ? 'transparent' : 'white'
+      }
+    >
+      <NavWrapper>
+        <NavInner>
+          <NavTaskWrapper>
+            <NavTask>
+              <StyledLogoWrapper to={'/'}>
+                <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                <StyledLogo>GDSC </StyledLogo>
+                <SchoolName>Daejin</SchoolName>
+                <SchoolNameUni>Univ.</SchoolNameUni>
+              </StyledLogoWrapper>
+            </NavTask>
+          </NavTaskWrapper>
+          <MenuToggleIcon />
+          <DeskNavCategory
+            routeStyle={location.pathname}
+            navigationData={navigationData}
+          />
+        </NavInner>
+      </NavWrapper>
     </NavDesign>
   );
 };

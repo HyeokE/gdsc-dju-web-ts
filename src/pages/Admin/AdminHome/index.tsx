@@ -5,7 +5,9 @@ const AdminHome = () => {
   return (
     <>
       <LayoutContainer>
-        <ContainerInner>home</ContainerInner>
+        <ContainerInner>
+          <div>현재 모집 중인 포지션은 </div>
+        </ContainerInner>
       </LayoutContainer>
     </>
   );

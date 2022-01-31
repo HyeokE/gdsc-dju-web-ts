@@ -26,7 +26,7 @@ export const TeamCategoryWrapper = styled.div`
 `;
 export const CategoryInner = styled.div`
   padding-left: 30px;
-  font-size: 18px;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,8 +36,8 @@ export const SubCategory = styled.div`
   display: flex;
   align-items: center;
   width: 300px;
-  font-size: 13px;
-  color: ${(props) => props.theme.color.silver};
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.color.grey600};
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 300px;
   }
@@ -52,37 +52,25 @@ export const TeamCategory = styled.div`
   display: flex;
   align-items: center;
   margin-left: 30px;
-  width: 500px;
-  font-size: 13px;
-  color: ${(props) => props.theme.color.darkGray};
-  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    width: 380px;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    width: 230px;
-  }
+  width: 330px;
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.color.grey700};
 `;
 export const TeamSubCategory = styled.div`
   display: flex;
   -webkit-box-align: center;
   align-items: center;
   margin-left: 10px;
-  width: 300px;
-  font-size: 13px;
-  color: ${(props) => props.theme.color.darkGray};
-  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    width: 200px;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    width: 150px;
-  }
+  width: 200px;
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.color.grey700};
 `;
 export const Category = styled.div`
   display: flex;
   font-weight: bold;
   align-items: center;
   width: 500px;
-  font-size: 18px;
+  font-size: 1.8rem;
   @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
     width: 500px;
   }
@@ -114,7 +102,7 @@ export const MobileCategoryWrapper = styled.div`
   transition-timing-function: ease;
   transition-delay: 0s;
   &:hover {
-    background: ${(props) => props.theme.color.whiteSmoke};
+    background: ${(props) => props.theme.color.grey200};
   }
   @media (max-width: 500px) {
     display: flex;

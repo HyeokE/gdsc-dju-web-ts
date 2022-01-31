@@ -126,20 +126,100 @@ export const memberList = [
     introduce: '저는 아무고토 몰라요..',
     position: 'none',
   },
-];
-export const MemberNicknameData = [
-  'Jason',
-  'Harry',
-  'Want',
-  'Samjong',
-  'roccoli',
-  'Reese',
-  'Rulu',
-  'Jade',
-  'Gabi',
-  'Toby',
-  'Jimmy',
-  'Pascal',
-  'Lala',
-  'Lucy',
+  {
+    nickName: 'Marine	',
+    name: '권승민',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Panda	',
+    name: '강민호',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Peony	',
+    name: '정명주',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Chois	',
+    name: '최병주',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Chaz	',
+    name: '문희리',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Hazel	',
+    name: '박해주',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Cindy',
+    name: '박수현',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Blaire	',
+    name: '이소희',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Soopeach	',
+    name: '전현수',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Nox',
+    name: '나도희',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Ben',
+    name: '신성용',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
+  {
+    nickName: 'Jay',
+    name: '안정은',
+    role: 'Member',
+    // memberImg:
+    // introduce: '저는 아무고토 몰라요..',
+    position: 'none',
+  },
 ];

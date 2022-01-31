@@ -1,37 +1,39 @@
-import React from 'react';
-import { Route, Routes } from 'react-router';
-import { Home } from './Home';
-import { Blog } from './Blog';
-import { Question } from './Faq/index';
-import { CodeOfConduct } from './CodeOfConduct';
-import { SignUp } from './SignUp';
-import { SignIn } from './SignIn';
-import { Introduce } from './Introduce';
-import { JoinUs } from './JoinUs';
-import { Recruitment } from './TeamRecruitment';
-import Apply from './Apply';
-import Admin from './Admin';
-import FaqDetail from './Faq/FaqDetail';
-import OnBoarding from './OnBoarding';
+import React, { lazy, useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router';
+import Navigation from '../components/common/navigation/DeskNavigation';
+import { Footer } from '../components/common/Footer';
+import { useRecoilState } from 'recoil';
+import { recruitmentState } from '../store/recruitHandler';
+import API from '../api';
+import { hideNavigation } from '../store/hooks/hideNavigation';
+import MobileMenu from '../components/common/navigation/MobileMenu';
+import ScrollTop from '../components/common/ScrollTop';
 
-export const Pages = () => {
+const Home = lazy(() => import('./Home'));
+const Introduce = lazy(() => import('./Introduce'));
+const JoinUs = lazy(() => import('./JoinUs'));
+const Recruitment = lazy(() => import('./Recruitment'));
+const CodeOfConduct = lazy(() => import('./CodeOfConduct'));
+const Faq = lazy(() => import('./Faq'));
+const FaqDetail = lazy(() => import('./Faq/FaqDetail'));
+
+const Pages = () => {
   return (
-    <Routes>
-      <>
+    <>
+      <ScrollTop />
+      <MobileMenu />
+      <Navigation />
+      <Routes>
         <Route path={'/*'} element={<Home />} />
         <Route path={'/introduce'} element={<Introduce />} />
-        <Route path={'/blog'} element={<Blog />} />
-        <Route path={'/joinus/*'} element={<JoinUs />} />
-        <Route path={'/joinus/:id'} element={<Recruitment />} />
+        <Route path={'/join/*'} element={<JoinUs />} />
+        <Route path={'/join/:id'} element={<Recruitment />} />
         <Route path={'/conduct'} element={<CodeOfConduct />} />
-        <Route path={'/faq/*'} element={<Question />} />
+        <Route path={'/faq/*'} element={<Faq />} />
         <Route path={'/faq/:id'} element={<FaqDetail />} />
-        <Route path={'/signin'} element={<SignIn />} />
-        <Route path={'/signup'} element={<SignUp />} />
-        <Route path={'/apply'} element={<Apply />} />
-        <Route path={'/admin/*'} element={<Admin />} />
-        <Route path={'/onboarding/*'} element={<OnBoarding />} />
-      </>
-    </Routes>
+      </Routes>
+      <Footer />
+    </>
   );
 };
+export default Pages;

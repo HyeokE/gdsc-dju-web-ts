@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+
+import GDSCLogo from '../../../img/GDSCDaejinLogo.svg';
+import GoogleDeveloperLogo from '../../../img/googleDevelopers.svg';
+
+import { useLocation } from 'react-router';
 import {
   FooterContent,
-  FooterLogo,
-  FooterSubTitle,
-  FooterTitle,
   FooterGDSCLogo,
-  FooterWrapper,
-  TopMargin,
-} from '../../../styles/layouts';
-import googleDevelopers from '../../../img/googleDevelopers.png';
-import GDSCChapterLogo from '../../../img/GDSC-Chapter-Logo.png';
-import { useLocation } from 'react-router';
+  FooterLogo,
+  FooterLogoWrapper,
+  FooterSubTitle,
+} from './styled';
+import { FooterWrapper } from './styled';
 
 export const Footer = () => {
   const location = useLocation();
@@ -19,11 +20,12 @@ export const Footer = () => {
   return (
     <FooterWrapper className={locate === '/onboarding' ? 'none' : ''}>
       <FooterContent>
-        <TopMargin />
-        <FooterLogo src={googleDevelopers} />
-        <TopMargin />
-        <FooterGDSCLogo src={GDSCChapterLogo} />
-        <TopMargin />
+        <FooterLogoWrapper>
+          <FooterLogo src={GoogleDeveloperLogo} />
+        </FooterLogoWrapper>
+        <FooterLogoWrapper>
+          <FooterGDSCLogo src={GDSCLogo} />
+        </FooterLogoWrapper>
         <FooterSubTitle>{'Copyright © '}GDSC Daejin 2021</FooterSubTitle>
         <FooterSubTitle>Created by Jason</FooterSubTitle>
         <FooterSubTitle>Designed by Harry</FooterSubTitle>
