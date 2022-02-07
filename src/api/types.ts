@@ -33,6 +33,6 @@ export type recruitmentInfoDataType = {
   home: boolean;
 };
 export type nickNameDataType = {
-  nickname: string;
-}[];
+  data: { nickname: string }[];
+};
 export type navigationDataType = { route: string; title: string }[];
