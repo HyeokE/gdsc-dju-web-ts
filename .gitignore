@@ -14,7 +14,6 @@
 memberList.ts
 firebase_key.ts
 googleAnalyticsKey.ts
-firebase.config.ts
 
 # misc
 .DS_Store
