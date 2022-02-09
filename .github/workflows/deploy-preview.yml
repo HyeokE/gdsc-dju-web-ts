@@ -14,5 +14,8 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GDSC_WEB_PROJECT }}'
           projectId: gdsc-dju
+          # default expire value 7 days
+          # expires: 7d
+
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
