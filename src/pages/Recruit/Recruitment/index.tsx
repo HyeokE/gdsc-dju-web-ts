@@ -6,8 +6,12 @@ import {
   LayoutContainer,
   NavigationBlock,
   TopMargin,
-} from '../../styles/layouts';
-import { MainText, SubTitle, Title } from '../../components/common/Title/title';
+} from '../../../styles/layouts';
+import {
+  MainText,
+  SubTitle,
+  Title,
+} from '../../../components/common/Title/title';
 import {
   IntroduceWrapper,
   JoinInner,
@@ -16,11 +20,11 @@ import {
   MoblieTopElementWrapper,
   SectionWrapper,
 } from './styled';
-import { recruitDefaultText } from '../../api/pageData/recruitDefaultText';
-import { RecruitDetails } from '../../api/pageData/recruitDetails';
-import { Banner } from '../../img/Banner/Banner';
-import BlueBanner from '../../img/Banner/BlueBanner.png';
-import BulletList from '../../components/common/BulletList';
+import { recruitDefaultText } from '../../../api/pageData/recruitDefaultText';
+import { RecruitDetails } from '../../../api/pageData/recruitDetails';
+import { Banner } from '../../../img/Banner/Banner';
+import BlueBanner from '../../../img/Banner/BlueBanner.png';
+import BulletList from '../../../components/common/BulletList';
 import InformationBar from './InformationBar';
 import RecruitFaqButton from './RecruitFaqButton';
 

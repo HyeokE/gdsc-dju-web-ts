@@ -6,7 +6,6 @@ import {
   ModalElementWrapper,
   StyledModal,
 } from '../styled';
-import { StyledInput } from '../../../Input/Input';
 
 import { StyledButton } from '../../Button/styled';
 import { useRecoilState } from 'recoil';
@@ -88,23 +87,15 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         <SubTitle>멤버 정보 수정</SubTitle>
         <ModalElementWrapper>
           직책
-          <StyledInput
-            name={'role'}
-            onChange={onChange}
-            value={selectMember?.role}
-          />
+          <input name={'role'} onChange={onChange} value={selectMember?.role} />
         </ModalElementWrapper>
         <ModalElementWrapper>
           이름
-          <StyledInput
-            name={'name'}
-            onChange={onChange}
-            value={selectMember?.name}
-          />
+          <input name={'name'} onChange={onChange} value={selectMember?.name} />
         </ModalElementWrapper>
         <ModalElementWrapper>
           포지션
-          <StyledInput
+          <input
             name={'position'}
             onChange={onChange}
             value={selectMember?.position}
@@ -112,7 +103,7 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         </ModalElementWrapper>
         <ModalElementWrapper>
           닉네임
-          <StyledInput
+          <input
             name={'nickName'}
             onChange={onChange}
             value={selectMember?.nickName}
@@ -120,7 +111,7 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         </ModalElementWrapper>
         <ModalElementWrapper>
           전화번호
-          <StyledInput
+          <input
             name={'phoneNumber'}
             onChange={onChange}
             value={selectMember?.phoneNumber}
@@ -128,7 +119,7 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         </ModalElementWrapper>
         <ModalElementWrapper>
           한 줄 소개
-          <StyledInput
+          <input
             name={'introduce'}
             onChange={onChange}
             value={selectMember?.introduce}
@@ -136,7 +127,7 @@ const AdminEditMemberModal = ({ selectMember, setSelectMember }: any) => {
         </ModalElementWrapper>
         <ModalElementWrapper>
           경고횟수
-          <StyledInput
+          <input
             name={'warning'}
             onChange={onChange}
             value={selectMember?.warning}

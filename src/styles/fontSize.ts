@@ -6,5 +6,5 @@ export const fontSize = {
   h5: '2.4rem',
   h6: '2.0rem',
   h7: '1.7rem',
-  p: '1.5rem,',
+  p: '1.5rem',
 };

@@ -1,6 +1,7 @@
 // https://firestore.googleapis.com/v1/projects/gdsc-dju/databases/(default)/documents/members?key=AIzaSyDrAEizOXHcCXYrQa96w6TxfddOS2Yb0tU
 import axios from 'axios';
 import {
+  getRecruitmentInfoDataType,
   nickNameDataType,
   onBoardingMember,
   recruitmentInfoDataType,
@@ -25,7 +26,9 @@ export class GDSCApi {
     );
   };
   getRecruitmentInfo = () => {
-    return axios.get<recruitmentInfoDataType>(`${this.API}/api/support/limit`);
+    return axios.get<getRecruitmentInfoDataType>(
+      `${this.API}/api/support/limit`,
+    );
   };
   putRecruitmentInfo = (payload: recruitmentInfoDataType) => {
     return axios.put<recruitmentInfoDataType>(

@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledButton } from '../../../components/common/Button/styled';
+import { StyledButton } from '../../../../components/common/Button/styled';
 import { useRecoilState } from 'recoil';
-import { recruitmentState } from '../../../store/recruitHandler';
+import { recruitmentState } from '../../../../store/recruitHandler';
 import { useNavigate } from 'react-router-dom';
 
 const RecruitFaqButton = (props: { name: string }) => {
@@ -21,7 +21,7 @@ const RecruitFaqButton = (props: { name: string }) => {
       {recruit[`${keyTyped}`] ? (
         <StyledButton
           onClick={() => {
-            window.open('https://forms.gle/FwoDUZSCcHHow8iC7', '_blank');
+            navigate('/recruit/form/' + keyTyped);
           }}
         >
           지원하기

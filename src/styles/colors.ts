@@ -43,6 +43,8 @@ export const assetBlue = {
   blue500: '#42A5F5',
   blue600: '#2196F3',
   tossBlue: '#42a5f5',
+  tossBlue500: '#3182f6',
+  tossBlue200: '#90c2ff',
   tossBlueActive: '#3886f6',
 };
 export const googleLogoColor = {

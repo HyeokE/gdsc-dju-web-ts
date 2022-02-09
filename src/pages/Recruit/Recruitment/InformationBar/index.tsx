@@ -1,4 +1,4 @@
-import { TopMargin } from '../../../styles/layouts';
+import { TopMargin } from '../../../../styles/layouts';
 import React from 'react';
 import { ElementWrapper, MinText, MinTitle } from './styled';
 

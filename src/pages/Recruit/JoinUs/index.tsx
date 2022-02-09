@@ -5,8 +5,8 @@ import {
   LayoutContainer,
   NavigationBlock,
   TopMargin,
-} from '../../styles/layouts';
-import { MainText, Title } from '../../components/common/Title/title';
+} from '../../../styles/layouts';
+import { MainText, Title } from '../../../components/common/Title/title';
 
 import {
   Category,
@@ -19,12 +19,12 @@ import {
   TeamCategoryWrapper,
   TeamSubCategory,
 } from './styled';
-import { RecruitTeam } from '../../api/pageData/recruitTeam';
+import { RecruitTeam } from '../../../api/pageData/recruitTeam';
 import { useNavigate } from 'react-router';
-import { Banner } from '../../img/Banner/Banner';
+import { Banner } from '../../../img/Banner/Banner';
 
-import BlueBanner from '../../img/Banner/BlueBanner.png';
-import { categoryAnimate } from '../../components/common/Variants/Variants';
+import BlueBanner from '../../../img/Banner/BlueBanner.png';
+import { categoryAnimate } from '../../../components/common/Variants/Variants';
 
 const JoinUs = () => {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ const JoinUs = () => {
               whileHover={'hovered'}
               variants={categoryAnimate}
               onClick={() => {
-                navigate('/join/' + data.id);
+                navigate('/recruit/detail/' + data.id);
               }}
             >
               <CategoryInner>
@@ -74,7 +74,7 @@ const JoinUs = () => {
             <MobileCategoryWrapper
               key={key}
               onClick={() => {
-                navigate('/join/' + data.id);
+                navigate('/recruit/detail/' + data.id);
               }}
             >
               <MobileCategoryInner>
