@@ -9,8 +9,6 @@ import {
 
 export interface Iprops {
   name?: string;
-  onChange?: () => void;
-  value?: string;
   error?: string;
   placeholder?: string;
   image?: string;
@@ -18,7 +16,10 @@ export interface Iprops {
 }
 
 const TextInput = (props: Iprops) => {
-  const { name, onChange, value, error, placeholder, image, file } = props;
+  const { name, error, placeholder, image, file } = props;
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+  };
   return (
     <>
       <StyledInputWrapper>
@@ -34,7 +35,6 @@ const TextInput = (props: Iprops) => {
             className={'formInput'}
             name={name}
             onChange={onChange}
-            value={value}
             placeholder={placeholder}
           />
         )}

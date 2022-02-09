@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const StyledButton = styled.button`
-  background: ${(props) => props.theme.color.tossBlue};
+export const StyledButton = styled.button<{ disable?: boolean }>`
   color: white;
   width: 100%;
   padding: 12px 0px;
@@ -11,8 +10,13 @@ export const StyledButton = styled.button`
   border-style: inherit;
   margin-bottom: 10px;
   font-size: 1.6rem;
-  &:hover {
-    background: ${(props) => props.theme.color.tossBlueActive};
-    cursor: pointer;
-  }
+  background: ${(props) => props.theme.color.tossBlue};
+  cursor: pointer;
+
+  ${(props) =>
+    props.disable &&
+    css`
+      cursor: not-allowed;
+      background: ${(props) => props.theme.color.tossBlue200};
+    `}
 `;

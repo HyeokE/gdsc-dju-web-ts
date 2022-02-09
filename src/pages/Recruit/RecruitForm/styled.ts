@@ -56,7 +56,7 @@ export const FormText = styled.p`
   font-weight: 300;
   color: ${(props) => props.theme.color.grey600};
 `;
-export const FormSubmitButton = styled.button<{ isOpen?: boolean }>`
+export const FormSubmitButton = styled.button<{ disable?: boolean }>`
   padding: 18px 20px;
   min-width: 100px;
   border: none;
@@ -67,12 +67,13 @@ export const FormSubmitButton = styled.button<{ isOpen?: boolean }>`
   width: 25%;
   font-size: ${(props) => props.theme.fontSize.p};
   border-radius: 10px;
-  background: ${(props) => props.theme.color.tossBlue200};
-  cursor: unset;
+  cursor: pointer;
+  background: ${(props) => props.theme.color.tossBlue};
+
   ${(prop) =>
-    prop.isOpen &&
+    prop.disable &&
     css`
-      cursor: pointer;
-      background: ${(props) => props.theme.color.tossBlue};
+      background: ${(props) => props.theme.color.tossBlue200};
+      cursor: not-allowed;
     `}
 `;

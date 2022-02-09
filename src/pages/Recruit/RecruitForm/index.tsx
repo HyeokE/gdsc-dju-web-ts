@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubTitle, Title } from '../../../components/common/Title/title';
 import {
   ContainerInner,
@@ -20,7 +20,13 @@ import { useParams } from 'react-router-dom';
 
 const RecruitForm = () => {
   const { id } = useParams();
-  const [position, setPosition] = React.useState('');
+  const [position, setPosition] = useState('');
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [major, setMajor] = useState('');
+  const [studentID, setStudentID] = useState('');
+  const [link, setLink] = useState([]);
   const positionHandler = () => {
     switch (id) {
       case 'frontend':
@@ -72,7 +78,7 @@ const RecruitForm = () => {
             <FormMarginS />
             <div>
               <FormLabel essential={true}>학번</FormLabel>
-              <TextInput placeholder={'20220000'} />
+              <TextInput placeholder={'20221234'} />
             </div>
             <FormMarginS />
             <div>
@@ -96,7 +102,7 @@ const RecruitForm = () => {
               <FormLabel>링크 2 (선택사항)</FormLabel>
               <TextInput placeholder={'https://'} />
               <FormText>
-                자신을 나타낼 수 있는 개인블로그, 노션, Github링크를
+                자신을 나타낼 수 있는 개인블로그, 노션, Github링크 등을
                 입력해주세요.
               </FormText>
               <FormText>
@@ -105,7 +111,7 @@ const RecruitForm = () => {
               </FormText>
             </div>
             <FormMarginS />
-            <FormSubmitButton>제출하기</FormSubmitButton>
+            <FormSubmitButton disable={true}>제출하기</FormSubmitButton>
             <FormMargin />
           </RecruitFormInner>
         </RecruitFormWrapper>

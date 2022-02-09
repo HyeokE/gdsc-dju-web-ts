@@ -27,7 +27,9 @@ const RecruitFaqButton = (props: { name: string }) => {
           지원하기
         </StyledButton>
       ) : (
-        <StyledButton disabled>지원기간이 아닙니다.</StyledButton>
+        <StyledButton disable={!recruit[`${keyTyped}`]}>
+          지원기간이 아닙니다.
+        </StyledButton>
       )}
     </>
   );
