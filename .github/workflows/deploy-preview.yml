@@ -13,6 +13,6 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GDSC_WEB_PROJECT }}'
-          projectId: gdsc-dju-web
+          projectId: gdsc-dju
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
