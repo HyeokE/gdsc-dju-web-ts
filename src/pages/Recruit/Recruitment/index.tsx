@@ -9,6 +9,7 @@ import {
 } from '../../../styles/layouts';
 import {
   MainText,
+  SubCategory,
   SubTitle,
   Title,
 } from '../../../components/common/Title/title';
@@ -59,18 +60,18 @@ const Recruitment: React.FC = () => {
                 <IntroduceWrapper>
                   {aboutTeam.activity ? (
                     <>
-                      <SubTitle>합류하시면 함께 할 활동입니다.</SubTitle>
+                      <SubCategory>합류하시면 함께 할 활동입니다.</SubCategory>
                       <BulletList text={aboutTeam.activity} />
                       <TopMargin />
                     </>
                   ) : null}
-                  <SubTitle>이런 분을 찾습니다</SubTitle>
+                  <SubCategory>이런 분을 찾습니다</SubCategory>
                   <MainText>
                     <BulletList text={recruitDefaultText.findMember} />
                     {aboutTeam.people && <BulletList text={aboutTeam.people} />}
                   </MainText>
                   <TopMargin />
-                  <SubTitle>이런 경험이 있다면 더 좋습니다</SubTitle>
+                  <SubCategory>이런 경험이 있다면 더 좋습니다</SubCategory>
                   <MainText>
                     <BulletList text={recruitDefaultText.goodMember} />
                     {aboutTeam.preferential && (
@@ -78,11 +79,15 @@ const Recruitment: React.FC = () => {
                     )}
                   </MainText>
                   <TopMargin />
-                  <SubTitle>GDSC의 혜택</SubTitle>
+                  <SubCategory>GDSC의 혜택</SubCategory>
                   <MainText>
                     <BulletList text={recruitDefaultText.benefits} />
                   </MainText>
                   <TopMargin />
+                  <SubCategory>GDSC DJU로의 합류과정</SubCategory>
+                  <MainText>
+                    <BulletList text={recruitDefaultText.process} />
+                  </MainText>
                 </IntroduceWrapper>
               )}
               <JoinWrapper>

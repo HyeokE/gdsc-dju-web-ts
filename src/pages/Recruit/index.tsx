@@ -9,7 +9,7 @@ const Recruit = () => {
     <Routes>
       <Route path={'/*'} element={<JoinUs />} />
       <Route path={'/detail/:id'} element={<Recruitment />} />
-      <Route path={'/form'} element={<RecruitForm />} />
+      <Route path={'/form/:id'} element={<RecruitForm />} />
     </Routes>
   );
 };
