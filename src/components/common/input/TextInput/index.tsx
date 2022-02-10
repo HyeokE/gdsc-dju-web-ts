@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Folder from '../../../../img/Folder';
 import {
   InputImageWrapper,
@@ -13,10 +13,12 @@ export interface Iprops {
   placeholder?: string;
   image?: string;
   file?: boolean;
+  onClick?: (e: any) => void;
 }
 
 const TextInput = (props: Iprops) => {
-  const { name, error, placeholder, image, file } = props;
+  const { name, error, placeholder, image, file, onClick } = props;
+  const input = useRef<HTMLInputElement>(null);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
   };
@@ -29,7 +31,18 @@ const TextInput = (props: Iprops) => {
           </InputImageWrapper>
         )}
         {file ? (
-          <StyledFileInput>{placeholder}</StyledFileInput>
+          <>
+            <StyledFileInput onClick={() => input.current?.click()}>
+              {placeholder}
+            </StyledFileInput>
+            <input
+              ref={input}
+              type={'file'}
+              style={{ display: 'none' }}
+              onClick={onClick}
+            />
+            <button>Upload</button>
+          </>
         ) : (
           <StyledInput
             className={'formInput'}

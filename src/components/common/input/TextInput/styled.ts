@@ -17,7 +17,7 @@ export const StyledInput = styled.input`
     font-weight: 300;
   }
 `;
-export const StyledFileInput = styled.label`
+export const StyledFileInput = styled.form`
   color: ${(props) => props.theme.color.grey500};
   cursor: pointer;
   overflow: hidden;
@@ -28,7 +28,7 @@ export const StyledFileInput = styled.label`
   padding: 0 18px;
 `;
 
-export const StyledInputWrapper = styled.div<{ color?: string }>`
+export const StyledInputWrapper = styled.form<{ color?: string }>`
   overflow: hidden;
   display: flex;
   align-items: center;

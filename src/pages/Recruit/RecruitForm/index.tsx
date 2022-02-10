@@ -18,18 +18,53 @@ import {
 import TextInput from '../../../components/common/input/TextInput';
 import { useParams } from 'react-router-dom';
 import { positionHandler } from './FormFunctions';
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  uploadBytesResumable,
+} from 'firebase/storage';
+import { storage } from '../../../firebase/firebase.config';
 
 const RecruitForm = () => {
   const { id } = useParams();
   const [position, setPosition] = useState('');
-  const [name, setName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [major, setMajor] = useState('');
-  const [studentID, setStudentID] = useState('');
-  const [link, setLink] = useState([]);
-
+  // const [name, setName] = useState('');
+  // const [phoneNumber, setPhoneNumber] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [major, setMajor] = useState('');
+  // const [studentID, setStudentID] = useState('');
+  // const [link, setLink] = useState([]);
+  const [uploadProgress, setUploadProgress] = useState(0);
   useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
+
+  const formHandler = (e: any): void => {
+    console.log(e.target);
+    e.preventDefault();
+    const file = e.target[0].files[0];
+    uploadFiles(file);
+  };
+  const uploadFiles = (file: any) => {
+    if (!file) return;
+    const storageRef = ref(storage, `files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      'state_changed',
+      (snapshot: any) => {
+        const progress =
+          Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadProgress(progress);
+        console.log(progress);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url: any) => {
+          console.log(url);
+        });
+      },
+    );
+  };
+
   return (
     <LayoutContainer>
       <ContainerInner>
@@ -68,7 +103,7 @@ const RecruitForm = () => {
             <div>
               <FormLabel essential={true}>지원서</FormLabel>
               <TextInput
-                // onClick={() => {}}
+                onClick={formHandler}
                 file={true}
                 image={'folder'}
                 placeholder={'지원서 / 자기소개서(pdf)'}
