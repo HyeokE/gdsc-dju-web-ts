@@ -17,4 +17,6 @@ export const recruitDefaultText = {
     'GDG 개발자와의 컨택 기회\n' +
     'google에서 지원하는 기념품\n' +
     '자체 스터디를 위한 google의 코세라, 퀵랩 바우처 지급',
+  process:
+    '서류접수 > 인터뷰 > 최종합격 (결과 발표에는 최대 2주가 소요될 수 있습니다.)',
 };

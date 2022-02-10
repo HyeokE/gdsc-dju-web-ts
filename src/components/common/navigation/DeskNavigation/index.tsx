@@ -25,7 +25,7 @@ export const navigationData = [
     title: '소개',
   },
   {
-    route: '/join',
+    route: '/recruit',
     title: '지원하기',
   },
   {

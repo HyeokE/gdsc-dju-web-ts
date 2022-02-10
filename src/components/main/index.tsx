@@ -17,7 +17,7 @@ export const Main = () => {
 
   const getRecruitment = async (): Promise<void> => {
     const data = await API.getRecruitmentInfo();
-    setRecruitment({ ...recruitment, ...data.data });
+    setRecruitment({ ...recruitment, ...data.data.data });
   };
   useEffect(() => {
     getRecruitment();
