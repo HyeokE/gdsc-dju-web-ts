@@ -40,12 +40,15 @@ export class GDSCApi {
     );
   };
   getOauthUser = (token: string) => {
-    return axios.get(`${this.OauthAPI}${token}`, {
-      headers: {
-        authorization: `token ${token}`,
-        accept: 'application/json',
+    return axios.get(
+      `${this.API}/oauth2/authorization/google?redirect_uri=http://localhost:3000/oauth/redirect`,
+      {
+        headers: {
+          authorization: `token ${token}`,
+          accept: 'application/json',
+        },
       },
-    });
+    );
   };
 }
 export default new GDSCApi();

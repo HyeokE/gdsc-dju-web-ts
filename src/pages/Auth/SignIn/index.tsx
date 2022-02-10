@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AuthBackground,
   AuthBoxInner,
@@ -29,6 +29,8 @@ import { useRecoilState } from 'recoil';
 import { modalState } from '../../../store/modal';
 import { authService, dbService } from '../../../firebase/firebase';
 import { localUserState } from '../../../store/localUser';
+import API from '../../../api';
+import { AxiosResponse } from 'axios';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -102,6 +104,29 @@ const SignIn = () => {
       setPassword(value);
     }
   };
+  const oAuthURL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=487063212251-01k96aopcoerk52o94sodc2p7f6e7udv.apps.googleusercontent.com&response_type=token&redirect_uri=https://localhost:3000&scope=https://www.googleapis.com/auth/userinfo.email`;
+  const oAuthHandler = () => {
+    window.location.assign(oAuthURL);
+  };
+  const [data, setData] = useState<AxiosResponse<any>>();
+
+  useEffect(() => {
+    const getAccessToken = async () => {
+      const url = new URL(window.location.href);
+      const hash = url.hash;
+      if (hash) {
+        const accessToken = hash.split('=')[1].split('&')[0];
+        console.log(accessToken);
+        API.getOauthUser(accessToken)
+          .then((data) => {
+            console.log(data);
+            setData(data);
+          })
+          .catch((e) => console.log('oAuth token expired'));
+      }
+    };
+    getAccessToken();
+  }, []);
 
   return (
     <>
@@ -159,7 +184,7 @@ const SignIn = () => {
               <AuthLine />
             </AuthElementWrapper>
             <AuthElementWrapper>
-              <OAuthButton>
+              <OAuthButton onClick={oAuthHandler}>
                 <OAuthImage src={GoogleLogo} />
                 <OAuthText weight={'bold'}>Google</OAuthText>
                 <OAuthText>로 계속</OAuthText>
