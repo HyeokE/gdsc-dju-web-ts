@@ -17,6 +17,7 @@ import {
 } from './styled';
 import TextInput from '../../../components/common/input/TextInput';
 import { useParams } from 'react-router-dom';
+import { positionHandler } from './FormFunctions';
 
 const RecruitForm = () => {
   const { id } = useParams();
@@ -27,25 +28,8 @@ const RecruitForm = () => {
   const [major, setMajor] = useState('');
   const [studentID, setStudentID] = useState('');
   const [link, setLink] = useState([]);
-  const positionHandler = () => {
-    switch (id) {
-      case 'frontend':
-        return setPosition('Frontend Developer');
-      case 'backend':
-        return setPosition('Backend Developer');
-      case 'design':
-        return setPosition('UX/UI Designer');
-      case 'android':
-        return setPosition('Android Developer');
-      case 'beginner':
-        return setPosition('Beginner Position');
-      case 'ml':
-        return setPosition('Machine Learning Engineer');
-      default:
-        return;
-    }
-  };
-  useEffect(() => positionHandler(), []);
+
+  useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
   return (
     <LayoutContainer>
       <ContainerInner>
@@ -84,6 +68,7 @@ const RecruitForm = () => {
             <div>
               <FormLabel essential={true}>지원서</FormLabel>
               <TextInput
+                // onClick={() => {}}
                 file={true}
                 image={'folder'}
                 placeholder={'지원서 / 자기소개서(pdf)'}
