@@ -11,8 +11,11 @@ import { OnboardingUserState } from '../store/onboardingUser';
 
 export class GDSCApi {
   private API: string;
+  private OauthAPI: string;
   constructor() {
     this.API = 'https://gdsc-dju.com';
+    this.OauthAPI =
+      'https://www.googleapis.com/oauth2/v2/userinfo?access_token=';
   }
   getMemberNickname = () => {
     return axios.get<nickNameDataType>(
@@ -35,6 +38,14 @@ export class GDSCApi {
       `${this.API}/api/support/limit/update`,
       payload,
     );
+  };
+  getOauthUser = (token: string) => {
+    return axios.get(`${this.OauthAPI}${token}`, {
+      headers: {
+        authorization: `token ${token}`,
+        accept: 'application/json',
+      },
+    });
   };
 }
 export default new GDSCApi();
