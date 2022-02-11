@@ -45,7 +45,6 @@ const RecruitForm = () => {
   const [studentID, setStudentID] = useState('');
   const [link0, setLink0] = useState('');
   const [link1, setLink1] = useState('');
-  const [fileURL, setFileURL] = useState('');
   const [formSubmit, setFormSubmit] = useState(false);
   const [placeholder, setPlaceholder] = useState(
     '지원서/자기소개서/이력서 업로드 (PDF)',
@@ -73,28 +72,9 @@ const RecruitForm = () => {
     position,
     placeholder,
   ]);
-  const formDataSubmit = {
-    uploadDate: new Date().getDate(),
-    name: name,
-    phoneNumber: phoneNumber,
-    email: email,
-    major: major,
-    studentID: studentID,
-    position: position,
-    link0: link0,
-    link1: link1,
-    fileURL: fileURL,
-  };
+
   const onSubmit = async () => {
-    input.current &&
-      (await uploadFiles(input.current).then(() => {
-        try {
-          dbService.collection('applicants').doc().set(formDataSubmit);
-        } catch (error) {
-          console.log(error);
-        }
-      }));
-    return;
+    await uploadFiles(input.current as HTMLInputElement);
   };
 
   const input = useRef<HTMLInputElement>(null);
@@ -122,10 +102,21 @@ const RecruitForm = () => {
         setUploadProgress(progress);
         console.log(progress);
       }),
-        uploadTask.then(async () => {
-          getDownloadURL(storageRef).then((url: string) => {
-            setFileURL(url);
+        uploadTask.then(() => {
+          getDownloadURL(storageRef).then(async (url: string) => {
             console.log(url);
+            dbService.collection('applicants').doc().set({
+              uploadDate: new Date().getDate(),
+              name: name,
+              phoneNumber: phoneNumber,
+              email: email,
+              major: major,
+              studentID: studentID,
+              position: position,
+              link0: link0,
+              link1: link1,
+              fileURL: url,
+            });
           });
         });
     }
