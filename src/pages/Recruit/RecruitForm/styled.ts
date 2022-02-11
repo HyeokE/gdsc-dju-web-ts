@@ -68,7 +68,7 @@ export const FormSubmitButton = styled.button<{ disable?: boolean }>`
   font-size: ${(props) => props.theme.fontSize.p};
   border-radius: 10px;
   cursor: pointer;
-  background: ${(props) => props.theme.color.tossBlue};
+  background: ${(props) => props.theme.color.tossBlueActive};
 
   ${(prop) =>
     prop.disable &&

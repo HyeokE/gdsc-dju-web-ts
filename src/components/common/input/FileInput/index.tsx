@@ -18,26 +18,7 @@ const FileInput = (props: Iprops) => {
 
   const input = useRef<HTMLInputElement>(null);
 
-  return (
-    <>
-      <StyledInputWrapper>
-        <InputImageWrapper>
-          <Folder />
-        </InputImageWrapper>
-        <StyledFileInput onClick={() => input.current?.click()}>
-          {placeholder}
-        </StyledFileInput>
-        <input ref={input} type={'file'} style={{ display: 'none' }} />
-      </StyledInputWrapper>
-      <button
-        onClick={() => {
-          input.current && uploadFiles(input.current);
-        }}
-      >
-        Upload
-      </button>
-    </>
-  );
+  return <></>;
 };
 
 export default FileInput;

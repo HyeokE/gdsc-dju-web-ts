@@ -17,7 +17,7 @@ import {
 } from './styled';
 import TextInput from '../../../components/common/input/TextInput';
 import { useParams } from 'react-router-dom';
-import { positionHandler } from './FormFunctions';
+import { checkForm, positionHandler } from './FormFunctions';
 import {
   getStorage,
   ref,
@@ -27,6 +27,13 @@ import {
 } from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
 import FileInput from '../../../components/common/input/FileInput';
+import {
+  InputImageWrapper,
+  StyledFileInput,
+  StyledInputWrapper,
+} from '../../../components/common/input/TextInput/styled';
+import Folder from '../../../img/Folder';
+import { dbService } from '../../../firebase/firebase';
 
 const RecruitForm = () => {
   const { id } = useParams();
@@ -38,8 +45,61 @@ const RecruitForm = () => {
   const [studentID, setStudentID] = useState('');
   const [link0, setLink0] = useState('');
   const [link1, setLink1] = useState('');
-  useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
+  const [fileURL, setFileURL] = useState('');
+  const [formSubmit, setFormSubmit] = useState(false);
+  const [placeholder, setPlaceholder] = useState(
+    '지원서/자기소개서/이력서 업로드 (PDF)',
+  );
   const [uploadProgress, setUploadProgress] = useState(0);
+  useEffect(() => {
+    checkForm({
+      position,
+      name,
+      phoneNumber,
+      email,
+      major,
+      studentID,
+      link0,
+      placeholder,
+      setFormSubmit,
+    });
+  }, [
+    link0,
+    major,
+    studentID,
+    email,
+    phoneNumber,
+    name,
+    position,
+    placeholder,
+  ]);
+  const formDataSubmit = {
+    uploadDate: new Date().getDate(),
+    name: name,
+    phoneNumber: phoneNumber,
+    email: email,
+    major: major,
+    studentID: studentID,
+    position: position,
+    link0: link0,
+    link1: link1,
+    fileURL: fileURL,
+  };
+  const onSubmit = async () => {
+    input.current &&
+      (await uploadFiles(input.current).then(() => {
+        try {
+          dbService.collection('applicants').doc().set(formDataSubmit);
+        } catch (error) {
+          console.log(error);
+        }
+      }));
+    return;
+  };
+
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
+
   const uploadFiles = async (data: HTMLInputElement) => {
     if (data.files !== null) {
       const file = data.files[0];
@@ -64,6 +124,7 @@ const RecruitForm = () => {
       }),
         uploadTask.then(async () => {
           getDownloadURL(storageRef).then((url: string) => {
+            setFileURL(url);
             console.log(url);
           });
         });
@@ -113,18 +174,36 @@ const RecruitForm = () => {
             <FormMarginS />
             <div>
               <FormLabel essential={true}>지원서</FormLabel>
-              <FileInput
-                placeholder={'지원서 / 자기소개서(pdf)'}
-                uploadFiles={uploadFiles}
-              />
+              <StyledInputWrapper>
+                <InputImageWrapper>
+                  <Folder />
+                </InputImageWrapper>
+                <StyledFileInput
+                  onClick={() => {
+                    input.current?.click();
+                  }}
+                >
+                  {placeholder}
+                </StyledFileInput>
+                <input
+                  ref={input}
+                  type={'file'}
+                  style={{ display: 'none' }}
+                  name={'fileName'}
+                  onChange={(e) => {
+                    e.target.files && setPlaceholder(e.target.files[0].name);
+                  }}
+                />
+              </StyledInputWrapper>
               <FormText>* 파일은 최대 50MB로 업로드 하실 수 있습니다.</FormText>
+              <FormText>
+                * 원활한 검토를 위해 PDF 형식으로 제출해주세요.
+              </FormText>
               <FormText>
                 * 지원서는 자유 양식이며 기술 스택, 지원동기, 협업 경험, 팀 리드
                 경험, 문제해결 경험을 포함해주세요.
               </FormText>
-              {uploadProgress}
             </div>
-
             <FormMarginS />
             <div>
               <FormLabel essential={true}>링크 1</FormLabel>
@@ -142,7 +221,9 @@ const RecruitForm = () => {
               </FormText>
             </div>
             <FormMarginS />
-            <FormSubmitButton disable={true}>제출하기</FormSubmitButton>
+            <FormSubmitButton disable={!formSubmit} onClick={() => onSubmit()}>
+              제출하기
+            </FormSubmitButton>
             <FormMargin />
           </RecruitFormInner>
         </RecruitFormWrapper>

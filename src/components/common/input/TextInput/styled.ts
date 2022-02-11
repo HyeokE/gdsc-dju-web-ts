@@ -53,4 +53,6 @@ export const InputImageWrapper = styled.div`
   height: 20px;
   width: 20px;
   margin: 0 -8px 0 18px;
+  display: flex;
+  align-items: center;
 `;
