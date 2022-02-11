@@ -13,21 +13,19 @@ export interface Iprops {
   placeholder?: string;
   image?: string;
   file?: boolean;
+  onChange: (e: string) => void;
 }
 
 const TextInput = (props: Iprops) => {
-  const { name, error, placeholder, image, file } = props;
+  const { name, error, placeholder, image, file, onChange } = props;
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-  };
   return (
     <>
       <StyledInputWrapper>
         <StyledInput
           className={'formInput'}
           name={name}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
         />
       </StyledInputWrapper>

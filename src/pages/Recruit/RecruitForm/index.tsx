@@ -31,20 +31,50 @@ import FileInput from '../../../components/common/input/FileInput';
 const RecruitForm = () => {
   const { id } = useParams();
   const [position, setPosition] = useState('');
-  // const [name, setName] = useState('');
-  // const [phoneNumber, setPhoneNumber] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [major, setMajor] = useState('');
-  // const [studentID, setStudentID] = useState('');
-  // const [link, setLink] = useState([]);
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [major, setMajor] = useState('');
+  const [studentID, setStudentID] = useState('');
+  const [link0, setLink0] = useState('');
+  const [link1, setLink1] = useState('');
   useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const uploadFiles = async (data: HTMLInputElement) => {
+    if (data.files !== null) {
+      const file = data.files[0];
+      console.log(data.files);
+      if (!file) return;
+      if (file.size > 5000000) {
+        alert('파일 사이즈는 50MB 이하로 선택해주세요.');
+        return;
+      }
+      if (file.type !== 'application/pdf') {
+        alert('PDF 파일만 업로드 가능합니다.');
+        return;
+      }
+      const storageRef = ref(storage, `${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      await uploadTask.on('state_changed', (snapshot: any) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+        );
+        setUploadProgress(progress);
+        console.log(progress);
+      }),
+        uploadTask.then(async () => {
+          getDownloadURL(storageRef).then((url: string) => {
+            console.log(url);
+          });
+        });
+    }
+  };
 
   return (
     <LayoutContainer>
       <ContainerInner>
         <NavigationBlock />
         <FormMargin />
-
         <RecruitFormWrapper>
           <RecruitFormInner>
             <Title>지원서 작성하기</Title>
@@ -52,46 +82,56 @@ const RecruitForm = () => {
             <FormMargin />
             <div>
               <FormLabel essential={true}>이름(실명)</FormLabel>
-              <TextInput placeholder={'김구글'} />
+              <TextInput placeholder={'김구글'} onChange={setName} />
             </div>
             <FormMarginS />
             <div>
               <FormLabel essential={true}>전화번호</FormLabel>
-              <TextInput placeholder={'010-0000-0000'} />
+              <TextInput
+                placeholder={'010-0000-0000'}
+                onChange={setPhoneNumber}
+              />
             </div>
             <FormMarginS />
             <div>
               <FormLabel essential={true}>이메일(gmail)</FormLabel>
-              <TextInput placeholder={'googledev@gmail.com'} />
+              <TextInput
+                placeholder={'googledev@gmail.com'}
+                onChange={setEmail}
+              />
             </div>
             <FormMarginS />
             <div>
               <FormLabel essential={true}>학과</FormLabel>
-              <TextInput placeholder={'OO학과'} />
+              <TextInput placeholder={'OO학과'} onChange={setMajor} />
             </div>
             <FormMarginS />
             <div>
               <FormLabel essential={true}>학번</FormLabel>
-              <TextInput placeholder={'20221234'} />
+              <TextInput placeholder={'20221234'} onChange={setStudentID} />
             </div>
             <FormMarginS />
             <div>
               <FormLabel essential={true}>지원서</FormLabel>
-              <FileInput placeholder={'지원서 / 자기소개서(pdf)'} />
-              <FormText>* 파일은 최대 20MB로 업로드 하실 수 있습니다.</FormText>
+              <FileInput
+                placeholder={'지원서 / 자기소개서(pdf)'}
+                uploadFiles={uploadFiles}
+              />
+              <FormText>* 파일은 최대 50MB로 업로드 하실 수 있습니다.</FormText>
               <FormText>
                 * 지원서는 자유 양식이며 기술 스택, 지원동기, 협업 경험, 팀 리드
                 경험, 문제해결 경험을 포함해주세요.
               </FormText>
+              {uploadProgress}
             </div>
 
             <FormMarginS />
             <div>
               <FormLabel essential={true}>링크 1</FormLabel>
-              <TextInput placeholder={'https://'} />
+              <TextInput placeholder={'https://'} onChange={setLink0} />
               <FormMarginXS />
               <FormLabel>링크 2 (선택사항)</FormLabel>
-              <TextInput placeholder={'https://'} />
+              <TextInput placeholder={'https://'} onChange={setLink1} />
               <FormText>
                 자신을 나타낼 수 있는 개인블로그, 노션, Github링크 등을
                 입력해주세요.
