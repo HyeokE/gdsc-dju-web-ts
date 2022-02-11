@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SubTitle, Title } from '../../../components/common/Title/title';
 import {
   ContainerInner,
@@ -26,6 +26,7 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
+import FileInput from '../../../components/common/input/FileInput';
 
 const RecruitForm = () => {
   const { id } = useParams();
@@ -36,40 +37,14 @@ const RecruitForm = () => {
   // const [major, setMajor] = useState('');
   // const [studentID, setStudentID] = useState('');
   // const [link, setLink] = useState([]);
-  const [uploadProgress, setUploadProgress] = useState(0);
   useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
-
-  const formHandler = (e: any): void => {
-    console.log(e.target);
-    e.preventDefault();
-    const file = e.target[0].files[0];
-    uploadFiles(file);
-  };
-  const uploadFiles = (file: any) => {
-    if (!file) return;
-    const storageRef = ref(storage, `files/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.on(
-      'state_changed',
-      (snapshot: any) => {
-        const progress =
-          Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
-        console.log(progress);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((url: any) => {
-          console.log(url);
-        });
-      },
-    );
-  };
 
   return (
     <LayoutContainer>
       <ContainerInner>
         <NavigationBlock />
         <FormMargin />
+
         <RecruitFormWrapper>
           <RecruitFormInner>
             <Title>지원서 작성하기</Title>
@@ -102,18 +77,14 @@ const RecruitForm = () => {
             <FormMarginS />
             <div>
               <FormLabel essential={true}>지원서</FormLabel>
-              <TextInput
-                onClick={formHandler}
-                file={true}
-                image={'folder'}
-                placeholder={'지원서 / 자기소개서(pdf)'}
-              />
+              <FileInput placeholder={'지원서 / 자기소개서(pdf)'} />
               <FormText>* 파일은 최대 20MB로 업로드 하실 수 있습니다.</FormText>
               <FormText>
                 * 지원서는 자유 양식이며 기술 스택, 지원동기, 협업 경험, 팀 리드
                 경험, 문제해결 경험을 포함해주세요.
               </FormText>
             </div>
+
             <FormMarginS />
             <div>
               <FormLabel essential={true}>링크 1</FormLabel>

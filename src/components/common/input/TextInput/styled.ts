@@ -28,7 +28,7 @@ export const StyledFileInput = styled.form`
   padding: 0 18px;
 `;
 
-export const StyledInputWrapper = styled.form<{ color?: string }>`
+export const StyledInputWrapper = styled.div<{ color?: string }>`
   overflow: hidden;
   display: flex;
   align-items: center;
