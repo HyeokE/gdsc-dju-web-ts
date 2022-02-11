@@ -13,7 +13,7 @@ export interface Iprops {
   placeholder?: string;
   image?: string;
   file?: boolean;
-  onChange: (e: string) => void;
+  onChange: (e: any) => void;
 }
 
 const TextInput = (props: Iprops) => {
@@ -25,7 +25,7 @@ const TextInput = (props: Iprops) => {
         <StyledInput
           className={'formInput'}
           name={name}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e: any) => onChange(e.target.value)}
           placeholder={placeholder}
         />
       </StyledInputWrapper>

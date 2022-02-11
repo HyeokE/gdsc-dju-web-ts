@@ -18,15 +18,8 @@ import {
 import TextInput from '../../../components/common/input/TextInput';
 import { useParams } from 'react-router-dom';
 import { checkForm, positionHandler } from './FormFunctions';
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  uploadBytesResumable,
-} from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
-import FileInput from '../../../components/common/input/FileInput';
 import {
   InputImageWrapper,
   StyledFileInput,
@@ -155,7 +148,7 @@ const RecruitForm = () => {
             <FormMarginS />
             <div>
               <FormLabel essential={true}>학과</FormLabel>
-              <TextInput placeholder={'OO학과'} onChange={setMajor} />
+              <TextInput placeholder={'구글개발학과'} onChange={setMajor} />
             </div>
             <FormMarginS />
             <div>
