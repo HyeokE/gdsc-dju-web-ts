@@ -86,7 +86,7 @@ const RecruitForm = () => {
       const file = data.files[0];
       console.log(data.files);
       if (!file) return;
-      if (file.size > 5000000) {
+      if (file.size > 50000000) {
         alert('파일 사이즈는 50MB 이하로 선택해주세요.');
         return;
       }
