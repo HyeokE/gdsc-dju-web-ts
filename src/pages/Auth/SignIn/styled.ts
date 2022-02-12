@@ -16,6 +16,8 @@ export const AuthBoxWrapper = styled.div`
   align-items: center;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 `;
 export const AuthBoxInner = styled.div`
@@ -39,8 +41,9 @@ export const AuthElementWrapper = styled.div<{
   flex-direction: ${(props) => props.direction};
 `;
 export const AuthErrorText = styled.p`
-  height: 15px;
+  height: 20px;
   padding: 0 10px;
+  margin-bottom: 10px;
   font-size: 1.4rem;
   color: ${(props) => props.theme.color.tossRed};
 `;

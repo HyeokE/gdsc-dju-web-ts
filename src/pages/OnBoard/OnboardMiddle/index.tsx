@@ -49,7 +49,8 @@ const OnboardMiddle = () => {
   const [button, setButton] = useState<boolean>(false);
 
   const { data } = useGetMemberNickname();
-  const nicknameList = data?.map((a) => a.nickname);
+
+  const nicknameList = data?.data?.map((a) => a.nickname);
 
   useEffect(() => {
     buttonHandler();

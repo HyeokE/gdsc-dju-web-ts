@@ -24,6 +24,7 @@ export const LayoutContainer = styled.div`
 `;
 export const ContainerInner = styled.div`
   width: 92%;
+  max-width: calc(100% - 48px);
   margin: 0 auto;
 `;
 export const CardList = styled(motion.section)`

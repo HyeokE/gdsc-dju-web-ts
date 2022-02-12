@@ -59,6 +59,11 @@ const SignIn = () => {
       }
     });
   };
+  const onKeyPress = (e: any) => {
+    if (e.key === 'Enter') {
+      onEmailLogIn();
+    }
+  };
   const onEmailLogIn = async () => {
     try {
       authService.signInWithEmailAndPassword(email, password).catch((error) => {
@@ -123,6 +128,7 @@ const SignIn = () => {
               <AuthInput
                 type={'email'}
                 name={'email'}
+                onKeyPress={onKeyPress}
                 onChange={onChange}
                 placeholder={'gdsc@gmail.com'}
               />
@@ -132,6 +138,7 @@ const SignIn = () => {
               <AuthInput
                 type={'password'}
                 name={'password'}
+                onKeyPress={onKeyPress}
                 onChange={onChange}
               />
             </AuthElementWrapper>

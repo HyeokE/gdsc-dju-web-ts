@@ -16,7 +16,6 @@ import Timestamp = firebase.firestore.Timestamp;
 
 firebase.initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 export const firebaseInstance = firebase;
 export const dbService = firebase.firestore();
 export const authService = firebase.auth();

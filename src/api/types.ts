@@ -32,7 +32,18 @@ export type recruitmentInfoDataType = {
   beginner: boolean;
   home: boolean;
 };
+export type getRecruitmentInfoDataType = {
+  data: {
+    frontend: boolean;
+    backend: boolean;
+    android: boolean;
+    design: boolean;
+    ml: boolean;
+    beginner: boolean;
+    home: boolean;
+  };
+};
 export type nickNameDataType = {
-  nickname: string;
-}[];
+  data: { nickname: string }[];
+};
 export type navigationDataType = { route: string; title: string }[];
