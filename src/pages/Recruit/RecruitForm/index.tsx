@@ -16,7 +16,7 @@ import {
   RecruitFormWrapper,
 } from './styled';
 import TextInput from '../../../components/common/input/TextInput';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { checkForm, positionHandler } from './FormFunctions';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
@@ -30,6 +30,7 @@ import { dbService } from '../../../firebase/firebase';
 import GoogleSpinner from '../../../components/common/GoogleSpinner';
 import { useRecoilState } from 'recoil';
 import { loaderState } from '../../../store/loader';
+import { alertState } from '../../../store/alert';
 
 const RecruitForm = () => {
   const { id } = useParams();
@@ -45,7 +46,9 @@ const RecruitForm = () => {
   const [placeholder, setPlaceholder] = useState(
     '지원서/자기소개서/이력서 업로드 (PDF)',
   );
+  const [error, setError] = useState(true);
   const [loading, setLoading] = useRecoilState(loaderState);
+  const [alerts, setAlerts] = useRecoilState(alertState);
   const [uploadProgress, setUploadProgress] = useState(0);
   useEffect(() => {
     checkForm({
@@ -75,10 +78,10 @@ const RecruitForm = () => {
   };
 
   const input = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
 
   const uploadFiles = async (data: HTMLInputElement) => {
-    setLoading({ ...loading, load: true });
     if (data.files !== null) {
       const file = data.files[0];
       console.log(data.files);
@@ -89,35 +92,43 @@ const RecruitForm = () => {
       }
       if (file.type !== 'application/pdf') {
         alert('PDF 파일만 업로드 가능합니다.');
-        return;
-      }
-      const storageRef = ref(storage, `${file.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-      await uploadTask.on('state_changed', (snapshot: any) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
-        );
-        setUploadProgress(progress);
-        console.log(progress);
-      }),
-        uploadTask.then(() => {
-          getDownloadURL(storageRef).then(async (url: string) => {
-            console.log(url);
-            dbService.collection('applicants').doc().set({
-              uploadDate: new Date().getDate(),
-              name: name,
-              phoneNumber: phoneNumber,
-              email: email,
-              major: major,
-              studentID: studentID,
-              position: position,
-              link0: link0,
-              link1: link1,
-              fileURL: url,
+        return 0;
+      } else {
+        setLoading({ ...loading, load: true });
+        const storageRef = ref(storage, `${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        await uploadTask.on('state_changed', (snapshot: any) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+          );
+          setUploadProgress(progress);
+          console.log(progress);
+        }),
+          uploadTask.then(() => {
+            getDownloadURL(storageRef).then(async (url: string) => {
+              console.log(url);
+              dbService.collection('applicants').doc().set({
+                uploadDate: new Date(),
+                name: name,
+                phoneNumber: phoneNumber,
+                email: email,
+                major: major,
+                studentID: studentID,
+                position: position,
+                link0: link0,
+                link1: link1,
+                fileURL: url,
+              });
+              setLoading({ ...loading, load: false });
+              setAlerts({
+                ...alerts,
+                alertHandle: true,
+                alertMessage: `${position}에 지원이 완료되었습니다.`,
+              });
+              navigate(-1);
             });
-            setLoading({ ...loading, load: false });
           });
-        });
+      }
     }
   };
 

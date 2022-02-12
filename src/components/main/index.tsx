@@ -6,13 +6,15 @@ import { alertState } from '../../store/alert';
 import GoogleSpinner from '../common/GoogleSpinner';
 import { recruitmentState } from '../../store/recruitHandler';
 import API from '../../api';
+import { NavigationBlock } from '../../styles/layouts';
+import { AnimatePresence } from 'framer-motion';
 
 const Admin = lazy(() => import('../../pages/Admin'));
 const OnBoard = lazy(() => import('../../pages/OnBoard'));
 const Auth = lazy(() => import('../../pages/Auth'));
 const Pages = lazy(() => import('../../pages'));
 export const Main = () => {
-  const [alert] = useRecoilState(alertState);
+  const [alert, setAlert] = useRecoilState(alertState);
   const [recruitment, setRecruitment] = useRecoilState(recruitmentState);
 
   const getRecruitment = async (): Promise<void> => {
@@ -22,10 +24,11 @@ export const Main = () => {
   useEffect(() => {
     getRecruitment();
   }, []);
+
   return (
     <>
+      <AnimatePresence>{alert.alertHandle && <Alert />}</AnimatePresence>
       <Suspense fallback={<GoogleSpinner />}>
-        {alert.alertHandle && <Alert />}
         <Routes>
           <Route path={'/*'} element={<Pages />} />
           <Route path={'/main/*'} element={<Pages />} />

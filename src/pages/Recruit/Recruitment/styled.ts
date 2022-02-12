@@ -1,70 +1,124 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const SectionWrapper = styled.div`
+export const CategoryWrapper = styled(motion.div)`
   display: flex;
-  justify-content: space-between;
-
-  @media (max-width: 320px) {
-    flex-direction: column;
+  padding: 24px 0px;
+  margin-right: 30px;
+  cursor: pointer;
+  background: white;
+  border-radius: 10px;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    margin-right: 10px;
   }
   @media (max-width: 500px) {
-    flex-direction: column;
+    display: none;
   }
 `;
-export const IntroduceWrapper = styled.div`
-  margin-right: 20px;
-  box-sizing: inherit;
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    max-width: 320px;
+export const TeamCategoryWrapper = styled.div`
+  display: flex;
+  padding: 24px 0px;
+  margin-right: 30px;
+  justify-content: space-around;
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+export const CategoryInner = styled.div`
+  padding-left: 30px;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 320px;
+`;
+export const SubCategory = styled.div`
+  display: flex;
+  align-items: center;
+  width: 300px;
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.color.grey600};
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    width: 300px;
   }
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    max-width: 550px;
+    width: 200px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+    width: 200px;
   }
 `;
-export const JoinWrapper = styled.div`
-  width: 337px;
-  min-width: 250px;
-
-  display: none;
-  @media (min-width: 500px) {
-    display: block;
-  }
-`;
-export const JoinInner = styled.div`
+export const TeamCategory = styled.div`
   display: flex;
-  position: sticky;
-  width: 100%;
-  top: 100px;
-  flex-direction: column;
-  @media (max-width: 500px) {
-    position: initial;
+  align-items: center;
+  margin-left: 30px;
+  width: 330px;
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.color.grey700};
+`;
+export const TeamSubCategory = styled.div`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 10px;
+  width: 200px;
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.color.grey700};
+`;
+export const Category = styled.div`
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  width: 500px;
+  font-size: 1.8rem;
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    width: 500px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    width: 300px;
+  }
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+    width: 200px;
   }
   @media (max-width: 320px) {
-    position: initial;
+    width: 200px;
+    padding: 0;
   }
 `;
-
-export const MoblieTopElementWrapper = styled.div`
+export const CategoryList = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 410px;
+  padding-left: 30px;
+`;
+export const MobileCategoryWrapper = styled.div`
   display: none;
+  padding: 24px 0px;
+
+  cursor: pointer;
+  border-radius: 10px;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  &:hover {
+    background: ${(props) => props.theme.color.grey200};
+  }
   @media (max-width: 500px) {
     display: flex;
-    flex-direction: column;
-
-    bottom: 10px;
   }
 `;
-export const MoblieBottomElementWrapper = styled.div`
-  display: none;
-  background: -webkit-linear-gradient(
-    bottom,
-    rgba(255, 255, 255, 1) 83%,
-    rgba(255, 255, 255, 0)
-  );
-  padding-top: 20px;
+export const MobileCategoryInner = styled.div`
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  @media (max-width: 320px) {
+    padding-left: 10px;
+    min-width: 150px;
+  }
   @media (max-width: 500px) {
     display: flex;
-    flex-direction: column;
-    position: sticky;
-    bottom: 0px;
+    min-width: 150px;
   }
 `;

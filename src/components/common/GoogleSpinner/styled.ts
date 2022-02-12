@@ -6,7 +6,7 @@ export const LoaderBackground = styled.div<{ background?: boolean }>`
   ${(props) =>
     props.background &&
     css`
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
     `}
 
   width: 100vw;
