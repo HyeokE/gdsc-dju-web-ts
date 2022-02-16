@@ -25,11 +25,12 @@ const Alert = () => {
   const [alert, setAlert] = useRecoilState(alertState);
 
   useEffect(() => {
-    setTimeout(() => {
+    const alertTimer = setTimeout(() => {
       setAlert({
         ...alert,
         alertHandle: false,
       });
+      clearTimeout(alertTimer);
     }, 4000);
   }, []);
   console.log(alert.alertHandle);

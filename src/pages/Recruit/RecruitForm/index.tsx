@@ -46,7 +46,7 @@ const RecruitForm = () => {
   const [placeholder, setPlaceholder] = useState(
     '지원서/자기소개서/이력서 업로드 (PDF)',
   );
-  const [error, setError] = useState(true);
+  // const [error, setError] = useState(true);
   const [loading, setLoading] = useRecoilState(loaderState);
   const [alerts, setAlerts] = useRecoilState(alertState);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -74,7 +74,9 @@ const RecruitForm = () => {
   ]);
   console.log(loading);
   const onSubmit = async () => {
-    await uploadFiles(input.current as HTMLInputElement);
+    {
+      input.current && (await uploadFiles(input.current));
+    }
   };
 
   const input = useRef<HTMLInputElement>(null);
