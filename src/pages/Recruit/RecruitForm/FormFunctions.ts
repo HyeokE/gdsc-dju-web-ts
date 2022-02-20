@@ -61,7 +61,6 @@ const checkValue = ({ type, value }: { type: string; value: string }) => {
 
 export const validateData = (props: applicantDataType) => {
   const { name, value } = props;
-  console.log(name, value);
   switch (name) {
     case 'name':
       return checkValue({ type: 'name', value });

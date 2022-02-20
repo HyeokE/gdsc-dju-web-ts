@@ -75,7 +75,6 @@ const RecruitForm = () => {
     position,
     placeholder,
   ]);
-  console.log(formSubmit);
   const onSubmit = async () => {
     {
       input.current && (await uploadFiles(input.current));
