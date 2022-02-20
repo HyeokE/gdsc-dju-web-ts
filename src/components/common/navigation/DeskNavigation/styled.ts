@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export const NavDesign = styled.nav`
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 990;
   height: 60px;
   width: 100%;
 `;

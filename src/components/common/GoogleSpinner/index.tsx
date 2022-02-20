@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { GoogleLoader, LoaderBackground } from './styled';
 import lottie from 'lottie-web';
 
-const GoogleSpinner = () => {
+const GoogleSpinner = (props: { background?: boolean }) => {
+  const { background } = props;
   const googleContainer = useRef<HTMLDivElement>(null);
   useEffect(
     () =>
@@ -17,8 +18,8 @@ const GoogleSpinner = () => {
   );
   return (
     <>
-      <LoaderBackground>
-        <GoogleLoader ref={googleContainer}></GoogleLoader>
+      <LoaderBackground background={background}>
+        <GoogleLoader ref={googleContainer} />
       </LoaderBackground>
     </>
   );

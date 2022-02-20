@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const StyledInput = styled.input`
   padding: 0 18px;
@@ -17,7 +17,7 @@ export const StyledInput = styled.input`
     font-weight: 300;
   }
 `;
-export const StyledFileInput = styled.label`
+export const StyledFileInput = styled.form`
   color: ${(props) => props.theme.color.grey500};
   cursor: pointer;
   overflow: hidden;
@@ -53,4 +53,6 @@ export const InputImageWrapper = styled.div`
   height: 20px;
   width: 20px;
   margin: 0 -8px 0 18px;
+  display: flex;
+  align-items: center;
 `;
