@@ -251,7 +251,6 @@ const RecruitForm = () => {
                   name={'link'}
                   value={link1}
                   onChange={setLink1}
-                  checkError={setError}
                 />
                 <FormText>
                   자신을 나타낼 수 있는 개인블로그, 노션, Github링크 등을
@@ -262,6 +261,7 @@ const RecruitForm = () => {
                   업로드 후 공유링크를 입력해주세요.
                 </FormText>
               </div>
+              <FormMargin />
               <FormSubmitButton
                 disable={!formSubmit}
                 onClick={() => onSubmit()}

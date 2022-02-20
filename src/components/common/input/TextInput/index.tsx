@@ -20,7 +20,7 @@ export interface Iprops {
   onChange: (e: any) => void;
   type?: string;
   value?: string;
-  checkError: (props: boolean) => void;
+  checkError?: (props: boolean) => void;
 }
 const TextInput = (props: Iprops) => {
   const { name, placeholder, onChange, type, value, checkError } = props;
@@ -34,7 +34,9 @@ const TextInput = (props: Iprops) => {
           error: !validateData({ name: name, value: value }),
         });
     }
-    checkError(error.error);
+    {
+      checkError && checkError(error.error);
+    }
   }, [name, value]);
 
   return (
