@@ -43,6 +43,7 @@ const RecruitForm = () => {
   const [link0, setLink0] = useState('');
   const [link1, setLink1] = useState('');
   const [formSubmit, setFormSubmit] = useState(false);
+  const [error, setError] = useState(false);
   const [placeholder, setPlaceholder] = useState(
     '지원서/자기소개서/이력서 업로드 (PDF)',
   );
@@ -61,8 +62,10 @@ const RecruitForm = () => {
       link0,
       placeholder,
       setFormSubmit,
+      error,
     });
   }, [
+    error,
     link0,
     major,
     studentID,
@@ -72,7 +75,7 @@ const RecruitForm = () => {
     position,
     placeholder,
   ]);
-  console.log(loading);
+  console.log(formSubmit);
   const onSubmit = async () => {
     {
       input.current && (await uploadFiles(input.current));
@@ -104,7 +107,6 @@ const RecruitForm = () => {
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
           );
           setUploadProgress(progress);
-          console.log(progress);
         }),
           uploadTask.then(() => {
             getDownloadURL(storageRef).then(async (url: string) => {
@@ -147,35 +149,58 @@ const RecruitForm = () => {
               <FormMargin />
               <div>
                 <FormLabel essential={true}>이름(실명)</FormLabel>
-                <TextInput placeholder={'김구글'} onChange={setName} />
+                <TextInput
+                  placeholder={'김구글'}
+                  name={'name'}
+                  value={name}
+                  onChange={setName}
+                  checkError={setError}
+                />
               </div>
-              <FormMarginS />
+
               <div>
                 <FormLabel essential={true}>전화번호</FormLabel>
                 <TextInput
                   placeholder={'010-0000-0000'}
+                  name={'phoneNumber'}
+                  value={phoneNumber}
                   onChange={setPhoneNumber}
+                  checkError={setError}
                 />
               </div>
-              <FormMarginS />
+
               <div>
                 <FormLabel essential={true}>이메일(gmail)</FormLabel>
                 <TextInput
                   placeholder={'googledev@gmail.com'}
+                  name={'gmail'}
+                  value={email}
                   onChange={setEmail}
+                  checkError={setError}
                 />
               </div>
-              <FormMarginS />
               <div>
                 <FormLabel essential={true}>학과</FormLabel>
-                <TextInput placeholder={'구글개발학과'} onChange={setMajor} />
+                <TextInput
+                  placeholder={'구글개발학과'}
+                  name={'major'}
+                  value={major}
+                  onChange={setMajor}
+                  checkError={setError}
+                />
               </div>
-              <FormMarginS />
+
               <div>
                 <FormLabel essential={true}>학번</FormLabel>
-                <TextInput placeholder={'20221234'} onChange={setStudentID} />
+                <TextInput
+                  placeholder={'20221234'}
+                  name={'studentID'}
+                  value={studentID}
+                  onChange={setStudentID}
+                  checkError={setError}
+                />
               </div>
-              <FormMarginS />
+
               <div>
                 <FormLabel essential={true}>지원서</FormLabel>
                 <StyledInputWrapper>
@@ -210,13 +235,24 @@ const RecruitForm = () => {
                   리드 경험, 문제해결 경험을 포함해주세요.
                 </FormText>
               </div>
-              <FormMarginS />
               <div>
                 <FormLabel essential={true}>링크 1</FormLabel>
-                <TextInput placeholder={'https://'} onChange={setLink0} />
+                <TextInput
+                  placeholder={'https://'}
+                  name={'link'}
+                  value={link0}
+                  onChange={setLink0}
+                  checkError={setError}
+                />
                 <FormMarginXS />
                 <FormLabel>링크 2 (선택사항)</FormLabel>
-                <TextInput placeholder={'https://'} onChange={setLink1} />
+                <TextInput
+                  placeholder={'https://'}
+                  name={'link'}
+                  value={link1}
+                  onChange={setLink1}
+                  checkError={setError}
+                />
                 <FormText>
                   자신을 나타낼 수 있는 개인블로그, 노션, Github링크 등을
                   입력해주세요.
@@ -226,7 +262,6 @@ const RecruitForm = () => {
                   업로드 후 공유링크를 입력해주세요.
                 </FormText>
               </div>
-              <FormMarginS />
               <FormSubmitButton
                 disable={!formSubmit}
                 onClick={() => onSubmit()}
