@@ -29,6 +29,7 @@ import { useRecoilState } from 'recoil';
 import { modalState } from '../../../store/modal';
 import { authService, dbService } from '../../../firebase/firebase';
 import { localUserState } from '../../../store/localUser';
+import { loaderState } from '../../../store/loader';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
+  const [loader, setLoader] = useRecoilState(loaderState);
 
   const checkAdminUser = () => {
     authService.onAuthStateChanged((user: any) => {
@@ -64,7 +66,7 @@ const SignIn = () => {
       onEmailLogIn();
     }
   };
-  const onEmailLogIn = async () => {
+  const onEmailLogIn = () => {
     try {
       authService.signInWithEmailAndPassword(email, password).catch((error) => {
         const { code } = error;
@@ -146,8 +148,14 @@ const SignIn = () => {
             <AuthButtonWrapper>
               <AuthSignButton
                 onClick={() => {
-                  onEmailLogIn();
-                  checkAdminUser();
+                  try {
+                    setLoader({ ...loader, load: true });
+                    onEmailLogIn();
+                    checkAdminUser();
+                  } catch (e) {
+                    console.log(e);
+                  }
+                  setLoader({ ...loader, load: false });
                 }}
               >
                 로그인

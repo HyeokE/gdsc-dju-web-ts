@@ -19,10 +19,8 @@ const Faq = lazy(() => import('./Faq'));
 const FaqDetail = lazy(() => import('./Faq/FaqDetail'));
 
 const Pages = () => {
-  const [loading] = useRecoilState(loaderState);
   return (
     <>
-      {loading.load && <GoogleSpinner background={true} />}
       <ScrollTop />
       <MobileMenu />
       <Navigation />

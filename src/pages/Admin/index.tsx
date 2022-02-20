@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import AdminHeader from '../../components/admin/AdminHeader';
 import AdminHome from './AdminHome';
@@ -46,7 +46,7 @@ const Admin = () => {
       }
     });
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     checkAdminUser();
   }, []);
 

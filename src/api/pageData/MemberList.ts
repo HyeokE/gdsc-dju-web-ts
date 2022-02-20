@@ -26,6 +26,14 @@ export const memberList = [
     position: 'none',
   },
   {
+    nickName: 'Blaire	',
+    name: '이소희',
+    role: 'Core Member',
+    // memberImg:
+    introduce: ' 생기가 없다면 먹을 걸 주세요',
+    position: 'none',
+  },
+  {
     nickName: 'Samjong',
     name: '김지훈',
     role: 'Member',
@@ -35,7 +43,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'roccoli',
+    nickName: 'Rocoli',
     name: '유형찬',
     role: 'Member',
     memberImg:
@@ -139,7 +147,7 @@ export const memberList = [
     name: '강민호',
     role: 'Member',
     // memberImg:
-    // introduce: '저는 아무고토 몰라요..',
+    introduce: '실력 좋은 개발자가 되고싶어여~~',
     position: 'none',
   },
   {
@@ -159,11 +167,27 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Chaz	',
+    nickName: 'Chaz',
     name: '문희리',
     role: 'Member',
     // memberImg:
-    // introduce: '저는 아무고토 몰라요..',
+    introduce: '재즈 아니고 차즈 아니고 채즈네',
+    position: 'none',
+  },
+  {
+    nickName: 'Jim',
+    name: '전병선',
+    role: 'Member',
+    // memberImg:
+    introduce: '돈 많은 백수가 꿈이에요',
+    position: 'none',
+  },
+  {
+    nickName: 'Purang',
+    name: '손민성',
+    role: 'Member',
+    // memberImg:
+    introduce: '내일은 오늘보다 더 좋은 날 되길',
     position: 'none',
   },
   {
@@ -179,17 +203,26 @@ export const memberList = [
     name: '박수현',
     role: 'Member',
     // memberImg:
-    // introduce: '저는 아무고토 몰라요..',
+    introduce: '강하지?강하지! 우리집 강아지는 복슬강아지',
     position: 'none',
   },
   {
-    nickName: 'Blaire	',
-    name: '이소희',
+    nickName: 'Gunzo',
+    name: '권소윤',
     role: 'Member',
     // memberImg:
-    // introduce: '저는 아무고토 몰라요..',
+    introduce: '웹디자인사우르스',
     position: 'none',
   },
+  {
+    nickName: 'Winnie',
+    name: '유미소',
+    role: 'Member',
+    // memberImg:
+    // introduce: '웹디자인사우르스',
+    position: 'none',
+  },
+
   {
     nickName: 'Soopeach	',
     name: '전현수',

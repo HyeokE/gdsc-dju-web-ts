@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
 import {
   MemberPageWrapper,
@@ -91,7 +91,7 @@ const AdminMember = () => {
       console.log(e);
     }
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     getMemberList();
   }, []);
 

@@ -20,7 +20,6 @@ export interface Iprops {
 
 const TextInput = (props: Iprops) => {
   const { name, error, placeholder, image, file, onChange, type } = props;
-
   return (
     <>
       <StyledInputWrapper>

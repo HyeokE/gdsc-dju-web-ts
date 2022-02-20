@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const LoaderBackground = styled.div<{ background?: boolean }>`
   display: flex;
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
   ${(props) =>
     props.background &&
     css`
