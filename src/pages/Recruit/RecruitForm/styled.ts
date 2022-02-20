@@ -12,7 +12,7 @@ export const FormMarginS = styled.div`
 export const FormMarginXS = styled.div`
   height: 15px;
 `;
-export const RecruitFormWrapper = styled.section`
+export const RecruitFormWrapper = styled.div`
   max-width: 512px;
   height: 100%;
   display: flex;
@@ -20,7 +20,7 @@ export const RecruitFormWrapper = styled.section`
   justify-content: center;
   margin: 0 auto;
 `;
-export const RecruitFormInner = styled.form`
+export const RecruitFormInner = styled.section`
   width: 100%;
   height: 100%;
   display: flex;
@@ -68,7 +68,7 @@ export const FormSubmitButton = styled.button<{ disable?: boolean }>`
   font-size: ${(props) => props.theme.fontSize.p};
   border-radius: 10px;
   cursor: pointer;
-  background: ${(props) => props.theme.color.tossBlue};
+  background: ${(props) => props.theme.color.tossBlueActive};
 
   ${(prop) =>
     prop.disable &&

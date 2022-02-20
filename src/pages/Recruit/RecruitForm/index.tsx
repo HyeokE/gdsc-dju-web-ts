@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SubTitle, Title } from '../../../components/common/Title/title';
 import {
   ContainerInner,
@@ -16,7 +16,21 @@ import {
   RecruitFormWrapper,
 } from './styled';
 import TextInput from '../../../components/common/input/TextInput';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { checkForm, positionHandler } from './FormFunctions';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../../firebase/firebase.config';
+import {
+  InputImageWrapper,
+  StyledFileInput,
+  StyledInputWrapper,
+} from '../../../components/common/input/TextInput/styled';
+import Folder from '../../../img/Folder';
+import { dbService } from '../../../firebase/firebase';
+import GoogleSpinner from '../../../components/common/GoogleSpinner';
+import { useRecoilState } from 'recoil';
+import { loaderState } from '../../../store/loader';
+import { alertState } from '../../../store/alert';
 
 const RecruitForm = () => {
   const { id } = useParams();
@@ -26,97 +40,203 @@ const RecruitForm = () => {
   const [email, setEmail] = useState('');
   const [major, setMajor] = useState('');
   const [studentID, setStudentID] = useState('');
-  const [link, setLink] = useState([]);
-  const positionHandler = () => {
-    switch (id) {
-      case 'frontend':
-        return setPosition('Frontend Developer');
-      case 'backend':
-        return setPosition('Backend Developer');
-      case 'design':
-        return setPosition('UX/UI Designer');
-      case 'android':
-        return setPosition('Android Developer');
-      case 'beginner':
-        return setPosition('Beginner Position');
-      case 'ml':
-        return setPosition('Machine Learning Engineer');
-      default:
+  const [link0, setLink0] = useState('');
+  const [link1, setLink1] = useState('');
+  const [formSubmit, setFormSubmit] = useState(false);
+  const [placeholder, setPlaceholder] = useState(
+    '지원서/자기소개서/이력서 업로드 (PDF)',
+  );
+  const [error, setError] = useState(true);
+  const [loading, setLoading] = useRecoilState(loaderState);
+  const [alerts, setAlerts] = useRecoilState(alertState);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  useEffect(() => {
+    checkForm({
+      position,
+      name,
+      phoneNumber,
+      email,
+      major,
+      studentID,
+      link0,
+      placeholder,
+      setFormSubmit,
+    });
+  }, [
+    link0,
+    major,
+    studentID,
+    email,
+    phoneNumber,
+    name,
+    position,
+    placeholder,
+  ]);
+  console.log(loading);
+  const onSubmit = async () => {
+    await uploadFiles(input.current as HTMLInputElement);
+  };
+
+  const input = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  useEffect(() => positionHandler({ value: id, setValue: setPosition }), []);
+
+  const uploadFiles = async (data: HTMLInputElement) => {
+    if (data.files !== null) {
+      const file = data.files[0];
+      console.log(data.files);
+      if (!file) return;
+      if (file.size > 50000001) {
+        alert('파일 사이즈는 50MB 이하로 선택해주세요.');
         return;
+      }
+      if (file.type !== 'application/pdf') {
+        alert('PDF 파일만 업로드 가능합니다.');
+        return 0;
+      } else {
+        setLoading({ ...loading, load: true });
+        const storageRef = ref(storage, `${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        await uploadTask.on('state_changed', (snapshot: any) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+          );
+          setUploadProgress(progress);
+          console.log(progress);
+        }),
+          uploadTask.then(() => {
+            getDownloadURL(storageRef).then(async (url: string) => {
+              console.log(url);
+              dbService.collection('applicants').doc().set({
+                uploadDate: new Date(),
+                name: name,
+                phoneNumber: phoneNumber,
+                email: email,
+                major: major,
+                studentID: studentID,
+                position: position,
+                link0: link0,
+                link1: link1,
+                fileURL: url,
+              });
+              setLoading({ ...loading, load: false });
+              setAlerts({
+                ...alerts,
+                alertHandle: true,
+                alertMessage: `${position}에 지원이 완료되었습니다.`,
+              });
+              navigate(-1);
+            });
+          });
+      }
     }
   };
-  useEffect(() => positionHandler(), []);
+
   return (
-    <LayoutContainer>
-      <ContainerInner>
-        <NavigationBlock />
-        <FormMargin />
-        <RecruitFormWrapper>
-          <RecruitFormInner>
-            <Title>지원서 작성하기</Title>
-            <SubTitle>{position}</SubTitle>
-            <FormMargin />
-            <div>
-              <FormLabel essential={true}>이름(실명)</FormLabel>
-              <TextInput placeholder={'김구글'} />
-            </div>
-            <FormMarginS />
-            <div>
-              <FormLabel essential={true}>전화번호</FormLabel>
-              <TextInput placeholder={'010-0000-0000'} />
-            </div>
-            <FormMarginS />
-            <div>
-              <FormLabel essential={true}>이메일(gmail)</FormLabel>
-              <TextInput placeholder={'googledev@gmail.com'} />
-            </div>
-            <FormMarginS />
-            <div>
-              <FormLabel essential={true}>학과</FormLabel>
-              <TextInput placeholder={'OO학과'} />
-            </div>
-            <FormMarginS />
-            <div>
-              <FormLabel essential={true}>학번</FormLabel>
-              <TextInput placeholder={'20221234'} />
-            </div>
-            <FormMarginS />
-            <div>
-              <FormLabel essential={true}>지원서</FormLabel>
-              <TextInput
-                file={true}
-                image={'folder'}
-                placeholder={'지원서 / 자기소개서(pdf)'}
-              />
-              <FormText>* 파일은 최대 20MB로 업로드 하실 수 있습니다.</FormText>
-              <FormText>
-                * 지원서는 자유 양식이며 기술 스택, 지원동기, 협업 경험, 팀 리드
-                경험, 문제해결 경험을 포함해주세요.
-              </FormText>
-            </div>
-            <FormMarginS />
-            <div>
-              <FormLabel essential={true}>링크 1</FormLabel>
-              <TextInput placeholder={'https://'} />
-              <FormMarginXS />
-              <FormLabel>링크 2 (선택사항)</FormLabel>
-              <TextInput placeholder={'https://'} />
-              <FormText>
-                자신을 나타낼 수 있는 개인블로그, 노션, Github링크 등을
-                입력해주세요.
-              </FormText>
-              <FormText>
-                *포트폴리오를 업로드하셔야할 경우 클라우드/드라이브에 파일을
-                업로드 후 공유링크를 입력해주세요.
-              </FormText>
-            </div>
-            <FormMarginS />
-            <FormSubmitButton disable={true}>제출하기</FormSubmitButton>
-            <FormMargin />
-          </RecruitFormInner>
-        </RecruitFormWrapper>
-      </ContainerInner>
-    </LayoutContainer>
+    <>
+      <LayoutContainer>
+        <ContainerInner>
+          <NavigationBlock />
+          <FormMargin />
+          <RecruitFormWrapper>
+            <RecruitFormInner>
+              <Title>지원서 작성하기</Title>
+              <SubTitle>{position}</SubTitle>
+              <FormMargin />
+              <div>
+                <FormLabel essential={true}>이름(실명)</FormLabel>
+                <TextInput placeholder={'김구글'} onChange={setName} />
+              </div>
+              <FormMarginS />
+              <div>
+                <FormLabel essential={true}>전화번호</FormLabel>
+                <TextInput
+                  placeholder={'010-0000-0000'}
+                  onChange={setPhoneNumber}
+                />
+              </div>
+              <FormMarginS />
+              <div>
+                <FormLabel essential={true}>이메일(gmail)</FormLabel>
+                <TextInput
+                  placeholder={'googledev@gmail.com'}
+                  onChange={setEmail}
+                />
+              </div>
+              <FormMarginS />
+              <div>
+                <FormLabel essential={true}>학과</FormLabel>
+                <TextInput placeholder={'구글개발학과'} onChange={setMajor} />
+              </div>
+              <FormMarginS />
+              <div>
+                <FormLabel essential={true}>학번</FormLabel>
+                <TextInput placeholder={'20221234'} onChange={setStudentID} />
+              </div>
+              <FormMarginS />
+              <div>
+                <FormLabel essential={true}>지원서</FormLabel>
+                <StyledInputWrapper>
+                  <InputImageWrapper>
+                    <Folder />
+                  </InputImageWrapper>
+                  <StyledFileInput
+                    onClick={() => {
+                      input.current?.click();
+                    }}
+                  >
+                    {placeholder}
+                  </StyledFileInput>
+                  <input
+                    ref={input}
+                    type={'file'}
+                    style={{ display: 'none' }}
+                    name={'fileName'}
+                    onChange={(e) => {
+                      e.target.files && setPlaceholder(e.target.files[0].name);
+                    }}
+                  />
+                </StyledInputWrapper>
+                <FormText>
+                  * 파일은 최대 50MB로 업로드 하실 수 있습니다.
+                </FormText>
+                <FormText>
+                  * 원활한 검토를 위해 PDF 형식으로 제출해주세요.
+                </FormText>
+                <FormText>
+                  * 지원서는 자유 양식이며 기술 스택, 지원동기, 협업 경험, 팀
+                  리드 경험, 문제해결 경험을 포함해주세요.
+                </FormText>
+              </div>
+              <FormMarginS />
+              <div>
+                <FormLabel essential={true}>링크 1</FormLabel>
+                <TextInput placeholder={'https://'} onChange={setLink0} />
+                <FormMarginXS />
+                <FormLabel>링크 2 (선택사항)</FormLabel>
+                <TextInput placeholder={'https://'} onChange={setLink1} />
+                <FormText>
+                  자신을 나타낼 수 있는 개인블로그, 노션, Github링크 등을
+                  입력해주세요.
+                </FormText>
+                <FormText>
+                  *포트폴리오를 업로드하셔야할 경우 클라우드/드라이브에 파일을
+                  업로드 후 공유링크를 입력해주세요.
+                </FormText>
+              </div>
+              <FormMarginS />
+              <FormSubmitButton
+                disable={!formSubmit}
+                onClick={() => onSubmit()}
+              >
+                제출하기
+              </FormSubmitButton>
+              <FormMargin />
+            </RecruitFormInner>
+          </RecruitFormWrapper>
+        </ContainerInner>
+      </LayoutContainer>
+    </>
   );
 };
 
