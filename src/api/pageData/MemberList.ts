@@ -23,6 +23,7 @@ export const memberList = [
     role: 'Core Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02CH6KQT8Q-a03a44566103-512',
+    introduce: '빛나지만 눈부시지 않게',
     position: 'none',
   },
   {
@@ -193,7 +194,8 @@ export const memberList = [
     nickName: 'Purang',
     name: '손민성',
     role: 'Member',
-    // memberImg:
+    memberImg:
+      'https://ca.slack-edge.com/T02BE2ERU5A-U030E9L5VB8-f08e7737022b-512',
     introduce: '내일은 오늘보다 더 좋은 날 되길',
     position: 'none',
   },
