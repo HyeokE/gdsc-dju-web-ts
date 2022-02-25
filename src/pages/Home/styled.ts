@@ -9,7 +9,7 @@ export const HomeWrapper = styled(motion.main)`
   align-items: center;
   height: 100vh;
 `;
-export const StyledRecruitmentButton = styled.button`
+export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
   width: 220px;
   height: 60px;
   border-radius: 75px;
@@ -19,6 +19,12 @@ export const StyledRecruitmentButton = styled.button`
   color: white;
   font-size: 1.6rem;
   cursor: pointer;
+  ${(props) =>
+    props.disable &&
+    `
+    background: ${props.theme.color.tossBlue200};
+    cursor: not-allowed;
+    `}
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 180px;
     height: 55px;
