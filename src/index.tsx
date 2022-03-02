@@ -9,7 +9,16 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <RecoilRoot>
-        <App />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1 0 auto',
+            minHeight: '100vh',
+          }}
+        >
+          <App />
+        </div>
       </RecoilRoot>
     </BrowserRouter>
   </React.StrictMode>,

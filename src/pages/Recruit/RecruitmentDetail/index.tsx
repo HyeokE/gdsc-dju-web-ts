@@ -4,13 +4,11 @@ import {
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
-  NavigationBlock,
   TopMargin,
 } from '../../../styles/layouts';
 import {
   MainText,
   SubCategory,
-  SubTitle,
   Title,
 } from '../../../components/common/Title/title';
 import {
@@ -34,7 +32,6 @@ const RecruitmentDetail: React.FC = () => {
   const aboutTeam = RecruitDetails.find((aboutTeam) => aboutTeam.id === id);
   return (
     <>
-      <NavigationBlock />
       <BannerWrapper>
         <Banner src={BlueBanner} />
       </BannerWrapper>

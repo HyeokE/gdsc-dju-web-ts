@@ -15,12 +15,11 @@ export const Tage = styled.div``;
 
 export const LayoutContainer = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1140px;
+  margin: 0 auto;
   min-width: 320px;
+  flex: 1;
 `;
 export const ContainerInner = styled.div`
   width: 92%;
@@ -34,10 +33,6 @@ export const CardList = styled(motion.section)`
 
 export const BannerImage = styled.img`
   height: 500px;
-`;
-export const NavigationBlock = styled.div`
-  height: 60px;
-  width: 100%;
 `;
 export const BannerWrapper = styled.div`
   height: 200px;

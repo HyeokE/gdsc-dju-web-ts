@@ -8,7 +8,6 @@ import {
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
-  NavigationBlock,
   TopMargin,
 } from '../../../styles/layouts';
 import { FaqData } from '../../../api/pageData/faq';
@@ -21,7 +20,6 @@ const FaqDetail = () => {
 
   return (
     <>
-      <NavigationBlock />
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>
