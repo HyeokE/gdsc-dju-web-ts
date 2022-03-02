@@ -160,7 +160,7 @@ export const memberList = [
     role: 'Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02TWSK3RQU-a3e79f8f5148-512',
-    introduce: '저는 아무고토 몰라요..',
+    introduce: '응애개발자',
     position: 'none',
   },
   {
@@ -232,7 +232,7 @@ export const memberList = [
     role: 'Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U031VV8SS6R-gea0879bc69f-512',
-    introduce: '',
+    introduce: '안녕하세용?',
     position: 'none',
   },
   {
@@ -259,7 +259,7 @@ export const memberList = [
     role: 'Member',
     memberImg:
       'https://ca.slack-edge.com/T02BE2ERU5A-U02TJH9V38V-b7bf85d0d373-512',
-    introduce: '',
+    introduce: '겸손의 미덕',
     position: 'none',
   },
   {
