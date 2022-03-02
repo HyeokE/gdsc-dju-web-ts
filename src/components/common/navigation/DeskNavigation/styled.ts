@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const NavDesign = styled.nav`
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 990;
   height: 60px;

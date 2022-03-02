@@ -57,16 +57,13 @@ const Home = () => {
               {recruit.home ? (
                 <StyledRecruitmentButton
                   onClick={() => {
-                    window.open(
-                      'https://forms.gle/FwoDUZSCcHHow8iC7',
-                      '_blank',
-                    );
+                    window.open('https://gdsc-dju.web.app/recruit', '_blank');
                   }}
                 >
                   지원하기
                 </StyledRecruitmentButton>
               ) : (
-                <StyledRecruitmentButton>
+                <StyledRecruitmentButton disable={true}>
                   지원기간이 아닙니다.
                 </StyledRecruitmentButton>
               )}

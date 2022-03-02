@@ -50,7 +50,7 @@ const OnboardMiddle = () => {
 
   const { data } = useGetMemberNickname();
 
-  const nicknameList = data?.data?.map((a) => a.nickname);
+  const nicknameList = data?.map((a) => a.nickname);
 
   useEffect(() => {
     buttonHandler();
