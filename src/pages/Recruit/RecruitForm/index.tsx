@@ -1,14 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SubTitle, Title } from '../../../components/common/Title/title';
-import {
-  ContainerInner,
-  LayoutContainer,
-  NavigationBlock,
-} from '../../../styles/layouts';
+import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
 import {
   FormLabel,
   FormMargin,
-  FormMarginS,
   FormMarginXS,
   FormSubmitButton,
   FormText,
@@ -27,7 +22,6 @@ import {
 } from '../../../components/common/input/TextInput/styled';
 import Folder from '../../../img/Folder';
 import { dbService } from '../../../firebase/firebase';
-import GoogleSpinner from '../../../components/common/GoogleSpinner';
 import { useRecoilState } from 'recoil';
 import { loaderState } from '../../../store/loader';
 import { alertState } from '../../../store/alert';
@@ -139,7 +133,6 @@ const RecruitForm = () => {
     <>
       <LayoutContainer>
         <ContainerInner>
-          <NavigationBlock />
           <FormMargin />
           <RecruitFormWrapper>
             <RecruitFormInner>

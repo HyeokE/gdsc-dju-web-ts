@@ -4,7 +4,6 @@ import {
   CardList,
   ContainerInner,
   LayoutContainer,
-  NavigationBlock,
   TopMargin,
 } from '../../styles/layouts';
 import { MemberCard } from '../../components/common/card/MemberCard/';
@@ -12,7 +11,6 @@ import { MemberCardWrapper } from './styled';
 import {
   MainText,
   SubCategory,
-  SubTitle,
   Title,
 } from '../../components/common/Title/title';
 import {
@@ -35,7 +33,7 @@ const Introduce = () => {
   return (
     <>
       {modalHandler.memberCard && <MemberCardModal id={selectedId} />}
-      <NavigationBlock />
+
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>

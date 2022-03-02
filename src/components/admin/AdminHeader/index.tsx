@@ -10,7 +10,7 @@ import AdminSignInModal from '../../../components/common/Modal/AdminSignIn';
 import AdminSignUpModal from '../../../components/common/Modal/AdminSignUp';
 import AdminSetUserProfile from '../../../components/common/Modal/AdminSetUserProfile';
 import AdminTopMenu from '../../../components/admin/AdminTopMenu';
-import { NavigationBlock, TopMargin } from '../../../styles/layouts';
+import { TopMargin } from '../../../styles/layouts';
 import { useLocation } from 'react-router';
 import {
   NavInner,
@@ -50,7 +50,6 @@ const AdminHome = () => {
       <AdminSignUpModal />
       <AdminSetUserProfile />
       <AdminSetUserProfile />
-      <NavigationBlock />
       <AdminNavigationWrapper>
         <NavWrapper>
           <NavInner>

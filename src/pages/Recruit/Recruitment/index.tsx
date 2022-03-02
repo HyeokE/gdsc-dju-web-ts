@@ -3,7 +3,6 @@ import {
   BannerWrapper,
   ContainerInner,
   LayoutContainer,
-  NavigationBlock,
   TopMargin,
 } from '../../../styles/layouts';
 import { MainText, Title } from '../../../components/common/Title/title';
@@ -31,7 +30,6 @@ const Recruitment = () => {
 
   return (
     <>
-      <NavigationBlock />
       <BannerWrapper>
         <Banner src={BlueBanner} />
       </BannerWrapper>

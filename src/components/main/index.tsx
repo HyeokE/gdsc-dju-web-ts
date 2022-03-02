@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useLayoutEffect } from 'react';
+import React, { lazy, Suspense, useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
@@ -6,7 +6,6 @@ import { alertState } from '../../store/alert';
 import GoogleSpinner from '../common/GoogleSpinner';
 import { recruitmentState } from '../../store/recruitHandler';
 import API from '../../api';
-import { NavigationBlock } from '../../styles/layouts';
 import { AnimatePresence } from 'framer-motion';
 import { loaderState } from '../../store/loader';
 
