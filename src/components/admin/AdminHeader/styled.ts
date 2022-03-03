@@ -43,7 +43,7 @@ export const ButtonElementWrapper = styled.div`
   margin-top: 10px;
 `;
 export const AdminNavigationWrapper = styled.nav`
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 999;
   height: 60px;
