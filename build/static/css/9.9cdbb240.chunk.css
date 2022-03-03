@@ -1,0 +1,2 @@
+.transparent{background:transparent}.white{background:#fff;box-shadow:0 4px 30px rgba(0,0,0,.03)}.appMenu{width:100%;height:70px!important;justify-content:center;position:fixed;top:0;transition:all .3s;transition-delay:.2ms;visibility:hidden;opacity:0}.appMenu.active{position:fixed;top:0;transition:all .4s;visibility:visible;height:50px;opacity:1}.appMenuCategory{height:0;opacity:0;visibility:hidden;transition:all .4s}.appMenuActive{opacity:1;visibility:visible;transition:all .3s;height:50px}
+/*# sourceMappingURL=9.9cdbb240.chunk.css.map */
