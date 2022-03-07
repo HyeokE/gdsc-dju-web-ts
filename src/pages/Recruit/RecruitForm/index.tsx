@@ -181,7 +181,6 @@ const RecruitForm = () => {
                   checkError={setError}
                 />
               </div>
-
               <div>
                 <FormLabel essential={true}>학번</FormLabel>
                 <TextInput
