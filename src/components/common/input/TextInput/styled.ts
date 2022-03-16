@@ -1,12 +1,13 @@
+import { Field } from 'formik';
 import styled, { css } from 'styled-components';
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(Field)<{ disabled?: boolean }>`
   padding: 0 18px;
   margin: 2px 0;
   border: 0;
   border-radius: 10px;
   height: 48px;
-  font-size: ${(props) => props.theme.fontSize.p};
+  font-size: ${(props) => props.theme.fontSize.body1};
   outline: none;
   flex-grow: 1;
   background: none;
@@ -16,20 +17,27 @@ export const StyledInput = styled.input`
     color: ${(props) => props.theme.color.grey400};
     font-weight: 300;
   }
+  ${(props) =>
+    props.disabled &&
+    css`
+      background: ${(props) => props.theme.color.grey100};
+      color: ${(props) => props.theme.color.grey400};
+    `}
 `;
-export const StyledFileInput = styled.form`
+export const StyledFileInput = styled.div`
   color: ${(props) => props.theme.color.grey500};
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
   flex-grow: 1;
   font-weight: 300;
-  font-size: ${(props) => props.theme.fontSize.p};
+  font-size: ${(props) => props.theme.fontSize.body1};
   padding: 0 18px;
 `;
 
 export const StyledInputWrapper = styled.div<{
   color?: string;
+  disabled?: boolean;
   error?: boolean;
 }>`
   overflow: hidden;
@@ -66,6 +74,13 @@ export const StyledInputWrapper = styled.div<{
         box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed};
       `}
   }
+  ${(props) =>
+    !props.disabled &&
+    css`
+      &:hover {
+        box-shadow: none;
+      }
+    `}
 `;
 export const InputImageWrapper = styled.div`
   height: 20px;
@@ -75,10 +90,10 @@ export const InputImageWrapper = styled.div`
   align-items: center;
 `;
 export const ErrorBox = styled.div`
-  height: 30px;
+  height: 20px;
   display: flex;
   align-items: center;
   color: ${(props) => props.theme.color.tossRed};
-  font-size: ${(props) => props.theme.fontSize.p};
+  font-size: ${(props) => props.theme.fontSize.body2};
   padding-left: 5px;
 `;

@@ -10,7 +10,7 @@ export const StyledButton = styled.button<{ disable?: boolean }>`
   border-style: inherit;
   margin-bottom: 10px;
   background: ${(props) => props.theme.color.tossBlue};
-  font-size: ${(props) => props.theme.fontSize.p};
+  font-size: ${(props) => props.theme.fontSize.body2};
   cursor: pointer;
   ${(props) =>
     props.disable &&
