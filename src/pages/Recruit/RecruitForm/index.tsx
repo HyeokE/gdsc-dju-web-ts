@@ -202,6 +202,7 @@ const RecruitForm = () => {
                   />
                 </div>
 
+
                 <div>
                   <FormLabel essential={true}>지원서</FormLabel>
                   <FileInput

@@ -48,9 +48,9 @@ const OnboardMiddle = () => {
   const [formikInput, setFormikInput] = useState<any>();
   const [button, setButton] = useState<boolean>(false);
 
-  const { data } = useGetMemberNickname();
+  // const { data } = useGetMemberNickname();
 
-  const nicknameList = data?.map((a) => a.nickname);
+  // const nicknameList = data?.map((a) => a.nickname);
 
   useEffect(() => {
     buttonHandler();
@@ -78,7 +78,7 @@ const OnboardMiddle = () => {
         .min(3, '3글자이상 작성해주세요')
         .max(15, '2~15사이의 길이로 입력해주세요')
         .matches(/^[A-Z]/, '대문자로 시작해야합니다.')
-        .notOneOf(nicknameList ? nicknameList : [], '중복된 닉네임입니다.')
+        // .notOneOf(nicknameList ? nicknameList : [], '중복된 닉네임입니다.')
         .required('필수입력란입니다.'),
       major: Yup.string()
         .min(3, '3글자 이상 작성해주세요')
