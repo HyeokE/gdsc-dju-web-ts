@@ -1,24 +1,48 @@
-import React, { useRef, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import Folder from '../../../../img/Folder';
 import {
   InputImageWrapper,
   StyledFileInput,
   StyledInputWrapper,
 } from '../TextInput/styled';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../../../firebase/firebase.config';
 
 export interface Iprops {
-  placeholder: string;
-  uploadFiles: (file: HTMLInputElement) => void;
+  defaultPlaceholder: string;
+  uploadFiles?: (file: HTMLInputElement) => void;
+  errorToggle?: boolean;
+  disabled?: boolean;
 }
 
-const FileInput = (props: Iprops) => {
-  const { placeholder, uploadFiles } = props;
+const FileInput = (props: Iprops, ref: any) => {
+  const { defaultPlaceholder, uploadFiles, errorToggle, disabled } = props;
+  const [placeholder, setPlaceholder] = useState(
+    defaultPlaceholder || 'Choose a file',
+  );
 
-  const input = useRef<HTMLInputElement>(null);
-
-  return <></>;
+  console.log(ref.current?.files);
+  return (
+    <StyledInputWrapper error={errorToggle} disabled={!disabled}>
+      <InputImageWrapper>
+        <Folder />
+      </InputImageWrapper>
+      <StyledFileInput
+        onClick={() => {
+          ref.current?.click();
+        }}
+      >
+        {placeholder}
+      </StyledFileInput>
+      <input
+        ref={ref}
+        type={'file'}
+        style={{ display: 'none' }}
+        name={'fileName'}
+        onChange={(e) => {
+          e.target.files && setPlaceholder(e.target.files[0].name);
+        }}
+      />
+    </StyledInputWrapper>
+  );
 };
 
-export default FileInput;
+export default forwardRef(FileInput);

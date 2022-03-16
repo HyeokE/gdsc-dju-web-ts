@@ -29,7 +29,7 @@ export const RecruitFormInner = styled.section`
 export const FormLabel = styled.label<{ essential?: boolean }>`
   padding: 5px 0;
   display: inline-block;
-  font-size: ${(props) => props.theme.fontSize.p};
+  font-size: ${(props) => props.theme.fontSize.body2};
   font-weight: 400;
   line-height: 1.5;
   color: ${(props) => props.theme.color.grey700};
@@ -56,6 +56,37 @@ export const FormText = styled.p`
   font-weight: 300;
   color: ${(props) => props.theme.color.grey600};
 `;
+export const FormLi = styled.li`
+  margin-top: 4px;
+  position: relative;
+  font-size: 15px;
+  padding-left: 15px;
+  font-weight: 300;
+  color: ${(props) => props.theme.color.grey600};
+  list-style: none;
+  &::before {
+    position: absolute;
+    top: -2px;
+    left: -5px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 23px;
+    color: ${(props) => props.theme.color.tossBlue};
+    text-align: center;
+    content: '•';
+  }
+`;
+export const FormArticleWrapper = styled.article`
+  border: 1px solid ${(props) => props.theme.color.grey300};
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: ${(props) => props.theme.color.grey50};
+  margin-top: 10px;
+  margin-bottom: 30px;
+`;
 export const FormSubmitButton = styled.button<{ disable?: boolean }>`
   padding: 18px 20px;
   min-width: 100px;
@@ -65,7 +96,7 @@ export const FormSubmitButton = styled.button<{ disable?: boolean }>`
   text-align: center;
   justify-content: center;
   width: 25%;
-  font-size: ${(props) => props.theme.fontSize.p};
+  font-size: ${(props) => props.theme.fontSize.body2};
   border-radius: 10px;
   cursor: pointer;
   background: ${(props) => props.theme.color.tossBlueActive};
