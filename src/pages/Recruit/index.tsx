@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, memo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const Recruitment = lazy(() => import('./Recruitment'));
@@ -14,4 +14,4 @@ const Recruit = () => {
   );
 };
 
-export default Recruit;
+export default memo(Recruit);

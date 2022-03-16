@@ -1,58 +1,44 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Folder from '../../../../img/Folder';
-import {
-  errorMessage,
-  validateData,
-} from '../../../../pages/Recruit/RecruitForm/FormFunctions';
-import {
-  ErrorBox,
-  InputImageWrapper,
-  StyledFileInput,
-  StyledInput,
-  StyledInputWrapper,
-} from './styled';
+import React, { memo, useEffect, useState } from 'react';
+
+import { ErrorBox, StyledInput, StyledInputWrapper } from './styled';
+import { FormikErrors, FormikTouched } from 'formik';
+
 export interface Iprops {
   name?: string;
-  setError?: (error: boolean) => void;
+  error?:
+    | string
+    | string[]
+    | FormikErrors<any>
+    | FormikErrors<any>[]
+    | undefined;
+  touched?: boolean | FormikTouched<any> | FormikTouched<any>[] | undefined;
   placeholder?: string;
   image?: string;
   file?: boolean;
-  onChange: (e: any) => void;
+  onChange?: (e: any) => void;
   type?: string;
-  value?: string;
+  value?: string | null;
   checkError?: (props: boolean) => void;
+  disabled?: boolean;
 }
 const TextInput = (props: Iprops) => {
-  const { name, placeholder, onChange, type, value, checkError } = props;
-  const [error, setError] = useState({ name: '', error: false });
-  useEffect(() => {
-    {
-      name &&
-        value &&
-        setError({
-          name: name,
-          error: !validateData({ name: name, value: value }),
-        });
-    }
-    {
-      checkError && checkError(error.error);
-    }
-  }, [name, value]);
-
+  const { name, placeholder, onChange, type, disabled, error, touched } = props;
+  const errorToggle = !!(error && touched);
   return (
     <>
-      <StyledInputWrapper error={error.error}>
+      <StyledInputWrapper error={errorToggle} disabled={!disabled}>
         <StyledInput
           className={'formInput'}
           name={name}
           type={type}
-          onChange={(e: any) => onChange(e.target.value)}
+          onChange={onChange && onChange}
           placeholder={placeholder}
+          disabled={disabled}
         />
       </StyledInputWrapper>
-      {name && <ErrorBox>{error.error && errorMessage(error.name)}</ErrorBox>}
+      <ErrorBox>{error && touched && <>{error}</>}</ErrorBox>
     </>
   );
 };
 
-export default TextInput;
+export default memo(TextInput);
