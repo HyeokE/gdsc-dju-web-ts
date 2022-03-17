@@ -1,7 +1,12 @@
 import React from 'react';
 import { memberList } from '../../../../api/pageData/MemberList';
-import { MemberImg, Name, NickName, Role } from '../../card/MemberCard/styled';
-import { Skeleton } from '@mui/material';
+import {
+  MemberImg,
+  Name,
+  NickName,
+  Role,
+  Skeleton,
+} from '../../card/MemberCard/styled';
 import { useRecoilState } from 'recoil';
 import { MODAL_KEY, modalState } from '../../../../store/modal';
 import { MemberCardModalInner, StyledModal } from './styled';
@@ -21,11 +26,7 @@ const MemberCardModal = (props: { id: number }) => {
         }
       >
         <MemberCardModalInner>
-          {memberImg ? (
-            <MemberImg src={memberImg} />
-          ) : (
-            <Skeleton variant={'circular'} height={200} width={200} />
-          )}
+          {memberImg ? <MemberImg src={memberImg} /> : <Skeleton />}
           <NickName>{nickName}</NickName>
           <Name>{name}</Name>
           <Role>{role}</Role>

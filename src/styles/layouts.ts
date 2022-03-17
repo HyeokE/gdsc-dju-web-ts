@@ -16,6 +16,7 @@ export const Tage = styled.div``;
 export const LayoutContainer = styled.div`
   position: relative;
   width: 100%;
+  min-height: calc(100vh - 60px);
   max-width: 1140px;
   margin: 0 auto;
   min-width: 320px;
@@ -23,6 +24,7 @@ export const LayoutContainer = styled.div`
 `;
 export const ContainerInner = styled.div`
   width: 92%;
+  height: 100%;
   max-width: calc(100% - 48px);
   margin: 0 auto;
 `;

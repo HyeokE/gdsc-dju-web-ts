@@ -32,7 +32,6 @@ export const Main = () => {
       <Suspense fallback={<GoogleSpinner />}>
         <Routes>
           <Route path={'/*'} element={<Pages />} />
-          <Route path={'/main/*'} element={<Pages />} />
           <Route path={'/admin/*'} element={<Admin />} />
           <Route path={'/onboard/*'} element={<OnBoard />} />
           <Route path={'/auth/*'} element={<Auth />} />

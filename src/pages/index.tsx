@@ -32,6 +32,7 @@ const Pages = () => {
         <Route path={'/faq/*'} element={<Faq />} />
         <Route path={'/faq/:id'} element={<FaqDetail />} />
       </Routes>
+
       <Footer />
     </>
   );

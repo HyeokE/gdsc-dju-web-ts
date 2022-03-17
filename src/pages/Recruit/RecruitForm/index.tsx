@@ -1,10 +1,4 @@
-import React, {
-  memo,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { memo, useLayoutEffect, useRef, useState } from 'react';
 import { SubTitle, Title } from '../../../components/common/Title/title';
 import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
 import {
@@ -69,7 +63,6 @@ const RecruitForm = () => {
   const uploadFiles = async (data: HTMLInputElement) => {
     if (data.files !== null) {
       const file = data.files[0];
-      console.log(data.files);
       if (!file) return;
       if (file.size > 50000001) {
         alert('파일 사이즈는 50MB 이하로 선택해주세요.');
@@ -90,7 +83,6 @@ const RecruitForm = () => {
         }),
           uploadTask.then(() => {
             getDownloadURL(storageRef).then(async (url: string) => {
-              console.log(url);
               await dbService
                 .collection('applicants')
                 .doc()
@@ -99,12 +91,9 @@ const RecruitForm = () => {
                   fileURL: url,
                 });
               setLoading({ ...loading, load: false });
-              setAlerts({
-                ...alerts,
-                alertHandle: true,
-                alertMessage: `${position}에 지원이 완료되었습니다.`,
-              });
-              navigate(-1);
+              navigate(
+                `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
+              );
             });
           });
       }
@@ -120,16 +109,21 @@ const RecruitForm = () => {
     recruitFormik.values.link0.length > 0 &&
     input.current?.files
   );
-  console.log('requiredSchema: ' + requiredSchema);
-  console.log('isValid: ' + recruitFormik.isValid);
-  console.log(recruitFormik.isValid && requiredSchema);
-  //있어야함
   return (
     <>
       <LayoutContainer>
         <ContainerInner>
           <FormMargin />
           <FormikProvider value={recruitFormik}>
+            <button
+              onClick={() =>
+                navigate(
+                  `/recruit/apply-success?username=정준혁&position=Frontend Developer`,
+                )
+              }
+            >
+              asd
+            </button>
             <RecruitFormWrapper>
               <RecruitFormInner>
                 <Title>지원서 작성하기</Title>
