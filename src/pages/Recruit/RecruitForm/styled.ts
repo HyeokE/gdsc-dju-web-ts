@@ -82,7 +82,7 @@ export const FormLi = styled.li`
 export const FormArticleWrapper = styled.article`
   border: 1px solid ${(props) => props.theme.color.grey300};
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.color.grey50};
   margin-top: 10px;
   margin-bottom: 30px;
