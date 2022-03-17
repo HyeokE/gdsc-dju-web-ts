@@ -104,7 +104,7 @@ const RecruitForm = () => {
                 alertHandle: true,
                 alertMessage: `${position}에 지원이 완료되었습니다.`,
               });
-              navigate(-1);
+              navigate('/recruit');
             });
           });
       }
