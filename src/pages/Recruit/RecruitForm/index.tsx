@@ -95,7 +95,7 @@ const RecruitForm = () => {
                 .collection('applicants')
                 .doc()
                 .set({
-                  ...recruitItem,
+                  ...recruitFormik.values,
                   fileURL: url,
                 });
               setLoading({ ...loading, load: false });
