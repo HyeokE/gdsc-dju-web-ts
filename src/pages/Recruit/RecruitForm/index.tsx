@@ -63,7 +63,7 @@ const RecruitForm = () => {
   const uploadApplicantFile = (
     storageRef: StorageReference,
     file: File,
-    object: object,
+    object: Record<string, any>,
   ) => {
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.then(() => {
