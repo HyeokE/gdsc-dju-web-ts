@@ -1,10 +1,4 @@
-import React, {
-  memo,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { memo, useLayoutEffect, useRef, useState } from 'react';
 import { SubTitle, Title } from '../../../components/common/Title/title';
 import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
 import {
@@ -21,27 +15,30 @@ import {
 import TextInput from '../../../components/common/input/TextInput';
 import { useNavigate, useParams } from 'react-router-dom';
 import { positionSelect } from './FormFunctions';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import {
+  getDownloadURL,
+  ref,
+  StorageReference,
+  uploadBytesResumable,
+  UploadTaskSnapshot,
+} from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
 import { dbService } from '../../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { loaderState } from '../../../store/loader';
-import { alertState } from '../../../store/alert';
 import { FormikProvider, useFormik } from 'formik';
 import { recruitFormSchema } from '../../../components/Validation/profileEdit';
 import FileInput from '../../../components/common/input/FileInput';
+import ApplyModal from '../../../components/common/Modal/ApplyModal';
+import { MODAL_KEY, modalState } from '../../../store/modal';
 
 const RecruitForm = () => {
   const { id } = useParams();
   const [position, setPosition] = useState('');
   const [loading, setLoading] = useRecoilState(loaderState);
-  const [alerts, setAlerts] = useRecoilState(alertState);
+  const [modal, setModal] = useRecoilState(modalState);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const onSubmit = async () => {
-    {
-      input.current && (await uploadFiles(input.current));
-    }
-  };
+
   const input = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const recruitItem = {
@@ -63,53 +60,73 @@ const RecruitForm = () => {
     },
     validationSchema: recruitFormSchema,
   });
-  useLayoutEffect(() => {
-    setPosition(positionSelect[id as keyof typeof positionSelect]);
-  }, [id]);
-  const uploadFiles = async (data: HTMLInputElement) => {
-    if (data.files !== null) {
-      const file = data.files[0];
-      console.log(data.files);
+  const uploadApplicantFile = (
+    storageRef: StorageReference,
+    file: File,
+    object: object,
+  ) => {
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.then(() => {
+      getDownloadURL(storageRef).then(async (url) => {
+        await dbService
+          .collection('applicants')
+          .doc()
+          .set({ ...object, fileURL: url });
+      });
+    });
+  };
+  const checkFile = (fileList: FileList | null, size: number, type: string) => {
+    if (fileList !== null) {
+      const file = fileList[0];
       if (!file) return;
-      if (file.size > 50000001) {
-        alert('파일 사이즈는 50MB 이하로 선택해주세요.');
+      if (file.size > size) {
+        alert(
+          `${type} 파일 사이즈는 ${Math.floor(
+            size / 1000000,
+          )}MB 이하로 선택해주세요.`,
+        );
+      }
+      if (file.type !== type) {
+        const typeName = type.replace('application/', '');
+        alert(`${typeName} 파일만 업로드 가능합니다.`);
         return;
       }
-      if (file.type !== 'application/pdf') {
-        alert('PDF 파일만 업로드 가능합니다.');
-        return 0;
-      } else {
-        setLoading({ ...loading, load: true });
-        const storageRef = ref(storage, `${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-        await uploadTask.on('state_changed', (snapshot: any) => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
-          );
-          setUploadProgress(progress);
-        }),
-          uploadTask.then(() => {
-            getDownloadURL(storageRef).then(async (url: string) => {
-              console.log(url);
-              await dbService
-                .collection('applicants')
-                .doc()
-                .set({
-                  ...recruitItem,
-                  fileURL: url,
-                });
-              setLoading({ ...loading, load: false });
-              setAlerts({
-                ...alerts,
-                alertHandle: true,
-                alertMessage: `${position}에 지원이 완료되었습니다.`,
-              });
-              navigate(-1);
-            });
-          });
-      }
+      return file;
     }
   };
+  const calculateProgress = (progress, total) => {
+    return Math.round((progress / total) * 100);
+  };
+
+  const uploadFiles = async (data: HTMLInputElement) => {
+    try {
+      const file = checkFile(data.files, 50000001, 'application/pdf');
+      if (file instanceof File) {
+        setLoading({ ...loading, load: true });
+        setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: false });
+        const storageRef = ref(storage, `${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        await uploadTask.on('state_changed', (snapshot: UploadTaskSnapshot) => {
+          setUploadProgress(
+            calculateProgress(snapshot.bytesTransferred, snapshot.totalBytes),
+          );
+        }),
+          uploadApplicantFile(storageRef, file, recruitFormik.values);
+        setLoading({ ...loading, load: false });
+        navigate(
+          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
+        );
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const onSubmit = async () => {
+    {
+      input.current && (await uploadFiles(input.current));
+    }
+  };
+
   const requiredSchema = !!(
     recruitFormik.values.email &&
     recruitFormik.values.name &&
@@ -120,12 +137,12 @@ const RecruitForm = () => {
     recruitFormik.values.link0.length > 0 &&
     input.current?.files
   );
-  console.log('requiredSchema: ' + requiredSchema);
-  console.log('isValid: ' + recruitFormik.isValid);
-  console.log(recruitFormik.isValid && requiredSchema);
-  //있어야함
+  useLayoutEffect(() => {
+    setPosition(positionSelect[id as keyof typeof positionSelect]);
+  }, [id]);
   return (
     <>
+      <ApplyModal {...recruitFormik.values} onClick={onSubmit} />
       <LayoutContainer>
         <ContainerInner>
           <FormMargin />
@@ -202,7 +219,6 @@ const RecruitForm = () => {
                   />
                 </div>
 
-
                 <div>
                   <FormLabel essential={true}>지원서</FormLabel>
                   <FileInput
@@ -268,7 +284,9 @@ const RecruitForm = () => {
                 </div>
                 <FormMargin />
                 <FormSubmitButton
-                  onClick={() => onSubmit()}
+                  onClick={() =>
+                    setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: true })
+                  }
                   disable={!(recruitFormik.isValid && requiredSchema)}
                 >
                   제출하기

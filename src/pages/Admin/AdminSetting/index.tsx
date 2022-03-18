@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   ContainerInner,
   LayoutContainer,
@@ -15,7 +15,6 @@ import {
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../../store/recruitHandler';
 import API from '../../../api/index';
-import { ToggleButton } from '@mui/material';
 import { Title } from '../../../components/common/Title/title';
 
 const AdminSetting = () => {

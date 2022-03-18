@@ -51,12 +51,7 @@ export const StyledInputWrapper = styled.div<{
   border-radius: 10px;
   box-sizing: border-box;
   box-shadow: inset 0 0 0 1px ${(props) => props.theme.color.grey300};
-  ${(props) =>
-    props.error &&
-    css`
-      box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed};
-    `}
-  transition: 0.3s;
+
   &:hover {
     box-shadow: inset 0 0 0 2px ${(props) => props.theme.color.tossBlue200};
     ${(props) =>
@@ -71,7 +66,7 @@ export const StyledInputWrapper = styled.div<{
     ${(props) =>
       props.error &&
       css`
-        box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed};
+        box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed}!important;
       `}
   }
   ${(props) =>
@@ -81,6 +76,12 @@ export const StyledInputWrapper = styled.div<{
         box-shadow: none;
       }
     `}
+  ${(props) =>
+    props.error &&
+    css`
+      box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed};
+    `}
+  transition: 0.3s;
 `;
 export const InputImageWrapper = styled.div`
   height: 20px;
