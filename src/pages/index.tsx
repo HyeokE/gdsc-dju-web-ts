@@ -8,7 +8,7 @@ import API from '../api';
 import { hideNavigation } from '../store/hooks/hideNavigation';
 import MobileMenu from '../components/common/navigation/MobileMenu';
 import ScrollTop from '../components/common/ScrollTop';
-import GoogleSpinner from '../components/common/GoogleSpinner';
+import GoogleSpinner from '../components/Lottie/GoogleSpinner';
 import { loaderState } from '../store/loader';
 
 const Home = lazy(() => import('./Home'));
@@ -32,6 +32,7 @@ const Pages = () => {
         <Route path={'/faq/*'} element={<Faq />} />
         <Route path={'/faq/:id'} element={<FaqDetail />} />
       </Routes>
+
       <Footer />
     </>
   );

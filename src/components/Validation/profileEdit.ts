@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 export const nameSchema = {
   name: Yup.string()
     .min(2, '이름 전체를 입력해주세요.')
-    .matches(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/, '한글만 입력 가능합니다.')
+    .matches(/^[ㄱ-ㅎ|가-힣]/g, '한글만 입력 가능합니다.')
     .required('필수입력란입니다.'),
 };
 export const nicknameSchema = {

@@ -1,6 +1,12 @@
 import React from 'react';
-import { Skeleton } from '@mui/material';
-import { Name, NickName, Role, StyledMemberCard, MemberImg } from './styled';
+import {
+  Name,
+  NickName,
+  Role,
+  StyledMemberCard,
+  MemberImg,
+  Skeleton,
+} from './styled';
 interface memberinfo {
   nickName: string;
   name: string;
@@ -14,7 +20,7 @@ export const MemberCard = ({ memberInfo }: any) => {
         {memberInfo.memberImg ? (
           <MemberImg src={memberInfo.memberImg} />
         ) : (
-          <Skeleton variant={'circular'} height={200} width={200} />
+          <Skeleton />
         )}
         <NickName>{memberInfo.nickName}</NickName>
         <Name>{memberInfo.name}</Name>
