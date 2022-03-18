@@ -70,7 +70,7 @@ export const ShortNavigation = styled(motion.nav)`
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
+  z-index: 2;
   @media (min-width: 560px) {
     display: none;
   }
