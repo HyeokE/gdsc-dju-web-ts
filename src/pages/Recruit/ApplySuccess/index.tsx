@@ -14,7 +14,7 @@ import {
   CheckLottieWrapper,
 } from './styled';
 import BlueHuman from '../../../img/onBoardingImg/human-blue.svg';
-import CheckLottie from '../../../components/common/CheckLottie';
+import CheckLottie from '../../../components/Lottie/CheckLottie';
 
 const ApplySuccess = () => {
   const [searchParams] = useSearchParams();

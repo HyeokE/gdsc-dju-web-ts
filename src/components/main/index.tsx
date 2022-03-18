@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router';
 import { useRecoilState } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
-import GoogleSpinner from '../common/GoogleSpinner';
+import GoogleSpinner from '../Lottie/GoogleSpinner';
 import { recruitmentState } from '../../store/recruitHandler';
 import API from '../../api';
 import { AnimatePresence } from 'framer-motion';

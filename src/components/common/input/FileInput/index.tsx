@@ -13,13 +13,12 @@ export interface Iprops {
   disabled?: boolean;
 }
 
-const FileInput = (props: Iprops, ref: any) => {
+const FileInput = (props: Iprops, ref: React.RefObject<HTMLInputElement>) => {
   const { defaultPlaceholder, uploadFiles, errorToggle, disabled } = props;
   const [placeholder, setPlaceholder] = useState(
     defaultPlaceholder || 'Choose a file',
   );
 
-  console.log(ref.current?.files);
   return (
     <StyledInputWrapper error={errorToggle} disabled={!disabled}>
       <InputImageWrapper>

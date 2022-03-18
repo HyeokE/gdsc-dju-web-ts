@@ -20,16 +20,17 @@ import { storage } from '../../../firebase/firebase.config';
 import { dbService } from '../../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { loaderState } from '../../../store/loader';
-import { alertState } from '../../../store/alert';
 import { FormikProvider, useFormik } from 'formik';
 import { recruitFormSchema } from '../../../components/Validation/profileEdit';
 import FileInput from '../../../components/common/input/FileInput';
+import ApplyModal from '../../../components/common/Modal/ApplyModal';
+import { MODAL_KEY, modalState } from '../../../store/modal';
 
 const RecruitForm = () => {
   const { id } = useParams();
   const [position, setPosition] = useState('');
   const [loading, setLoading] = useRecoilState(loaderState);
-  const [alerts, setAlerts] = useRecoilState(alertState);
+  const [modal, setModal] = useRecoilState(modalState);
   const [uploadProgress, setUploadProgress] = useState(0);
   const onSubmit = async () => {
     {
@@ -73,6 +74,7 @@ const RecruitForm = () => {
         return 0;
       } else {
         setLoading({ ...loading, load: true });
+        setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: false });
         const storageRef = ref(storage, `${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
         await uploadTask.on('state_changed', (snapshot: any) => {
@@ -111,19 +113,11 @@ const RecruitForm = () => {
   );
   return (
     <>
+      <ApplyModal {...recruitFormik.values} onClick={onSubmit} />
       <LayoutContainer>
         <ContainerInner>
           <FormMargin />
           <FormikProvider value={recruitFormik}>
-            <button
-              onClick={() =>
-                navigate(
-                  `/recruit/apply-success?username=정준혁&position=Frontend Developer`,
-                )
-              }
-            >
-              asd
-            </button>
             <RecruitFormWrapper>
               <RecruitFormInner>
                 <Title>지원서 작성하기</Title>
@@ -261,7 +255,9 @@ const RecruitForm = () => {
                 </div>
                 <FormMargin />
                 <FormSubmitButton
-                  onClick={() => onSubmit()}
+                  onClick={() =>
+                    setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: true })
+                  }
                   disable={!(recruitFormik.isValid && requiredSchema)}
                 >
                   제출하기
