@@ -20,6 +20,7 @@ import {
   ref,
   StorageReference,
   uploadBytesResumable,
+  UploadTaskSnapshot,
 } from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
 import { dbService } from '../../../firebase/firebase';
@@ -37,11 +38,7 @@ const RecruitForm = () => {
   const [loading, setLoading] = useRecoilState(loaderState);
   const [modal, setModal] = useRecoilState(modalState);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const onSubmit = async () => {
-    {
-      input.current && (await uploadFiles(input.current));
-    }
-  };
+
   const input = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const recruitItem = {
@@ -63,39 +60,6 @@ const RecruitForm = () => {
     },
     validationSchema: recruitFormSchema,
   });
-  useLayoutEffect(() => {
-    setPosition(positionSelect[id as keyof typeof positionSelect]);
-  }, [id]);
-  const uploadFiles = async (data: HTMLInputElement) => {
-    if (data.files !== null) {
-      const file = data.files[0];
-      if (!file) return;
-      if (file.size > 50000001) {
-        alert('파일 사이즈는 50MB 이하로 선택해주세요.');
-        return;
-      }
-      if (file.type !== 'application/pdf') {
-        alert('PDF 파일만 업로드 가능합니다.');
-        return 0;
-      } else {
-        setLoading({ ...loading, load: true });
-        setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: false });
-        const storageRef = ref(storage, `${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-        await uploadTask.on('state_changed', (snapshot: any) => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
-          );
-          setUploadProgress(progress);
-        }),
-          uploadApplicantFile(storageRef, file, recruitFormik.values);
-        setLoading({ ...loading, load: false });
-        navigate(
-          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
-        );
-      }
-    }
-  };
   const uploadApplicantFile = (
     storageRef: StorageReference,
     file: File,
@@ -111,6 +75,57 @@ const RecruitForm = () => {
       });
     });
   };
+  const checkFile = (fileList: FileList | null, size: number, type: string) => {
+    if (fileList !== null) {
+      const file = fileList[0];
+      if (!file) return;
+      if (file.size > size) {
+        alert(
+          `${type} 파일 사이즈는 ${Math.floor(
+            size / 1000000,
+          )}MB 이하로 선택해주세요.`,
+        );
+      }
+      if (file.type !== type) {
+        const typeName = type.replace('application/', '');
+        alert(`${typeName} 파일만 업로드 가능합니다.`);
+        return;
+      }
+      return file;
+    }
+  };
+  const calculateProgress = (progress, total) => {
+    return Math.round((progress / total) * 100);
+  };
+
+  const uploadFiles = async (data: HTMLInputElement) => {
+    try {
+      const file = checkFile(data.files, 50000001, 'application/pdf');
+      if (file instanceof File) {
+        setLoading({ ...loading, load: true });
+        setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: false });
+        const storageRef = ref(storage, `${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        await uploadTask.on('state_changed', (snapshot: UploadTaskSnapshot) => {
+          setUploadProgress(
+            calculateProgress(snapshot.bytesTransferred, snapshot.totalBytes),
+          );
+        }),
+          uploadApplicantFile(storageRef, file, recruitFormik.values);
+        setLoading({ ...loading, load: false });
+        navigate(
+          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
+        );
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const onSubmit = async () => {
+    {
+      input.current && (await uploadFiles(input.current));
+    }
+  };
 
   const requiredSchema = !!(
     recruitFormik.values.email &&
@@ -122,6 +137,9 @@ const RecruitForm = () => {
     recruitFormik.values.link0.length > 0 &&
     input.current?.files
   );
+  useLayoutEffect(() => {
+    setPosition(positionSelect[id as keyof typeof positionSelect]);
+  }, [id]);
   return (
     <>
       <ApplyModal {...recruitFormik.values} onClick={onSubmit} />
