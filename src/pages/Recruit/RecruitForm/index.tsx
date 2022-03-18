@@ -15,7 +15,12 @@ import {
 import TextInput from '../../../components/common/input/TextInput';
 import { useNavigate, useParams } from 'react-router-dom';
 import { positionSelect } from './FormFunctions';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import {
+  getDownloadURL,
+  ref,
+  StorageReference,
+  uploadBytesResumable,
+} from 'firebase/storage';
 import { storage } from '../../../firebase/firebase.config';
 import { dbService } from '../../../firebase/firebase';
 import { useRecoilState } from 'recoil';
@@ -83,24 +88,30 @@ const RecruitForm = () => {
           );
           setUploadProgress(progress);
         }),
-          uploadTask.then(() => {
-            getDownloadURL(storageRef).then(async (url: string) => {
-              await dbService
-                .collection('applicants')
-                .doc()
-                .set({
-                  ...recruitFormik.values,
-                  fileURL: url,
-                });
-              setLoading({ ...loading, load: false });
-              navigate(
-                `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
-              );
-            });
-          });
+          uploadApplicantFile(storageRef, file, recruitFormik.values);
+        setLoading({ ...loading, load: false });
+        navigate(
+          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
+        );
       }
     }
   };
+  const uploadApplicantFile = (
+    storageRef: StorageReference,
+    file: File,
+    object: object,
+  ) => {
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.then(() => {
+      getDownloadURL(storageRef).then(async (url) => {
+        await dbService
+          .collection('applicants')
+          .doc()
+          .set({ ...object, fileURL: url });
+      });
+    });
+  };
+
   const requiredSchema = !!(
     recruitFormik.values.email &&
     recruitFormik.values.name &&
