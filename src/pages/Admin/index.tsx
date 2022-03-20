@@ -30,7 +30,7 @@ const Admin = () => {
               setAdminUser({
                 ...adminUser,
                 uid: user.uid,
-                nickName: userData?.nickName,
+                nickname: userData?.nickName,
                 name: userData?.name,
                 phoneNumber: userData?.phoneNumber,
               });

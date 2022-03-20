@@ -6,10 +6,12 @@ import GoogleDeveloperLogo from '../../../img/googleDevelopers.svg';
 import { useLocation } from 'react-router';
 import {
   FooterContent,
+  FooterCopyRight,
   FooterGDSCLogo,
   FooterLogo,
   FooterLogoWrapper,
   FooterSubTitle,
+  FooterTitle,
 } from './styled';
 import { FooterWrapper } from './styled';
 
@@ -19,15 +21,12 @@ export const Footer = () => {
 
   return (
     <FooterWrapper className={locate === '/onboarding' ? 'none' : ''}>
-      <FooterContent>
-        <FooterLogoWrapper>
-          <FooterLogo src={GoogleDeveloperLogo} />
-        </FooterLogoWrapper>
-        <FooterLogoWrapper>
-          <FooterGDSCLogo src={GDSCLogo} />
-        </FooterLogoWrapper>
-      </FooterContent>
-      <FooterSubTitle>{'Copyright © '}GDSC Daejin 2021</FooterSubTitle>
+      <FooterLogo>
+        <FooterTitle>Google</FooterTitle>
+        <FooterSubTitle>Privacy & Terms</FooterSubTitle>
+        <FooterSubTitle>Community guidelines</FooterSubTitle>
+      </FooterLogo>
+      <FooterCopyRight>{'Copyright © '}GDSC Daejin 2021</FooterCopyRight>
     </FooterWrapper>
   );
 };

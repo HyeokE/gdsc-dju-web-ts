@@ -1,13 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import {
-  withFormik,
-  FormikProps,
-  FormikErrors,
-  Form,
-  Field,
-  ErrorMessage,
-} from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
 export const OnboardingBackArrow = styled.img`
   height: 30px;

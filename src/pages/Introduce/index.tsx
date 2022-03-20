@@ -22,18 +22,22 @@ import YellowBanner from '../../img/Banner/YellowBanner.png';
 import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
 import { memberList } from '../../api/pageData/MemberList';
 import BulletList from '../../components/common/BulletList';
-import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../store/modal';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { memberDataType } from '../../types/member';
 
 const Introduce = () => {
-  const [modalHandler, setModalHandler] = useRecoilState(modalState);
-  const [selectedId, setSelectedId] = useState(0);
+  const [selectedId, setSelectedId] = useState<number | undefined>(undefined);
+  const [selectedData, setSelectedData] = useState<memberDataType>({
+    memberImg: '',
+    nickname: '',
+    name: '',
+    introduce: '',
+    role: '',
+  });
 
   return (
     <>
-      {modalHandler.memberCard && <MemberCardModal id={selectedId} />}
-
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>
@@ -61,23 +65,29 @@ const Introduce = () => {
           <TopMargin />
           <Title>팀 소개</Title>
           <TopMargin />
-          <CardList variants={listAnimate} initial={'start'} animate={'end'}>
-            {memberList.map((memberInfo, id) => (
-              <MemberCardWrapper
-                variants={memberCardAnimate}
-                key={id}
-                onClick={() => {
-                  setSelectedId(id);
-                  setModalHandler({
-                    ...modalHandler,
-                    [MODAL_KEY.MEMBER_CARD]: true,
-                  });
-                }}
-              >
-                <MemberCard memberInfo={memberInfo} />
-              </MemberCardWrapper>
-            ))}
-          </CardList>
+          <AnimateSharedLayout>
+            <CardList variants={listAnimate} initial={'start'} animate={'end'}>
+              {memberList.map((memberInfo, id) => (
+                <AnimatePresence key={id}>
+                  <MemberCardWrapper
+                    variants={memberCardAnimate}
+                    onClick={() => {
+                      setSelectedId(id);
+                      setSelectedData(memberInfo);
+                    }}
+                  >
+                    <MemberCard memberInfo={memberInfo} />
+                  </MemberCardWrapper>
+                </AnimatePresence>
+              ))}
+            </CardList>
+            {selectedData && selectedId && (
+              <MemberCardModal
+                {...selectedData}
+                setSelectedId={setSelectedId}
+              />
+            )}
+          </AnimateSharedLayout>
           <TopMargin />
         </ContainerInner>
       </LayoutContainer>

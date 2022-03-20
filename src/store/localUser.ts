@@ -4,7 +4,7 @@ export const LocalUser = 'localUser';
 export const LocalUserState = {
   uid: '',
   name: '',
-  nickName: '',
+  nickname: '',
   phoneNumber: '',
 };
 export const localUserState = atom<typeof LocalUserState>({

@@ -77,11 +77,11 @@ const AdminHome = () => {
                   setIsOpen={setAdminMenuHandler}
                 />
               </div>
-              {adminUser.nickName.length > 0 && (
+              {adminUser.nickname.length > 0 && (
                 <StyledUserName
                   onClick={() => setAdminMenuHandler(!adminMenuHandler)}
                 >
-                  Hi {adminUser.nickName}
+                  Hi {adminUser.nickname}
                 </StyledUserName>
               )}
             </AdminNavCategoryWrapper>

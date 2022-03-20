@@ -28,32 +28,38 @@ export const StyledLogoWrapper = styled(Link)`
   font-size: 1.6rem;
 `;
 export const StyledImg = styled.img`
-  height: 23px;
+  height: 20px;
   width: 100%;
-  margin: 0 10px;
+  margin: 0 8px;
 `;
 export const StyledLogo = styled.div`
-  color: ${(props) => props.theme.color.grey700};
+  color: ${(props) => props.theme.color.grey800};
   margin-right: 5px;
   font-weight: 600;
-  font-size: ${(props) => props.theme.fontSize.h5};
+  font-size: 2rem;
+
   //@media (max-width: 600px) {
   //  display: none;
   //}
 `;
 export const SchoolNameUni = styled.div`
   color: ${(props) => props.theme.color.grey600};
+  font-size: ${(props) => props.theme.fontSize.body3};
   margin-top: 6px;
   margin-right: 5px;
+  font-weight: 500;
+
   //@media (max-width: 740px) {
   //  display: none;
   //}
 `;
 export const SchoolName = styled.div`
   color: ${(props) => props.theme.color.grey600};
+  font-size: ${(props) => props.theme.fontSize.body3};
   margin-top: 6px;
   margin-right: 5px;
   display: flex;
+  font-weight: 500;
   //@media (max-width: 670px) {
   //  display: none;
   //}
@@ -104,7 +110,7 @@ export const NavTask = styled.li`
   cursor: pointer;
   color: ${(props) => props.theme.color.grey800};
   font-size: 1.4rem;
-  font-style: normal;
+  font-weight: 500;
   word-break: keep-all;
   list-style: none;
   text-decoration: none;

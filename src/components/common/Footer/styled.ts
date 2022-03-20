@@ -16,12 +16,20 @@ export const FooterContent = styled.div`
   justify-content: flex-start;
 `;
 
+export const FooterSubTitle = styled.p`
+  font-size: ${(props) => props.theme.fontSize.body2};
+  font-weight: 600;
+  margin-right: 20px;
+  color: ${(props) => props.theme.color.grey700};
+`;
 export const FooterTitle = styled.p`
-  font-size: 14px;
-  font-weight: bold;
+  font-size: ${(props) => props.theme.fontSize.body1};
+  color: ${(props) => props.theme.color.grey800};
+  font-weight: 700;
+  margin-right: 20px;
 `;
 
-export const FooterSubTitle = styled.span`
+export const FooterCopyRight = styled.span`
   display: inline-block;
   font-size: ${(props) => props.theme.fontSize.body3};
   color: ${(props) => props.theme.color.grey600};
@@ -29,13 +37,14 @@ export const FooterSubTitle = styled.span`
 export const FooterWrapper = styled.footer`
   display: flex;
   bottom: 0;
-  padding: 20px 30px;
+  padding: 30px 40px;
   justify-content: space-between;
   align-items: center;
 `;
-export const FooterLogo = styled.img`
-  height: 25px;
-
+export const FooterLogo = styled.div`
+  height: 20px;
+  display: flex;
+  align-items: center;
   padding-right: 5px;
   @media (max-width: 500px) {
     height: 20px;

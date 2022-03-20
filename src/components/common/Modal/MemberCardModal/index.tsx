@@ -1,5 +1,4 @@
 import React from 'react';
-import { memberList } from '../../../../api/pageData/MemberList';
 import {
   MemberImg,
   Name,
@@ -7,33 +6,31 @@ import {
   Role,
   Skeleton,
 } from '../../card/MemberCard/styled';
-import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../store/modal';
-import { MemberCardModalInner, StyledModal } from './styled';
+import { MemberCardModalInner, ModalWrapper, StyledModal } from './styled';
 import './MemberCard.css';
+import { memberDataType } from '../../../../types/member';
+import OutsideClickHandler from '../../../../utils/OutsideClickHandler';
 
-const MemberCardModal = (props: { id: number }) => {
-  const { id } = props;
-  const [modalHandler, setModalHandler] = useRecoilState(modalState);
-  const { memberImg, nickName, name, introduce, role } = memberList[id];
+interface Iprops extends memberDataType {
+  setSelectedId: (num: number | undefined) => void;
+}
+
+const MemberCardModal = (props: Iprops) => {
+  const { name, nickname, role, memberImg, introduce, setSelectedId } = props;
   return (
-    <>
-      <StyledModal
-        size={'small'}
-        isOpen={modalHandler.memberCard}
-        onRequestClose={() =>
-          setModalHandler({ ...modalHandler, [MODAL_KEY.MEMBER_CARD]: false })
-        }
-      >
-        <MemberCardModalInner>
-          {memberImg ? <MemberImg src={memberImg} /> : <Skeleton />}
-          <NickName>{nickName}</NickName>
-          <Name>{name}</Name>
-          <Role>{role}</Role>
-          <Name>{introduce}</Name>
-        </MemberCardModalInner>
-      </StyledModal>
-    </>
+    <ModalWrapper>
+      <OutsideClickHandler outsideClick={() => setSelectedId(undefined)}>
+        <StyledModal>
+          <MemberCardModalInner>
+            {memberImg ? <MemberImg src={memberImg} /> : <Skeleton />}
+            <NickName>{nickname}</NickName>
+            <Name>{name}</Name>
+            <Role>{role}</Role>
+            <Name>{introduce}</Name>
+          </MemberCardModalInner>
+        </StyledModal>
+      </OutsideClickHandler>
+    </ModalWrapper>
   );
 };
 

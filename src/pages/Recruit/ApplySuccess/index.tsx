@@ -2,18 +2,8 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MainText, SubTitle } from '../../../components/common/Title/title';
 import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
-import {
-  FormMargin,
-  RecruitFormInner,
-  RecruitFormWrapper,
-} from '../RecruitForm/styled';
-import {
-  ApplyImage,
-  ApplyMargin,
-  ApplyTitle,
-  CheckLottieWrapper,
-} from './styled';
-import BlueHuman from '../../../img/onBoardingImg/human-blue.svg';
+import { RecruitFormInner, RecruitFormWrapper } from '../RecruitForm/styled';
+import { ApplyMargin, ApplyTitle, CheckLottieWrapper } from './styled';
 import CheckLottie from '../../../components/Lottie/CheckLottie';
 
 const ApplySuccess = () => {
