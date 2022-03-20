@@ -94,7 +94,7 @@ const RecruitForm = () => {
       return file;
     }
   };
-  const calculateProgress = (progress, total) => {
+  const calculateProgress = (progress: number, total: number) => {
     return Math.round((progress / total) * 100);
   };
 

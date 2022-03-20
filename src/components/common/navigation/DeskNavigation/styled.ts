@@ -6,13 +6,12 @@ export const NavDesign = styled.nav`
   position: sticky;
   top: 0;
   z-index: 990;
-  height: 60px;
+  height: 70px;
   width: 100%;
 `;
 export const NavWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 1140px;
   width: 100%;
   margin: auto;
   height: 100%;
@@ -29,35 +28,39 @@ export const StyledLogoWrapper = styled(Link)`
   font-size: 1.6rem;
 `;
 export const StyledImg = styled.img`
-  height: 27px;
+  height: 23px;
   width: 100%;
   margin: 0 10px;
 `;
 export const StyledLogo = styled.div`
-  color: #4e4e4e;
+  color: ${(props) => props.theme.color.grey700};
   margin-right: 5px;
-  font-weight: bold;
-  @media (max-width: 600px) {
-    display: none;
-  }
+  font-weight: 600;
+  font-size: ${(props) => props.theme.fontSize.h5};
+  //@media (max-width: 600px) {
+  //  display: none;
+  //}
 `;
 export const SchoolNameUni = styled.div`
-  color: #4e4e4e;
+  color: ${(props) => props.theme.color.grey600};
+  margin-top: 6px;
   margin-right: 5px;
-  @media (max-width: 740px) {
-    display: none;
-  }
+  //@media (max-width: 740px) {
+  //  display: none;
+  //}
 `;
 export const SchoolName = styled.div`
-  color: #4e4e4e;
+  color: ${(props) => props.theme.color.grey600};
+  margin-top: 6px;
   margin-right: 5px;
   display: flex;
-  @media (max-width: 670px) {
-    display: none;
-  }
+  //@media (max-width: 670px) {
+  //  display: none;
+  //}
 `;
 export const WideNavigation = styled.div`
   z-index: 999;
+  margin-left: 20px;
   @media (max-width: 560px) {
     display: none;
   }
@@ -88,7 +91,7 @@ export const StyledLink = styled(motion.div)`
   font-size: 1.4rem;
   transition-delay: 0s;
   &:hover {
-    color: ${(props) => props.theme.color.grey800};
+    color: ${(props) => props.theme.color.grey900};
     background: #f2f4f6;
     text-decoration: none;
   }

@@ -1,15 +1,9 @@
-import React, { lazy, useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router';
+import React, { lazy } from 'react';
+import { Route, Routes } from 'react-router';
 import Navigation from '../components/common/navigation/DeskNavigation';
 import { Footer } from '../components/common/Footer';
-import { useRecoilState } from 'recoil';
-import { recruitmentState } from '../store/recruitHandler';
-import API from '../api';
-import { hideNavigation } from '../store/hooks/hideNavigation';
 import MobileMenu from '../components/common/navigation/MobileMenu';
 import ScrollTop from '../components/common/ScrollTop';
-import GoogleSpinner from '../components/Lottie/GoogleSpinner';
-import { loaderState } from '../store/loader';
 
 const Home = lazy(() => import('./Home'));
 const Introduce = lazy(() => import('./Introduce'));

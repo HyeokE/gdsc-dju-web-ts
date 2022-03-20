@@ -11,10 +11,8 @@ export const Footer = styled.footer`
 
 export const FooterContent = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1140px;
-  padding: 10px 0px;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
 `;
 
@@ -25,15 +23,15 @@ export const FooterTitle = styled.p`
 
 export const FooterSubTitle = styled.span`
   display: inline-block;
-  margin-top: 8px;
-  font-size: 13px;
+  font-size: ${(props) => props.theme.fontSize.body3};
+  color: ${(props) => props.theme.color.grey600};
 `;
 export const FooterWrapper = styled.footer`
   display: flex;
   bottom: 0;
   padding: 20px 30px;
-  justify-content: center;
-  background: #f9fafb;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const FooterLogo = styled.img`
   height: 25px;
@@ -44,10 +42,7 @@ export const FooterLogo = styled.img`
   }
 `;
 export const FooterLogoWrapper = styled.div`
-  margin: 20px 0;
-  &:nth-child(2) {
-    margin-top: 0px;
-  }
+  margin-right: 20px;
 `;
 export const FooterGDSCLogo = styled.img`
   height: 30px;

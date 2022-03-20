@@ -22,15 +22,11 @@ import DeskNavCategory from '../DeskNavCategory';
 export const navigationData = [
   {
     route: '/introduce',
-    title: '소개',
+    title: 'Introduce',
   },
   {
     route: '/recruit',
-    title: '지원하기',
-  },
-  {
-    route: '/conduct',
-    title: 'Code of Conduct',
+    title: 'Recruiting',
   },
   {
     route: '/faq',
@@ -56,13 +52,13 @@ export const Navigation: React.FC = () => {
                 <SchoolName>Daejin</SchoolName>
                 <SchoolNameUni>Univ.</SchoolNameUni>
               </StyledLogoWrapper>
+              <DeskNavCategory
+                routeStyle={location.pathname}
+                navigationData={navigationData}
+              />
             </NavTask>
           </NavTaskWrapper>
           <MenuToggleIcon />
-          <DeskNavCategory
-            routeStyle={location.pathname}
-            navigationData={navigationData}
-          />
         </NavInner>
       </NavWrapper>
     </NavDesign>
