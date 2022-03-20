@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700;800&display=swap');
-/*@font-face {*/
-/*  font-family: "Product Sans";*/
-/*  src: url("fonts/Product Sans Regular.ttf");*/
-/*}@font-face {*/
-/*  font-family: "Product Sans Bold";*/
-/*  src: url("fonts/Product Sans Bold.ttf");*/
-/*}*/
+@font-face {
+  font-family: "Google Sans Display";
+  src: url("fonts/GoogleSansDisplay-Regular.ttf");
+}@font-face {
+  font-family: "Google Sans Display Bold";
+  src: url("fonts/GoogleSansDisplay-Bold.ttf");
+}@font-face {
+  font-family: "Google Sans Display Medium";
+  src: url("fonts/GoogleSansDisplay-Medium.ttf");
+}
 * {
-  font-family: 'Open Sans','Noto Sans KR', sans-serif;
+  font-family: 'Google Sans Display','Google Sans Display Medium', 'Google Sans Display Bold','Noto Sans KR', sans-serif;
   font-style: normal;
   margin: 0;
   word-break: keep-all;
