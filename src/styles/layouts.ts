@@ -16,7 +16,7 @@ export const Tage = styled.div``;
 export const LayoutContainer = styled.div`
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 60px);
+  height: 100%;
   max-width: 1140px;
   margin: 0 auto;
   min-width: 320px;

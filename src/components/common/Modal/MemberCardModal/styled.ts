@@ -10,7 +10,7 @@ export const MemberCardModalInner = styled(motion.div)`
 `;
 export const StyledModal = styled(motion.div)`
   overflow: hidden;
-  padding: 10px 30px;
+  padding: 20px 30px;
   z-index: 1000;
   background-color: white;
   border-radius: 10px;
