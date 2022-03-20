@@ -1,6 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
-Sitemap: https://gdsc-dju.web.app/sitemap.xml     // 제작된 sitemap 경로
-
-Allow: /
