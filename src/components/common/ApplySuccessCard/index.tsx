@@ -2,6 +2,7 @@ import React from 'react';
 import {
   ApplyCardBlueLine,
   ApplyCardContent,
+  ApplyCardContentWrapper,
   ApplyCardInner,
   ApplyCardWrapper,
 } from './styled';
@@ -19,10 +20,22 @@ const ApplySuccessCard = (props: Iprops) => {
     <ApplyCardWrapper>
       <ApplyCardBlueLine />
       <ApplyCardInner>
-        <ApplyCardContent>이름: {username}</ApplyCardContent>
-        <ApplyCardContent>포지션: {position}</ApplyCardContent>
-        <ApplyCardContent>이메일: {email}</ApplyCardContent>
-        <ApplyCardContent>전화번호: {phone}</ApplyCardContent>
+        <ApplyCardContentWrapper>
+          <ApplyCardContent>이름</ApplyCardContent>
+          <ApplyCardContent>{username}</ApplyCardContent>
+        </ApplyCardContentWrapper>
+        <ApplyCardContentWrapper>
+          <ApplyCardContent>포지션</ApplyCardContent>
+          <ApplyCardContent>{position}</ApplyCardContent>
+        </ApplyCardContentWrapper>
+        <ApplyCardContentWrapper>
+          <ApplyCardContent>이메일</ApplyCardContent>
+          <ApplyCardContent>{email}</ApplyCardContent>
+        </ApplyCardContentWrapper>
+        <ApplyCardContentWrapper>
+          <ApplyCardContent>전화번호</ApplyCardContent>
+          <ApplyCardContent>{phone}</ApplyCardContent>
+        </ApplyCardContentWrapper>
       </ApplyCardInner>
     </ApplyCardWrapper>
   );

@@ -23,11 +23,16 @@ export const ApplyCardInner = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const ApplyCardContent = styled.div`
-  font-size: ${(props) => props.theme.fontSize.body1};
+export const ApplyCardContent = styled.p`
+  font-size: ${(props) => props.theme.fontSize.body2};
   color: ${(props) => props.theme.color.grey800};
-  margin-top: 14px;
+  min-width: 70px;
   &:first-child {
     margin-top: 0;
   }
+`;
+export const ApplyCardContentWrapper = styled.div`
+  margin-top: 14px;
+  display: flex;
+  flex-direction: row;
 `;

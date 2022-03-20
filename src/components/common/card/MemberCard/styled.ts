@@ -29,4 +29,5 @@ export const MemberImg = styled(motion.img)`
   height: 200px;
   border-radius: 100px;
   border: 1px solid ${(props) => props.theme.color.grey500};
+  box-sizing: border-box;
 `;
