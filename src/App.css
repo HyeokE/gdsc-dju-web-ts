@@ -2,15 +2,20 @@
 @font-face {
   font-family: "Google Sans Display";
   src: url("fonts/GoogleSansDisplay-Regular.ttf");
+  font-weight: normal;
 }@font-face {
-  font-family: "Google Sans Display Bold";
+  font-family: "Google Sans Display";
   src: url("fonts/GoogleSansDisplay-Bold.ttf");
+  font-weight: bold;
+
 }@font-face {
-  font-family: "Google Sans Display Medium";
+  font-family: "Google Sans Display";
   src: url("fonts/GoogleSansDisplay-Medium.ttf");
+
+  font-weight: 500;
 }
 * {
-  font-family: 'Google Sans Display','Google Sans Display Medium', 'Google Sans Display Bold','Noto Sans KR', sans-serif;
+  font-family: 'Google Sans Display','Noto Sans KR', sans-serif;
   font-style: normal;
   margin: 0;
   word-break: keep-all;
