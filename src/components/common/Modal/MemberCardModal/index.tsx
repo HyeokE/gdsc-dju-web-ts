@@ -7,7 +7,6 @@ import {
   Skeleton,
 } from '../../card/MemberCard/styled';
 import { MemberCardModalInner, ModalWrapper, StyledModal } from './styled';
-import './MemberCard.css';
 import { memberDataType } from '../../../../types/member';
 import OutsideClickHandler from '../../../../utils/OutsideClickHandler';
 
