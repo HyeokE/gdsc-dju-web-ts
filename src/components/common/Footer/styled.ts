@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Footer = styled.footer`
   display: flex;
@@ -16,17 +16,22 @@ export const FooterContent = styled.div`
   justify-content: flex-start;
 `;
 
-export const FooterSubTitle = styled.p`
+export const FooterText = styled.a<{ google?: boolean }>`
   font-size: ${(props) => props.theme.fontSize.body2};
   font-weight: 600;
   margin-right: 20px;
-  color: ${(props) => props.theme.color.grey700};
-`;
-export const FooterTitle = styled.p`
-  font-size: ${(props) => props.theme.fontSize.body1};
-  color: ${(props) => props.theme.color.grey800};
-  font-weight: 700;
-  margin-right: 20px;
+  color: ${(props) => props.theme.color.grey600};
+  cursor: pointer;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    margin-top: 10px;
+  }
+  ${(props) =>
+    props.google &&
+    css`
+      font-size: ${(props) => props.theme.fontSize.h7};
+      font-weight: 700;
+      color: ${(props) => props.theme.color.grey700};
+    `}
 `;
 
 export const FooterCopyRight = styled.span`
@@ -39,15 +44,17 @@ export const FooterWrapper = styled.footer`
   bottom: 0;
   padding: 30px 40px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 `;
 export const FooterLogo = styled.div`
-  height: 20px;
   display: flex;
   align-items: center;
-  padding-right: 5px;
-  @media (max-width: 500px) {
-    height: 20px;
+  flex-direction: row;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 `;
 export const FooterLogoWrapper = styled.div`

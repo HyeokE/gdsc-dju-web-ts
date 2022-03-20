@@ -1,30 +1,36 @@
 import React from 'react';
 import {
-  Name,
-  NickName,
-  Role,
-  StyledMemberCard,
   MemberImg,
+  Name,
+  Nickname,
+  Role,
   Skeleton,
+  StyledMemberCard,
 } from './styled';
-interface memberinfo {
-  nickName: string;
-  name: string;
-  role: string;
+import { memberDataType } from '../../../../types/member';
+
+interface Iprops extends memberDataType {
+  id: number;
 }
 
-export const MemberCard = ({ memberInfo }: any) => {
+export const MemberCard = (props: Iprops) => {
+  const { id, name, nickname, role, memberImg, introduce } = props;
   return (
     <>
-      <StyledMemberCard>
-        {memberInfo.memberImg ? (
-          <MemberImg src={memberInfo.memberImg} />
+      <StyledMemberCard layoutId={String(id)}>
+        {memberImg ? (
+          <MemberImg
+            src={memberImg}
+            layoutId={`memberImage-section-${String(id)}`}
+          />
         ) : (
-          <Skeleton />
+          <Skeleton layoutId={`memberImage-section-${String(id)}`} />
         )}
-        <NickName>{memberInfo.nickName}</NickName>
-        <Name>{memberInfo.name}</Name>
-        <Role>{memberInfo.role}</Role>
+        <Nickname layoutId={`nickname-section-${String(id)}`}>
+          {nickname}
+        </Nickname>
+        <Name layoutId={`name-section-${String(id)}`}>{name}</Name>
+        <Role layoutId={`role-section-${String(id)}`}>{role}</Role>
       </StyledMemberCard>
     </>
   );

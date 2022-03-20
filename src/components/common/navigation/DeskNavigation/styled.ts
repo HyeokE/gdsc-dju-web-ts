@@ -1,13 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-export const NavDesign = styled.nav`
+export const NavDesign = styled.nav<{ background?: boolean }>`
   position: sticky;
   top: 0;
-  z-index: 990;
+  z-index: 90;
   height: 70px;
   width: 100%;
+  display: flex;
+  ${(props) =>
+    props.background
+      ? css`
+          background: transparent;
+        `
+      : css`
+          background: white;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+          border-bottom: 1px solid ${(props) => props.theme.color.grey200};
+        `}
 `;
 export const NavWrapper = styled.div`
   display: flex;
@@ -67,7 +78,7 @@ export const SchoolName = styled.div`
 export const WideNavigation = styled.div`
   z-index: 999;
   margin-left: 20px;
-  @media (max-width: 560px) {
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     display: none;
   }
 `;
@@ -79,7 +90,7 @@ export const ShortNavigation = styled(motion.nav)`
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 91;
   @media (min-width: 560px) {
     display: none;
   }

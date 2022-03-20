@@ -2,7 +2,7 @@ import React from 'react';
 import {
   MemberImg,
   Name,
-  NickName,
+  Nickname,
   Role,
   Skeleton,
 } from '../../card/MemberCard/styled';
@@ -13,19 +13,30 @@ import OutsideClickHandler from '../../../../utils/OutsideClickHandler';
 
 interface Iprops extends memberDataType {
   setSelectedId: (num: number | undefined) => void;
+  id: number;
 }
 
 const MemberCardModal = (props: Iprops) => {
-  const { name, nickname, role, memberImg, introduce, setSelectedId } = props;
+  const { name, nickname, role, memberImg, introduce, setSelectedId, id } =
+    props;
   return (
     <ModalWrapper>
       <OutsideClickHandler outsideClick={() => setSelectedId(undefined)}>
-        <StyledModal>
+        <StyledModal layoutId={String(id)}>
           <MemberCardModalInner>
-            {memberImg ? <MemberImg src={memberImg} /> : <Skeleton />}
-            <NickName>{nickname}</NickName>
-            <Name>{name}</Name>
-            <Role>{role}</Role>
+            {memberImg ? (
+              <MemberImg
+                src={memberImg}
+                layoutId={`memberImage-section-${String(id)}`}
+              />
+            ) : (
+              <Skeleton layoutId={`memberImage-section-${String(id)}`} />
+            )}
+            <Nickname layoutId={`nickname-section-${String(id)}`}>
+              {nickname}
+            </Nickname>
+            <Name layoutId={`name-section-${String(id)}`}>{name}</Name>
+            <Role layoutId={`role-section-${String(id)}`}>{role}</Role>
             <Name>{introduce}</Name>
           </MemberCardModalInner>
         </StyledModal>

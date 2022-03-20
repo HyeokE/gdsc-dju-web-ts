@@ -16,7 +16,7 @@ const Pages = () => {
   return (
     <>
       <ScrollTop />
-      <MobileMenu />
+
       <Navigation />
       <Routes>
         <Route path={'/*'} element={<Home />} />

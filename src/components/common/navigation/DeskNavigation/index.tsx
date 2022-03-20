@@ -18,6 +18,7 @@ import {
   StyledLogoWrapper,
 } from './styled';
 import DeskNavCategory from '../DeskNavCategory';
+import MobileMenu from '../MobileMenu';
 
 export const navigationData = [
   {
@@ -35,13 +36,10 @@ export const navigationData = [
 ];
 export const Navigation: React.FC = () => {
   const location = useLocation();
+  const checkLocation = location.pathname == ('/' || '/main');
 
   return (
-    <NavDesign
-      className={
-        location.pathname == ('/' || '/main') ? 'transparent' : 'white'
-      }
-    >
+    <NavDesign background={checkLocation}>
       <NavWrapper>
         <NavInner>
           <NavTaskWrapper>
@@ -61,6 +59,7 @@ export const Navigation: React.FC = () => {
           <MenuToggleIcon />
         </NavInner>
       </NavWrapper>
+      <MobileMenu />
     </NavDesign>
   );
 };

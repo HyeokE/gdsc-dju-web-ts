@@ -2,21 +2,20 @@ import styled from 'styled-components';
 import { Modal } from 'react-rainbow-components';
 import { motion } from 'framer-motion';
 
-export const MemberCardModalInner = styled.div`
+export const MemberCardModalInner = styled(motion.div)`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   width: 200px;
 `;
 export const StyledModal = styled(motion.div)`
-  border: 1px solid ${(props) => props.theme.color.grey500};
-  width: 440px;
   overflow: hidden;
-  padding: 60px 0;
+  padding: 10px 30px;
   z-index: 1000;
   background-color: white;
   border-radius: 10px;
   box-sizing: border-box;
+  box-shadow: 0 0 10px ${(props) => props.theme.color.grey600};
 `;
 export const ModalWrapper = styled(motion.div)`
   width: 100%;

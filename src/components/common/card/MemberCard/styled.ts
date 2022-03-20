@@ -1,32 +1,30 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const StyledMemberCard = styled.div`
+export const StyledMemberCard = styled(motion.div)`
   margin-bottom: 20px;
   width: 200px;
 `;
-export const NickName = styled.div`
-  font-family: 'Gothic A1', sans-serif;
+export const Nickname = styled(motion.div)`
   font-size: 2rem;
   margin-top: 22px;
 `;
-export const Skeleton = styled.div`
+export const Skeleton = styled(motion.div)`
   height: 200px;
   width: 200px;
   background: ${(props) => props.theme.color.grey50};
 `;
-export const Name = styled.div`
-  font-family: 'Gothic A1', sans-serif;
+export const Name = styled(motion.p)`
   font-size: 1.3rem;
-  margin-top: 10px;
-  color: #aaaaaa;
+  margin-top: 2px;
+  color: ${(props) => props.theme.color.grey600};
 `;
-export const Role = styled.div`
+export const Role = styled(motion.span)`
   color: ${(props) => props.theme.color.googleBlue};
-  font-family: 'Gothic A1', sans-serif;
   font-size: 1.3rem;
-  margin-top: 10px;
+  margin-top: 2px;
 `;
-export const MemberImg = styled.img`
+export const MemberImg = styled(motion.img)`
   width: 200px;
   height: 200px;
   border-radius: 100px;

@@ -23,11 +23,23 @@ import {
 import DownArrow from '../../img/DownArrow';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../store/recruitHandler';
+import {
+  ContainerInner,
+  LayoutContainer,
+  TopMargin,
+} from '../../styles/layouts';
+import {
+  MainText,
+  SubCategory,
+  Title,
+} from '../../components/common/Title/title';
+import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
+import BulletList from '../../components/common/BulletList';
+import SectionIntroduce from '../../components/pageSections/Section-Introduce';
 
 const Home = () => {
   const [recruit] = useRecoilState(recruitmentState);
   const banner = useRef<HTMLDivElement>(null);
-  console.log(banner.current?.offsetTop);
   return (
     <>
       <HomeWrapper
@@ -88,6 +100,7 @@ const Home = () => {
           <DownArrow />
         </DownArrowWrapper>
       </HomeWrapper>
+      <SectionIntroduce />
     </>
   );
 };

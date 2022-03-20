@@ -19,9 +19,7 @@ import {
 } from '../../components/common/Variants/Variants';
 import { Banner } from '../../img/Banner/Banner';
 import YellowBanner from '../../img/Banner/YellowBanner.png';
-import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
 import { memberList } from '../../api/pageData/MemberList';
-import BulletList from '../../components/common/BulletList';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { memberDataType } from '../../types/member';
@@ -44,49 +42,37 @@ const Introduce = () => {
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-
           <Title>About us</Title>
           <TopMargin />
-          <SubCategory>Google Developer Student Club 소개</SubCategory>
-          {introduceText.split('\n').map((line, id) => {
-            return (
-              <MainText key={id}>
-                {line}
-                <br />
-              </MainText>
-            );
-          })}
-
-          <TopMargin />
-          <SubCategory>합류하시면 함께할 활동입니다</SubCategory>
           <MainText>
-            <BulletList text={workWhenCome} />
+            함께 하는 팀원 {memberList.length}명을 소개합니다.
           </MainText>
-          <TopMargin />
-          <Title>팀 소개</Title>
           <TopMargin />
           <AnimateSharedLayout>
             <CardList variants={listAnimate} initial={'start'} animate={'end'}>
               {memberList.map((memberInfo, id) => (
-                <AnimatePresence key={id}>
+                <AnimatePresence key={id + 1}>
                   <MemberCardWrapper
                     variants={memberCardAnimate}
                     onClick={() => {
-                      setSelectedId(id);
+                      setSelectedId(id + 1);
                       setSelectedData(memberInfo);
                     }}
                   >
-                    <MemberCard memberInfo={memberInfo} />
+                    <MemberCard {...memberInfo} id={id + 1} />
                   </MemberCardWrapper>
                 </AnimatePresence>
               ))}
             </CardList>
-            {selectedData && selectedId && (
-              <MemberCardModal
-                {...selectedData}
-                setSelectedId={setSelectedId}
-              />
-            )}
+            <AnimatePresence>
+              {selectedId && selectedData && (
+                <MemberCardModal
+                  {...selectedData}
+                  setSelectedId={setSelectedId}
+                  id={selectedId}
+                />
+              )}
+            </AnimatePresence>
           </AnimateSharedLayout>
           <TopMargin />
         </ContainerInner>
