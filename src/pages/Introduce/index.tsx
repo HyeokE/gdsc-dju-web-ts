@@ -45,15 +45,18 @@ const Introduce = () => {
           <Title>About us</Title>
           <TopMargin />
           <MainText>
-            함께 하는 팀원 {memberList.length}명을 소개합니다.
+            GDSC와 함께 하는 팀원 {memberList.length}명을 소개합니다.
           </MainText>
           <TopMargin />
           <AnimateSharedLayout>
-            <CardList variants={listAnimate} initial={'start'} animate={'end'}>
+            <CardList variants={listAnimate}>
               {memberList.map((memberInfo, id) => (
                 <AnimatePresence key={id + 1}>
                   <MemberCardWrapper
                     variants={memberCardAnimate}
+                    initial={'start'}
+                    whileInView={'end'}
+                    viewport={{ once: true }}
                     onClick={() => {
                       setSelectedId(id + 1);
                       setSelectedData(memberInfo);

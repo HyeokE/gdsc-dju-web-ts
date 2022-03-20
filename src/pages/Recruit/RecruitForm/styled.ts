@@ -26,6 +26,12 @@ export const RecruitFormInner = styled.section`
   display: flex;
   flex-direction: column;
 `;
+export const RecruitFormCardWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+`;
 export const FormLabel = styled.label<{ essential?: boolean }>`
   padding: 5px 0;
   display: inline-block;

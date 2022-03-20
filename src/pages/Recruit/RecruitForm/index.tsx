@@ -114,7 +114,7 @@ const RecruitForm = () => {
           uploadApplicantFile(storageRef, file, recruitFormik.values);
         setLoading({ ...loading, load: false });
         navigate(
-          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
+          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}&email=${recruitFormik.values.email}&phone=${recruitFormik.values.phoneNumber}`,
         );
       }
     } catch (e) {
