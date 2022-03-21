@@ -28,7 +28,7 @@ export const hashTagSchema = {
 export const phoneNumberSchema = {
   phoneNumber: Yup.string()
     .matches(
-      /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/,
+      /^01([0|1|6|7|8|9])-([0-9]{4})-([0-9]{4})$/,
       '전화번호 형식에 맞춰 입력해주세요',
     )
     .required('필수입력란입니다.'),
