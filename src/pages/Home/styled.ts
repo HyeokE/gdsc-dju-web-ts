@@ -9,6 +9,7 @@ export const HomeWrapper = styled(motion.main)`
   align-items: center;
   height: calc(100vh + 70px);
   top: -70px;
+  overflow-x: hidden;
 `;
 export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
   width: 220px;
@@ -39,7 +40,7 @@ export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
 `;
 export const StyledMainBanner = styled(motion.div)`
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
