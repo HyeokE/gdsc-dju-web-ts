@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-export const NavDesign = styled.nav<{ background?: boolean }>`
+export const NavDesign = styled(motion.nav)<{
+  background?: boolean;
+  disable?: boolean;
+}>`
   position: sticky;
   top: 0;
   z-index: 90;
@@ -19,6 +22,11 @@ export const NavDesign = styled.nav<{ background?: boolean }>`
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
           border-bottom: 1px solid ${(props) => props.theme.color.grey200};
         `}
+  ${(props) =>
+    props.disable &&
+    css`
+      display: none;
+    `}
 `;
 export const NavWrapper = styled.div`
   display: flex;

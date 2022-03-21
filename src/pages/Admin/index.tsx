@@ -7,13 +7,15 @@ import AdminSetting from './AdminSetting';
 import { authService, dbService } from '../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { localUserState } from '../../store/localUser';
+import { useLocation } from 'react-router';
 
 const Admin = () => {
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const checkAdminUser = () => {
-    authService.onAuthStateChanged((user: any) => {
+  const checkAdminUser = async () => {
+    await authService.onAuthStateChanged((user: any) => {
       if (user) {
         setAdminUser({
           ...adminUser,
@@ -30,18 +32,18 @@ const Admin = () => {
               setAdminUser({
                 ...adminUser,
                 uid: user.uid,
-                nickname: userData?.nickName,
+                nickname: userData?.nickname,
                 name: userData?.name,
                 phoneNumber: userData?.phoneNumber,
               });
-              navigate('/admin');
+              location.pathname.includes('/admin') ? null : navigate('/admin');
             });
         } catch (e: any) {
-          navigate('/auth');
+          navigate('/');
           console.log(e.message);
         }
       } else {
-        navigate('/auth');
+        navigate('/');
         authService.signOut();
       }
     });
@@ -56,7 +58,7 @@ const Admin = () => {
       <Routes>
         <Route path={'/*'} element={<AdminHome />} />
         <Route path={'/member'} element={<AdminMember />} />
-        <Route path={'/setting'} element={<AdminSetting />} />
+        <Route path={'/recruit'} element={<AdminSetting />} />
       </Routes>
     </>
   );

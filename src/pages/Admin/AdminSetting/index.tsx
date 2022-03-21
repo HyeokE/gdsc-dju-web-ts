@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import {
   ContainerInner,
   LayoutContainer,
   TopMargin,
 } from '../../../styles/layouts';
 import {
+  AdminSidebar,
   Handle,
+  RecruitCard,
+  RecruitCardWrapper,
   StyledPosition,
   Switch,
   ToggleButtonInner,
@@ -16,12 +19,23 @@ import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../../store/recruitHandler';
 import API from '../../../api/index';
 import { Title } from '../../../components/common/Title/title';
+import { useSearchParams } from 'react-router-dom';
+import { useLocation } from 'react-router';
+import { dbService } from '../../../firebase/firebase';
 
 const AdminSetting = () => {
   const [recruit, setRecruit] = useRecoilState(recruitmentState);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
   useEffect(() => {
     API.putRecruitmentInfo(recruit);
   }, [recruit]);
+  useEffect(() => {
+    !searchParams.get('type') &&
+      setSearchParams({
+        type: 'frontend',
+      });
+  }, [location.pathname]);
   // const keyTyped = name as keyof typeof recruit;
   const toggleSwitch = (key: string) => {
     switch (key) {
@@ -61,52 +75,47 @@ const AdminSetting = () => {
         return recruit.home;
     }
   };
-  const convertPosition = (key: string) => {
-    switch (key) {
-      case 'frontend':
-        return 'Frontend Developer';
-      case 'backend':
-        return 'Backend Developer';
-      case 'android':
-        return 'Android Developer';
-      case 'beginner':
-        return 'Beginner';
-      case 'design':
-        return 'Designer';
-      case 'ml':
-        return 'Machine Learning';
-      case 'home':
-        return 'Home Setting';
-    }
-  };
+
   const spring = {
     type: 'spring',
     stiffness: 700,
     damping: 30,
   };
+  const position = {
+    frontend: 'Frontend Developer',
+    backend: 'Backend Developer',
+    android: 'Android Developer',
+    beginner: 'Beginner',
+    design: 'Designer',
+    ml: 'Machine Learning',
+    home: 'Home',
+  };
+
   return (
     <>
-      <LayoutContainer>
-        <ContainerInner>
-          <Title>Recruitment Management</Title>
-          <TopMargin />
-          <ToggleButtonSection>
-            {Object.keys(recruit).map((key, id) => (
-              <ToggleButtonWrapper key={id}>
-                <ToggleButtonInner>
-                  <StyledPosition>{convertPosition(key)}</StyledPosition>
-                  <Switch
-                    data-isOn={isOn(key)}
-                    onClick={() => toggleSwitch(key)}
-                  >
-                    <Handle layout transition={spring} />
-                  </Switch>
-                </ToggleButtonInner>
-              </ToggleButtonWrapper>
-            ))}
-          </ToggleButtonSection>
-        </ContainerInner>
-      </LayoutContainer>
+      <AdminSidebar>
+        {Object.keys(recruit).map((key, id) => (
+          <RecruitCardWrapper key={id}>
+            <RecruitCard>{position[key as keyof typeof position]}</RecruitCard>
+          </RecruitCardWrapper>
+        ))}
+      </AdminSidebar>
+
+      {/*<ToggleButtonSection>*/}
+      {/*  {Object.keys(recruit).map((key, id) => (*/}
+      {/*    <ToggleButtonWrapper key={id}>*/}
+      {/*      <ToggleButtonInner>*/}
+      {/*        <StyledPosition>{convertPosition(key)}</StyledPosition>*/}
+      {/*        <Switch*/}
+      {/*          data-isOn={isOn(key)}*/}
+      {/*          onClick={() => toggleSwitch(key)}*/}
+      {/*        >*/}
+      {/*          <Handle layout transition={spring} />*/}
+      {/*        </Switch>*/}
+      {/*      </ToggleButtonInner>*/}
+      {/*    </ToggleButtonWrapper>*/}
+      {/*  ))}*/}
+      {/*</ToggleButtonSection>*/}
     </>
   );
 };

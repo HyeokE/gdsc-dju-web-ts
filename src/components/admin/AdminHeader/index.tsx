@@ -39,9 +39,9 @@ const AdminHome = () => {
   );
 
   const tabs = [
-    { label: 'Home', route: '/admin' },
-    { label: 'Members', route: '/admin/member' },
-    { label: 'Setting', route: '/admin/setting' },
+    { label: '홈', route: '/admin' },
+    { label: '멤버 관리', route: '/admin/member' },
+    { label: '지원자 관리', route: '/admin/recruit' },
   ];
 
   return (
@@ -88,7 +88,6 @@ const AdminHome = () => {
           </NavInner>
         </NavWrapper>
       </AdminNavigationWrapper>
-      <TopMargin />
     </>
   );
 };

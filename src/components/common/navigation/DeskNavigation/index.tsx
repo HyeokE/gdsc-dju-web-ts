@@ -37,9 +37,19 @@ export const navigationData = [
 export const Navigation: React.FC = () => {
   const location = useLocation();
   const checkLocation = location.pathname == ('/' || '/main');
+  const disableNavigation = () => {
+    let result = false;
+    if (location.pathname.includes('auth')) {
+      result = true;
+    }
+    if (location.pathname.includes('admin')) {
+      result = true;
+    }
+    return result;
+  };
 
   return (
-    <NavDesign background={checkLocation}>
+    <NavDesign background={checkLocation} disable={disableNavigation()}>
       <NavWrapper>
         <NavInner>
           <NavTaskWrapper>

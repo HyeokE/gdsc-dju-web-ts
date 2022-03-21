@@ -45,3 +45,19 @@ export const ToggleButtonSection = styled.section`
   display: flex;
   flex-direction: row;
 `;
+export const AdminSidebar = styled.div`
+  width: 250px;
+  height: 100vh;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+`;
+export const RecruitCard = styled.div`
+  width: 100%;
+  padding: 20px 30px;
+  border-bottom: 1px solid ${(props) => props.theme.color.grey300};
+  box-sizing: border-box;
+  font-size: ${(props) => props.theme.fontSize.body2};
+  cursor: pointer;
+`;
+export const RecruitCardWrapper = styled.div`
+  margin-bottom: 10px;
+`;

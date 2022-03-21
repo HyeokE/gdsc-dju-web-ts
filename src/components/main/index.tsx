@@ -8,8 +8,10 @@ import { recruitmentState } from '../../store/recruitHandler';
 import API from '../../api';
 import { AnimatePresence } from 'framer-motion';
 import { loaderState } from '../../store/loader';
+import Navigation from '../common/navigation/DeskNavigation';
+import { Footer } from '../common/Footer';
+import Admin from '../../pages/Admin';
 
-const Admin = lazy(() => import('../../pages/Admin'));
 const OnBoard = lazy(() => import('../../pages/OnBoard'));
 const Auth = lazy(() => import('../../pages/Auth'));
 const Pages = lazy(() => import('../../pages'));
@@ -28,8 +30,9 @@ export const Main = () => {
   return (
     <>
       {loading.load && <GoogleSpinner background={true} />}
+      <Navigation />
       <AnimatePresence>{alert.alertHandle && <Alert />}</AnimatePresence>
-      <Suspense fallback={<GoogleSpinner />}>
+      <Suspense fallback={<GoogleSpinner background={true} />}>
         <Routes>
           <Route path={'/*'} element={<Pages />} />
           <Route path={'/admin/*'} element={<Admin />} />
@@ -37,6 +40,7 @@ export const Main = () => {
           <Route path={'/auth/*'} element={<Auth />} />
         </Routes>
       </Suspense>
+      <Footer />
     </>
   );
 };
