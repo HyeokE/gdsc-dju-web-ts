@@ -137,6 +137,7 @@ const RecruitForm = () => {
     recruitFormik.values.link0.length > 0 &&
     input.current?.files
   );
+  const applyValidation = !(recruitFormik.isValid && requiredSchema);
   useLayoutEffect(() => {
     setPosition(positionSelect[id as keyof typeof positionSelect]);
   }, [id]);
@@ -284,10 +285,11 @@ const RecruitForm = () => {
                 </div>
                 <FormMargin />
                 <FormSubmitButton
-                  onClick={() =>
-                    setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: true })
-                  }
-                  disable={!(recruitFormik.isValid && requiredSchema)}
+                  onClick={() => {
+                    !applyValidation &&
+                      setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: true });
+                  }}
+                  disable={applyValidation}
                 >
                   제출하기
                 </FormSubmitButton>
