@@ -23,19 +23,8 @@ import {
 import DownArrow from '../../img/DownArrow';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../store/recruitHandler';
-import {
-  ContainerInner,
-  LayoutContainer,
-  TopMargin,
-} from '../../styles/layouts';
-import {
-  MainText,
-  SubCategory,
-  Title,
-} from '../../components/common/Title/title';
-import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
-import BulletList from '../../components/common/BulletList';
 import SectionIntroduce from '../../components/pageSections/Section-Introduce';
+import CircleSvgMotion from '../../components/common/CircleSvgMotion';
 
 const Home = () => {
   const [recruit] = useRecoilState(recruitmentState);
@@ -101,6 +90,7 @@ const Home = () => {
         </DownArrowWrapper>
       </HomeWrapper>
       <SectionIntroduce />
+      <CircleSvgMotion />
     </>
   );
 };
