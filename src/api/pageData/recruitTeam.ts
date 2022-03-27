@@ -2,7 +2,7 @@ export const RecruitTeam = [
   {
     id: 'android',
     name: 'Android Developer',
-    skill: 'android',
+    skill: 'Android',
     stack: 'JAVA, Kotlin',
   },
   {
