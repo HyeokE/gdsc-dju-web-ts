@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CircleMotion } from './styled';
 
 const CircleSvgMotion = () => {
   const [up, setUp] = useState(0);
+  const [direction, setDirection] = useState(false);
+  useEffect(() => {
+    up === 100 && setDirection(true);
+    up === 0 && setDirection(false);
+  }, [up]);
   const onClick = () => {
-    up <= 100 ? setUp(up + 1) : setUp(up - 1);
+    if (direction) {
+      setUp(up - 1);
+    } else {
+      setUp(up + 1);
+    }
   };
+  console.log(up);
   return (
     <>
       <div style={{ position: 'relative' }} onClick={onClick}>
