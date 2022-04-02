@@ -23,7 +23,7 @@ import {
   StyledLogo,
   StyledLogoWrapper,
 } from '../../common/navigation/DeskNavigation/styled';
-import GDSCLogoClear from '../../../img/GDSCLogoClear.svg';
+import GDSCLogo from '../../../img/GDSCLogo.svg';
 import AdminUserMenu from '../AdminUserMenu';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -56,7 +56,7 @@ const AdminHome = () => {
             <NavTaskWrapper>
               <NavTask>
                 <StyledLogoWrapper to={'/admin'}>
-                  <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                  <StyledImg src={GDSCLogo} alt="GDSC-Chapter-Logo" />
                   <StyledLogo>GDSC</StyledLogo>
                   <SchoolName>Daejin </SchoolName>
                   <SchoolNameUni>Admin</SchoolNameUni>

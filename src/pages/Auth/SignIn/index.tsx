@@ -19,7 +19,7 @@ import {
   OAuthImage,
   OAuthText,
 } from './styled';
-import GDSCImage from '../../../img/GDSCLogoClear.svg';
+import GDSCImage from '../../../img/GDSCLogo.svg';
 import officeImage from '../../../img/auth/AuthBackground.jpg';
 import officeImage1 from '../../../img/auth/AuthBackground1.jpg';
 import GoogleLogo from '../../../img/GoogleLogo.svg';
