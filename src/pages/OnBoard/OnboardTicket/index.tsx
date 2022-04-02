@@ -18,7 +18,6 @@ import {
 } from './styled';
 import Logo from '../../../img/GDSCLogo.svg';
 import html2canvas from 'html2canvas';
-import { transparent } from 'material-ui/styles/colors';
 import DownLoadLogo from '../../../img/DownLoad-Logo';
 import { OnboardingTitle } from '../OnBoardHome/styled';
 import { useRecoilState } from 'recoil';
