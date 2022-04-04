@@ -66,12 +66,11 @@ const RecruitForm = () => {
     object: Record<string, any>,
   ) => {
     await uploadBytesResumable(storageRef, file);
-    await getDownloadURL(storageRef).then(async (url) => {
-      await dbService
-        .collection('applicants')
-        .doc()
-        .set({ ...object, fileURL: url });
-    });
+    const url = await getDownloadURL(storageRef);
+    await dbService
+      .collection('applicants')
+      .doc()
+      .set({ ...object, fileURL: url });
   };
   const checkFile = (fileList: FileList | null, size: number, type: string) => {
     if (fileList !== null) {
