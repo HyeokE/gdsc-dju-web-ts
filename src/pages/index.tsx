@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import ScrollTop from '../components/common/ScrollTop';
-import FaqDetail from './Faq/FaqDetail';
 import Introduce from './Introduce';
 import Faq from './Faq';
 import Home from './Home';
@@ -25,7 +24,6 @@ const Pages = () => {
         <Route path={'/recruit/*'} element={<Recruit />} />
         <Route path={'/conduct'} element={<CodeOfConduct />} />
         <Route path={'/faq/*'} element={<Faq />} />
-        <Route path={'/faq/:id'} element={<FaqDetail />} />
       </Routes>
     </>
   );

@@ -54,7 +54,7 @@ export const StyledImg = styled.img`
 export const StyledLogo = styled.div`
   color: ${(props) => props.theme.color.grey800};
   margin-right: 5px;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 2rem;
 
   //@media (max-width: 600px) {
