@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Alert from '../common/Alert';
 import { alertState } from '../../store/alert';
 import GoogleSpinner from '../Lottie/GoogleSpinner';
@@ -16,7 +16,7 @@ const OnBoard = lazy(() => import('../../pages/OnBoard'));
 const Auth = lazy(() => import('../../pages/Auth'));
 const Pages = lazy(() => import('../../pages'));
 export const Main = () => {
-  const [alert, setAlert] = useRecoilState(alertState);
+  const alert = useRecoilValue(alertState);
   const [recruitment, setRecruitment] = useRecoilState(recruitmentState);
   const [loading] = useRecoilState(loaderState);
   const getRecruitment = async (): Promise<void> => {

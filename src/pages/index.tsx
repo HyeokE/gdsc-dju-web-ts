@@ -1,13 +1,12 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router';
 import ScrollTop from '../components/common/ScrollTop';
-
-const Home = lazy(() => import('./Home'));
-const Introduce = lazy(() => import('./Introduce'));
-const Recruit = lazy(() => import('./Recruit'));
-const CodeOfConduct = lazy(() => import('./CodeOfConduct'));
-const Faq = lazy(() => import('./Faq'));
-const FaqDetail = lazy(() => import('./Faq/FaqDetail'));
+import FaqDetail from './Faq/FaqDetail';
+import Introduce from './Introduce';
+import Faq from './Faq';
+import Home from './Home';
+import Recruit from './Recruit';
+import CodeOfConduct from './CodeOfConduct';
 
 const Pages = () => {
   return (
