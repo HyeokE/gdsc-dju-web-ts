@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import AdminHeader from '../../components/admin/AdminHeader';
 import AdminHome from './AdminHome';
@@ -8,6 +8,7 @@ import { authService, dbService } from '../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { localUserState } from '../../store/localUser';
 import { useLocation } from 'react-router';
+import { recruitmentSelector } from '../../store/recruitHandler';
 
 const Admin = () => {
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
@@ -47,7 +48,10 @@ const Admin = () => {
       }
     });
   };
-  useLayoutEffect(() => {
+
+  const [selector, setSelector] = useRecoilState(recruitmentSelector);
+  useEffect(() => {
+    setSelector(selector);
     checkAdminUser();
   }, []);
 

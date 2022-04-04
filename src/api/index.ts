@@ -27,12 +27,12 @@ export class GDSCApi {
   };
   getRecruitmentInfo = () => {
     return axios.get<getRecruitmentInfoDataType>(
-      `${this.API}/api/support/limit`,
+      `${this.API}/api/admin/v1/support/limit`,
     );
   };
   putRecruitmentInfo = (payload: recruitmentInfoDataType) => {
     return axios.put<recruitmentInfoDataType>(
-      `${this.API}/api/support/limit/update`,
+      `${this.API}/api/admin/v1/support/limit/update`,
       payload,
     );
   };
