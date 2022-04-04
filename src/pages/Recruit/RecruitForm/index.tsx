@@ -60,19 +60,17 @@ const RecruitForm = () => {
     },
     validationSchema: recruitFormSchema,
   });
-  const uploadApplicantFile = (
+  const uploadApplicantFile = async (
     storageRef: StorageReference,
     file: File,
     object: Record<string, any>,
   ) => {
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.then(() => {
-      getDownloadURL(storageRef).then(async (url) => {
-        await dbService
-          .collection('applicants')
-          .doc()
-          .set({ ...object, fileURL: url });
-      });
+    await uploadBytesResumable(storageRef, file);
+    await getDownloadURL(storageRef).then(async (url) => {
+      await dbService
+        .collection('applicants')
+        .doc()
+        .set({ ...object, fileURL: url });
     });
   };
   const checkFile = (fileList: FileList | null, size: number, type: string) => {
@@ -110,8 +108,9 @@ const RecruitForm = () => {
           setUploadProgress(
             calculateProgress(snapshot.bytesTransferred, snapshot.totalBytes),
           );
-        }),
-          uploadApplicantFile(storageRef, file, recruitFormik.values);
+        });
+
+        await uploadApplicantFile(storageRef, file, recruitFormik.values);
         setLoading({ ...loading, load: false });
         navigate(
           `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}&email=${recruitFormik.values.email}&phone=${recruitFormik.values.phoneNumber}`,
