@@ -7,14 +7,12 @@ async function getMemberNickname() {
 }
 
 export function useGetMemberNickname() {
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     [`/api/member/onBoarding/nickname`],
     getMemberNickname,
     { suspense: true },
   );
   return {
     data: data && data.data,
-    error,
-    loading: !error && !data,
   };
 }

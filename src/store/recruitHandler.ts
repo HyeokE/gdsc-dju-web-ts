@@ -20,7 +20,7 @@ export const recruitmentState = atom<typeof RecruitmentState>({
 export const recruitmentSelector = selector({
   key: RECRUITMENT_SELECTOR,
   get: async () => {
-    const res = await API.getRecruitmentInfo();
+    const res = await API.getRecruitStatus();
     return res.data.data;
   },
   set: ({ set }, newValue) => {

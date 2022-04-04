@@ -1,34 +1,26 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
-  ContainerInner,
-  LayoutContainer,
-  TopMargin,
-} from '../../../styles/layouts';
-import {
+  AdminSectionWrapper,
   AdminSidebar,
   Handle,
   RecruitCard,
   RecruitCardWrapper,
-  StyledPosition,
   Switch,
-  ToggleButtonInner,
   ToggleButtonSection,
-  ToggleButtonWrapper,
 } from './styled';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../../store/recruitHandler';
 import API from '../../../api/index';
-import { Title } from '../../../components/common/Title/title';
 import { useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router';
-import { dbService } from '../../../firebase/firebase';
 
 const AdminSetting = () => {
   const [recruit, setRecruit] = useRecoilState(recruitmentState);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+  console.log(recruit);
   useEffect(() => {
-    API.putRecruitmentInfo(recruit);
+    API.putRecruitStatus(recruit);
   }, [recruit]);
   useEffect(() => {
     !searchParams.get('type') &&
@@ -36,6 +28,10 @@ const AdminSetting = () => {
         type: 'frontend',
       });
   }, [location.pathname]);
+  const currentParam = searchParams.get('type') as string;
+  const setParams = (key: string) => {
+    setSearchParams({ type: key });
+  };
   // const keyTyped = name as keyof typeof recruit;
   const toggleSwitch = (key: string) => {
     switch (key) {
@@ -92,31 +88,29 @@ const AdminSetting = () => {
   };
 
   return (
-    <>
+    <AdminSectionWrapper>
       <AdminSidebar>
         {Object.keys(recruit).map((key, id) => (
-          <RecruitCardWrapper key={id}>
+          <RecruitCardWrapper
+            key={id}
+            isActive={key == currentParam}
+            onClick={() => setParams(key)}
+          >
             <RecruitCard>{position[key as keyof typeof position]}</RecruitCard>
           </RecruitCardWrapper>
         ))}
       </AdminSidebar>
-
-      {/*<ToggleButtonSection>*/}
-      {/*  {Object.keys(recruit).map((key, id) => (*/}
-      {/*    <ToggleButtonWrapper key={id}>*/}
-      {/*      <ToggleButtonInner>*/}
-      {/*        <StyledPosition>{convertPosition(key)}</StyledPosition>*/}
-      {/*        <Switch*/}
-      {/*          data-isOn={isOn(key)}*/}
-      {/*          onClick={() => toggleSwitch(key)}*/}
-      {/*        >*/}
-      {/*          <Handle layout transition={spring} />*/}
-      {/*        </Switch>*/}
-      {/*      </ToggleButtonInner>*/}
-      {/*    </ToggleButtonWrapper>*/}
-      {/*  ))}*/}
-      {/*</ToggleButtonSection>*/}
-    </>
+      {currentParam && (
+        <ToggleButtonSection>
+          <Switch
+            data-ison={isOn(currentParam)}
+            onClick={() => toggleSwitch(currentParam)}
+          >
+            <Handle layout transition={spring} />
+          </Switch>
+        </ToggleButtonSection>
+      )}
+    </AdminSectionWrapper>
   );
 };
 
