@@ -17,7 +17,7 @@ export const ApplyCardBlueLine = styled.div`
   width: calc(100% + 60px);
   left: -30px;
   top: -20px;
-  background: ${(props) => props.theme.color.tossBlue};
+  background: ${(props) => props.theme.colors.tossBlue};
 `;
 export const ApplyCardInner = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ export const ApplyCardInner = styled.div`
 `;
 export const ApplyCardContent = styled.p`
   font-size: ${(props) => props.theme.fontSize.body2};
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
   min-width: 70px;
   &:first-child {
     margin-top: 0;

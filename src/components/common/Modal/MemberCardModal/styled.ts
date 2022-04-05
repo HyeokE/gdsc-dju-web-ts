@@ -15,7 +15,7 @@ export const StyledModal = styled(motion.div)`
   background-color: white;
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0 0 10px ${(props) => props.theme.color.grey600};
+  box-shadow: 0 0 10px ${(props) => props.theme.colors.grey600};
 `;
 export const ModalWrapper = styled(motion.div)`
   width: 100%;

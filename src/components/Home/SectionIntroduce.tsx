@@ -12,7 +12,7 @@ const SectionTitle = styled.span`
   font-weight: bold;
   font-stretch: normal;
   line-height: 52px;
-  color: ${({ theme }) => theme.color.grey900};
+  color: ${({ theme }) => theme.colors.grey900};
   letter-spacing: normal;
   word-break: keep-all;
 `;
@@ -30,7 +30,7 @@ const ContentTitle = styled.span`
   font-weight: normal;
   font-stretch: normal;
   line-height: 2.629rem;
-  color: ${({ theme }) => theme.color.grey600};
+  color: ${({ theme }) => theme.colors.grey600};
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -41,7 +41,7 @@ const ContentText = styled.span`
   font-weight: bold;
   font-stretch: normal;
   line-height: 8.013rem;
-  color: ${({ theme }) => theme.color.grey900};
+  color: ${({ theme }) => theme.colors.grey900};
   letter-spacing: normal;
   word-break: keep-all;
 `;
@@ -91,12 +91,12 @@ const SectionIntroduce = () => {
           <ContentText>30명 +</ContentText>
         </ContentWrapper>
         <ContentWrapper>
-          <ContentTitle>전체 인원</ContentTitle>
-          <ContentText>30명 +</ContentText>
+          <ContentTitle>진행한 스터디/프로젝트</ContentTitle>
+          <ContentText>10회 +</ContentText>
         </ContentWrapper>
         <ContentWrapper>
-          <ContentTitle>전체 인원</ContentTitle>
-          <ContentText>30명 +</ContentText>
+          <ContentTitle>진행한 이벤트</ContentTitle>
+          <ContentText>100회 +</ContentText>
         </ContentWrapper>
       </SectionWrapper>
     </HomeSectionContainer>

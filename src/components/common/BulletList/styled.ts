@@ -19,7 +19,7 @@ export const StyledLi = styled(motion.li)`
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 23px;
-    color: ${(props) => props.theme.color.tossBlue};
+    color: ${(props) => props.theme.colors.tossBlue};
     text-align: center;
     content: '•';
   }

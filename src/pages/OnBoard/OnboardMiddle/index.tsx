@@ -39,7 +39,7 @@ import * as Yup from 'yup';
 const OnboardMiddle = () => {
   const { id } = useParams();
   const pageData = onBoardingData.find((data) => data.id === id);
-  const color = pageData?.color;
+  const color = pageData?.colors;
   const navigate = useNavigate();
   const [userData, setUserData] = useRecoilState(onboardingUserState);
   const [formikInput, setFormikInput] = useState<any>();

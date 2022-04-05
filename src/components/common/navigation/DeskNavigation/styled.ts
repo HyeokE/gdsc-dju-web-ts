@@ -20,7 +20,7 @@ export const NavDesign = styled(motion.nav)<{
       : css`
           background: white;
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-          border-bottom: 1px solid ${(props) => props.theme.color.grey200};
+          border-bottom: 1px solid ${(props) => props.theme.colors.grey200};
         `}
   ${(props) =>
     props.disable &&
@@ -52,7 +52,7 @@ export const StyledImg = styled.img`
   margin: 0 8px;
 `;
 export const StyledLogo = styled.div`
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
   margin-right: 5px;
   font-weight: bold;
   font-size: 2rem;
@@ -62,7 +62,7 @@ export const StyledLogo = styled.div`
   //}
 `;
 export const SchoolNameUni = styled.div`
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
   font-size: ${(props) => props.theme.fontSize.body3};
   margin-top: 6px;
   margin-right: 5px;
@@ -73,7 +73,7 @@ export const SchoolNameUni = styled.div`
   //}
 `;
 export const SchoolName = styled.div`
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
   font-size: ${(props) => props.theme.fontSize.body3};
   margin-top: 6px;
   margin-right: 5px;
@@ -116,7 +116,7 @@ export const StyledLink = styled(motion.div)`
   font-size: 1.4rem;
   transition-delay: 0s;
   &:hover {
-    color: ${(props) => props.theme.color.grey900};
+    color: ${(props) => props.theme.colors.grey900};
     background: #f2f4f6;
     text-decoration: none;
   }
@@ -127,7 +127,7 @@ export const NavTask = styled.li`
   align-items: center;
   margin: 0 5px;
   cursor: pointer;
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
   font-size: 1.4rem;
   font-weight: 500;
   word-break: keep-all;
@@ -153,7 +153,7 @@ export const NavIconWrapper = styled.div`
   transition-duration: 0.2s;
   transition-timing-function: ease;
   :hover {
-    background: ${(props) => props.theme.color.grey100};
+    background: ${(props) => props.theme.colors.grey100};
     cursor: pointer;
   }
 `;

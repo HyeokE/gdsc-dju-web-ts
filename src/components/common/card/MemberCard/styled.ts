@@ -12,15 +12,15 @@ export const Nickname = styled(motion.div)`
 export const Skeleton = styled(motion.div)`
   height: 200px;
   width: 200px;
-  background: ${(props) => props.theme.color.grey50};
+  background: ${(props) => props.theme.colors.grey50};
 `;
 export const Name = styled(motion.p)`
   font-size: 1.3rem;
   margin-top: 2px;
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
 `;
 export const Role = styled(motion.span)`
-  color: ${(props) => props.theme.color.googleBlue};
+  color: ${(props) => props.theme.colors.googleBlue};
   font-size: 1.3rem;
   margin-top: 2px;
 `;
@@ -28,6 +28,6 @@ export const MemberImg = styled(motion.img)`
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  border: 1px solid ${(props) => props.theme.color.grey500};
+  border: 1px solid ${(props) => props.theme.colors.grey500};
   box-sizing: border-box;
 `;

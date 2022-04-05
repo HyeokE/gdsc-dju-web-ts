@@ -20,7 +20,7 @@ export const FooterText = styled.a<{ google?: boolean }>`
   font-size: ${(props) => props.theme.fontSize.body2};
   font-weight: 600;
   margin-right: 20px;
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
   cursor: pointer;
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     margin-top: 10px;
@@ -30,14 +30,14 @@ export const FooterText = styled.a<{ google?: boolean }>`
     css`
       font-size: ${(props) => props.theme.fontSize.h7};
       font-weight: 700;
-      color: ${(props) => props.theme.color.grey700};
+      color: ${(props) => props.theme.colors.grey700};
     `}
 `;
 
 export const FooterCopyRight = styled.span`
   display: inline-block;
   font-size: ${(props) => props.theme.fontSize.body3};
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
 `;
 export const FooterWrapper = styled.footer`
   display: flex;

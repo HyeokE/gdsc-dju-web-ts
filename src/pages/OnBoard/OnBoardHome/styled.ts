@@ -20,7 +20,7 @@ export const OnboardingTopText = styled(motion.div)`
 export const OnboardingTitle = styled(motion.div)<any>`
   font-size: 65px;
   font-weight: 700;
-  color: ${(props) => props.color};
+  color: ${(props) => props.colors};
   margin-left: ${(props) => props.marginLeft}px;
 `;
 export const OnboardingSubTitle = styled(motion.div)`

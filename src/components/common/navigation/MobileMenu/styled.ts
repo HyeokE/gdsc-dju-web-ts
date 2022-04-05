@@ -13,5 +13,5 @@ export const MobileNavBackGround = styled(motion.div)`
   border-style: solid;
   border-width: 0;
   border-left-width: 1px;
-  border-color: ${(props) => props.theme.color.grey200};
+  border-color: ${(props) => props.theme.colors.grey200};
 `;

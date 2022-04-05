@@ -18,7 +18,7 @@ export const AlertText = styled.div`
   margin-left: 5px;
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
   @media (max-width: 500px) {
     font-size: 17px;
   }
@@ -30,8 +30,8 @@ export const AlertInner = styled(motion.div)`
   position: fixed;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid ${(props) => props.theme.color.grey300};
-  box-shadow: inset 0 0 0 1px ${(props) => props.theme.color.grey300};
+  border: 1px solid ${(props) => props.theme.colors.grey300};
+  box-shadow: inset 0 0 0 1px ${(props) => props.theme.colors.grey300};
   padding: 7px 30px;
   top: 100px;
   flex: 1;

@@ -73,7 +73,7 @@ const AdminSetUserProfile = () => {
           전화번호
           <StyledInput name={'phoneNumber'} onChange={onChange} />
         </ModalElementWrapper>
-        <ModalElementWrapper style={{ color: '#f44336' }}>
+        <ModalElementWrapper style={{ colors: '#f44336' }}>
           {/*{error}*/}
         </ModalElementWrapper>
         <ModalButtonWrapper>

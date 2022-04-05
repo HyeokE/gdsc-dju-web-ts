@@ -4,17 +4,17 @@ import styled, { css } from 'styled-components';
 export const Switch = styled.div`
   width: 40px;
   height: 20px;
-  background-color: ${(props) => props.theme.color.grey700};
+  background-color: ${(props) => props.theme.colors.grey700};
   display: flex;
   justify-content: flex-start;
   border: 1px solid;
-  border-color: ${(props) => props.theme.color.grey700};
+  border-color: ${(props) => props.theme.colors.grey700};
   border-radius: 50px;
   padding: 3px;
   cursor: pointer;
   &[data-isOn='true'] {
     justify-content: flex-end;
-    background-color: ${(props) => props.theme.color.tossBlue};
+    background-color: ${(props) => props.theme.colors.tossBlue};
   }
 `;
 export const Handle = styled(motion.div)`
@@ -57,7 +57,7 @@ export const AdminSectionWrapper = styled.div`
 export const RecruitCard = styled.div`
   width: 100%;
   padding: 20px 30px;
-  border-bottom: 1px solid ${(props) => props.theme.color.grey300};
+  border-bottom: 1px solid ${(props) => props.theme.colors.grey300};
   box-sizing: border-box;
   font-size: ${(props) => props.theme.fontSize.body1};
   cursor: pointer;
@@ -67,7 +67,7 @@ export const RecruitCardWrapper = styled.div<{ isActive: boolean }>`
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: ${({ theme }) => theme.color.tossBlue};
+      background-color: ${({ theme }) => theme.colors.tossBlue};
       color: white;
     `}
 `;

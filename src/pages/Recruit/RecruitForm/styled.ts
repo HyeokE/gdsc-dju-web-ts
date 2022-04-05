@@ -38,7 +38,7 @@ export const FormLabel = styled.label<{ essential?: boolean }>`
   font-size: ${(props) => props.theme.fontSize.body2};
   font-weight: 400;
   line-height: 1.5;
-  color: ${(props) => props.theme.color.grey700};
+  color: ${(props) => props.theme.colors.grey700};
    {
     ${(props) =>
       props.essential &&
@@ -49,7 +49,7 @@ export const FormLabel = styled.label<{ essential?: boolean }>`
           content: '';
           width: 6px;
           height: 6px;
-          background-color: ${(props) => props.theme.color.tossRed};
+          background-color: ${(props) => props.theme.colors.tossRed};
           border-radius: 3px;
         }
       `}
@@ -60,7 +60,7 @@ export const FormText = styled.p`
   font-size: 15px;
   line-height: 24px;
   font-weight: 300;
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
 `;
 export const FormLi = styled.li`
   margin-top: 4px;
@@ -68,7 +68,7 @@ export const FormLi = styled.li`
   font-size: 15px;
   padding-left: 15px;
   font-weight: 300;
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
   list-style: none;
   &::before {
     position: absolute;
@@ -80,16 +80,16 @@ export const FormLi = styled.li`
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 23px;
-    color: ${(props) => props.theme.color.tossBlue};
+    color: ${(props) => props.theme.colors.tossBlue};
     text-align: center;
     content: '•';
   }
 `;
 export const FormArticleWrapper = styled.article`
-  border: 1px solid ${(props) => props.theme.color.grey300};
+  border: 1px solid ${(props) => props.theme.colors.grey300};
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: ${(props) => props.theme.color.grey50};
+  background-color: ${(props) => props.theme.colors.grey50};
   margin-top: 10px;
   margin-bottom: 30px;
 `;
@@ -105,12 +105,12 @@ export const FormSubmitButton = styled.button<{ disable?: boolean }>`
   font-size: ${(props) => props.theme.fontSize.body2};
   border-radius: 10px;
   cursor: pointer;
-  background: ${(props) => props.theme.color.tossBlueActive};
+  background: ${(props) => props.theme.colors.tossBlueActive};
 
   ${(prop) =>
     prop.disable &&
     css`
-      background: ${(props) => props.theme.color.tossBlue200};
+      background: ${(props) => props.theme.colors.tossBlue200};
       cursor: not-allowed;
     `}
 `;

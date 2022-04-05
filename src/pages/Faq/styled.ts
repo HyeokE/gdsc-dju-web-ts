@@ -6,7 +6,7 @@ export const QuestionWrapper = styled(motion.a)`
   padding: 24px 20px;
   display: flex;
   background: white;
-  color: ${(props) => props.theme.color.grey700};
+  color: ${(props) => props.theme.colors.grey700};
   flex-direction: column;
   border-radius: 10px;
   font-size: ${({ theme }) => theme.fontSize.h5};
@@ -23,11 +23,11 @@ export const AnswerWrapper = styled(motion.div)`
   box-sizing: border-box;
   padding: 20px 20px;
   padding-top: 0;
-  color: ${({ theme }) => theme.color.grey800};
+  color: ${({ theme }) => theme.colors.grey800};
   font-size: ${({ theme }) => theme.fontSize.body1};
 `;
 export const QuestionBr = styled.div`
-  border-top: 3px solid ${({ theme }) => theme.color.grey800};
+  border-top: 3px solid ${({ theme }) => theme.colors.grey800};
 `;
 export const QuestionMark = styled.div`
   height: 100%;
@@ -37,7 +37,7 @@ export const QuestionMark = styled.div`
     margin-right: 16px;
     margin-bottom: 2px;
     font-weight: 700;
-    color: ${(props) => props.theme.color.grey700};
+    color: ${(props) => props.theme.colors.grey700};
     content: 'Q';
   }
 `;

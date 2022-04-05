@@ -16,7 +16,7 @@ export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
   height: 60px;
   border-radius: 75px;
   border-style: solid;
-  background: ${(props) => props.theme.color.tossBlueActive};
+  background: ${(props) => props.theme.colors.tossBlueActive};
   border-width: 0;
   color: white;
   font-size: 1.6rem;
@@ -24,7 +24,7 @@ export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
   ${(props) =>
     props.disable &&
     `
-    background: ${props.theme.color.tossBlue200};
+    background: ${props.theme.colors.tossBlue200};
     cursor: not-allowed;
     `};
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
@@ -113,7 +113,7 @@ export const MainBannerText = styled(motion.p)`
   align-items: center;
   text-align: center;
   font-size: 1.8rem;
-  color: ${(props) => props.theme.color.grey500};
+  color: ${(props) => props.theme.colors.grey500};
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 1.5rem;
   }

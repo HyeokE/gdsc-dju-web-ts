@@ -6,7 +6,7 @@ export const CircleMotion = styled(motion.div)`
   height: 50px;
   border-radius: 50%;
   position: absolute;
-  background: ${(props) => props.theme.color.googleBlue};
+  background: ${(props) => props.theme.colors.googleBlue};
   top: 0;
   left: 0;
   offset-path: path(

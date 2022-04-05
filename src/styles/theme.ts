@@ -5,7 +5,7 @@ import { windowSize } from './windowSize';
 import { fontSize } from './fontSize';
 
 export const theme: DefaultTheme = {
-  color: colors,
+  colors: colors,
   windowSize: windowSize,
   fontSize: fontSize,
 };

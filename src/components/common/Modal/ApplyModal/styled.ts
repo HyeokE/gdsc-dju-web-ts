@@ -17,7 +17,7 @@ export const ApplyButtonWrapper = styled.div`
 `;
 export const ApplyModalP = styled.p`
   font-size: ${(props) => props.theme.fontSize.body2};
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
   min-width: 80px;
   margin-bottom: 6px;
 `;
@@ -27,7 +27,7 @@ export const ApplyModalContentWrapper = styled.div`
 `;
 export const ApplyModalTitle = styled.h5`
   font-size: ${(props) => props.theme.fontSize.h6};
-  color: ${(props) => props.theme.color.grey900};
+  color: ${(props) => props.theme.colors.grey900};
   margin-bottom: 12px;
 `;
 
