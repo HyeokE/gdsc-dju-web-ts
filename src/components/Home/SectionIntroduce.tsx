@@ -15,6 +15,9 @@ const SectionTitle = styled.span`
   color: ${({ theme }) => theme.colors.grey900};
   letter-spacing: normal;
   word-break: keep-all;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    font-size: ${({ theme }) => theme.fontSize.h4};
+  }
 `;
 const ContentWrapper = styled.div`
   display: flex;
@@ -22,6 +25,9 @@ const ContentWrapper = styled.div`
   width: 40rem;
   margin-top: 5.1rem;
   word-break: keep-all;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    width: 250px;
+  }
 `;
 const ContentTitle = styled.span`
   margin-bottom: 0.9rem;
@@ -34,6 +40,9 @@ const ContentTitle = styled.span`
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    font-size: ${({ theme }) => theme.fontSize.body1};
+  }
 `;
 const ContentText = styled.span`
   font-size: ${({ theme }) => theme.fontSize.h2};
@@ -44,6 +53,10 @@ const ContentText = styled.span`
   color: ${({ theme }) => theme.colors.grey900};
   letter-spacing: normal;
   word-break: keep-all;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    font-size: ${({ theme }) => theme.fontSize.h3};
+    line-height: 1.5;
+  }
 `;
 const SectionWrapper = styled(motion.div)`
   max-width: 960px;

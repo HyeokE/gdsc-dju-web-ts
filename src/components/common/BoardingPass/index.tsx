@@ -1,8 +1,8 @@
 import React from 'react';
-import Plane from '../../../img/onBoardingImg/plane-blue.svg';
-import WhitePlane from '../../../img/onBoardingImg/plane-white.svg';
-import WhiteGDSC from '../../../img/onBoardingImg/gdsc-white.svg';
-import GDSC from '../../../img/onBoardingImg/gdsc-blue.svg';
+import Plane from '../../../assets/onBoardingImg/plane-blue.svg';
+import WhitePlane from '../../../assets/onBoardingImg/plane-white.svg';
+import WhiteGDSC from '../../../assets/onBoardingImg/gdsc-white.svg';
+import GDSC from '../../../assets/onBoardingImg/gdsc-blue.svg';
 import {
   BoardingPassArrivalTimeWrapper,
   BoardingPassBoardingTimeWrapper,
@@ -40,10 +40,10 @@ import {
   BoardingTicketTopTextWrapper,
   BoardingTicketWrapper,
 } from './styled';
-import Gdscqr from '../../../img/onBoardingImg/GDSCQR';
+import Gdscqr from '../../../assets/onBoardingImg/GDSCQR';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
-import DottedLine from '../../../img/DottedLine';
+import DottedLine from '../../../assets/DottedLine';
 import { getCurrentDate } from '../../../store/hooks/getCurrentDate';
 
 const BoardingPass = () => {

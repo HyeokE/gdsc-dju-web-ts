@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import GDSCLogo from '../../../../img/GDSCLogo.svg';
+import GDSCLogo from '../../../../assets/GDSCLogo.svg';
 
 import { useLocation } from 'react-router';
 import './Navigation.css';

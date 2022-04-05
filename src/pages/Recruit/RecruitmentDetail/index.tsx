@@ -21,8 +21,8 @@ import {
 } from './styled';
 import { recruitDefaultText } from '../../../api/pageData/recruitDefaultText';
 import { RecruitDetails } from '../../../api/pageData/recruitDetails';
-import { Banner } from '../../../img/Banner/Banner';
-import BlueBanner from '../../../img/Banner/BlueBanner.png';
+import { Banner } from '../../../assets/Banner/Banner';
+import BlueBanner from '../../../assets/Banner/BlueBanner.png';
 import BulletList from '../../../components/common/BulletList';
 import InformationBar from './InformationBar';
 import RecruitFaqButton from './RecruitFaqButton';

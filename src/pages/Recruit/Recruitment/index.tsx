@@ -20,9 +20,9 @@ import {
 } from './styled';
 import { RecruitTeam } from '../../../api/pageData/recruitTeam';
 import { useNavigate } from 'react-router';
-import { Banner } from '../../../img/Banner/Banner';
+import { Banner } from '../../../assets/Banner/Banner';
 
-import BlueBanner from '../../../img/Banner/BlueBanner.png';
+import BlueBanner from '../../../assets/Banner/BlueBanner.png';
 import { categoryAnimate } from '../../../components/common/Variants/Variants';
 
 const Recruitment = () => {

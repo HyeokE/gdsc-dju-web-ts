@@ -7,14 +7,14 @@ const MissionWrapper = styled(motion.div)`
   position: relative;
   width: 100vw;
   box-sizing: border-box;
-  padding: 70px 60px;
+  padding: 200px 60px;
   margin: 0 auto;
   text-align: center;
-  background: ${({ theme }) => theme.colors.grey600};
+  background: ${({ theme }) => theme.colors.grey900};
   -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px);
 `;
-const MissionTitle = styled.span`
+const MissionTitle = styled(motion.span)`
   display: block;
   margin-bottom: 20px;
   font-size: ${({ theme }) => theme.fontSize.h4};
@@ -26,9 +26,12 @@ const MissionTitle = styled.span`
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    font-size: ${({ theme }) => theme.fontSize.h5};
+  }
 `;
 
-const MissionContent = styled.div`
+const MissionContent = styled(motion.div)`
   font-size: ${({ theme }) => theme.fontSize.h4};
   margin-bottom: 10px;
   font-style: normal;
@@ -39,6 +42,9 @@ const MissionContent = styled.div`
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    font-size: ${({ theme }) => theme.fontSize.h5};
+  }
 `;
 
 const missionAnimation = {
@@ -54,21 +60,18 @@ const missionAnimation = {
 };
 const SectionGoal = () => {
   return (
-    <MissionWrapper
-      variants={missionAnimation}
-      initial={'hidden'}
-      whileInView={'visible'}
-    >
-      <MissionTitle>Our Mission</MissionTitle>
-
-      <MissionContent>
-        주변 환경이나 여러 학생 개발자들에게 좋은 영향을 줄 수 있는 커뮤니티가
-        되는 것
-      </MissionContent>
-      <MissionContent>
-        Impact students and empower them to impact their communities through
-        technology.
-      </MissionContent>
+    <MissionWrapper>
+      <motion.div
+        variants={missionAnimation}
+        initial={'hidden'}
+        whileInView={'visible'}
+      >
+        <MissionTitle>Our Mission</MissionTitle>
+        <MissionContent>
+          Impact students and empower them to impact their communities through
+          technology.
+        </MissionContent>
+      </motion.div>
     </MissionWrapper>
   );
 };

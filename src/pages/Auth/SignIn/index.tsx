@@ -19,11 +19,11 @@ import {
   OAuthImage,
   OAuthText,
 } from './styled';
-import GDSCImage from '../../../img/GDSCLogo.svg';
-import officeImage from '../../../img/auth/AuthBackground.jpg';
-import officeImage1 from '../../../img/auth/AuthBackground1.jpg';
-import GoogleLogo from '../../../img/GoogleLogo.svg';
-import GithubLogo from '../../../img/GithubLogo.svg';
+import GDSCImage from '../../../assets/GDSCLogo.svg';
+import officeImage from '../../../assets/auth/AuthBackground.jpg';
+import officeImage1 from '../../../assets/auth/AuthBackground1.jpg';
+import GoogleLogo from '../../../assets/GoogleLogo.svg';
+import GithubLogo from '../../../assets/GithubLogo.svg';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../../store/modal';

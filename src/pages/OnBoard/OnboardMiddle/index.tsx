@@ -6,11 +6,11 @@ import {
   pageAnimate,
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
-import backArrow from '../../../img/onBoardingImg/back.svg';
-import Human1 from '../../../img/onBoardingImg/human_red.svg';
-import Human2 from '../../../img/onBoardingImg/human-green.svg';
-import Human3 from '../../../img/onBoardingImg/human-blue.svg';
-import Human4 from '../../../img/onBoardingImg/human-yellow.svg';
+import backArrow from '../../../assets/onBoardingImg/back.svg';
+import Human1 from '../../../assets/onBoardingImg/human_red.svg';
+import Human2 from '../../../assets/onBoardingImg/human-green.svg';
+import Human3 from '../../../assets/onBoardingImg/human-blue.svg';
+import Human4 from '../../../assets/onBoardingImg/human-yellow.svg';
 import {
   ErrorMessageWrapper,
   OnboardingBackArrow,

@@ -16,9 +16,9 @@ import {
   ElementJustifyCenter,
   TicketSaveButton,
 } from './styled';
-import Logo from '../../../img/GDSCLogo.svg';
+import Logo from '../../../assets/GDSCLogo.svg';
 import html2canvas from 'html2canvas';
-import DownLoadLogo from '../../../img/DownLoad-Logo';
+import DownLoadLogo from '../../../assets/DownLoad-Logo';
 import { OnboardingTitle } from '../OnBoardHome/styled';
 import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';

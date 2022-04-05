@@ -15,7 +15,8 @@ export const NavDesign = styled(motion.nav)<{
   ${(props) =>
     props.background
       ? css`
-          background: transparent;
+          background-color: rgba(0, 0, 0, 0.01);
+          backdrop-filter: blur(10px);
         `
       : css`
           background: white;

@@ -23,7 +23,7 @@ import {
   StyledLogo,
   StyledLogoWrapper,
 } from '../../common/navigation/DeskNavigation/styled';
-import GDSCLogo from '../../../img/GDSCLogo.svg';
+import GDSCLogo from '../../../assets/GDSCLogo.svg';
 import AdminUserMenu from '../AdminUserMenu';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';

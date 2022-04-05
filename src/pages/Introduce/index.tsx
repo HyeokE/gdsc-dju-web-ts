@@ -17,8 +17,8 @@ import {
   listAnimate,
   memberCardAnimate,
 } from '../../components/common/Variants/Variants';
-import { Banner } from '../../img/Banner/Banner';
-import YellowBanner from '../../img/Banner/YellowBanner.png';
+import { Banner } from '../../assets/Banner/Banner';
+import YellowBanner from '../../assets/Banner/YellowBanner.png';
 import { memberList } from '../../api/pageData/MemberList';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';

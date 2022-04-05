@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import Folder from '../../../../img/Folder';
+import Folder from '../../../../assets/Folder';
 import {
   InputImageWrapper,
   StyledFileInput,

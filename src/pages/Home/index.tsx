@@ -11,8 +11,8 @@ import {
   StyledMainBanner,
   StyledRecruitmentButton,
 } from './styled';
-import Recruiting from '../../img/Recruiting';
-import ColorLines from '../../img/ColorLines';
+import Recruiting from '../../assets/Recruiting';
+import ColorLines from '../../assets/ColorLines';
 import {
   bannerItemAnimate,
   homeBannerAnimate,
@@ -20,7 +20,7 @@ import {
   rightLineItemAnimate,
   titleAnimate,
 } from '../../components/common/Variants/Variants';
-import DownArrow from '../../img/DownArrow';
+import DownArrow from '../../assets/DownArrow';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../store/recruitHandler';
 import SectionIntroduce from '../../components/Home/SectionIntroduce';
@@ -28,6 +28,7 @@ import HomeBackground from '../../components/Home/HomeBackground';
 import SectionTimeLine from '../../components/Home/SectionTimeLine';
 import SectionManager from '../../components/Home/SectionManager';
 import SectionGoal from '../../components/Home/SectionGoal';
+import { TopMargin } from '../../styles/layouts';
 
 const Home = () => {
   const [recruit] = useRecoilState(recruitmentState);
@@ -94,6 +95,7 @@ const Home = () => {
         </DownArrowWrapper>
       </HomeWrapper>
       <SectionIntroduce />
+      <TopMargin />
       <SectionGoal />
       <SectionTimeLine />
       <SectionManager />

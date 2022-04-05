@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Title } from '../../components/common/Title/title';
-import { Banner } from '../../img/Banner/Banner';
-import YellowBanner from '../../img/Banner/YellowBanner.png';
+import { Banner } from '../../assets/Banner/Banner';
+import YellowBanner from '../../assets/Banner/YellowBanner.png';
 import {
   BannerWrapper,
   ContainerInner,

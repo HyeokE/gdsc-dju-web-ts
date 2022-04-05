@@ -14,9 +14,9 @@ import {
   OnboardingMiddleElementWrapper,
   OnboardingMiddleImage,
 } from '../OnboardMiddle/styled';
-import backArrow from '../../../img/onBoardingImg/back.svg';
+import backArrow from '../../../assets/onBoardingImg/back.svg';
 import { OnboardingTitle, OnboardingTitleWrapper } from '../OnBoardHome/styled';
-import Human5 from '../../../img/onBoardingImg/human-black.svg';
+import Human5 from '../../../assets/onBoardingImg/human-black.svg';
 
 import { OnboardingContainer, OnboardingContainerWrapper } from '../styled';
 import { useNavigate } from 'react-router-dom';
