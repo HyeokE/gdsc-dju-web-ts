@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const Title = styled(motion.h1)`
-  font-size: ${(props) => props.theme.fontSize.h1};
-  font-weight: 600;
+  font-size: ${(props) => props.theme.fontSize.h2};
+  font-weight: 800;
   color: ${(props) => props.theme.colors.grey800};
   word-break: keep-all;
   margin-bottom: 10px;
@@ -25,7 +25,7 @@ export const SubTitle = styled(motion.h2)`
 `;
 export const SubCategory = styled(motion.p)`
   font-size: 1.7rem;
-  font-weight: 500;
+  font-weight: 700;
   color: ${(props) => props.theme.colors.grey800};
   margin-bottom: 10px;
   @media (max-width: 500px) {

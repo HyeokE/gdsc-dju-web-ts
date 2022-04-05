@@ -24,7 +24,6 @@ import DownArrow from '../../assets/DownArrow';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../store/recruitHandler';
 import SectionIntroduce from '../../components/Home/SectionIntroduce';
-import HomeBackground from '../../components/Home/HomeBackground';
 import SectionTimeLine from '../../components/Home/SectionTimeLine';
 import SectionManager from '../../components/Home/SectionManager';
 import SectionGoal from '../../components/Home/SectionGoal';
@@ -97,7 +96,9 @@ const Home = () => {
       <SectionIntroduce />
       <TopMargin />
       <SectionGoal />
+      <TopMargin />
       <SectionTimeLine />
+      <TopMargin />
       <SectionManager />
     </div>
   );

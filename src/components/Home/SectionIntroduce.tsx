@@ -27,6 +27,7 @@ const ContentWrapper = styled.div`
   word-break: keep-all;
   @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
     width: 250px;
+    margin-top: 2rem;
   }
 `;
 const ContentTitle = styled.span`

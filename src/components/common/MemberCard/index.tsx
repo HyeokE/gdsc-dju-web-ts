@@ -31,10 +31,12 @@ const MemberCardImage = styled(motion.div)<{
   -webkit-background-size: cover;
   background-size: cover;
   border-radius: 16px;
+  transition: all 0.2s ease-in-out;
   ${({ isClicked }) =>
     isClicked &&
     css`
       -webkit-filter: blur(10px);
+      filter: gray(10%);
     `}
 `;
 const Position = styled(motion.p)`
@@ -116,7 +118,7 @@ const MemberCard = (props: { image: string; id: number }) => {
             <MemberCardInner layoutId={`member-card-inner-${id}`}>
               <MemberCardImage
                 image={image}
-                isClicked={true}
+                isClicked={isClicked}
                 layoutId={`member-background-${id}`}
               />
               <Position

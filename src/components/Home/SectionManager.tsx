@@ -16,6 +16,9 @@ const ManagerTitle = styled.span`
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+  font-size: ${({ theme }) => theme.fontSize.h3};
+}
 `;
 const ManagerSubTitle = styled.div`
   margin-bottom: 42px;
@@ -29,6 +32,9 @@ const ManagerSubTitle = styled.div`
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    font-size: ${({ theme }) => theme.fontSize.body1};
+  }
 `;
 const MemberCardSection = styled.section`
   display: flex;
@@ -40,13 +46,20 @@ const MemberCardWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 30px;
+  @media (max-width: ${({ theme }) => theme.windowSize.desk}px) {
+    width: 50%;
+  }
+  @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
+    width: 100%;
+  }
 `;
 
 const SectionManager = () => {
   return (
     <HomeSectionContainer>
       <ManagerTitle>Management</ManagerTitle>
-      <ManagerSubTitle>운영진을 소개합니다.</ManagerSubTitle>
+      <ManagerSubTitle>GDSC Daejin의 운영진을 소개합니다</ManagerSubTitle>
       <MemberCardSection>
         <MemberCardWrapper>
           <MemberCard image={jason} id={1} />

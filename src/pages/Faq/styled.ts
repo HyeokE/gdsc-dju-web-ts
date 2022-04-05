@@ -9,7 +9,7 @@ export const QuestionWrapper = styled(motion.a)`
   color: ${(props) => props.theme.colors.grey700};
   flex-direction: column;
   border-radius: 10px;
-  font-size: ${({ theme }) => theme.fontSize.h5};
+  font-size: ${({ theme }) => theme.fontSize.h6};
   @media (max-width: 500px) {
     font-size: 1.5rem;
   }
@@ -27,7 +27,7 @@ export const AnswerWrapper = styled(motion.div)`
   font-size: ${({ theme }) => theme.fontSize.body1};
 `;
 export const QuestionBr = styled.div`
-  border-top: 3px solid ${({ theme }) => theme.colors.grey800};
+  border-top: 1px solid ${({ theme }) => theme.colors.grey200};
 `;
 export const QuestionMark = styled.div`
   height: 100%;
@@ -36,7 +36,7 @@ export const QuestionMark = styled.div`
     height: 100%;
     margin-right: 16px;
     margin-bottom: 2px;
-    font-weight: 700;
+    font-weight: 600;
     color: ${(props) => props.theme.colors.grey700};
     content: 'Q';
   }
