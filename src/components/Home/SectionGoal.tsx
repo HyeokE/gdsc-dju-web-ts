@@ -65,6 +65,7 @@ const SectionGoal = () => {
         variants={missionAnimation}
         initial={'hidden'}
         whileInView={'visible'}
+        viewport={{ once: true }}
       >
         <MissionTitle>Our Mission</MissionTitle>
         <MissionContent>

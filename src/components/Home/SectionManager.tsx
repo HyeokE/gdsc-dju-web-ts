@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { HomeSectionContainer } from './styled';
 import MemberCard from '../common/MemberCard';
 import jason from '../../assets/managerProfile/jason.jpeg';
+import { motion } from 'framer-motion';
 
-const ManagerTitle = styled.span`
+const ManagerTitle = styled(motion.span)`
   margin-bottom: 13px;
   font-size: ${({ theme }) => theme.fontSize.h1};
   font-style: normal;
@@ -20,7 +21,7 @@ const ManagerTitle = styled.span`
   font-size: ${({ theme }) => theme.fontSize.h3};
 }
 `;
-const ManagerSubTitle = styled.div`
+const ManagerSubTitle = styled(motion.div)`
   margin-bottom: 42px;
   font-size: ${({ theme }) => theme.fontSize.h5};
   font-style: normal;
@@ -36,7 +37,7 @@ const ManagerSubTitle = styled.div`
     font-size: ${({ theme }) => theme.fontSize.body1};
   }
 `;
-const MemberCardSection = styled.section`
+const MemberCardSection = styled(motion.section)`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -54,13 +55,47 @@ const MemberCardWrapper = styled.div`
     width: 100%;
   }
 `;
-
+const SectionAnimation = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.5,
+      duration: 1,
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
+    },
+  },
+};
 const SectionManager = () => {
   return (
     <HomeSectionContainer>
-      <ManagerTitle>Management</ManagerTitle>
-      <ManagerSubTitle>GDSC Daejin의 운영진을 소개합니다</ManagerSubTitle>
-      <MemberCardSection>
+      <ManagerTitle
+        variants={SectionAnimation}
+        initial={'hidden'}
+        whileInView={'visible'}
+        viewport={{ once: true }}
+      >
+        Management
+      </ManagerTitle>
+      <ManagerSubTitle
+        variants={SectionAnimation}
+        initial={'hidden'}
+        whileInView={'visible'}
+        viewport={{ once: true }}
+      >
+        GDSC Daejin의 운영진을 소개합니다
+      </ManagerSubTitle>
+      <MemberCardSection
+        variants={SectionAnimation}
+        initial={'hidden'}
+        whileInView={'visible'}
+        viewport={{ once: true }}
+      >
         <MemberCardWrapper>
           <MemberCard image={jason} id={1} />
         </MemberCardWrapper>

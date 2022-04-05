@@ -28,13 +28,23 @@ import SectionTimeLine from '../../components/Home/SectionTimeLine';
 import SectionManager from '../../components/Home/SectionManager';
 import SectionGoal from '../../components/Home/SectionGoal';
 import { TopMargin } from '../../styles/layouts';
+import styled from 'styled-components';
+
+const HomeContainer = styled.div`
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+    display: none;
+  }
+`;
 
 const Home = () => {
   const [recruit] = useRecoilState(recruitmentState);
   const banner = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLDivElement>(null);
   return (
-    <div ref={ref}>
+    <HomeContainer ref={ref}>
       <HomeWrapper
         variants={homeBannerAnimate}
         initial={'start'}
@@ -100,7 +110,7 @@ const Home = () => {
       <SectionTimeLine />
       <TopMargin />
       <SectionManager />
-    </div>
+    </HomeContainer>
   );
 };
 export default Home;

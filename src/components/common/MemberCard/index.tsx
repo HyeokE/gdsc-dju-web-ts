@@ -35,8 +35,7 @@ const MemberCardImage = styled(motion.div)<{
   ${({ isClicked }) =>
     isClicked &&
     css`
-      -webkit-filter: blur(10px);
-      filter: gray(10%);
+      -webkit-filter: blur(10px) brightness(0.7);
     `}
 `;
 const Position = styled(motion.p)`
