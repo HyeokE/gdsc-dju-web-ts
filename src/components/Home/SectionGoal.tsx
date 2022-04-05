@@ -1,18 +1,16 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
 import { HomeSectionContainer } from './styled';
 
-const MissionWrapper = styled.div`
-  position: absolute;
-  right: 0;
-  left: 0;
-  width: 788px;
-  height: 406px;
-  padding: 60px 92px;
+const MissionWrapper = styled(motion.div)`
+  position: relative;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 70px 60px;
   margin: 0 auto;
   text-align: center;
-  background: rgba(26, 30, 36, 0.65);
-  border-radius: 16px;
+  background: ${({ theme }) => theme.colors.grey600};
   -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px);
 `;
@@ -24,13 +22,15 @@ const MissionTitle = styled.span`
   font-weight: normal;
   font-stretch: normal;
   line-height: 43.5px;
-  color: ${({ theme }) => theme.colors.blue400};
+  color: ${({ theme }) => theme.colors.grey400};
   letter-spacing: normal;
   word-break: keep-all;
   -webkit-font-smoothing: subpixel-antialiased;
 `;
-const MissionContent = styled.span`
+
+const MissionContent = styled.div`
   font-size: ${({ theme }) => theme.fontSize.h4};
+  margin-bottom: 10px;
   font-style: normal;
   font-weight: bold;
   font-stretch: normal;
@@ -41,16 +41,35 @@ const MissionContent = styled.span`
   -webkit-font-smoothing: subpixel-antialiased;
 `;
 
+const missionAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 const SectionGoal = () => {
   return (
-    <HomeSectionContainer>
-      <MissionWrapper>
-        <MissionContent>
-          Impact students and empower them to impact their communities through
-          technology.
-        </MissionContent>
-      </MissionWrapper>
-    </HomeSectionContainer>
+    <MissionWrapper
+      variants={missionAnimation}
+      initial={'hidden'}
+      whileInView={'visible'}
+    >
+      <MissionTitle>Our Mission</MissionTitle>
+
+      <MissionContent>
+        주변 환경이나 여러 학생 개발자들에게 좋은 영향을 줄 수 있는 커뮤니티가
+        되는 것
+      </MissionContent>
+      <MissionContent>
+        Impact students and empower them to impact their communities through
+        technology.
+      </MissionContent>
+    </MissionWrapper>
   );
 };
 

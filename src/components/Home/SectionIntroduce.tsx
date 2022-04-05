@@ -47,7 +47,7 @@ const ContentText = styled.span`
 `;
 const SectionWrapper = styled(motion.div)`
   max-width: 960px;
-  //padding: 0 15rem;
+  padding: 0 5rem;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
