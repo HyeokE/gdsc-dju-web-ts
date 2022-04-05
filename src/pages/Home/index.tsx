@@ -23,14 +23,18 @@ import {
 import DownArrow from '../../img/DownArrow';
 import { useRecoilState } from 'recoil';
 import { recruitmentState } from '../../store/recruitHandler';
-import SectionIntroduce from '../../components/pageSections/Section-Introduce';
-import CircleSvgMotion from '../../components/common/CircleSvgMotion';
+import SectionIntroduce from '../../components/Home/SectionIntroduce';
+import HomeBackground from '../../components/Home/HomeBackground';
+import SectionTimeLine from '../../components/Home/SectionTimeLine';
+import SectionManager from '../../components/Home/SectionManager';
+import SectionGoal from '../../components/Home/SectionGoal';
 
 const Home = () => {
   const [recruit] = useRecoilState(recruitmentState);
   const banner = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   return (
-    <>
+    <div ref={ref}>
       <HomeWrapper
         variants={homeBannerAnimate}
         initial={'start'}
@@ -90,8 +94,10 @@ const Home = () => {
         </DownArrowWrapper>
       </HomeWrapper>
       <SectionIntroduce />
-      <CircleSvgMotion />
-    </>
+      <SectionGoal />
+      <SectionTimeLine />
+      <SectionManager />
+    </div>
   );
 };
 export default Home;
