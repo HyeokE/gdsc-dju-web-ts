@@ -1,13 +1,15 @@
 import React, { Suspense } from 'react';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router';
 import GoogleSpinner from '../components/Lottie/GoogleSpinner';
 
-import Admin from '../pages/Admin';
-import Pages from '../pages';
-import OnBoard from '../pages/OnBoard';
-import Auth from '../pages/Auth';
 import { ErrorBoundary } from 'react-error-boundary';
 import Error from '../pages/Error';
+
+const Pages = lazy(() => import('../pages'));
+const Admin = lazy(() => import('../pages/Admin'));
+const OnBoard = lazy(() => import('../pages/OnBoard'));
+const Auth = lazy(() => import('../pages/Auth'));
 
 const Layout = () => {
   return (
