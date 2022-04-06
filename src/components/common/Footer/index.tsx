@@ -17,29 +17,14 @@ export const Footer = () => {
   return (
     <FooterWrapper className={locate === '/onboarding' ? 'none' : ''}>
       <FooterLogo>
-        <FooterText
-          google={true}
-          onClick={() => {
-            window.open('https://developers.google.com/');
-          }}
-        >
+        <FooterText google={true} href={'https://developers.google.com/'}>
           Google
         </FooterText>
 
-        <FooterText
-          onClick={() => {
-            window.open('https://developers.google.com/community-guidelines');
-          }}
-        >
+        <FooterText href={'https://developers.google.com/community-guidelines'}>
           Community guidelines
         </FooterText>
-        <FooterText
-          onClick={() => {
-            navigate('/faq');
-          }}
-        >
-          FAQ
-        </FooterText>
+        <FooterText href={'/faq'}>FAQ</FooterText>
       </FooterLogo>
       <FooterCopyRight>{'Copyright © '}GDSC Daejin 2021</FooterCopyRight>
     </FooterWrapper>
