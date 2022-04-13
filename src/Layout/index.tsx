@@ -19,7 +19,7 @@ const Layout = () => {
           <Routes>
             <Route path={'/*'} element={<Pages />} />
             <Route path={'/admin/*'} element={<Admin />} />
-            <Route path={'/onboard/*'} element={<OnBoard />} />
+            {/*<Route path={'/onboard/*'} element={<OnBoard />} />*/}
             <Route path={'/auth/*'} element={<Auth />} />
             <Route path={'/error'} element={<Error />} />
           </Routes>

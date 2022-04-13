@@ -22,6 +22,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-error-boundary": "^3.1.4",
+    "react-loading-skeleton": "^3.1.0",
     "react-rainbow-components": "^1.29.0",
     "react-router": "^6.0.1",
     "react-router-dom": "^6.0.1",
@@ -62,8 +63,8 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
-    "eslint-config-airbnb": "^19.0.4",
     "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",

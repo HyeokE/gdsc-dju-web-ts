@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import {
   BannerWrapper,
   CardList,
@@ -62,7 +62,9 @@ const Introduce = () => {
                       setSelectedData(memberInfo);
                     }}
                   >
-                    <MemberCard {...memberInfo} id={id + 1} />
+                    <Suspense fallback={}>
+                      <MemberCard {...memberInfo} id={id + 1} />
+                    </Suspense>
                   </MemberCardWrapper>
                 </AnimatePresence>
               ))}
