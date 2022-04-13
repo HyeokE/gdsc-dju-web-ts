@@ -56,6 +56,7 @@ const RecruitForm = () => {
     link0: '',
     link1: '',
     fileURL: '',
+    recommender: '없음',
   };
   const recruitFormik = useFormik({
     initialValues: recruitItem,
@@ -289,6 +290,16 @@ const RecruitForm = () => {
                     업로드 후 공유링크를 입력해주세요.
                   </FormText>
                 </div>
+                <FormMarginXS />
+                <FormLabel>추천인</FormLabel>
+                <TextInput
+                  placeholder={'GDSC에 추천인이 있다면 입력해주세요.'}
+                  name={'recommender'}
+                  value={recruitFormik.values.recommender}
+                  onChange={recruitFormik.handleChange}
+                  touched={recruitFormik.touched.recommender}
+                  error={recruitFormik.errors.recommender}
+                />
                 <FormMargin />
                 <FormSubmitButton
                   onClick={() => {
