@@ -13,7 +13,7 @@ import {
   RecruitFormWrapper,
 } from './styled';
 import TextInput from '../../../components/common/input/TextInput';
-import { useNavigate, useParams } from 'react-router-dom';
+import { createSearchParams, useNavigate, useParams } from 'react-router-dom';
 import { positionSelect } from './FormFunctions';
 import {
   getDownloadURL,
@@ -38,9 +38,13 @@ const RecruitForm = () => {
   const [loading, setLoading] = useRecoilState(loaderState);
   const [modal, setModal] = useRecoilState(modalState);
   const [uploadProgress, setUploadProgress] = useState(0);
-
   const input = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+
+  const calculateProgress = (progress: number, total: number) => {
+    return Math.round((progress / total) * 100);
+  };
+
   const recruitItem = {
     uploadDate: new Date(),
     name: '',
@@ -91,9 +95,6 @@ const RecruitForm = () => {
       return file;
     }
   };
-  const calculateProgress = (progress: number, total: number) => {
-    return Math.round((progress / total) * 100);
-  };
 
   const uploadFiles = async (data: HTMLInputElement) => {
     try {
@@ -111,9 +112,10 @@ const RecruitForm = () => {
 
         await uploadApplicantFile(storageRef, file, recruitFormik.values);
         setLoading({ ...loading, load: false });
-        navigate(
-          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}&email=${recruitFormik.values.email}&phone=${recruitFormik.values.phoneNumber}`,
-        );
+        navigate({
+          pathname: '/recruit/apply-success',
+          search: `?${createSearchParams(params)}`,
+        });
       }
     } catch (e) {
       console.log(e);
@@ -135,6 +137,12 @@ const RecruitForm = () => {
     recruitFormik.values.link0.length > 0 &&
     input.current?.files
   );
+  const params = {
+    username: recruitFormik.values.name,
+    position: position,
+    email: recruitFormik.values.email,
+    phone: recruitFormik.values.phoneNumber,
+  };
   const applyValidation = !(recruitFormik.isValid && requiredSchema);
   useLayoutEffect(() => {
     setPosition(positionSelect[id as keyof typeof positionSelect]);

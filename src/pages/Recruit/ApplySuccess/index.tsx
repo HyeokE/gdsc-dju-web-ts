@@ -7,17 +7,16 @@ import {
   RecruitFormInner,
   RecruitFormWrapper,
 } from '../RecruitForm/styled';
-import { ApplyMargin, ApplyTitle, CheckLottieWrapper } from './styled';
-import CheckLottie from '../../../components/Lottie/CheckLottie';
+import { ApplyMargin, ApplyTitle } from './styled';
 import ApplySuccessCard from '../../../components/common/ApplySuccessCard';
 
 const ApplySuccess = () => {
   const [searchParams] = useSearchParams();
   const username = searchParams.get('username');
   const position = searchParams.get('position');
-  // console.log(searchParams);
+
   const params = Object.fromEntries(new URLSearchParams(location.search));
-  console.log(params);
+
   return (
     <>
       <LayoutContainer>

@@ -23,6 +23,18 @@ interface Props {
   phoneNumber: string;
   onClick: () => void;
 }
+const variants = {
+  active: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+  },
+  unActive: {
+    opacity: 0,
+    scale: 0,
+    y: 200,
+  },
+};
 const ApplyModal: React.FC<Props> = ({
   name,
   position,
@@ -30,18 +42,6 @@ const ApplyModal: React.FC<Props> = ({
   phoneNumber,
   onClick,
 }) => {
-  const variants = {
-    active: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-    },
-    unActive: {
-      opacity: 0,
-      scale: 0,
-      y: 200,
-    },
-  };
   const [modal, setModal] = useRecoilState(modalState);
   return (
     <AnimatePresence>
