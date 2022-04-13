@@ -23,6 +23,7 @@ import { memberList } from '../../api/pageData/MemberList';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { memberDataType } from '../../types/member';
+import Skeleton from 'react-loading-skeleton';
 
 const Introduce = () => {
   const [selectedId, setSelectedId] = useState<number | undefined>(undefined);
@@ -62,7 +63,7 @@ const Introduce = () => {
                       setSelectedData(memberInfo);
                     }}
                   >
-                    <Suspense fallback={}>
+                    <Suspense fallback={<Skeleton />}>
                       <MemberCard {...memberInfo} id={id + 1} />
                     </Suspense>
                   </MemberCardWrapper>

@@ -5,25 +5,21 @@ import GoogleSpinner from '../components/Lottie/GoogleSpinner';
 
 import { ErrorBoundary } from 'react-error-boundary';
 import Error from '../pages/Error';
-
-const Pages = lazy(() => import('../pages'));
-const Admin = lazy(() => import('../pages/Admin'));
-const OnBoard = lazy(() => import('../pages/OnBoard'));
-const Auth = lazy(() => import('../pages/Auth'));
+import Pages from '../pages';
+import Auth from '../pages/Auth';
+import Admin from '../pages/Admin';
 
 const Layout = () => {
   return (
     <>
       <ErrorBoundary FallbackComponent={Error}>
-        <Suspense fallback={<GoogleSpinner />}>
-          <Routes>
-            <Route path={'/*'} element={<Pages />} />
-            <Route path={'/admin/*'} element={<Admin />} />
-            {/*<Route path={'/onboard/*'} element={<OnBoard />} />*/}
-            <Route path={'/auth/*'} element={<Auth />} />
-            <Route path={'/error'} element={<Error />} />
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path={'/*'} element={<Pages />} />
+          <Route path={'/admin/*'} element={<Admin />} />
+          {/*<Route path={'/onboard/*'} element={<OnBoard />} />*/}
+          <Route path={'/auth/*'} element={<Auth />} />
+          <Route path={'/error'} element={<Error />} />
+        </Routes>
       </ErrorBoundary>
     </>
   );

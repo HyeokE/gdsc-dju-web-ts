@@ -14,5 +14,6 @@ export const ErrorContentWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 500px;
   top: 200px;
 `;
