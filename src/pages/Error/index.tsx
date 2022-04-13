@@ -1,11 +1,17 @@
 import React from 'react';
+import { MainText, Title } from '../../components/common/Title/title';
+import { ErrorContainer, ErrorContentWrapper } from './styled';
+import ErrorLottie from '../../components/Lottie/ErrorLottie';
 
-const Error = ({ error }: { error: Error }) => {
+const Error = ({ error }: { error?: Error }) => {
   return (
-    <div>
-      something went wrong
-      <div>{error.message}</div>
-    </div>
+    <ErrorContainer>
+      <ErrorContentWrapper>
+        <Title>어딘가 문제가 생겼어요</Title>
+        <MainText>{error?.message}</MainText>
+      </ErrorContentWrapper>
+      <ErrorLottie />
+    </ErrorContainer>
   );
 };
 

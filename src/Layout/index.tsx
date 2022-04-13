@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router';
 import GoogleSpinner from '../components/Lottie/GoogleSpinner';
@@ -17,10 +17,11 @@ const Layout = () => {
       <ErrorBoundary FallbackComponent={Error}>
         <Suspense fallback={<GoogleSpinner />}>
           <Routes>
-            <Route path={'/*'} element={<Pages />} />
+            <Route path={'/'} element={<Pages />} />
             <Route path={'/admin/*'} element={<Admin />} />
             <Route path={'/onboard/*'} element={<OnBoard />} />
             <Route path={'/auth/*'} element={<Auth />} />
+            <Route path={'*'} element={<Error />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
