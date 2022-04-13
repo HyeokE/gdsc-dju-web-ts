@@ -21,7 +21,7 @@ const Layout = () => {
             <Route path={'/admin/*'} element={<Admin />} />
             <Route path={'/onboard/*'} element={<OnBoard />} />
             <Route path={'/auth/*'} element={<Auth />} />
-            <Route path={'*'} element={<Error />} />
+            <Route path={'/error'} element={<Error />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
