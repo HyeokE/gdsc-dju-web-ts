@@ -18,6 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       {loading.load && <GoogleSpinner background={true} />}
+
       <AnimatePresence>{alert.alertHandle && <Alert />}</AnimatePresence>
       <Navigation />
       <Layout />

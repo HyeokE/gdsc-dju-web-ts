@@ -69,16 +69,12 @@ const SectionWrapper = styled(motion.div)`
 const SectionAnimation = {
   hidden: {
     opacity: 0,
-    y: 100,
   },
   visible: {
     opacity: 1,
-    y: 0,
+
     transition: {
-      delay: 0.5,
       duration: 1,
-      staggerChildren: 0.07,
-      delayChildren: 0.2,
     },
   },
 };
