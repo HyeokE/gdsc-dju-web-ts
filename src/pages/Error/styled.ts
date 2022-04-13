@@ -14,6 +14,8 @@ export const ErrorContentWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 500px;
   top: 200px;
+  max-width: 500px;
+  min-width: 370px;
+  padding: 0 20px;
 `;

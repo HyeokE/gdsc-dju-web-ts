@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import {
   BannerWrapper,
   CardList,
@@ -8,11 +8,7 @@ import {
 } from '../../styles/layouts';
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper } from './styled';
-import {
-  MainText,
-  SubCategory,
-  Title,
-} from '../../components/common/Title/title';
+import { MainText, Title } from '../../components/common/Title/title';
 import {
   listAnimate,
   memberCardAnimate,
@@ -23,7 +19,6 @@ import { memberList } from '../../api/pageData/MemberList';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { memberDataType } from '../../types/member';
-import Skeleton from 'react-loading-skeleton';
 
 const Introduce = () => {
   const [selectedId, setSelectedId] = useState<number | undefined>(undefined);
@@ -63,9 +58,7 @@ const Introduce = () => {
                       setSelectedData(memberInfo);
                     }}
                   >
-                    <Suspense fallback={<Skeleton />}>
-                      <MemberCard {...memberInfo} id={id + 1} />
-                    </Suspense>
+                    <MemberCard {...memberInfo} id={id + 1} />
                   </MemberCardWrapper>
                 </AnimatePresence>
               ))}
