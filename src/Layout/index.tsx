@@ -17,7 +17,7 @@ const Layout = () => {
       <ErrorBoundary FallbackComponent={Error}>
         <Suspense fallback={<GoogleSpinner />}>
           <Routes>
-            <Route path={'/'} element={<Pages />} />
+            <Route path={'/*'} element={<Pages />} />
             <Route path={'/admin/*'} element={<Admin />} />
             <Route path={'/onboard/*'} element={<OnBoard />} />
             <Route path={'/auth/*'} element={<Auth />} />
