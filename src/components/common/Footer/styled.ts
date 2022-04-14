@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Footer = styled.footer`
   display: flex;
@@ -11,43 +11,54 @@ export const Footer = styled.footer`
 
 export const FooterContent = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1140px;
-  padding: 10px 0px;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
 `;
 
-export const FooterTitle = styled.p`
-  font-size: 14px;
-  font-weight: bold;
+export const FooterText = styled.a<{ google?: boolean }>`
+  font-size: ${(props) => props.theme.fontSize.body2};
+  font-weight: 600;
+  margin-right: 20px;
+  color: ${(props) => props.theme.colors.grey600};
+  cursor: pointer;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    margin-top: 10px;
+  }
+  ${(props) =>
+    props.google &&
+    css`
+      font-size: ${(props) => props.theme.fontSize.h7};
+      font-weight: 700;
+      color: ${(props) => props.theme.colors.grey700};
+    `}
 `;
 
-export const FooterSubTitle = styled.span`
+export const FooterCopyRight = styled.span`
   display: inline-block;
-  margin-top: 8px;
-  font-size: 13px;
+  font-size: ${(props) => props.theme.fontSize.body3};
+  color: ${(props) => props.theme.colors.grey600};
 `;
 export const FooterWrapper = styled.footer`
   display: flex;
   bottom: 0;
-  padding: 20px 30px;
-  justify-content: center;
-  background: #f9fafb;
+  padding: 30px 40px;
+  justify-content: space-between;
+  align-items: flex-end;
 `;
-export const FooterLogo = styled.img`
-  height: 25px;
-
-  padding-right: 5px;
-  @media (max-width: 500px) {
-    height: 20px;
+export const FooterLogo = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 `;
 export const FooterLogoWrapper = styled.div`
-  margin: 20px 0;
-  &:nth-child(2) {
-    margin-top: 0px;
-  }
+  margin-right: 20px;
 `;
 export const FooterGDSCLogo = styled.img`
   height: 30px;

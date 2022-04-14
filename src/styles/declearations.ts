@@ -6,7 +6,7 @@ import { windowSize } from './windowSize';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    color: typeof colors;
+    colors: typeof colors;
     windowSize: typeof windowSize;
     fontSize: typeof fontSize;
   }

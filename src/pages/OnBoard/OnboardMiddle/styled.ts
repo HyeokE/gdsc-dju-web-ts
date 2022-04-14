@@ -1,13 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import {
-  withFormik,
-  FormikProps,
-  FormikErrors,
-  Form,
-  Field,
-  ErrorMessage,
-} from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
 export const OnboardingBackArrow = styled.img`
   height: 30px;
@@ -47,7 +40,7 @@ export const OnboardingDescription = styled(motion.div)`
   margin-top: 15px;
   font-size: 20px;
   font-family: 'Gothic A1', sans-serif;
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
 `;
 
 export const OnboardingInputWrapper = styled(motion.div)``;
@@ -65,9 +58,9 @@ export const OnboardingInput = styled(Field)`
   padding-bottom: 24px;
   border-width: 0px;
   border-bottom-width: 5px;
-  border-color: ${(props) => props.color};
-  caret-color: ${(props) => props.color};
-  color: ${(props) => props.color};
+  border-color: ${(props) => props.colors};
+  caret-color: ${(props) => props.colors};
+  color: ${(props) => props.colors};
   width: 700px;
   ::placeholder {
     color: black;
@@ -89,7 +82,6 @@ export const OnboardingMiddleButton = styled(motion.button)`
   font-weight: bold;
   font-family: 'Gothic A1', sans-serif;
   cursor: pointer;
-  background: ${(props) => props.color};
 `;
 export const OnboardingMiddleImage = styled(motion.img)`
   height: auto;

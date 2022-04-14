@@ -1,6 +1,6 @@
 export const memberList = [
   {
-    nickName: 'Jason',
+    nickname: 'Jason',
     name: '정준혁',
     role: 'Lead',
     memberImg:
@@ -9,7 +9,7 @@ export const memberList = [
     position: 'Frontend',
   },
   {
-    nickName: 'Harry',
+    nickname: 'Harry',
     name: '박현기',
     role: 'Core Member',
     memberImg:
@@ -18,7 +18,7 @@ export const memberList = [
     position: 'Android',
   },
   {
-    nickName: 'Want',
+    nickname: 'Want',
     name: '정소연',
     role: 'Core Member',
     memberImg:
@@ -27,7 +27,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Blaire	',
+    nickname: 'Blaire	',
     name: '이소희',
     role: 'Core Member',
     memberImg:
@@ -36,7 +36,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Samjong',
+    nickname: 'Samjong',
     name: '김지훈',
     role: 'Member',
     memberImg:
@@ -45,7 +45,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Rocoli',
+    nickname: 'Rocoli',
     name: '유형찬',
     role: 'Member',
     memberImg:
@@ -54,7 +54,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Reese',
+    nickname: 'Reese',
     name: '안주원',
     role: 'Member',
     memberImg:
@@ -63,7 +63,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Lulu',
+    nickname: 'Lulu',
     name: '김수진',
     role: 'Member',
     memberImg:
@@ -72,7 +72,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Jade	',
+    nickname: 'Jade	',
     name: '서정우',
     role: 'Member',
     memberImg:
@@ -81,7 +81,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Gabi	',
+    nickname: 'Gabi	',
     name: '신동석',
     role: 'Member',
     memberImg:
@@ -91,7 +91,7 @@ export const memberList = [
   },
 
   {
-    nickName: 'Toby	',
+    nickname: 'Toby	',
     name: '황지영',
     role: 'Member',
     memberImg:
@@ -100,7 +100,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Jimmy',
+    nickname: 'Jimmy',
     name: '강지명',
     role: 'Member',
     memberImg:
@@ -110,7 +110,7 @@ export const memberList = [
   },
 
   {
-    nickName: 'Pascal',
+    nickname: 'Pascal',
     name: '임종수',
     role: 'Member',
     memberImg:
@@ -119,7 +119,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Lala	',
+    nickname: 'Lala	',
     name: '라허운',
     role: 'Member',
     memberImg:
@@ -128,7 +128,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Lucy	',
+    nickname: 'Lucy	',
     name: '박진혜',
     role: 'Member',
     memberImg:
@@ -137,7 +137,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Marine	',
+    nickname: 'Marine	',
     name: '권승민',
     role: 'Member',
     memberImg:
@@ -146,7 +146,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Panda	',
+    nickname: 'Panda	',
     name: '강민호',
     role: 'Member',
     memberImg:
@@ -155,7 +155,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Peony	',
+    nickname: 'Peony	',
     name: '정명주',
     role: 'Member',
     memberImg:
@@ -164,7 +164,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Chois',
+    nickname: 'Chois',
     name: '최병주',
     role: 'Member',
     memberImg:
@@ -173,7 +173,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Chaz',
+    nickname: 'Chaz',
     name: '문희리',
     role: 'Member',
     memberImg:
@@ -182,7 +182,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Jim',
+    nickname: 'Jim',
     name: '전병선',
     role: 'Member',
     memberImg:
@@ -191,7 +191,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Purang',
+    nickname: 'Purang',
     name: '손민성',
     role: 'Member',
     memberImg:
@@ -200,7 +200,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Hazel	',
+    nickname: 'Hazel	',
     name: '박해주',
     role: 'Member',
     memberImg:
@@ -209,7 +209,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Cindy',
+    nickname: 'Cindy',
     name: '박수현',
     role: 'Member',
     memberImg:
@@ -218,7 +218,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Gunzo',
+    nickname: 'Gunzo',
     name: '권소윤',
     role: 'Member',
     memberImg:
@@ -227,7 +227,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Winnie',
+    nickname: 'Winnie',
     name: '유미소',
     role: 'Member',
     memberImg:
@@ -236,7 +236,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Soopeach	',
+    nickname: 'Soopeach	',
     name: '전현수',
     role: 'Member',
     memberImg:
@@ -245,7 +245,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Nox',
+    nickname: 'Nox',
     name: '전상민',
     role: 'Member',
     memberImg:
@@ -254,7 +254,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'DD',
+    nickname: 'DD',
     name: '나도희',
     role: 'Member',
     memberImg:
@@ -263,7 +263,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Ben',
+    nickname: 'Ben',
     name: '신성용',
     role: 'Member',
     memberImg:
@@ -272,7 +272,7 @@ export const memberList = [
     position: 'none',
   },
   {
-    nickName: 'Jay',
+    nickname: 'Jay',
     name: '안정은',
     role: 'Member',
     memberImg:

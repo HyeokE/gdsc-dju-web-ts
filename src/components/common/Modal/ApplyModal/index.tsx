@@ -2,6 +2,7 @@ import React from 'react';
 import {
   ApplyButtonWrapper,
   ApplyModalButtonWrapper,
+  ApplyModalContentWrapper,
   ApplyModalInner,
   ApplyModalInnerWrapper,
   ApplyModalP,
@@ -22,6 +23,18 @@ interface Props {
   phoneNumber: string;
   onClick: () => void;
 }
+const variants = {
+  active: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+  },
+  unActive: {
+    opacity: 0,
+    scale: 0,
+    y: 200,
+  },
+};
 const ApplyModal: React.FC<Props> = ({
   name,
   position,
@@ -29,18 +42,6 @@ const ApplyModal: React.FC<Props> = ({
   phoneNumber,
   onClick,
 }) => {
-  const variants = {
-    active: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-    },
-    unActive: {
-      opacity: 0,
-      scale: 0,
-      y: 200,
-    },
-  };
   const [modal, setModal] = useRecoilState(modalState);
   return (
     <AnimatePresence>
@@ -64,10 +65,22 @@ const ApplyModal: React.FC<Props> = ({
             >
               <ApplyModalInnerWrapper>
                 <ApplyModalTitle>최종 제출 전, 확인해주세요.</ApplyModalTitle>
-                <ApplyModalP>이름: {name}</ApplyModalP>
-                <ApplyModalP>지원 포지션: {position}</ApplyModalP>
-                <ApplyModalP>이메일 주소: {email}</ApplyModalP>
-                <ApplyModalP>전화번호: {phoneNumber}</ApplyModalP>
+                <ApplyModalContentWrapper>
+                  <ApplyModalP>이름</ApplyModalP>
+                  <ApplyModalP>{name}</ApplyModalP>
+                </ApplyModalContentWrapper>
+                <ApplyModalContentWrapper>
+                  <ApplyModalP>지원 포지션</ApplyModalP>
+                  <ApplyModalP>{position}</ApplyModalP>
+                </ApplyModalContentWrapper>
+                <ApplyModalContentWrapper>
+                  <ApplyModalP>이메일 주소</ApplyModalP>
+                  <ApplyModalP>{email}</ApplyModalP>
+                </ApplyModalContentWrapper>
+                <ApplyModalContentWrapper>
+                  <ApplyModalP>전화번호</ApplyModalP>
+                  <ApplyModalP>{phoneNumber}</ApplyModalP>
+                </ApplyModalContentWrapper>
 
                 {/*<BulletList text={'지원서 내용은 제출 후 수정이 불가능해요.'} />*/}
               </ApplyModalInnerWrapper>

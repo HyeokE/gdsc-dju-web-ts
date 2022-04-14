@@ -8,6 +8,7 @@ import {
   UserDataState,
 } from './types';
 import { OnboardingUserState } from '../store/onboardingUser';
+import { memberWarning } from '../types/admin';
 
 export class GDSCApi {
   private API: string;
@@ -25,14 +26,26 @@ export class GDSCApi {
       payload,
     );
   };
-  getRecruitmentInfo = () => {
+  getRecruitStatus = () => {
     return axios.get<getRecruitmentInfoDataType>(
-      `${this.API}/api/support/limit`,
+      `${this.API}/api/admin/v1/support/limit`,
     );
   };
-  putRecruitmentInfo = (payload: recruitmentInfoDataType) => {
+  putRecruitStatus = (payload: recruitmentInfoDataType) => {
     return axios.put<recruitmentInfoDataType>(
-      `${this.API}/api/support/limit/update`,
+      `${this.API}/api/admin/v1/support/limit/update`,
+      payload,
+    );
+  };
+  postMemberWarning = (payload: memberWarning) => {
+    return axios.post<UserDataState>(
+      `${this.API}/api/admin/v1/warning`,
+      payload,
+    );
+  };
+  putMemberRole = (payload: memberWarning) => {
+    return axios.post<UserDataState>(
+      `${this.API}/api/admin/v1/update/role`,
       payload,
     );
   };

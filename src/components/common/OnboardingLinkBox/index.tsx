@@ -6,11 +6,11 @@ import {
   LinkLogo,
   LinkLogoWrapper,
 } from './styled';
-import SlackLogo from '../../../img/onBoardingImg/slack.svg';
+import SlackLogo from '../../../assets/onBoardingImg/slack.svg';
 
-import DiscordLogo from '../../../img/onBoardingImg/discord.svg';
+import DiscordLogo from '../../../assets/onBoardingImg/discord.svg';
 
-import NotionLogo from '../../../img/onBoardingImg/notion.svg';
+import NotionLogo from '../../../assets/onBoardingImg/notion.svg';
 
 import { IProps } from '../../../pages/OnBoard/OnboardLink';
 

@@ -16,19 +16,17 @@ export const OnboardingTopText = styled(motion.div)`
   color: #4e4e4e;
   margin-left: 30px;
   font-weight: normal;
-  font-family: 'Product Sans';
 `;
 export const OnboardingTitle = styled(motion.div)<any>`
   font-size: 65px;
-  font-family: 'Product Sans Bold';
-  color: ${(props) => props.color};
+  font-weight: 700;
+  color: ${(props) => props.colors};
   margin-left: ${(props) => props.marginLeft}px;
 `;
 export const OnboardingSubTitle = styled(motion.div)`
   font-size: 19px;
   font-weight: bold;
   color: #4385f3;
-  font-family: 'Product Sans';
 `;
 export const OnboardingPlaceWrapper = styled(motion.div)`
   margin-top: 19px;
@@ -37,8 +35,7 @@ export const OnboardingPlaceWrapper = styled(motion.div)`
 `;
 export const OnboardingTravel = styled(motion.div)`
   font-size: 31px;
-
-  font-family: 'Product Sans Bold';
+  font-weight: 700;
 `;
 export const OnboardingTravelWrapper = styled(motion.div)`
   display: flex;
@@ -67,7 +64,6 @@ export const OnboardingDetailTitle = styled.div`
   font-weight: bold;
   margin-bottom: 10px;
   opacity: 30%;
-  font-family: 'Product Sans';
 `;
 export const OnboardingDetailText = styled.div`
   font-size: 22px;

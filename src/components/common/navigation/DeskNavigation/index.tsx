@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import GDSCLogoClear from '../../../../img/GDSCLogoClear.svg';
+import GDSCLogo from '../../../../assets/GDSCLogo.svg';
 
 import { useLocation } from 'react-router';
 import './Navigation.css';
@@ -18,19 +18,16 @@ import {
   StyledLogoWrapper,
 } from './styled';
 import DeskNavCategory from '../DeskNavCategory';
+import MobileMenu from '../MobileMenu';
 
 export const navigationData = [
   {
     route: '/introduce',
-    title: '소개',
+    title: 'Introduce',
   },
   {
     route: '/recruit',
-    title: '지원하기',
-  },
-  {
-    route: '/conduct',
-    title: 'Code of Conduct',
+    title: 'Recruiting',
   },
   {
     route: '/faq',
@@ -39,32 +36,40 @@ export const navigationData = [
 ];
 export const Navigation: React.FC = () => {
   const location = useLocation();
+  const checkLocation = location.pathname == ('/' || '/main');
+  const disableNavigation = () => {
+    let result = false;
+    if (location.pathname.includes('auth')) {
+      result = true;
+    }
+    if (location.pathname.includes('admin')) {
+      result = true;
+    }
+    return result;
+  };
 
   return (
-    <NavDesign
-      className={
-        location.pathname == ('/' || '/main') ? 'transparent' : 'white'
-      }
-    >
+    <NavDesign background={checkLocation} disable={disableNavigation()}>
       <NavWrapper>
         <NavInner>
           <NavTaskWrapper>
             <NavTask>
               <StyledLogoWrapper to={'/'}>
-                <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                <StyledImg src={GDSCLogo} alt="GDSC-Chapter-Logo" />
                 <StyledLogo>GDSC </StyledLogo>
                 <SchoolName>Daejin</SchoolName>
                 <SchoolNameUni>Univ.</SchoolNameUni>
               </StyledLogoWrapper>
+              <DeskNavCategory
+                routeStyle={location.pathname}
+                navigationData={navigationData}
+              />
             </NavTask>
           </NavTaskWrapper>
           <MenuToggleIcon />
-          <DeskNavCategory
-            routeStyle={location.pathname}
-            navigationData={navigationData}
-          />
         </NavInner>
       </NavWrapper>
+      <MobileMenu />
     </NavDesign>
   );
 };

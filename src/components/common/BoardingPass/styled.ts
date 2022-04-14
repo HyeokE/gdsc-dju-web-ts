@@ -64,20 +64,17 @@ export const BoardingPassQrWrapper = styled(motion.div)`
   margin-right: 32px;
 `;
 export const BoardingPassGDSC = styled(motion.div)`
-  font-family: 'Product Sans';
   font-size: 10px;
   color: #4385f3;
   font-weight: bold;
 `;
 export const BoardingPassDetailTitle = styled(motion.div)`
-  font-family: 'Product Sans';
   font-weight: bold;
   font-size: 10px;
   margin-top: 23px;
   color: #4385f3;
 `;
 export const BoardingPassDetailWrapper = styled(motion.div)`
-  font-family: 'Product Sans';
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -85,7 +82,6 @@ export const BoardingPassDetailWrapper = styled(motion.div)`
   margin-top: 15px;
 `;
 export const BoardingPassDetailText = styled(motion.div)`
-  font-family: 'Product Sans';
   font-weight: bold;
   font-size: 40px;
 `;
@@ -111,7 +107,6 @@ export const BoardingPassCategory = styled(motion.div)`
 export const BoardingPassCategoryText = styled(motion.div)`
   margin-top: 18px;
   font-size: 30px;
-  font-family: 'Product Sans Bold';
 `;
 export const BoardingTicketWrapper = styled(motion.div)`
   width: 350px;
@@ -144,7 +139,6 @@ export const BoardingPassGDSCLogo = styled.img`
 
 export const BoardingTicketGDSC = styled.div`
   font-size: 10px;
-  font-family: 'Product Sans Bold';
 `;
 export const BoardingTicketTopElementWrapper = styled.div`
   display: flex;
@@ -162,7 +156,6 @@ export const BoardingTicketDetailWrapper = styled.div`
 `;
 export const BoardingTicketDetailText = styled.div`
   font-size: 20px;
-  font-family: 'Product Sans Bold';
 `;
 export const BoardingTicketPlane = styled.img`
   height: 20px;
@@ -190,11 +183,9 @@ export const BoardingTicketCategory = styled.div`
   font-weight: bold;
   color: #f4f6fa;
   opacity: 30%;
-  font-family: 'Product Sans Bold';
   margin-bottom: 15px;
 `;
 export const BoardingTicketCategoryText = styled.div`
   font-size: 20px;
-  font-family: 'Product Sans Bold';
   color: #f4f6fa;
 `;

@@ -85,7 +85,7 @@ const AdminSignUpModal = () => {
           />
         </ModalElementWrapper>
 
-        <ModalElementWrapper style={{ color: '#f44336' }}>
+        <ModalElementWrapper style={{ colors: '#f44336' }}>
           {error}
         </ModalElementWrapper>
         <ModalButtonWrapper>

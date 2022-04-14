@@ -30,10 +30,15 @@ import {
 
 const AdminMember = () => {
   const [memberData, setMemberData] = useState<UserDataState[]>([]);
+  const [adminUser, setAdminUser] = useState([]);
   const [selectMember, setSelectMember] = useState<UserDataState>();
   const [modal, setModal] = useRecoilState(modalState);
 
-  const memberSortHandler = (id: string) => {
+  const memberSort = (
+    memberData: UserDataState[],
+    setMemberData: (data: UserDataState[]) => void,
+    id: string,
+  ) => {
     console.log(memberData);
     switch (id) {
       case 'warning':
@@ -73,6 +78,26 @@ const AdminMember = () => {
         ]);
         return [];
     }
+  };
+
+  const getAdminUsers = async () => {
+    try {
+      await dbService
+        .collection('adminUsers')
+        .get()
+        .then((data) => {
+          const memberList: any = data.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setAdminUser(memberList);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const memberSortHandler = (id: string) => {
+    memberSort(memberData, setMemberData, id);
   };
 
   const getMemberList = async () => {

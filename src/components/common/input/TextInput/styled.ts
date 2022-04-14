@@ -12,20 +12,20 @@ export const StyledInput = styled(Field)<{ disabled?: boolean }>`
   flex-grow: 1;
   background: none;
   font-weight: 400;
-  color: ${(props) => props.theme.color.grey700};
+  color: ${(props) => props.theme.colors.grey700};
   &::placeholder {
-    color: ${(props) => props.theme.color.grey400};
+    color: ${(props) => props.theme.colors.grey400};
     font-weight: 300;
   }
   ${(props) =>
     props.disabled &&
     css`
-      background: ${(props) => props.theme.color.grey100};
-      color: ${(props) => props.theme.color.grey400};
+      background: ${(props) => props.theme.colors.grey100};
+      color: ${(props) => props.theme.colors.grey400};
     `}
 `;
 export const StyledFileInput = styled.div`
-  color: ${(props) => props.theme.color.grey500};
+  color: ${(props) => props.theme.colors.grey500};
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
@@ -50,23 +50,23 @@ export const StyledInputWrapper = styled.div<{
   border: solid 0;
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: inset 0 0 0 1px ${(props) => props.theme.color.grey300};
-
+  box-shadow: inset 0 0 0 1px ${(props) => props.theme.colors.grey300};
+  cursor: pointer;
   &:hover {
-    box-shadow: inset 0 0 0 2px ${(props) => props.theme.color.tossBlue200};
+    box-shadow: inset 0 0 0 2px ${(props) => props.theme.colors.tossBlue200};
     ${(props) =>
       props.error &&
       css`
-        box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed};
+        box-shadow: inset 0 0 0 2px ${props.theme.colors.tossRed};
       `}
   }
   .formInput:focus {
     box-sizing: border-box;
-    box-shadow: inset 0 0 0 2px ${(props) => props.theme.color.tossBlue500};
+    box-shadow: inset 0 0 0 2px ${(props) => props.theme.colors.tossBlue500};
     ${(props) =>
       props.error &&
       css`
-        box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed}!important;
+        box-shadow: inset 0 0 0 2px ${props.theme.colors.tossRed}!important;
       `}
   }
   ${(props) =>
@@ -79,7 +79,7 @@ export const StyledInputWrapper = styled.div<{
   ${(props) =>
     props.error &&
     css`
-      box-shadow: inset 0 0 0 2px ${props.theme.color.tossRed};
+      box-shadow: inset 0 0 0 2px ${props.theme.colors.tossRed};
     `}
   transition: 0.3s;
 `;
@@ -94,7 +94,7 @@ export const ErrorBox = styled.div`
   height: 20px;
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.color.tossRed};
+  color: ${(props) => props.theme.colors.tossRed};
   font-size: ${(props) => props.theme.fontSize.body2};
   padding-left: 5px;
 `;

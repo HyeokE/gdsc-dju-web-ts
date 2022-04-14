@@ -2,19 +2,21 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const HomeWrapper = styled(motion.main)`
-  position: static;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh + 70px);
+  top: -70px;
+  overflow-x: hidden;
 `;
 export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
   width: 220px;
   height: 60px;
   border-radius: 75px;
   border-style: solid;
-  background: ${(props) => props.theme.color.tossBlueActive};
+  background: ${(props) => props.theme.colors.tossBlueActive};
   border-width: 0;
   color: white;
   font-size: 1.6rem;
@@ -22,9 +24,9 @@ export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
   ${(props) =>
     props.disable &&
     `
-    background: ${props.theme.color.tossBlue200};
+    background: ${props.theme.colors.tossBlue200};
     cursor: not-allowed;
-    `}
+    `};
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 180px;
     height: 55px;
@@ -38,7 +40,7 @@ export const StyledRecruitmentButton = styled.button<{ disable?: boolean }>`
 `;
 export const StyledMainBanner = styled(motion.div)`
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -48,9 +50,14 @@ export const StyledMainBanner = styled(motion.div)`
   top: 0;
 `;
 export const BannerTitleWrapper = styled(motion.section)`
-  position: sticky;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
+  align-items: center;
   justify-content: center;
+  width: 80%;
 `;
 export const RecruitingWrapper = styled(motion.div)`
   position: static;
@@ -60,15 +67,6 @@ export const RecruitingWrapper = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    width: 60%;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
-    width: 80%;
-  }
-  @media (max-width: 320px) {
-    width: 80%;
-  }
 `;
 
 export const LeftColorLinesWrapper = styled(motion.div)`
@@ -102,7 +100,7 @@ export const RightColorLinesWrapper = styled(motion.div)`
     right: -100px;
   }
   @media (max-width: 760px) {
-    top: 20px;
+    top: -50px;
   }
 `;
 
@@ -115,7 +113,7 @@ export const MainBannerText = styled(motion.p)`
   align-items: center;
   text-align: center;
   font-size: 1.8rem;
-  color: ${(props) => props.theme.color.grey500};
+  color: ${(props) => props.theme.colors.grey500};
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 1.5rem;
   }
@@ -125,18 +123,9 @@ export const MainBannerText = styled(motion.p)`
 `;
 export const DownArrowWrapper = styled(motion.div)`
   position: absolute;
-  bottom: 30px;
+  bottom: 90px;
   display: flex;
   width: 100vw;
   justify-content: center;
   opacity: 50;
-  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
-    margin-top: 150px;
-  }
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    margin-top: 150px;
-  }
-  @media (max-width: 320px) {
-    margin-top: 70px;
-  }
 `;

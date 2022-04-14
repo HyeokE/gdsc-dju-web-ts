@@ -23,7 +23,7 @@ import {
   StyledLogo,
   StyledLogoWrapper,
 } from '../../common/navigation/DeskNavigation/styled';
-import GDSCLogoClear from '../../../img/GDSCLogoClear.svg';
+import GDSCLogo from '../../../assets/GDSCLogo.svg';
 import AdminUserMenu from '../AdminUserMenu';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -39,9 +39,9 @@ const AdminHome = () => {
   );
 
   const tabs = [
-    { label: 'Home', route: '/admin' },
-    { label: 'Members', route: '/admin/member' },
-    { label: 'Setting', route: '/admin/setting' },
+    { label: '홈', route: '/admin' },
+    { label: '멤버 관리', route: '/admin/member' },
+    { label: '지원자 관리', route: '/admin/recruit' },
   ];
 
   return (
@@ -56,7 +56,7 @@ const AdminHome = () => {
             <NavTaskWrapper>
               <NavTask>
                 <StyledLogoWrapper to={'/admin'}>
-                  <StyledImg src={GDSCLogoClear} alt="GDSC-Chapter-Logo" />
+                  <StyledImg src={GDSCLogo} alt="GDSC-Chapter-Logo" />
                   <StyledLogo>GDSC</StyledLogo>
                   <SchoolName>Daejin </SchoolName>
                   <SchoolNameUni>Admin</SchoolNameUni>
@@ -77,18 +77,17 @@ const AdminHome = () => {
                   setIsOpen={setAdminMenuHandler}
                 />
               </div>
-              {adminUser.nickName.length > 0 && (
+              {adminUser.nickname.length > 0 && (
                 <StyledUserName
                   onClick={() => setAdminMenuHandler(!adminMenuHandler)}
                 >
-                  Hi {adminUser.nickName}
+                  Hi {adminUser.nickname}
                 </StyledUserName>
               )}
             </AdminNavCategoryWrapper>
           </NavInner>
         </NavWrapper>
       </AdminNavigationWrapper>
-      <TopMargin />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import Folder from '../../../../img/Folder';
+import Folder from '../../../../assets/Folder';
 import {
   InputImageWrapper,
   StyledFileInput,
@@ -20,17 +20,17 @@ const FileInput = (props: Iprops, ref: React.RefObject<HTMLInputElement>) => {
   );
 
   return (
-    <StyledInputWrapper error={errorToggle} disabled={!disabled}>
+    <StyledInputWrapper
+      error={errorToggle}
+      disabled={!disabled}
+      onClick={() => {
+        ref.current && ref.current.click();
+      }}
+    >
       <InputImageWrapper>
         <Folder />
       </InputImageWrapper>
-      <StyledFileInput
-        onClick={() => {
-          ref.current?.click();
-        }}
-      >
-        {placeholder}
-      </StyledFileInput>
+      <StyledFileInput>{placeholder}</StyledFileInput>
       <input
         ref={ref}
         type={'file'}

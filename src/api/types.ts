@@ -33,6 +33,7 @@ export type recruitmentInfoDataType = {
   home: boolean;
 };
 export type getRecruitmentInfoDataType = {
+  status: string;
   data: {
     frontend: boolean;
     backend: boolean;

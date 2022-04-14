@@ -12,7 +12,7 @@ import { localUserState } from '../../../../store/localUser';
 
 const AdminSetUserProfile = () => {
   const [name, setName] = useState('');
-  const [nickName, setNickName] = useState('');
+  const [nickname, setNickname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [modal, setModal] = useRecoilState(modalState);
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
@@ -25,13 +25,13 @@ const AdminSetUserProfile = () => {
         .doc(adminUser.uid)
         .set({
           name: name,
-          nickName: nickName,
+          nickname: nickname,
           phoneNumber: phoneNumber,
         })
         .then(() => {
           setAdminUser({
             ...adminUser,
-            nickName: nickName,
+            nickname: nickname,
             name: name,
             phoneNumber: phoneNumber,
           });
@@ -47,8 +47,8 @@ const AdminSetUserProfile = () => {
     } = e;
     if (name === 'name') {
       setName(value);
-    } else if (name === 'nickName') {
-      setNickName(value);
+    } else if (name === 'nickname') {
+      setNickname(value);
     } else if (name === 'phoneNumber') {
       setPhoneNumber(value);
     }
@@ -67,13 +67,13 @@ const AdminSetUserProfile = () => {
         </ModalElementWrapper>
         <ModalElementWrapper>
           닉네임
-          <StyledInput name={'nickName'} onChange={onChange} />
+          <StyledInput name={'nickname'} onChange={onChange} />
         </ModalElementWrapper>
         <ModalElementWrapper>
           전화번호
           <StyledInput name={'phoneNumber'} onChange={onChange} />
         </ModalElementWrapper>
-        <ModalElementWrapper style={{ color: '#f44336' }}>
+        <ModalElementWrapper style={{ colors: '#f44336' }}>
           {/*{error}*/}
         </ModalElementWrapper>
         <ModalButtonWrapper>

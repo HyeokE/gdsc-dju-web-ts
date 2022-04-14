@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ApplyTitle = styled.h1`
   font-size: ${(props) => props.theme.fontSize.h2};
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
   font-weight: 500;
 `;
 export const ApplyMargin = styled.div`

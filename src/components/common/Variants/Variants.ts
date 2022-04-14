@@ -286,7 +286,7 @@ export const QuestionCategoryAnimate = {
   },
   hovered: {
     clipPath: `inset(0% round 1%)`,
-    background: '#f2f4f6',
+    // background: '#f2f4f6',
     transition: {
       duration: 0.3,
     },

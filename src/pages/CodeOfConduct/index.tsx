@@ -10,8 +10,8 @@ import {
   SubCategory,
   Title,
 } from '../../components/common/Title/title';
-import { Banner } from '../../img/Banner/Banner';
-import RedBanner from '../../img/Banner/RedBanner.png';
+import { Banner } from '../../assets/Banner/Banner';
+import RedBanner from '../../assets/Banner/RedBanner.png';
 import { codeOfConduct } from '../../api/pageData/codeOfConduct';
 import BulletList from '../../components/common/BulletList';
 

@@ -45,7 +45,7 @@ export const AuthErrorText = styled.p`
   padding: 0 10px;
   margin-bottom: 10px;
   font-size: 1.4rem;
-  color: ${(props) => props.theme.color.tossRed};
+  color: ${(props) => props.theme.colors.tossRed};
 `;
 export const AuthButtonWrapper = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ export const AuthSignButton = styled.button`
   color: white;
   font-size: 1.6rem;
   font-weight: bold;
-  background: ${(props) => props.theme.color.tossBlueActive};
+  background: ${(props) => props.theme.colors.tossBlueActive};
   &:hover {
     cursor: pointer;
   }
@@ -69,14 +69,14 @@ export const AuthSignButton = styled.button`
 export const AuthTitle = styled.h1`
   font-size: 3.2rem;
   font-weight: bold;
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
 `;
 export const AuthSubTitle = styled.h4`
   font-size: 1.6rem;
   word-break: keep-all;
   justify-content: flex-start;
   font-weight: normal;
-  color: ${(props) => props.theme.color.grey600};
+  color: ${(props) => props.theme.colors.grey600};
   margin-right: 10px;
   &:nth-child(n + 1):nth-child(-n + 2) {
     margin-bottom: 10px;
@@ -86,13 +86,13 @@ export const AuthInput = styled.input`
   height: 50px;
   border: 1px solid;
   border-radius: 10px;
-  border-color: ${(props) => props.theme.color.grey300};
+  border-color: ${(props) => props.theme.colors.grey300};
   padding: 0 20px;
 `;
 export const AuthLinkText = styled.a`
   font-size: 1.2rem;
   font-weight: 500;
-  color: ${(props) => props.theme.color.tossBlue};
+  color: ${(props) => props.theme.colors.tossBlue};
   margin-right: 10px;
   &:hover {
     cursor: pointer;
@@ -105,20 +105,20 @@ export const AuthLogoText = styled.div<any>`
 `;
 export const AuthOtherText = styled.text`
   font-size: 1.6rem;
-  color: ${(props) => props.theme.color.grey400};
+  color: ${(props) => props.theme.colors.grey400};
   margin: 0 10px;
 `;
 export const AuthLine = styled.hr`
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid ${(props) => props.theme.color.grey400};
+  border-top: 1px solid ${(props) => props.theme.colors.grey400};
   margin: 1em 0;
   padding: 0;
   width: 100%;
 `;
 export const OAuthButton = styled.button`
-  border: 1px solid ${(props) => props.theme.color.grey300};
+  border: 1px solid ${(props) => props.theme.colors.grey300};
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -133,7 +133,7 @@ export const OAuthButton = styled.button`
 export const OAuthText = styled.div<{ weight?: string }>`
   font-size: 1.6rem;
   font-weight: ${(props) => props.weight};
-  color: ${(props) => props.theme.color.grey800};
+  color: ${(props) => props.theme.colors.grey800};
 `;
 export const OAuthImage = styled.img`
   height: 25px;

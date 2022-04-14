@@ -13,7 +13,7 @@ import {
   RecruitFormWrapper,
 } from './styled';
 import TextInput from '../../../components/common/input/TextInput';
-import { useNavigate, useParams } from 'react-router-dom';
+import { createSearchParams, useNavigate, useParams } from 'react-router-dom';
 import { positionSelect } from './FormFunctions';
 import {
   getDownloadURL,
@@ -38,9 +38,13 @@ const RecruitForm = () => {
   const [loading, setLoading] = useRecoilState(loaderState);
   const [modal, setModal] = useRecoilState(modalState);
   const [uploadProgress, setUploadProgress] = useState(0);
-
   const input = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+
+  const calculateProgress = (progress: number, total: number) => {
+    return Math.round((progress / total) * 100);
+  };
+
   const recruitItem = {
     uploadDate: new Date(),
     name: '',
@@ -52,6 +56,7 @@ const RecruitForm = () => {
     link0: '',
     link1: '',
     fileURL: '',
+    recommender: '',
   };
   const recruitFormik = useFormik({
     initialValues: recruitItem,
@@ -60,20 +65,17 @@ const RecruitForm = () => {
     },
     validationSchema: recruitFormSchema,
   });
-  const uploadApplicantFile = (
+  const uploadApplicantFile = async (
     storageRef: StorageReference,
     file: File,
     object: Record<string, any>,
   ) => {
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.then(() => {
-      getDownloadURL(storageRef).then(async (url) => {
-        await dbService
-          .collection('applicants')
-          .doc()
-          .set({ ...object, fileURL: url });
-      });
-    });
+    await uploadBytesResumable(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    await dbService
+      .collection('applicants')
+      .doc()
+      .set({ ...object, fileURL: url });
   };
   const checkFile = (fileList: FileList | null, size: number, type: string) => {
     if (fileList !== null) {
@@ -94,9 +96,6 @@ const RecruitForm = () => {
       return file;
     }
   };
-  const calculateProgress = (progress, total) => {
-    return Math.round((progress / total) * 100);
-  };
 
   const uploadFiles = async (data: HTMLInputElement) => {
     try {
@@ -110,12 +109,14 @@ const RecruitForm = () => {
           setUploadProgress(
             calculateProgress(snapshot.bytesTransferred, snapshot.totalBytes),
           );
-        }),
-          uploadApplicantFile(storageRef, file, recruitFormik.values);
+        });
+
+        await uploadApplicantFile(storageRef, file, recruitFormik.values);
         setLoading({ ...loading, load: false });
-        navigate(
-          `/recruit/apply-success?username=${recruitFormik.values.name}&position=${position}`,
-        );
+        navigate({
+          pathname: '/recruit/apply-success',
+          search: `?${createSearchParams(params)}`,
+        });
       }
     } catch (e) {
       console.log(e);
@@ -137,6 +138,13 @@ const RecruitForm = () => {
     recruitFormik.values.link0.length > 0 &&
     input.current?.files
   );
+  const params = {
+    username: recruitFormik.values.name,
+    position: position,
+    email: recruitFormik.values.email,
+    phone: recruitFormik.values.phoneNumber,
+  };
+  const applyValidation = !(recruitFormik.isValid && requiredSchema);
   useLayoutEffect(() => {
     setPosition(positionSelect[id as keyof typeof positionSelect]);
   }, [id]);
@@ -282,12 +290,25 @@ const RecruitForm = () => {
                     업로드 후 공유링크를 입력해주세요.
                   </FormText>
                 </div>
+                <FormMarginXS />
+                <div>
+                  <FormLabel>추천인</FormLabel>
+                  <TextInput
+                    placeholder={'GDSC에 추천인이 있다면 입력해주세요.'}
+                    name={'recommender'}
+                    value={recruitFormik.values.recommender}
+                    onChange={recruitFormik.handleChange}
+                    touched={recruitFormik.touched.recommender}
+                    error={recruitFormik.errors.recommender}
+                  />
+                </div>
                 <FormMargin />
                 <FormSubmitButton
-                  onClick={() =>
-                    setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: true })
-                  }
-                  disable={!(recruitFormik.isValid && requiredSchema)}
+                  onClick={() => {
+                    !applyValidation &&
+                      setModal({ ...modal, [MODAL_KEY.APPLY_CHECK]: true });
+                  }}
+                  disable={applyValidation}
                 >
                   제출하기
                 </FormSubmitButton>

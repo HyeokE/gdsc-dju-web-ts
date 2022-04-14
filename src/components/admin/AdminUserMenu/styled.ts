@@ -9,7 +9,7 @@ export const AdminUserMenuWrapper = styled(motion.div)`
   background: white;
   padding: 5px 5px;
   border: 1px solid;
-  border-color: ${(props) => props.theme.color.grey200};
+  border-color: ${(props) => props.theme.colors.grey200};
   border-radius: 10px;
 `;
 export const MenuElement = styled(motion.div)`

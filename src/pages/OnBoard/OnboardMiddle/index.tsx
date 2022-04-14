@@ -6,11 +6,11 @@ import {
   pageAnimate,
   pageTransitionAnimate,
 } from '../../../components/common/Variants/Variants';
-import backArrow from '../../../img/onBoardingImg/back.svg';
-import Human1 from '../../../img/onBoardingImg/human_red.svg';
-import Human2 from '../../../img/onBoardingImg/human-green.svg';
-import Human3 from '../../../img/onBoardingImg/human-blue.svg';
-import Human4 from '../../../img/onBoardingImg/human-yellow.svg';
+import backArrow from '../../../assets/onBoardingImg/back.svg';
+import Human1 from '../../../assets/onBoardingImg/human_red.svg';
+import Human2 from '../../../assets/onBoardingImg/human-green.svg';
+import Human3 from '../../../assets/onBoardingImg/human-blue.svg';
+import Human4 from '../../../assets/onBoardingImg/human-yellow.svg';
 import {
   ErrorMessageWrapper,
   OnboardingBackArrow,
@@ -26,7 +26,6 @@ import {
   OnboardingMiddleImage,
   StyledErrorMessage,
 } from './styled';
-import './OnboardingMiddle.css';
 import { OnboardingTitle, OnboardingTitleWrapper } from '../OnBoardHome/styled';
 import { onBoardingData } from '../../../api/pageData/onBoarding';
 import { useNavigate } from 'react-router-dom';
@@ -36,13 +35,11 @@ import { useRecoilState } from 'recoil';
 import { onboardingUserState } from '../../../store/onboardingUser';
 import { Form, FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { UserDataState } from '../../../api/types';
-import { useGetMemberNickname } from '../../../api/hooks/useGetMemberData';
 
 const OnboardMiddle = () => {
   const { id } = useParams();
   const pageData = onBoardingData.find((data) => data.id === id);
-  const color = pageData?.color;
+  const color = pageData?.colors;
   const navigate = useNavigate();
   const [userData, setUserData] = useRecoilState(onboardingUserState);
   const [formikInput, setFormikInput] = useState<any>();

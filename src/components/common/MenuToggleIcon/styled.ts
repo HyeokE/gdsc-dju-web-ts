@@ -15,8 +15,11 @@ export const StyledMenuButton = styled(motion.button)`
   height: 50px;
   border-radius: 50%;
   background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
-  @media (min-width: 500px) {
+  @media (min-width: ${(props) => props.theme.windowSize.mobile}px) {
     display: none;
   }
 `;

@@ -8,76 +8,71 @@ import {
 } from '../../styles/layouts';
 import { MemberCard } from '../../components/common/card/MemberCard/';
 import { MemberCardWrapper } from './styled';
-import {
-  MainText,
-  SubCategory,
-  Title,
-} from '../../components/common/Title/title';
+import { MainText, Title } from '../../components/common/Title/title';
 import {
   listAnimate,
   memberCardAnimate,
 } from '../../components/common/Variants/Variants';
-import { Banner } from '../../img/Banner/Banner';
-import YellowBanner from '../../img/Banner/YellowBanner.png';
-import { introduceText, workWhenCome } from '../../api/pageData/introduceText';
+import { Banner } from '../../assets/Banner/Banner';
+import YellowBanner from '../../assets/Banner/YellowBanner.png';
 import { memberList } from '../../api/pageData/MemberList';
-import BulletList from '../../components/common/BulletList';
-import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../store/modal';
 import MemberCardModal from '../../components/common/Modal/MemberCardModal';
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { memberDataType } from '../../types/member';
 
 const Introduce = () => {
-  const [modalHandler, setModalHandler] = useRecoilState(modalState);
-  const [selectedId, setSelectedId] = useState(0);
+  const [selectedId, setSelectedId] = useState<number | undefined>(undefined);
+  const [selectedData, setSelectedData] = useState<memberDataType>({
+    memberImg: '',
+    nickname: '',
+    name: '',
+    introduce: '',
+    role: '',
+  });
 
   return (
     <>
-      {modalHandler.memberCard && <MemberCardModal id={selectedId} />}
-
       <BannerWrapper>
         <Banner src={YellowBanner} />
       </BannerWrapper>
       <LayoutContainer>
         <ContainerInner>
           <TopMargin />
-
           <Title>About us</Title>
           <TopMargin />
-          <SubCategory>Google Developer Student Club 소개</SubCategory>
-          {introduceText.split('\n').map((line, id) => {
-            return (
-              <MainText key={id}>
-                {line}
-                <br />
-              </MainText>
-            );
-          })}
-
-          <TopMargin />
-          <SubCategory>합류하시면 함께할 활동입니다</SubCategory>
           <MainText>
-            <BulletList text={workWhenCome} />
+            GDSC와 함께 성장하는 팀원 {memberList.length}명을 소개합니다.
           </MainText>
           <TopMargin />
-          <Title>팀 소개</Title>
-          <TopMargin />
-          <CardList variants={listAnimate} initial={'start'} animate={'end'}>
-            {memberList.map((memberInfo, id) => (
-              <MemberCardWrapper
-                variants={memberCardAnimate}
-                key={id}
-                onClick={() => {
-                  setSelectedId(id);
-                  setModalHandler({
-                    ...modalHandler,
-                    [MODAL_KEY.MEMBER_CARD]: true,
-                  });
-                }}
-              >
-                <MemberCard memberInfo={memberInfo} />
-              </MemberCardWrapper>
-            ))}
-          </CardList>
+          <AnimateSharedLayout>
+            <CardList variants={listAnimate}>
+              {memberList.map((memberInfo, id) => (
+                <AnimatePresence key={id + 1}>
+                  <MemberCardWrapper
+                    variants={memberCardAnimate}
+                    initial={'start'}
+                    whileInView={'end'}
+                    viewport={{ once: true }}
+                    onClick={() => {
+                      setSelectedId(id + 1);
+                      setSelectedData(memberInfo);
+                    }}
+                  >
+                    <MemberCard {...memberInfo} id={id + 1} />
+                  </MemberCardWrapper>
+                </AnimatePresence>
+              ))}
+            </CardList>
+            <AnimatePresence>
+              {selectedId && selectedData && (
+                <MemberCardModal
+                  {...selectedData}
+                  setSelectedId={setSelectedId}
+                  id={selectedId}
+                />
+              )}
+            </AnimatePresence>
+          </AnimateSharedLayout>
           <TopMargin />
         </ContainerInner>
       </LayoutContainer>

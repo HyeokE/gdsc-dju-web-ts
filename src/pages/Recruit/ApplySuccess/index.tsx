@@ -3,23 +3,19 @@ import { useSearchParams } from 'react-router-dom';
 import { MainText, SubTitle } from '../../../components/common/Title/title';
 import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
 import {
-  FormMargin,
+  RecruitFormCardWrapper,
   RecruitFormInner,
   RecruitFormWrapper,
 } from '../RecruitForm/styled';
-import {
-  ApplyImage,
-  ApplyMargin,
-  ApplyTitle,
-  CheckLottieWrapper,
-} from './styled';
-import BlueHuman from '../../../img/onBoardingImg/human-blue.svg';
-import CheckLottie from '../../../components/Lottie/CheckLottie';
+import { ApplyMargin, ApplyTitle } from './styled';
+import ApplySuccessCard from '../../../components/common/ApplySuccessCard';
 
 const ApplySuccess = () => {
   const [searchParams] = useSearchParams();
   const username = searchParams.get('username');
   const position = searchParams.get('position');
+
+  const params = Object.fromEntries(new URLSearchParams(location.search));
 
   return (
     <>
@@ -31,16 +27,16 @@ const ApplySuccess = () => {
               <ApplyTitle>지원해주셔서 감사합니다.</ApplyTitle>
               <SubTitle>{position}</SubTitle>
               <ApplyMargin />
-              <CheckLottieWrapper>
-                <CheckLottie />
-              </CheckLottieWrapper>
+              <RecruitFormCardWrapper>
+                <ApplySuccessCard {...params} />
+              </RecruitFormCardWrapper>
               <ApplyMargin />
               <MainText>{username}님, 지원서가 접수되었어요.</MainText>
               <MainText>
                 서류검토는 지원마감일로부터 최대 2주 소요될 수 있어요.
               </MainText>
               <MainText>
-                합류여정에 관한 안내는 적어주신 메일로 안내되니 꼭
+                각 전형결과에 관한 안내는 적어주신 메일로 안내되니 꼭
                 확인부탁드려요.
               </MainText>
               <ApplyMargin />

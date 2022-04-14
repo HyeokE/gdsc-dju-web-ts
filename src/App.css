@@ -1,17 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 @font-face {
-  font-family: "Product Sans";
-  src: url("fonts/Product Sans Regular.ttf");
+  font-family: 'spoqa-han-sans';
+  src: url("fonts/SpoqaHanSansNeo-Medium.otf")format("opentype");
+  font-weight: 600;
 }@font-face {
-  font-family: "Product Sans Bold";
-  src: url("fonts/Product Sans Bold.ttf");
+  font-family: 'spoqa-han-sans';
+  src: url("fonts/SpoqaHanSansNeo-Regular.otf")format("opentype");
+  font-weight: 500;
+}@font-face {
+  font-family: 'spoqa-han-sans';
+  src: url("fonts/SpoqaHanSansNeo-Light.otf")format("opentype");
+  font-weight: 300;
+}@font-face {
+  font-family: 'spoqa-han-sans';
+  src: url("fonts/SpoqaHanSansNeo-Thin.otf")format("opentype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'spoqa-han-sans';
+  src: url("fonts/SpoqaHanSansNeo-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Google Sans Display";
+  src: url("fonts/GoogleSansDisplay-Regular.ttf");
+  font-weight: normal;
+}@font-face {
+  font-family: "Google Sans Display";
+  src: url("fonts/GoogleSansDisplay-Bold.ttf");
+  font-weight: bold;
+}@font-face {
+  font-family: "Google Sans Display";
+  src: url("fonts/GoogleSansDisplay-Medium.ttf");
+  font-weight: 600;
 }
 * {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Google Sans Display','spoqa-han-sans', sans-serif;
   font-style: normal;
   margin: 0;
   word-break: keep-all;
   -webkit-tap-highlight-color: transparent;
+
 }
 html {
   background: white !important;

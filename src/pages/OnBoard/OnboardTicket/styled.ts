@@ -60,7 +60,6 @@ export const TicketSaveButton = styled(motion.button)`
   align-items: center;
   justify-content: space-around;
   padding: 0 40px;
-  font-family: 'Gothic A1', sans-serif;
   font-size: 17px;
   font-weight: bold;
   color: #4385f3;

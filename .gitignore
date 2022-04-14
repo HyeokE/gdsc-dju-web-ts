@@ -4,15 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
-.firebase
 
 # testing
 /coverage
 
 # production
-memberList.ts
-firebase_key.ts
-googleAnalyticsKey.ts
+/build
+/.idea
+/.firebase
 
 # misc
 .DS_Store

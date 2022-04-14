@@ -1,4 +1,5 @@
 export const assetGrey = {
+  white: '#FFF',
   grey50: '#F9FAFB',
   grey100: '#F2F4F6',
   grey200: '#E5E8EB',

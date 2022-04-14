@@ -6,17 +6,17 @@ export const StyledButton = styled.button<{ disable?: boolean }>`
   padding: 12px 0px;
   border-radius: 10px;
   border-width: 1px;
-  border-color: ${(props) => props.theme.color.tossBlue};
+  border-color: ${(props) => props.theme.colors.tossBlue};
   border-style: inherit;
   margin-bottom: 10px;
-  background: ${(props) => props.theme.color.tossBlue};
+  background: ${(props) => props.theme.colors.tossBlue};
   font-size: ${(props) => props.theme.fontSize.body2};
   cursor: pointer;
   ${(props) =>
     props.disable &&
     css`
       cursor: not-allowed;
-      background: ${(props) => props.theme.color.tossBlue200};
+      background: ${(props) => props.theme.colors.tossBlue200};
     `}
 `;
 
@@ -29,7 +29,7 @@ export const StyledButtonX = styled.button<{
 }>`
   display: flex;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.color.grey300};
+  border: 1px solid ${(props) => props.theme.colors.grey300};
   ${(props) =>
     props.border &&
     css`

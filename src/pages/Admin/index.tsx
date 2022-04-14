@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import AdminHeader from '../../components/admin/AdminHeader';
 import AdminHome from './AdminHome';
@@ -7,19 +7,21 @@ import AdminSetting from './AdminSetting';
 import { authService, dbService } from '../../firebase/firebase';
 import { useRecoilState } from 'recoil';
 import { localUserState } from '../../store/localUser';
+import { useLocation } from 'react-router';
+import { recruitmentSelector } from '../../store/recruitHandler';
 
 const Admin = () => {
   const [adminUser, setAdminUser] = useRecoilState(localUserState);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const checkAdminUser = () => {
-    authService.onAuthStateChanged((user: any) => {
+  const checkAdminUser = async () => {
+    await authService.onAuthStateChanged((user: any) => {
       if (user) {
         setAdminUser({
           ...adminUser,
           uid: user.uid,
         });
-
         try {
           dbService
             .collection('adminUsers')
@@ -30,23 +32,26 @@ const Admin = () => {
               setAdminUser({
                 ...adminUser,
                 uid: user.uid,
-                nickName: userData?.nickName,
+                nickname: userData?.nickname,
                 name: userData?.name,
                 phoneNumber: userData?.phoneNumber,
               });
-              navigate('/admin');
+              location.pathname.includes('/admin') ? null : navigate('/admin');
             });
         } catch (e: any) {
-          navigate('/auth');
+          navigate('/');
           console.log(e.message);
         }
       } else {
-        navigate('/auth');
+        navigate('/');
         authService.signOut();
       }
     });
   };
-  useLayoutEffect(() => {
+
+  const [selector, setSelector] = useRecoilState(recruitmentSelector);
+  useEffect(() => {
+    setSelector(selector);
     checkAdminUser();
   }, []);
 
@@ -56,7 +61,7 @@ const Admin = () => {
       <Routes>
         <Route path={'/*'} element={<AdminHome />} />
         <Route path={'/member'} element={<AdminMember />} />
-        <Route path={'/setting'} element={<AdminSetting />} />
+        <Route path={'/recruit'} element={<AdminSetting />} />
       </Routes>
     </>
   );

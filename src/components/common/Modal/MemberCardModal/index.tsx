@@ -1,39 +1,46 @@
 import React from 'react';
-import { memberList } from '../../../../api/pageData/MemberList';
 import {
   MemberImg,
   Name,
-  NickName,
+  Nickname,
   Role,
   Skeleton,
 } from '../../card/MemberCard/styled';
-import { useRecoilState } from 'recoil';
-import { MODAL_KEY, modalState } from '../../../../store/modal';
-import { MemberCardModalInner, StyledModal } from './styled';
-import './MemberCard.css';
+import { MemberCardModalInner, ModalWrapper, StyledModal } from './styled';
+import { memberDataType } from '../../../../types/member';
+import OutsideClickHandler from '../../../../utils/OutsideClickHandler';
 
-const MemberCardModal = (props: { id: number }) => {
-  const { id } = props;
-  const [modalHandler, setModalHandler] = useRecoilState(modalState);
-  const { memberImg, nickName, name, introduce, role } = memberList[id];
+interface Iprops extends memberDataType {
+  setSelectedId: (num: number | undefined) => void;
+  id: number;
+}
+
+const MemberCardModal = (props: Iprops) => {
+  const { name, nickname, role, memberImg, introduce, setSelectedId, id } =
+    props;
   return (
-    <>
-      <StyledModal
-        size={'small'}
-        isOpen={modalHandler.memberCard}
-        onRequestClose={() =>
-          setModalHandler({ ...modalHandler, [MODAL_KEY.MEMBER_CARD]: false })
-        }
-      >
-        <MemberCardModalInner>
-          {memberImg ? <MemberImg src={memberImg} /> : <Skeleton />}
-          <NickName>{nickName}</NickName>
-          <Name>{name}</Name>
-          <Role>{role}</Role>
-          <Name>{introduce}</Name>
-        </MemberCardModalInner>
-      </StyledModal>
-    </>
+    <ModalWrapper>
+      <OutsideClickHandler outsideClick={() => setSelectedId(undefined)}>
+        <StyledModal layoutId={String(id)}>
+          <MemberCardModalInner>
+            {memberImg ? (
+              <MemberImg
+                src={memberImg}
+                layoutId={`memberImage-section-${String(id)}`}
+              />
+            ) : (
+              <Skeleton layoutId={`memberImage-section-${String(id)}`} />
+            )}
+            <Nickname layoutId={`nickname-section-${String(id)}`}>
+              {nickname}
+            </Nickname>
+            <Name layoutId={`name-section-${String(id)}`}>{name}</Name>
+            <Role layoutId={`role-section-${String(id)}`}>{role}</Role>
+            <Name>{introduce}</Name>
+          </MemberCardModalInner>
+        </StyledModal>
+      </OutsideClickHandler>
+    </ModalWrapper>
   );
 };
 

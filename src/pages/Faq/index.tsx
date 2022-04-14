@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Title } from '../../components/common/Title/title';
-import { Banner } from '../../img/Banner/Banner';
-import YellowBanner from '../../img/Banner/YellowBanner.png';
+import { Banner } from '../../assets/Banner/Banner';
+import YellowBanner from '../../assets/Banner/YellowBanner.png';
 import {
   BannerWrapper,
   ContainerInner,
@@ -9,13 +9,19 @@ import {
   TopMargin,
 } from '../../styles/layouts';
 
-import { QuestionMark, QuestionWrapper } from './styled';
+import {
+  AnswerWrapper,
+  QuestionBr,
+  QuestionInner,
+  QuestionMark,
+  QuestionWrapper,
+} from './styled';
 import { FaqData } from '../../api/pageData/faq';
-import { useNavigate } from 'react-router-dom';
 import { QuestionCategoryAnimate } from '../../components/common/Variants/Variants';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Faq = () => {
-  const navigate = useNavigate();
+  const [selected, setSelected] = useState<number | null>(null);
   return (
     <>
       <BannerWrapper>
@@ -26,18 +32,38 @@ const Faq = () => {
           <TopMargin />
           <Title>자주 묻는 질문</Title>
           <TopMargin />
-          {FaqData.map((data, id) => (
-            <QuestionWrapper
-              key={id}
-              variants={QuestionCategoryAnimate}
-              initial={'unHover'}
-              whileHover={'hovered'}
-              onClick={() => navigate('/faq/' + data.id)}
-            >
-              <QuestionMark />
-              {data.question}
-            </QuestionWrapper>
-          ))}
+          <AnimatePresence>
+            {FaqData.map((data, id) => (
+              <motion.div key={id}>
+                <QuestionWrapper
+                  variants={QuestionCategoryAnimate}
+                  initial={'unHover'}
+                  animate={selected === id ? 'hovered' : 'unHover'}
+                  onClick={() => {
+                    setSelected(id);
+                  }}
+                >
+                  <QuestionInner>
+                    <QuestionMark />
+                    {data.question}
+                  </QuestionInner>
+                </QuestionWrapper>
+
+                {selected === id && (
+                  <AnswerWrapper
+                    exit={{ opacity: 0, transition: { duration: 0.3 } }}
+                    animate={{ opacity: 1, transition: { duration: 0.3 } }}
+                    initial={{ opacity: 0 }}
+                  >
+                    {data.answer.split('\n').map((text, id) => (
+                      <div key={id}>{text}</div>
+                    ))}
+                  </AnswerWrapper>
+                )}
+                <QuestionBr />
+              </motion.div>
+            ))}
+          </AnimatePresence>
           <TopMargin />
         </ContainerInner>
       </LayoutContainer>
