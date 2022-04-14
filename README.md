@@ -1,4 +1,4 @@
-# Google Developer Student Clubs WebSite(Daejin University)
+# Google Developer Student Clubs Daejin University Web
 
 ### Get Started
 ```angular2html
