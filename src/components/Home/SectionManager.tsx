@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HomeSectionContainer } from './styled';
+import { HomeSectionContainer, HomeSectionContainerInner } from './styled';
 import MemberCard from '../common/MemberCard';
 import jason from '../../assets/managerProfile/jason.jpeg';
 import { motion } from 'framer-motion';
@@ -20,6 +20,13 @@ const ManagerTitle = styled(motion.span)`
   @media (max-width: ${({ theme }) => theme.windowSize.mobile}px) {
   font-size: ${({ theme }) => theme.fontSize.h3};
 }
+`;
+const ManagerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 `;
 const ManagerSubTitle = styled(motion.div)`
   margin-bottom: 42px;
@@ -58,57 +65,43 @@ const MemberCardWrapper = styled.div`
 const SectionAnimation = {
   hidden: {
     opacity: 0,
-    y: 100,
   },
   visible: {
     opacity: 1,
-    y: 0,
+
     transition: {
-      delay: 0.5,
       duration: 1,
-      staggerChildren: 0.07,
-      delayChildren: 0.2,
     },
   },
 };
 const SectionManager = () => {
   return (
     <HomeSectionContainer>
-      <ManagerTitle
+      <HomeSectionContainerInner
         variants={SectionAnimation}
         initial={'hidden'}
         whileInView={'visible'}
         viewport={{ once: true }}
       >
-        Management
-      </ManagerTitle>
-      <ManagerSubTitle
-        variants={SectionAnimation}
-        initial={'hidden'}
-        whileInView={'visible'}
-        viewport={{ once: true }}
-      >
-        GDSC Daejin의 운영진을 소개합니다
-      </ManagerSubTitle>
-      <MemberCardSection
-        variants={SectionAnimation}
-        initial={'hidden'}
-        whileInView={'visible'}
-        viewport={{ once: true }}
-      >
-        <MemberCardWrapper>
-          <MemberCard image={jason} id={1} />
-        </MemberCardWrapper>
-        <MemberCardWrapper>
-          <MemberCard image={jason} id={2} />
-        </MemberCardWrapper>
-        <MemberCardWrapper>
-          <MemberCard image={jason} id={3} />
-        </MemberCardWrapper>
-        <MemberCardWrapper>
-          <MemberCard image={jason} id={4} />
-        </MemberCardWrapper>
-      </MemberCardSection>
+        <ManagerWrapper>
+          <ManagerTitle>Management</ManagerTitle>
+          <ManagerSubTitle>GDSC Daejin의 운영진을 소개합니다</ManagerSubTitle>
+          <MemberCardSection>
+            <MemberCardWrapper>
+              <MemberCard image={jason} id={1} />
+            </MemberCardWrapper>
+            <MemberCardWrapper>
+              <MemberCard image={jason} id={2} />
+            </MemberCardWrapper>
+            <MemberCardWrapper>
+              <MemberCard image={jason} id={3} />
+            </MemberCardWrapper>
+            <MemberCardWrapper>
+              <MemberCard image={jason} id={4} />
+            </MemberCardWrapper>
+          </MemberCardSection>
+        </ManagerWrapper>
+      </HomeSectionContainerInner>
     </HomeSectionContainer>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HomeSectionContainer } from './styled';
+import { HomeSectionContainer, HomeSectionContainerInner } from './styled';
 import { motion } from 'framer-motion';
 
 const SectionTitle = styled.span`
@@ -82,33 +82,35 @@ const SectionAnimation = {
 const SectionIntroduce = () => {
   return (
     <HomeSectionContainer>
-      <SectionWrapper
-        variants={SectionAnimation}
-        initial={'hidden'}
-        whileInView={'visible'}
-        viewport={{ once: true }}
-      >
-        <SectionTitle>
-          도전을 즐기는 사람들이 모여
-          <br /> 엄청난 문구 추천받습니다.
-        </SectionTitle>
-        <ContentWrapper>
-          <ContentTitle>누적 지원자 수</ContentTitle>
-          <ContentText>90명 +</ContentText>
-        </ContentWrapper>
-        <ContentWrapper>
-          <ContentTitle>전체 인원</ContentTitle>
-          <ContentText>30명 +</ContentText>
-        </ContentWrapper>
-        <ContentWrapper>
-          <ContentTitle>진행한 스터디/프로젝트</ContentTitle>
-          <ContentText>10회 +</ContentText>
-        </ContentWrapper>
-        <ContentWrapper>
-          <ContentTitle>진행한 이벤트</ContentTitle>
-          <ContentText>100회 +</ContentText>
-        </ContentWrapper>
-      </SectionWrapper>
+      <HomeSectionContainerInner>
+        <SectionWrapper
+          variants={SectionAnimation}
+          initial={'hidden'}
+          whileInView={'visible'}
+          viewport={{ once: true }}
+        >
+          <SectionTitle>
+            도전을 즐기는 사람들이 모여
+            <br /> 엄청난 문구 추천받습니다.
+          </SectionTitle>
+          <ContentWrapper>
+            <ContentTitle>누적 지원자 수</ContentTitle>
+            <ContentText>90명 +</ContentText>
+          </ContentWrapper>
+          <ContentWrapper>
+            <ContentTitle>전체 인원</ContentTitle>
+            <ContentText>30명 +</ContentText>
+          </ContentWrapper>
+          <ContentWrapper>
+            <ContentTitle>진행한 스터디/프로젝트</ContentTitle>
+            <ContentText>10회 +</ContentText>
+          </ContentWrapper>
+          <ContentWrapper>
+            <ContentTitle>진행한 이벤트</ContentTitle>
+            <ContentText>100회 +</ContentText>
+          </ContentWrapper>
+        </SectionWrapper>
+      </HomeSectionContainerInner>
     </HomeSectionContainer>
   );
 };

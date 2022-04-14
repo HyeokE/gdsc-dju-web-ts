@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
-import { HomeSectionContainer } from './styled';
+import { HomeSectionContainer, HomeSectionContainerInner } from './styled';
 
 const MissionWrapper = styled(motion.div)`
   position: relative;
   width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   padding: 200px 60px;
   margin: 0 auto;
@@ -60,20 +63,24 @@ const missionAnimation = {
 };
 const SectionGoal = () => {
   return (
-    <MissionWrapper>
-      <motion.div
-        variants={missionAnimation}
-        initial={'hidden'}
-        whileInView={'visible'}
-        viewport={{ once: true }}
-      >
-        <MissionTitle>Our Mission</MissionTitle>
-        <MissionContent>
-          Impact students and empower them to impact their communities through
-          technology.
-        </MissionContent>
-      </motion.div>
-    </MissionWrapper>
+    <HomeSectionContainer color={'grey900'}>
+      <HomeSectionContainerInner>
+        <MissionWrapper>
+          <motion.div
+            variants={missionAnimation}
+            initial={'hidden'}
+            whileInView={'visible'}
+            viewport={{ once: true }}
+          >
+            <MissionTitle>Our Mission</MissionTitle>
+            <MissionContent>
+              Impact students and empower them to impact their communities
+              through technology.
+            </MissionContent>
+          </motion.div>
+        </MissionWrapper>
+      </HomeSectionContainerInner>
+    </HomeSectionContainer>
   );
 };
 
