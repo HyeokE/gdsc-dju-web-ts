@@ -1,45 +1,57 @@
 # Google Developer Student Clubs WebSite(Daejin University)
 
----
+### Get Started
+```angular2html
+yarn install && yarn
+```
 
-## Website Link
-https://gdsc-dju.web.app
+### Run
+```angular2html
+yarn run
+```
 
 ## Stack
 
 - React.js(TypeScript)
 
-
 - Styled-Component
-
 
 - Recoil
 
+- SWR
 
-- SWR(백엔드 개발시 도입예정)
-
-
-- Axios(백엔드 개발시 도입예정)
-
+- Axios
 
 - Framer-motion
 
-
-- html2canvas
-
-
 - Prettier
-
 
 - eslint 
 
+### Folder Structure
 
-- formik
-
-
-- yup
-
-
+```
+├── src
+├── Layout
+├── api
+├── assets
+├── components
+├── firebase
+├── fonts
+├── hooks
+├── pages
+├── react-app-env.d.ts
+├── sitemapGenerator.js
+├── sitemapRoutes.js
+├── store
+├── styles
+├── types
+├── utils
+├── App.tsx
+├── index.tsx
+├── tsconfig.json
+└── yarn.lock
+```
 ## Preview
 
 ### WEB
