@@ -2,6 +2,10 @@
 
 ---
 
+
+개발환경 변경으로 인해 아래 레포로 이전합니다.
+https://github.com/HyeokE/gdsc-dju-web
+
 ## Website Link
 https://gdsc-dju.web.app
 
